@@ -15,7 +15,9 @@ A little collection of Mini-Howtos for GNU/Linux systems trying to
 help solving everyday problems I have found in different aspects, from system
 administration to basic graphic edition or text processing. The howtos
 were prepared having Debian systems in mind, but they should be useful
-for other GNU/Linux systems as well. Translations of all or part of this document
+for other GNU/Linux systems as well. You can get the latest version of this document from <prgn>github</prgn> (<url id="https://github.com/currix/Mini-Howtos-GEM"  name="Mini Howto GEM">
+
+Translations of all or part of this document
   to <url id="http://www.autoteiledirekt.de/science/certains-mini-howtos-dinteret"
   name="French"> (by Kate Bondareva)
   <!--and <url id="http://www.webhostinghub.com/support/es/misc/instalacion-de-perl"
