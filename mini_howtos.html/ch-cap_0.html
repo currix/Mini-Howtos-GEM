@@ -1,0 +1,3438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Some Mini-Howtos of Interest - Basic Administration</title>
+
+<link href="index.html" rel="start">
+<link href="index.html" rel="prev">
+<link href="ch-cap_1.html" rel="next">
+<link href="index.html#contents" rel="contents">
+<link href="index.html#copyright" rel="copyright">
+<link href="ch-cap_0.html" rel="chapter" title="1 Basic Administration">
+<link href="ch-cap_1.html" rel="chapter" title="2 Network and Navigators">
+<link href="ch-cap_2.html" rel="chapter" title="3 The ssh application">
+<link href="ch-cap_emacs.html" rel="chapter" title="4 Emacs text editor">
+<link href="ch-cap_3.html" rel="chapter" title="5 Perl Language">
+<link href="ch-cap_python.html" rel="chapter" title="6 Python Tips and Templates">
+<link href="ch-cap_4.html" rel="chapter" title="7 Text Processing and Formatting">
+<link href="ch-cap_5.html" rel="chapter" title="8 Graphic Edition">
+<link href="ch-cap_6.html" rel="chapter" title="9 Miscelanea">
+<link href="ch-cap_Trans.html" rel="chapter" title="10 Translations of this document">
+<link href="ch-cap_0.html#s-sec_01" rel="section" title="1.1 Reinstalling a wiped out GRUB">
+<link href="ch-cap_0.html#s-sec_02" rel="section" title="1.2 Problem with journalizing">
+<link href="ch-cap_0.html#s-sec_02_2" rel="section" title="1.3 Labels in ext2 and ext3 units">
+<link href="ch-cap_0.html#s-sec_03" rel="section" title="1.4 Open a xconsole as normal user">
+<link href="ch-cap_0.html#s-sec_04" rel="section" title="1.5 Resetting the root password">
+<link href="ch-cap_0.html#s-sec_05" rel="section" title="1.6 Configure exim to use SMTP-TLS">
+<link href="ch-cap_0.html#s-sec_06" rel="section" title="1.7 Compile and install the LAPACK95 interface driver routine.">
+<link href="ch-cap_0.html#s-sec_07" rel="section" title="1.8 Compile and link statically with NAG and LAPACK">
+<link href="ch-cap_0.html#s-sec_08" rel="section" title="1.9 Copying CUPS configuration from one server to another">
+<link href="ch-cap_0.html#s-sec_09" rel="section" title="1.10 Mapping network interfaces to a fixed name.">
+<link href="ch-cap_0.html#s-sec_010" rel="section" title="1.11 Using labels to mount disk partitions">
+<link href="ch-cap_0.html#s-sec_011" rel="section" title="1.12 Using find and xargs">
+<link href="ch-cap_0.html#s-sec_012" rel="section" title="1.13 Preparing a USB bootable Linux installation device (Fast way).">
+<link href="ch-cap_0.html#s-sec_012b" rel="section" title="1.14 Preparing a USB bootable Debian installation device.">
+<link href="ch-cap_0.html#s-sec_013" rel="section" title="1.15 Upgrading Flashplayer in Debian Lenny using backports.">
+<link href="ch-cap_0.html#s-sec_014" rel="section" title="1.16 Passive network exploration with p0f.">
+<link href="ch-cap_0.html#s-sec_015" rel="section" title="1.17 Preparing a bootable flashdisk with Billix.">
+<link href="ch-cap_0.html#s-sec_016" rel="section" title="1.18 Recovering a console that is unusable.">
+<link href="ch-cap_0.html#s-sec_017" rel="section" title="1.19 Simple configuration of sudo">
+<link href="ch-cap_0.html#s-sec_018" rel="section" title="1.20 Check the groups to which a user belongs.">
+<link href="ch-cap_0.html#s-sec_019" rel="section" title="1.21 Check the available system locale options and establish a default one.">
+<link href="ch-cap_0.html#s-sec_020" rel="section" title="1.22 Change the encoding of given files.">
+<link href="ch-cap_0.html#s-sec_021" rel="section" title="1.23 Problem with the wireless and nm">
+<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating a Debian box from Lenny to Squeeze">
+<link href="ch-cap_0.html#s-sec_023" rel="section" title="1.25 Error in file /var/lib/dpkg/status">
+<link href="ch-cap_0.html#s-sec_024" rel="section" title="1.26 How to record terminal sessions using ttyrec">
+<link href="ch-cap_0.html#s-sec_025" rel="section" title="1.27 Using Bash to count the number of files in a directory">
+<link href="ch-cap_0.html#s-sec_026" rel="section" title="1.28 Getting detailed information about your hardware">
+<link href="ch-cap_0.html#s-sec_027" rel="section" title="1.29 Adding your servers load to the screen hardstatus line">
+<link href="ch-cap_0.html#s-sec_028" rel="section" title="1.30 Making a backup of a Gmail account.">
+<link href="ch-cap_0.html#s-sec_errred" rel="section" title="1.31 Redirecting STDERR to SDTOUT">
+<link href="ch-cap_0.html#s-sec_extrdeb" rel="section" title="1.32 Listing and extracting files from a deb package file.">
+<link href="ch-cap_0.html#s-sec_script" rel="section" title="1.33 Using script to keep terminal output records.">
+<link href="ch-cap_0.html#s-sec_modcompopt" rel="section" title="1.34 Checking actual kernel compiling options.">
+<link href="ch-cap_0.html#s-sec_parted" rel="section" title="1.35 Formatting HD partitions larger than 2 TB">
+<link href="ch-cap_0.html#s-sec_new_part" rel="section" title="1.36 Adding a partition to fstab by UUID">
+<link href="ch-cap_0.html#s-sec_error_eject" rel="section" title="1.37 Error ejecting a CD">
+<link href="ch-cap_1.html#s-sec_11" rel="section" title="2.1 Running multiple firefox instances">
+<link href="ch-cap_1.html#s-sec_12" rel="section" title="2.2 Electronic signature with iceweasel">
+<link href="ch-cap_1.html#s-sec_13" rel="section" title="2.3 Some tips to access the web using the console">
+<link href="ch-cap_1.html#s-sec_14" rel="section" title="2.4 Make files in a directory downloadable from a web server">
+<link href="ch-cap_2.html#s-sec_21" rel="section" title="3.1 Removing a known_hosts entry">
+<link href="ch-cap_2.html#s-sec_22" rel="section" title="3.2 Generating a key pair and exporting to a remote host">
+<link href="ch-cap_2.html#s-sec_23" rel="section" title="3.3 Launching with ssh programs that require a terminal">
+<link href="ch-cap_2.html#s-sec_24" rel="section" title="3.4 Tunneling with ssh">
+<link href="ch-cap_2.html#s-sec_tarssh" rel="section" title="3.5 Using ssh to make a tarball directly in a remote folder">
+<link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
+<link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
+<link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
+<link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
+<link href="ch-cap_3.html#s-sec_34" rel="section" title="5.4 Extracting matches from a regular expressions">
+<link href="ch-cap_3.html#s-sec_35" rel="section" title="5.5 Basic use of fork to launch a program">
+<link href="ch-cap_3.html#s-sec_36" rel="section" title="5.6 Perl predefined variables. Some examples.">
+<link href="ch-cap_3.html#s-sec_37" rel="section" title="5.7 Using a named pipe for interprocess communication in Perl">
+<link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
+<link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
+<link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.1 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.2 Creating a vector of random data">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.3 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.4 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
+<link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
+<link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
+<link href="ch-cap_4.html#s-sec_43" rel="section" title="7.4 Include bibliographical info in each chapter using LaTeX">
+<link href="ch-cap_4.html#s-sec_44" rel="section" title="7.5 Comment paragraphs in LaTeX">
+<link href="ch-cap_4.html#s-sec_45" rel="section" title="7.6 Installing appropriately a LaTeX package or style.">
+<link href="ch-cap_4.html#s-sec_46" rel="section" title="7.7 Change the selected language in DebianDoc files">
+<link href="ch-cap_4.html#s-sec_47" rel="section" title="7.8 Avoid Page %d may be too complex to print errors.">
+<link href="ch-cap_4.html#s-sec_49" rel="section" title="7.9 Diverse LaTeX lists">
+<link href="ch-cap_4.html#s-sec_410" rel="section" title="7.10 Use Unicode encoding in LaTeX">
+<link href="ch-cap_4.html#s-sec_latexcolor" rel="section" title="7.11 Use color in LaTeX">
+<link href="ch-cap_4.html#s-sec_fullpage" rel="section" title="7.12 Easy way of defining smaller margins in LaTeX">
+<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.13 Using the same footnote mark in LaTeX">
+<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.14 Using the euro symbol in LaTeX">
+<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.15 Changing pages to landscape orientation in LaTeX texts">
+<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.16 Including single column figures or tables in a double column LaTeX document">
+<link href="ch-cap_5.html#s-sec_51" rel="section" title="8.1 Include greek characters in inkscape">
+<link href="ch-cap_5.html#s-sec_52" rel="section" title="8.2 Include greek characters in Gimp">
+<link href="ch-cap_5.html#s-sec_53" rel="section" title="8.3 Change the text baseline in inkscape">
+<link href="ch-cap_5.html#s-sec_54" rel="section" title="8.4 Use ImageMagick to transform graphic files">
+<link href="ch-cap_5.html#s-sec_55" rel="section" title="8.5 Enhancing colors and resolution in Gimp">
+<link href="ch-cap_5.html#s-sec_56" rel="section" title="8.6 Remove the background of an image in Gimp">
+<link href="ch-cap_5.html#s-sec_57" rel="section" title="8.7 Take a screenshot using Gimp">
+<link href="ch-cap_5.html#s-sec_markersink" rel="section" title="8.8 Change the color of markers in inkscape">
+<link href="ch-cap_6.html#s-sec_61" rel="section" title="9.1 Compute the average from the results of Moodle test grading">
+<link href="ch-cap_6.html#s-sec_62" rel="section" title="9.2 Splitting in two lines a cell content in Openoffice/simpress">
+<link href="ch-cap_6.html#s-sec_63" rel="section" title="9.3 Solving BADSIG errors in UBUNTU (Oneiric Ocelot)">
+<link href="ch-cap_0.html#s-sec_0101" rel="subsection" title="1.1.1 Grub2 case.">
+<link href="ch-cap_0.html#s-sec_0102" rel="subsection" title="1.1.2 Old Grub case.">
+<link href="ch-cap_0.html#s-ref_wipedgrub" rel="subsection" title="1.1.3 References">
+<link href="ch-cap_0.html#s-ref_rootpasswd" rel="subsection" title="1.5.1 References">
+<link href="ch-cap_0.html#s-ref_exim" rel="subsection" title="1.6.1 References">
+<link href="ch-cap_0.html#s-make_inc_77" rel="subsection" title="1.7.1 make.inc for LAPACK compilation">
+<link href="ch-cap_0.html#s-make_inc_95" rel="subsection" title="1.7.2 make.inc for LAPACK95 compilation">
+<link href="ch-cap_0.html#s-sec_prg_example" rel="subsection" title="1.7.3 Example of program using LAPACK95">
+<link href="ch-cap_0.html#s-sec_makefile_example" rel="subsection" title="1.7.4 makefile for compiling programs with calls to LAPACK95">
+<link href="ch-cap_0.html#s-ref_cupscopy" rel="subsection" title="1.9.1 References">
+<link href="ch-cap_0.html#s-ref_xargs" rel="subsection" title="1.12.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot1" rel="subsection" title="1.13.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot" rel="subsection" title="1.14.1 References">
+<link href="ch-cap_0.html#s-ref_flashplayer" rel="subsection" title="1.15.1 References">
+<link href="ch-cap_0.html#s-ref_billix" rel="subsection" title="1.17.1 References">
+<link href="ch-cap_0.html#s-ref_ttyrec" rel="subsection" title="1.26.1 References">
+<link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
+<link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
+<link href="ch-cap_0.html#s-ref_parted" rel="subsection" title="1.35.1 References">
+<link href="ch-cap_1.html#s-ref_webconso" rel="subsection" title="2.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
+<link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
+<link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
+<link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
+<link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
+<link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
+<link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
+<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.13.1 References">
+<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.15.1 References">
+<link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
+<link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
+
+</head>
+
+<body>
+
+<p><a name="ch-cap_0"></a></p>
+<hr>
+
+<p>
+[ <a href="index.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ 1 ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_1.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Some Mini-Howtos of Interest
+<br>Chapter 1 - Basic Administration
+</h1>
+
+<hr>
+
+<h2 id="s-sec_01">1.1 Reinstalling a wiped out <code>GRUB</code></h2>
+
+<p>
+Sometimes, specially if an operating system other than <code>GNU/Linux</code>
+is installed, the <code>Grub</code> bootloader can be wiped out and the booting
+process broken.  In order to fix this, we will first assume that we have the
+new version <code>Grub2</code> installed.  Afterwards we explain how to proceed
+for the older <code>Grub</code> versions.
+</p>
+
+<hr>
+
+<h3 id="s-sec_0101">1.1.1 <code>Grub2</code> case.</h3>
+
+<p>
+Updated on January 19th, 2012.
+</p>
+
+<p>
+The first step is to prepare or find a rescue Live-CD (or bootable Live-USB) so
+we can start our system.  We should know which is the partition of the hard
+drive that is mounted as root partition in <samp>/</samp>.  We will assume in
+this example that the HD where the system is installed is <samp>/dev/sda</samp>
+and the root partition is <samp>sda7</samp>.  If we do not know this
+information we can retrieve it using <samp>fdisk</samp> and <samp>mount</samp>.
+Once the Live-CD has booted, we require to open a rescue session in the booting
+advanced options.  We will be prompted for the root partition and we the rescue
+disk will open a shell with the given root partition mounted.
+</p>
+
+<p>
+It is important the if the <code>/var</code> directory is in a partition by
+itself (e.g.  <samp>sda8</samp>) it is also mounted as follows
+</p>
+
+<pre>
+      
+     # mount <var>/dev/sda7</var> /var
+</pre>
+
+<p>
+We now proceed to run <samp>dpkg-reconfigure grub-pc</samp>, and
+<code>Grub2</code> will be reconfigured and the problem fixed.
+</p>
+
+<p>
+In some cases it may be necessary to reinstall <code>Grub</code> in a system
+running with a live CD.  In this case you should first mount the root partition
+and then install <code>Grub</code> using <samp>grub-install</samp>
+</p>
+
+<pre>
+      
+     sudo grub-install <var>/dev/sda</var> --root-directory=<var>/mnt</var>
+     sudo reboot
+</pre>
+
+<p>
+In case that the boot menu may not be the same than the previous one, after
+rebooting you can update it
+</p>
+
+<pre>
+      
+     sudo update-grub
+</pre>
+
+<p>
+This last order is the command you need to run when you make changes in the
+<code>Grub2</code> configuration.  In this version the configuration file is
+not anymore in the <code>/boot</code> directory but in <code>/etc</code>:
+<code>/etc/grub.cfg</code> and <code>/etc/grub.d/*</code>.
+</p>
+
+<hr>
+
+<h3 id="s-sec_0102">1.1.2 Old <code>Grub</code> case.</h3>
+
+<p>
+In order to recover the old <code>Grub</code> version we proceed as in the
+previous case, booting the computer from a Live-CD or Live-USB and opening a
+terminal.  In this terminal we launch <code>Grub</code>
+</p>
+
+<pre>
+      
+     $ sudo grub
+</pre>
+
+<p>
+Once in the <code>Grub</code> application we define the root filesystem with
+the command <samp>root</samp> <var>partition</var>.  Remember that root syntax
+for disk and partitions is
+<samp>hd</samp><var>disk</var><samp>,</samp><var>partition</var>, and it starts
+counting from zero.  If, as in the previous case, we assume in this example
+that the HD where the system is installed is <samp>/dev/sda</samp> and the root
+partition is <samp>sda7</samp>.  Once the root partition is defined we install
+grub in the disk whose MBR is going to be used (<samp>sda</samp> in this case)
+and we quit.
+</p>
+
+<pre>
+      
+     root (hd0,6)
+     setup (hd0)
+     quit
+</pre>
+
+<p>
+We can now reboot the computer normally.  In order to recover the previous menu
+it could be necessary to, after rebooting, execute
+</p>
+
+<pre>
+      
+     sudo update-grub
+</pre>
+
+<hr>
+
+<h3 id="s-ref_wipedgrub">1.1.3 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://sites.google.com/site/easylinuxtipsproject/grub#TOC-The-new-Grub-2-present-in-Ubuntu-9.">http://sites.google.com/site/easylinuxtipsproject/grub#TOC-The-new-Grub-2-present-in-Ubuntu-9.</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://sites.google.com/site/easylinuxtipsproject/oldgrub">http://sites.google.com/site/easylinuxtipsproject/oldgrub</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_02">1.2 Problem with journalizing</h2>
+
+<p>
+There could be a problem with the journalizing if an <samp>ext3</samp>
+filesystem refuses to be mounted.  In the following we suppose that we are
+mounting an <samp>ext3</samp> filesystem associated to <var>/dev/sdb2</var> in
+mount-point <var>/media/usb_disk/</var>.
+</p>
+
+<pre>
+      
+     $ mount <var>/media/usb_disk/</var>
+     mount: wrong fs type, bad option, bad superblock on <var>/dev/sdb2</var>,
+            missing codepage or other error
+            In some cases useful info is found in syslog - try
+            dmesg | tail  or so
+</pre>
+
+<p>
+And in the <samp>dmesg</samp> file you will find something like
+</p>
+
+<pre>
+     JBD: no valid journal superblock found
+     EXT3-fs: error loading journal.
+</pre>
+
+<p>
+In order to solve this problem first check if the filesystem can be mounted as
+<samp>ext2</samp>
+</p>
+
+<pre>
+     # mount -t ext2 /dev/sdb2 /mnt/
+     # ls -a
+     .  ..  lost+found  misc
+</pre>
+
+<p>
+If, as in the example, it works, unmount it and recreate the journal:
+</p>
+
+<pre>
+     # tune2fs -O ^has_journal /dev/sdb2
+     tune2fs 1.37 (21-Mar-2005)
+     
+     # tune2fs  -j /dev/sdb2 
+     tune2fs 1.37 (21-Mar-2005)
+     Creating journal inode: done
+     This filesystem will be automatically checked every 22 mounts or
+     180 days, whichever comes first.  Use tune2fs -c or -i to override.
+</pre>
+
+<p>
+And now you can regularly mount the <samp>ext3</samp> filesystem.
+</p>
+
+<hr>
+
+<h2 id="s-sec_02_2">1.3 Labels in <samp>ext2</samp> and <samp>ext3</samp> units</h2>
+
+<p>
+The use of labels is a convenient way to handle disk units, specially for
+<em>usb</em> units that can be plugged in and removed.  Instead of taking care
+of the dynamically associated device name the label can unambiguously identify
+the unit.
+</p>
+
+<p>
+The command used to display and change the label name for <samp>ext2</samp> and
+<samp>ext3</samp> filesystems is <samp>e2label</samp>.  The syntax of the
+command is such that to change or define a label named <var>newlabel</var> for
+unit <var>device</var>, the order issued is <samp>e2label</samp>
+<var>device</var> <var>newlabel</var>.  For example
+</p>
+
+<pre>
+      
+     # e2label /dev/sdb2 usb_disk
+</pre>
+
+<p>
+To display the label name the command is used with the device name as an
+argument.
+</p>
+
+<pre>
+      
+     # e2label /dev/sdb2
+     usb_disk
+</pre>
+
+<p>
+To define the corresponding <samp>fstab</samp> entry the following line is
+added to the file <samp>/etc/fstab</samp>
+</p>
+
+<pre>
+     LABEL=usb_disk /media/usb_disk  ext3    user,noauto     0       0
+</pre>
+
+<p>
+Note that the last option should be zero fro removable media because if not the
+booting process will be affected if the disk is not plugged in.  The
+corresponding mount point should be defined:
+</p>
+
+<pre>
+     # mkdir /media/usb_disk
+</pre>
+
+<p>
+Now you can regularly mount the <samp>ext3</samp> filesystem.
+</p>
+
+<pre>
+     $ mount /media/usb_disk
+</pre>
+
+<hr>
+
+<h2 id="s-sec_03">1.4 Open a <code>xconsole</code> as normal user</h2>
+
+<p>
+First the existence and permissions of the file <samp>/dev/xconsole</samp> has
+to be checked
+</p>
+
+<pre>
+      
+     ls -l /dev/xconsole 
+     prw-r-----  1 root adm 0 2006-05-02 12:40 /dev/xconsole
+</pre>
+
+<p>
+The user who is going to open the <code>xconsole</code> in his window manager
+(e.g.  <var>bob</var>) has to be added to the <samp>adm</samp> group.
+</p>
+
+<pre>
+     adduser bob adm
+     Adding user `bob' to group `adm' ...
+     Done.
+</pre>
+
+<p>
+The xconsole program can be now normally launched
+</p>
+
+<pre>
+     xconsole -file /dev/xconsole
+</pre>
+
+<hr>
+
+<h2 id="s-sec_04">1.5 Resetting the <samp>root</samp> password</h2>
+
+<p>
+The first and simplest option is to boot in <samp>single-user</samp> mode.  To
+do so, if the bootloader is <code>GRUB</code> stop the booting process and edit
+the line where the kernel is selected adding <samp>1</samp> at the end of the
+line.  The system should boot to a <samp>root</samp> prompt and the password
+can be changed using the <code>passwd</code> command.
+</p>
+
+<p>
+Another possibility is to boot using a rescue disk and once that you are at the
+command prompt mount the system's root directory if it has not been already
+mounted.  For example, let's assume that the system's root partition is
+<samp>/dev/sda1</samp> and will be mounted in <samp>/mnt/sysrootdir</samp>
+</p>
+
+<pre>
+      
+     mkdir /mnt/sysrootdir
+     mount /dev/sda1 /mnt/sysrootdir
+</pre>
+
+<p>
+Then, after switching to the system's root directory with <code>chroot</code>,
+reset the password.
+</p>
+
+<pre>
+     chroot /mnt/sysrootdir
+     passwd
+</pre>
+
+<hr>
+
+<h3 id="s-ref_rootpasswd">1.5.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://www.linuxjournal.com/issue/180"> Tech tip in
+http://www.linuxjournal.com/issue/180</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_05">1.6 Configure <code>exim</code> to use <code>SMTP-TLS</code></h2>
+
+<p>
+The following instructions explain in a short and direct way the minimal steps
+necessary to include <code>SMTP-TLS</code> support in <code>exim</code> to
+connect with a <em>smarthost</em> node relaying mail.  The data provided are
+appropriate for connecting with the server <samp>mailgw.uhu.es</samp> and for a
+box with <code>Debian Lenny</code>.
+</p>
+
+<p>
+The necessary steps are the following
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Install packages <samp>exim4-base</samp>, <samp>exim4-config</samp>, and
+<samp>exim4-daemon-light</samp>.
+</p>
+
+<pre>
+     [root@localhost ~]# apt-get install exim4-base exim4-config \
+     exim4-daemon-light
+</pre>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+If during the <code>exim4</code> installation no question is asked or if the
+packages are already installed in the computer, reconfigure the mail agent:
+</p>
+
+<pre>
+     dpkg-reconfigure exim4-config
+</pre>
+
+<p>
+The following answers apply to configure a box in CLGEM-UHU:
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>mail sent by smarthost; received via SMTP or fetchmail</samp>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<samp>local mail name</samp> <var>boxname.dfa.uhu.es</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<samp>IP-addresses to listen on for incoming SMTP connections:</samp>
+<var>127.0.0.1</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+<samp>Other destinations for which mail is accepted:</samp> <var>[Blank]</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="5" >
+<li>
+<p>
+<samp>Machines to relay mail for:</samp> <var>[Blank]</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="6" >
+<li>
+<p>
+<samp>IP address or host name of the outgoing smarthost:</samp>
+<var>mailgw.uhu.es</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="7" >
+<li>
+<p>
+<samp>Hide local mail name in outgoing mail?</samp> <var>Yes</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="8" >
+<li>
+<p>
+<samp>Visible domain name for local users:</samp> <var>[Blank]</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="9" >
+<li>
+<p>
+<samp>Keep number of DNS-queries minimal (Dial-on-Demand)?</samp> <var>No</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="10" >
+<li>
+<p>
+<samp>Delivery method for local mail:</samp> <var>mbox format in
+/var/mail/</var>
+</p>
+</li>
+</ol>
+<ol type="1" start="11" >
+<li>
+<p>
+<samp>Split configuration into small files?</samp> <var>Yes</var>
+</p>
+</li>
+</ol>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+The next step is the generation of the necessary keys.
+</p>
+
+<pre>
+     # cd /etc/exim4/ 
+     # openssl req -x509 -newkey rsa:1024 -keyout rsa.key -out rsa.cert \
+     -days 9999 -nodes
+     # openssl dhparam -out dh.key 1024
+</pre>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+Enable <samp>TLS</samp> in <code>exim</code>'s configuration editing the file
+</p>
+
+<p>
+<samp>/etc/exim4/conf.d/main/03_exim4-config_tlsoptions</samp>
+</p>
+
+<p>
+and adding the following lines
+</p>
+
+<pre>
+      
+     tls_certificate = /etc/exim4/rsa.cert
+     tls_privatekey = /etc/exim4/rsa.key
+     tls_dhparam = /etc/exim4/dh.key
+</pre>
+</li>
+</ol>
+<ol type="1" start="5" >
+<li>
+<p>
+Edit the user authentication info on file
+<samp>/etc/exim4/passwd.client</samp>[<a href="footnotes.html#f1"
+name="fr1">1</a>].  For example, for user <samp>coco.elmo.dfaie</samp> with
+LDAP password <samp>frdg098r</samp>
+</p>
+
+<pre>
+      
+     # password file used when the local exim is authenticating to a remote
+     # host as a client.
+     #
+     # see exim4_passwd_client(5) for more documentation
+     #
+     # Example:
+     ### target.mail.server.example:login:password
+     mailgw.uhu.es:coco.elmo.dfaie:frdg098r
+</pre>
+</li>
+</ol>
+<ol type="1" start="6" >
+<li>
+<p>
+Restart the <code>exim</code>'s daemon.
+</p>
+
+<pre>
+      
+     # /etc/init.d/exim4 restart
+</pre>
+</li>
+</ol>
+
+<hr>
+
+<h3 id="s-ref_exim">1.6.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html">http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_06">1.7 Compile and install the <code>LAPACK95</code> interface driver routine.</h2>
+
+<p>
+Updated on September 16th, 2011.
+</p>
+
+<p>
+This howto has been checked in a <code>Debian Squeeze</code> box, with
+<code>gfortran 4.4.5</code> compiler and in a <code>Ubuntu Lucid Lynx</code>
+with compiler <code>gfortran 4.4.3</code>.
+</p>
+
+<p>
+In this howto we install from scratch the <code>Fortran 77</code> libraries
+<code>BLAS</code> and <code>LAPACK</code>, and then compile the <code>FORTRAN
+95</code> extension to <code>LAPACK</code>.  If the system already has working
+<code>BLAS</code> and <code>LAPACK</code> libraries this first step could be
+skipped.  In any case it is interesting to compile all the libraries with
+optimized flags for the system in question.
+</p>
+
+<p>
+First we should upload the <code>LAPACK</code> and <code>LAPACK 95</code>
+libraries, for example from the <em>Netlib</em> website (<code><a
+href="http://www.netlib.org/lapack/lapack-3.3.1.tgz">LAPACK tgz from
+Netlib</a></code>, (<code><a
+href="http://www.netlib.org/lapack95/lapack95.tgz">LAPACK95 tgz from
+Netlib</a></code> ).  The <code>LAPACK</code> version we will install is 3.3.1.
+</p>
+
+<pre>
+      
+     $ wget  -c http://www.netlib.org/lapack/lapack-3.3.1.tgz
+     --2011-09-16 13:49:37--  http://www.netlib.org/lapack/lapack-3.3.1.tgz
+     Resolving www.netlib.org... 160.36.58.108
+     .
+     .
+     .
+     2011-09-16 13:49:48 (439 KB/s) - `lapack-3.3.1.tgz' saved [4945204/4945204]
+     
+     $ wget http://www.netlib.org/lapack95/lapack95.tgz
+     --2011-09-16 13:49:54--  http://www.netlib.org/lapack95/lapack95.tgz
+     .
+     .
+     .
+     2011-09-16 13:49:59 (368 KB/s) - `lapack95.tgz' saved [1579613/1579613]
+</pre>
+
+<p>
+Untar the <code>LAPACK</code> library tarball.
+</p>
+
+<pre>
+     $ tar xzf lapack-3.3.1.tgz 
+     $ cd lapack-3.3.1/
+     lapack-3.3.1$
+</pre>
+
+<p>
+Edit the file <samp>make.inc</samp> to a file conveniently tuned for your
+system.  A working example for <code>gfortran</code> is shown in <a
+href="#s-make_inc_77"><samp>make.inc</samp> for <code>LAPACK</code>
+compilation, Section 1.7.1</a>.  The library can now be compiled, starting with
+the compilation of the included <code>BLAS</code> library
+</p>
+
+<pre>
+     lapack-3.3.1$ cd BLAS/SRC
+     lapack-3.3.1/BLAS/SRC$ make
+     .
+     .
+     .
+      zhemm.o zherk.o zher2k.o lsame.o xerbla.o xerbla_array.o
+     ranlib ../../blas_linux_gfortran.a
+     lapack-3.3.1/BLAS/SRC$
+</pre>
+
+<p>
+The next step is the compilation of the <code>LAPACK</code> library
+</p>
+
+<pre>
+     lapack-3.3.1/BLAS/SRC$ cd ../../
+     lapack-3.3.1$ make
+     .
+     .
+     .
+     make[1]: Leaving directory `/home/curro/1/lapack-3.3.1/BLAS/TESTING'
+     ( cd BLAS; ./xblat3s &lt; sblat3.in     ; \
+     	           ./xblat3d &lt; dblat3.in     ; \
+     	           ./xblat3c &lt; cblat3.in     ; \
+     	           ./xblat3z &lt; zblat3.in     ) 
+     lapack-3.3.1$ ls *.a
+     blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
+</pre>
+
+<p>
+The next step is to copy the compiled libraries to their final destination
+</p>
+
+<pre>
+     lapack-3.3.1$ sudo mkdir /usr/local/lapack-3.3.1
+     [sudo] password for curro: 
+     lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
+</pre>
+
+<p>
+We now proceed to compile and install the <code>LAPACK 95</code> library.
+First we unpack the tarball and edit the <code>make.inc</code> file.  A working
+example for <code>gfortran</code> is shown in <a
+href="#s-make_inc_95"><samp>make.inc</samp> for <code>LAPACK95</code>
+compilation, Section 1.7.2</a>.
+</p>
+
+<pre>
+     $ tar xzf lapack95.tgz 
+     $ cd LAPACK95/
+     LAPACK95$ cd SRC
+     LAPACK95/SRC$ make single_double_complex_dcomplex
+     .
+     .
+     .
+     ranlib ../lapack95.a
+     rm -fr ../lapack95_modules
+     mkdir ../lapack95_modules
+     'cp' *.mod ../lapack95_modules/
+     rm -f f77_lapack.* f95_lapack.*
+     rm -f *_lapack_single_double_complex_dcomplex.o
+     LAPACK95/SRC$
+</pre>
+
+<p>
+The final step is to copy the libfile and modules to a convenient location.
+</p>
+
+<pre>
+     LAPACK95$ sudo mkdir /usr/local/lib/lapack95
+     LAPACK95$ sudo cp -r lapack95.a lapack95_modules /usr/local/lapack95
+</pre>
+
+<p>
+We include a program template invoking this library in <a
+href="#s-sec_prg_example">Example of program using <code>LAPACK95</code>,
+Section 1.7.3</a> and a <samp>makefile</samp> that can be used to compile this
+program in <a href="#s-sec_makefile_example"><samp>makefile</samp> for
+compiling programs with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
+</p>
+
+<hr>
+
+<h3 id="s-make_inc_77">1.7.1 <samp>make.inc</samp> for <code>LAPACK</code> compilation</h3>
+
+<pre>
+     # -*- Makefile -*-
+     ####################################################################
+     #  LAPACK make include file.                                       #
+     #  LAPACK, Version 3.3.1                                           #
+     #  April 2011                                                      #
+     ####################################################################
+     #
+     # See the INSTALL/ directory for more examples.
+     #
+     SHELL = /bin/sh
+     #
+     #  The machine (platform) identifier to append to the library names
+     #
+     PLAT = _linux_gfortran
+     #  
+     #  Modify the FORTRAN and OPTS definitions to refer to the
+     #  compiler and desired compiler options for your machine.  NOOPT
+     #  refers to the compiler options desired when NO OPTIMIZATION is
+     #  selected.  Define LOADER and LOADOPTS to refer to the loader
+     #  and desired load options for your machine.
+     #
+     FORTRAN  = gfortran -O2 -m32
+     OPTS     =
+     DRVOPTS  = $(OPTS)
+     NOOPT    = -g -O0
+     LOADER   = gfortran -g
+     LOADOPTS =
+     #
+     # Timer for the SECOND and DSECND routines
+     #
+     # Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
+     # TIMER    = EXT_ETIME
+     # For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_
+     # TIMER    = EXT_ETIME_
+     # For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME
+     TIMER    = INT_ETIME
+     # If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
+     # SECOND and DSECND will use a call to the Fortran standard INTERNAL FUNCTION CPU_TIME 
+     # TIMER    = INT_CPU_TIME
+     # If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0
+     # TIMER     = NONE
+     #
+     #  The archiver and the flag(s) to use when building archive (library)
+     #  If you system has no ranlib, set RANLIB = echo.
+     #
+     ARCH     = ar
+     ARCHFLAGS= cr
+     RANLIB   = ranlib
+     #
+     #  The location of BLAS library for linking the testing programs.
+     #  The target's machine-specific, optimized BLAS library should be
+     #  used whenever possible.
+     #
+     BLASLIB      = ../../blas$(PLAT).a
+     #
+     #  Location of the extended-precision BLAS (XBLAS) Fortran library
+     #  used for building and testing extended-precision routines.  The
+     #  relevant routines will be compiled and XBLAS will be linked only if
+     #  USEXBLAS is defined.
+     #
+     # USEXBLAS    = Yes
+     XBLASLIB     =
+     # XBLASLIB    = -lxblas
+     #
+     #  Names of generated libraries.
+     #
+     LAPACKLIB    = lapack$(PLAT).a
+     TMGLIB       = tmglib$(PLAT).a
+     EIGSRCLIB    = eigsrc$(PLAT).a
+     LINSRCLIB    = linsrc$(PLAT).a
+</pre>
+
+<hr>
+
+<h3 id="s-make_inc_95">1.7.2 <samp>make.inc</samp> for <code>LAPACK95</code> compilation</h3>
+
+<pre>
+     #
+     #  -- LAPACK95 interface driver routine (version 2.0) --
+     #     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
+     #     August 5, 2000
+     #
+     FC	 = gfortran
+     FC1      = gfortran
+     # -dcfuns  Enable recognition of non-standard double
+     #          precision  complex intrinsic functions
+     # -dusty   Allows the compilation and execution of &quot;legacy&quot;
+     #          software by downgrading the category  of  common
+     #          errors  found  in  such software from &quot;Error&quot; to
+     # -ieee=full enables all IEEE arithmetic facilities
+     #          including non-stop arithmetic.
+     
+     OPTS0    = -O2 -m32
+     MODLIB   = -I./../lapack95_modules
+     OPTS1    = -c $(OPTS0)
+     OPTS3    = $(OPTS1) $(MODLIB)
+     OPTL     = -o 
+     OPTLIB   =
+     
+     LAPACK_PATH = /usr/local/lapack-3.3.1/
+     
+     LAPACK95 = ../lapack95.a
+     LAPACK77 = $(LAPACK_PATH)/lapack_DEBSQUEEZE_DECKARD.a
+     TMG77    = $(LAPACK_PATH)/tmglib_DEBSQUEEZE_DECKARD.a
+     BLAS     = $(LAPACK_PATH)/blas_DEBSQUEEZE_DECKARD.a
+     
+     LIBS     = $(LAPACK95) $(TMG77) $(LAPACK77) $(BLAS)
+     SUF      = f90
+     
+     XX = 'rm' -f $@; \
+             'rm' -f $@.res; \
+     	$(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS); \
+             $@ &lt; $@.dat &gt; $@.res; \
+             'rm' -f $@
+     
+     YY = $(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+     
+     .SUFFIXES: .f90 .f .o
+     
+     .$(SUF).o: 
+     	$(FC) $(OPTS3) $&lt;
+     
+     .f.o:
+     	$(FC1) $(OPTS3) $&lt;
+</pre>
+
+<hr>
+
+<h3 id="s-sec_prg_example">1.7.3 Example of program using <code>LAPACK95</code></h3>
+
+<pre>
+     PROGRAM LA_SSPSV_EXAMPLE
+       
+       !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
+       !     UNI-C, DENMARK
+       !     DECEMBER, 1999
+       !
+       !  .. &quot;Use Statements&quot;
+       USE LA_PRECISION, ONLY: WP =&gt; SP
+       USE F95_LAPACK, ONLY: LA_SPSV
+       !  .. &quot;Implicit Statement&quot; ..
+       IMPLICIT NONE
+       !  .. &quot;Local Scalars&quot; ..
+       INTEGER :: I, N, NN, NRHS
+       !  .. &quot;Local Arrays&quot; ..
+       INTEGER, ALLOCATABLE :: IPIV(:)
+       REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
+       !  .. &quot;Executable Statements&quot; ..
+       WRITE (*,*) 'SSPSV Example Program Results.'
+       N = 5; NRHS = 1
+       WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
+       NN = N*(N+1)/2
+       ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
+       !
+       OPEN(UNIT=21,FILE='spsv.ma',STATUS='UNKNOWN')
+       DO I=1,NN 
+          READ(21,'(F3.0)') AP(I)
+       ENDDO
+       CLOSE(21)
+       !
+       WRITE(*,*)'Matrix AP :'
+       DO I=1,NN; WRITE(*,&quot;(15(I3,1X,1X),I3,1X))&quot;) INT(AP(I));
+       ENDDO
+       !
+       OPEN(UNIT=21,FILE='spsv.mb',STATUS='UNKNOWN')
+       DO I=1,N 
+          READ(21,'(F3.0)') B(I,1)
+       ENDDO
+       CLOSE(21)
+       !
+       WRITE(*,*)'Matrix B :'
+       DO I=1,N; WRITE(*,&quot;(10(I3,1X,1X),I3,1X)')&quot;) INT(B(I,1));
+       ENDDO
+       !
+       WRITE(*,*)&quot; CALL LA_SPSV( AP, B, 'L', IPIV )&quot;
+       !
+       CALL LA_SPSV( AP, B, 'L', IPIV )
+       !
+       WRITE(*,*)'AP on exit: '
+       DO I=1,NN; WRITE(*,&quot;(15(E13.5))&quot;) AP(I); 
+       ENDDO
+       !
+       WRITE(*,*)'Matrix B on exit :'
+       DO I=1,N; WRITE(*,&quot;(F9.5)&quot;) B(I,1);
+       ENDDO
+       WRITE(*,*)'IPIV = ', IPIV
+       !
+     END PROGRAM LA_SSPSV_EXAMPLE
+</pre>
+
+<hr>
+
+<h3 id="s-sec_makefile_example">1.7.4 <samp>makefile</samp> for compiling programs with calls to <code>LAPACK95</code></h3>
+
+<pre>
+     #
+     #  -- LAPACK95 makefile (version 1.0) --
+     #
+     FC	 = gfortran
+     #
+     MODLIB   = -I/usr/local/lib/lapack95_modules
+     OPTS1    = -c
+     OPTS3    = $(OPTS1) $(MODLIB)
+     OPTL     = -o 
+     OPTLIB   = -lblas -llapack
+     
+     LAPACK_PATH = /usr/local/lib
+     LAPACK95_PATH = /usr/local/lib
+     
+     LAPACK95 = $(LAPACK95_PATH)/lapack95.a
+     
+     LIBS     = $(LAPACK95)
+     SUF      = f90
+     
+     YY = $(FC) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+     
+     .SUFFIXES: .f90 .f .o
+     
+     .$(SUF).o: 
+     	$(FC) $(OPTS3) $&lt;
+     
+     ejemplo_la_spsv: 
+     	$(YY)
+     
+     clean:
+     	'rm' -f *.o *.mod core
+</pre>
+
+<hr>
+
+<h2 id="s-sec_07">1.8 Compile and link statically with <code>NAG</code> and <code>LAPACK</code></h2>
+
+<p>
+It is important to be able to compile and link statically programs when
+libraries are not available in all nodes.  This is the case with the
+<code>NAG</code> library which is not compatible with <code>gfortran</code>,
+the only <code>Fortran</code> compiler in <code>Debian Lenny</code>.  The
+program statically linked in one node (where <code>Etch</code> is installed and
+<code>g77</code> is available can the be executed in any other node.
+</p>
+
+<p>
+An example of compilation is the following
+</p>
+
+<pre>
+      
+     g77 -static -o infsq_box_1D  infsq_box_1D.f ../Potentials/wsaxon_Box_pot.f -L /usr/lib/atlas -L/usr/local2/NAG -lnag  -llapack -lblas-3
+</pre>
+
+<p>
+Some important points:
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+It is necessary to include both <code>Lapack</code> and <code>Blas</code>
+libraries.
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+The <code>Blas</code> library should be <samp>blas-3</samp>.
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+The use of standard <code>Lapack</code> and <code>Blas</code> libraries give an
+error due to the different sizes of object files.  Something like
+</p>
+
+<pre>
+      
+     (xerbla.o): In function `xerbla_': multiple definition of `xerbla_'
+     /usr/lib/liblapack.a(xerbla.o): first defined here
+     /usr/bin/ld: Warning: size of symbol `xerbla_' changed from 86
+     in /usr/lib/liblapack.a(xerbla.o) to 38
+     in /usr/lib/libblas.a(xerbla.o)
+     collect2: ld returned 1 exit status
+</pre>
+
+<p>
+This is a known bug and can be solved using the libraries provided with the
+<code>Atlas</code> packages and adding the corresponding path to the
+compilation: <samp>-L /usr/lib/atlas</samp>.
+</p>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+The order of the libraries is not irrelevant.  In particular I found that
+<samp>lapack</samp> has to be invoked prior to <samp>blas-3</samp>.
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_08">1.9 Copying <code>CUPS</code> configuration from one server to another</h2>
+
+<p>
+The simplest way to copy the <code>CUPS</code> configuration from one server to
+another is the following:
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Stop CUPS on the target system.
+</p>
+
+<pre>
+      
+     target# /etc/init.d/cups stop
+</pre>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+Rename or backup the existing configuration directory
+</p>
+
+<pre>
+      
+     target# mv /etc/cups /etc/cups.orig
+</pre>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+Copy the /etc/cups directory from the source system to the destination system.
+</p>
+
+<pre>
+      
+     target# scp -r source:/etc/cups /etc/cups
+</pre>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+Copy any modified model files from the source system to the destination system.
+These files should be in <samp>/usr/share/cups/model</samp>.
+</p>
+
+<pre>
+      
+     target# scp -r source:/usr/share/cups/model /usr/share/cups/model
+</pre>
+</li>
+</ol>
+<ol type="1" start="5" >
+<li>
+<p>
+On the target server edit the file <samp>/etc/cups/cupsd.conf</samp> and check
+if the hostname or IP address of your source system is present.  If so, change
+it to the target server hostname or IP.  Check that hostnames are defined
+properly in the <samp>/etc/hosts</samp> file of the target system.
+</p>
+</li>
+</ol>
+<ol type="1" start="6" >
+<li>
+<p>
+If any custom groups or accounts are used on the old system to manage
+<code>CUPS</code> recreate them on the new system.
+</p>
+</li>
+</ol>
+<ol type="1" start="7" >
+<li>
+<p>
+Restart cups in the target system and test it.
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h3 id="s-ref_cupscopy">1.9.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://www.tipsandscripts.net/archives/19"> Tech tip in My
+Scripts and Tips</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_09">1.10 Mapping network interfaces to a fixed name.</h2>
+
+<p>
+As modules on the booting process or during the system's activity are not
+loaded always in the same order, it is difficult to get the network devices
+named in a constant way.  This can be achieved using the package
+<code>ifrename</code>.  This software maps the interfaces to a fixed name based
+on the MAC address (for example).  You just need to add the file
+<samp>/etc/iftab</samp>:
+</p>
+
+<pre>
+      
+     # Mapping NICs to fixed names
+     ether0  driver 8139too mac XX:XX:XX:XX:XX:XX
+     wifi0  driver ipw2200 mac XX:XX:XX:XX:XX:XX
+</pre>
+
+<p>
+Another way to get the same result especially prone to <code>Debian</code>
+systems is to include an addition of a <samp>udev</samp> rule.  In order to do
+so, create the file <samp>/etc/udev/rules.d/net.local.rules</samp>, and
+populate it with the following:
+</p>
+
+<pre>
+      
+         KERNEL==&quot;eth*&quot;, SYSFS{address}==&quot;00:01:80:50:dc:f2&quot;, NAME=&quot;wired&quot;
+         KERNEL==&quot;eth*&quot;, SYSFS{address}==&quot;00:0d:61:a1:20:15&quot;, NAME=&quot;wireless&quot;
+</pre>
+
+<p>
+changing the <samp>MAC</samp>'s addresses and <samp>NAME</samp>'s accordingly.
+</p>
+
+<hr>
+
+<h2 id="s-sec_010">1.11 Using labels to mount disk partitions</h2>
+
+<p>
+Using the possibility of labelling the disk partitions it is useful for
+avoiding ambiguities and errors mounting them.  This is valid for
+<samp>ext2</samp>, <samp>ext3</samp>, and <samp>ext4</samp> filesystems.  To
+name <var>usbdisk0</var> the second partition of a disk which is currently
+<samp>/dev/sdb</samp> we should do as follows[<a href="footnotes.html#f2"
+name="fr2">2</a>]
+</p>
+
+<pre>
+      
+     # e2label /dev/sdb2 usbdisk0
+</pre>
+
+<p>
+There are other tools to label partitions for different filesystems.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>ext2 ext3 ext4</samp>: <code>e2label</code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<samp>FAT16 FAT32</samp>: <code>mtools</code>
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<samp>jfs</samp>: <code>jfstune</code>
+</p>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+<samp>NTFS</samp>: <code>ntfsprogs</code>
+</p>
+</li>
+</ol>
+
+<p>
+Then, once the partition is labelled, we create the mount point, e.g.
+<samp>mkdir /media/usb_disk_0</samp>, and we can add a line in
+<samp>/etc/fstab</samp> like the following
+</p>
+
+<pre>
+      
+     LABEL=usbdisk0       /media/usb_disk_0 ext3    exec,user,noauto  0       0
+</pre>
+
+<p>
+When we use the command <samp>mount /media/usb_disk_0</samp> the previously
+labelled partition will be mounted.
+</p>
+
+<hr>
+
+<h2 id="s-sec_011">1.12 Using <code>find</code> and <code>xargs</code></h2>
+
+<p>
+Updated on August 16th, 2013.
+</p>
+
+<p>
+The combination of the utilities <code>find</code> and <code>xargs</code> is a
+powerful tool when you need to apply a program or do a task with several files.
+</p>
+
+<p>
+As an example let's imagine that we have a directory with many
+<code>LaTeX</code> files, and some of them are letters, named as
+<samp>lett_</samp><var>name</var><samp>.tex</samp> and we should transform some
+of them into pdf files.  A simple <code>perl</code> oneliner that can do the
+task of transforming a <samp>tex</samp> file into a <samp>pdf</samp> file is
+the following.
+</p>
+
+<pre>
+      
+     perl -e '(my $name= $ARGV[0])=~s/\.tex//; system &quot;latex $name;dvipdf $name&quot;' file.tex
+</pre>
+
+<p>
+How to select the <code>LaTeX</code> files with different and flexible criteria
+and apply this program to all of them?  A possible answer is to combine the
+powerful <code>find</code> and <code>xargs</code> programs.
+</p>
+
+<p>
+Let's suppose that we want to transform to <samp>pdf</samp> format all the
+files having names starting as <samp>lett_</samp>.  Then we can execute
+</p>
+
+<pre>
+      
+     $ find . -name &quot;lett_*.tex&quot; -print 
+     ./lett_diput_Huelva.tex
+     ./lett_Hospital_IE.tex
+     ./lett_CEPSA.tex
+     ./lett_del_JA_Huelva.tex
+     ./lett_audiencia_Huelva.tex
+     ./lett_subdel_gob_Huelva.tex
+     ./lett_INNOV.tex
+     ./lett_ayto_Huelva.tex
+     ./lett_Hospital_JRJ.tex
+     ./lett_ayto_Palos.tex
+</pre>
+
+<p>
+This command finds all the files starting with <samp>lett_</samp> and finishing
+as <samp>.tex</samp> and print its names.  The option <samp>-iname</samp> makes
+a case insensitive search.  Other interesting options are <samp>-amin n</samp>
+and <samp>-atime n</samp> where <samp>n</samp> is the number of minutes or
+hours that have passed since the last time the file was accessed.  If the
+number is negative the effect is the contrary and look for files accessed prior
+to this time.
+</p>
+
+<p>
+The program <code>xargs</code> can be combined with find.  This program in its
+simplest form takes lines of input and apply programs to them.  The simplest
+use is <samp>xargs -I {}</samp> <var>run_command</var> <samp>{}</samp>.  In
+this form <code>xargs</code> read lines from the standard input and apply to
+each of them the command <var>run_command</var> substituting <samp>{}</samp> by
+the input line.  Instead of the standard input the option <samp>-a</samp>
+<var>filename</var> permits <code>xargs</code> to get its input from a file
+rather that the standard input.  We can combine the two command as follows
+</p>
+
+<pre>
+      
+     $ find . -iname &quot;lett*.tex&quot; -print | xargs -I {} perl -e '(my $name= $ARGV[0])=~s/\.tex//; system &quot;latex $name;dvipdf $name&quot;' {}
+</pre>
+
+<p>
+In multiprocessor computers we can use the interesting option <samp>-P</samp>
+<var>n</var>, which makes <code>xargs</code> to run <var>n</var> number of
+commands in parallel.
+</p>
+
+<p>
+Another interesting option of <code>find</code> is <samp>-newer
+filename</samp>.  With this option the program displays the names of the files
+that are more recent than the file <samp>filename</samp>.  Using this in
+combination with <code>xargs</code> we can for example, transfer using
+<code>scp</code> all the files in a directory that are more recent that a given
+file.  If we want to upload to a server called <samp>destination.org</samp> all
+files in a directory that are more recent than a file called
+<code>fulltext.pdf</code> we shoud execute
+</p>
+
+<pre>
+      
+     $ find ./* -newer fulltext.pdf -print | xargs -I {} scp {} user@destination.org:<var>FilesPath</var>
+</pre>
+
+<p>
+The following case is a practical example that shows how useful is the
+combination of pipes in <code>bash</code>, making also use of the
+<code>xargs</code> command.
+</p>
+
+<p>
+Let's assume that we are copying into a directory a backup of the home folders
+of several users.  Then, by mistake, instead of the directory of a user called
+<samp>tigu</samp>, we copied the contents of his directory to the backup
+directory, wreaking some havoc and transforming
+</p>
+
+<pre>
+     user1 user2 user3  ...   tigu
+</pre>
+
+<p>
+into
+</p>
+
+<pre>
+     user1 user2 user3  ...   tigu and all tigu files and directories
+</pre>
+
+<p>
+A quick solution, avoiding the selection and deletion by hand of each of the
+misplaced files and directories, consists in the combination with pipes of
+several commands
+</p>
+
+<pre>
+     $ find . -maxdepth 1 -user tigu | grep -v tigu | xargs rm -r
+</pre>
+
+<p>
+The first command output is a list (non-recursive) of all files and directories
+in the current directory (assuming that the current directory is where the
+backup takes place) belonging to user <samp>tigu</samp>.
+</p>
+
+<p>
+The first pipe <em>pipes</em> the result of this search to the grep command,
+where the directory named <samp>tigu</samp>.  This is done to prevent the
+command from erasing the original user home directory.
+</p>
+
+<p>
+Finally the output of <code>grep</code> is piped to a combination of
+<code>xargs</code> and <code>rm</code> that removes the files.  For more
+details in the use of <code>xargs</code> see the references below.
+</p>
+
+<p>
+Several commands can be launched by <code>xargs</code>.  For example, let's
+assume that we want to check the differences between files in two different
+directories, and we want to know the file it is being tested each time.  The
+way to accomplish this, combining an <code>echo</code> statement with the
+<code>diff</code> statement using <code>xargs</code> is the following
+</p>
+
+<pre>
+     $ ls -1 *f90 | xargs -I % sh -c 'echo %; diff % /users/home/laura/prototipo_1.0/fortran/1D/1body/pseudostates/src/%;' | less
+</pre>
+
+<p>
+In this case we are also using a different character as a dummy variable for
+<code>xargs</code> with the option <samp>-I %</samp>.
+</p>
+
+<p>
+A last example of several pipes and <code>xargs</code> is the following, where
+we are reconstructing using <code>rdiff-backup</code> the accounts of a series
+of users, excepting user <samp>laura</samp>, from a directory
+<code>/home_backup/<var>username</var></code> in a node called
+<samp>backup_server</samp> to the directory <code>/home</code> in the node
+<samp>server</samp>
+</p>
+
+<pre>
+      ssh root@backup_server ls -1 /home_backup | grep -v laura | xargs -I % sh -c &quot;rdiff-backup -v4 --restore-as-of now  root@backup_server::/home_backup/% /home/%&quot;
+</pre>
+
+<hr>
+
+<h3 id="s-ref_xargs">1.12.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.linuxjournal.com/article/10643">http://www.linuxjournal.com/article/10643</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_012">1.13 Preparing a USB bootable <code>Linux</code> installation device (Fast way).</h2>
+
+<p>
+Updated on October 6th, 2014.
+</p>
+
+<p>
+We need a USB disk that is at least 256 MB in size with a <samp>FAT16</samp>
+partition.  Normally the sticks come with a preconfigured single
+<samp>FAT16</samp> partition that is valid.  If it is necessary to format the
+disk you can find instructions in <a href="#s-sec_012b">Preparing a USB
+bootable <code>Debian</code> installation device., Section 1.14</a>.  Take also
+into account that <em>all data in the stick will be erased</em>.  Plug in and
+mount the dist.  Let's assume that the USB disk corresponds to the
+<samp>/dev/sdb</samp> device.
+</p>
+
+<pre>
+      
+     $ mount
+     /dev/sdb1 on /media/disk type vfat (rw,nosuid,nodev,uhelper=hal,uid=1001,shortname=winnt)
+</pre>
+
+<p>
+Download the <code>Debian</code> image.  Take into account that the image
+should fit into the stick.
+</p>
+
+<pre>
+      
+     $ wget -c http://cdimage.debian.org/debian-cd/6.0.1a/i386/iso-cd/debian-6.0.1a-i386-netinst.iso
+     --2011-05-03 13:37:50--  http://cdimage.debian.org/debian-cd/6.0.1a/i386/iso-cd/debian-6.0.1a-i386-netinst.iso
+     Resolving cdimage.debian.org... 130.239.18.173, 130.239.18.163, 2001:6b0:e:2018::163, ...
+     .
+     .
+     .
+     .
+     Saving to: `debian-6.0.1a-i386-netinst.iso'
+     
+     100%[============================================================&gt;] 198,064,128 1.54M/s   in 98s     
+     
+     2011-05-03 13:39:35 (1.92 MB/s) - `debian-6.0.1a-i386-netinst.iso' saved [198064128/198064128]
+</pre>
+
+<p>
+The CD or DVD image you choose should be written directly to the USB stick,
+overwriting its current contents with the command <samp>dd if=<var>file</var>
+of=<var>device</var> bs=4M; sync</samp>.  If the pendrive device is
+<code>/dev/sdb</code> and the iso image path is
+<code>/media/MSDOS/FSTS/ubuntu-14.04.1-desktop-amd64.iso</code> the command
+should be
+</p>
+
+<pre>
+      
+     # dd if=/media/MSDOS/FSTS/ubuntu-14.04.1-desktop-amd64.iso of=/dev/sdb bs=4M; sync
+     245+1 records in
+     245+1 records out
+     1028653056 bytes (1.0 GB) copied, 22.5565 s, 45.6 MB/s
+</pre>
+
+<p>
+And the stick is ready.
+</p>
+
+<hr>
+
+<h3 id="s-ref_usbboot1">1.13.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.debian.org/releases/stable/i386/ch04s03.html.en">http://www.debian.org/releases/stable/i386/ch04s03.html.en</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_012b">1.14 Preparing a USB bootable <code>Debian</code> installation device.</h2>
+
+<p>
+The first step is the creation of a <samp>FAT16</samp> partition and filesystem
+in the USB disk.  Suppose that the USB disk corresponds to the
+<samp>/dev/sdb</samp> device.  Then, as root we format and include the
+filesystem.
+</p>
+
+<pre>
+      
+     # fdisk /dev/sdb
+     
+     
+     Disk /dev/sdb: 1 GB, 1997649920 bytes
+     62 heads, 62 sectors/track, 1015 cylinders
+     Units = cylinders of 3844 * 512 = 1968128 bytes
+     
+        Device Boot      Start         End      Blocks   Id  System 
+     /dev/sdb1   *           1        1015     1950799    6  FAT16
+     
+     
+     # mkdosfs /dev/sdb1
+     mkdosfs 3.0.1 (23 Nov 2008)
+</pre>
+
+<p>
+We now proceed to install a bootloader, as <code>syslinux</code>,
+<code>grub</code>, or <code>lilo</code>.  We include <code>syslinux</code>[<a
+href="footnotes.html#f3" name="fr3">3</a>]
+</p>
+
+<pre>
+      
+     # syslinux /dev/sdb1
+     #
+</pre>
+
+<p>
+We now add the installer image, mounting the stick and copying the files
+<samp>vmlinuz</samp> (kernel binary) and <samp>initrd.gz</samp> (initial
+ramdisk image) to the stick.  Both files can be found under the directory
+<samp>/debian/dists/lenny/main/installer-i386/current/images/hd-media/</samp>
+of the distribution.
+</p>
+
+<pre>
+      
+     # mount /dev/sdb1 /mnt
+     # ls /mnt
+     ldlinux.sys
+     # 
+     # cd /mnt
+     /mnt# wget http://http.us.debian.org/debian/dists/lenny/main/installer-i386/current/images/hd-media/vmlinuz
+     --2010-03-12 16:16:23--  http://http.us.debian.org/debian/dists/lenny/main/installer-i386/current/images/hd-media/vmlinuz
+     Resolving http.us.debian.org... 149.20.20.135, 204.152.191.39, 35.9.37.225, ...
+     Connecting to http.us.debian.org|149.20.20.135|:80... connected.
+     HTTP request sent, awaiting response... 200 OK
+     Length: 1468976 (1.4M) [text/plain]
+     Saving to: `vmlinuz'
+     
+     100%[======================================&gt;] 1,468,976    624K/s   in 2.3s    
+     
+     2010-03-12 16:16:26 (624 KB/s) - `vmlinuz' saved [1468976/1468976]
+     
+     deckard:/mnt# wget http://http.us.debian.org/debian/dists/lenny/main/installer-i386/current/images/hd-media/initrd.gz
+     --2010-03-12 16:16:37--  http://http.us.debian.org/debian/dists/lenny/main/installer-i386/current/images/hd-media/initrd.gz
+     Resolving http.us.debian.org... 128.30.2.36, 149.20.20.135, 204.152.191.39, ...
+     Connecting to http.us.debian.org|128.30.2.36|:80... connected.
+     HTTP request sent, awaiting response... 200 OK
+     Length: 5183930 (4.9M) [application/x-gzip]
+     Saving to: `initrd.gz'
+     
+     100%[======================================&gt;] 5,183,930   1.42M/s   in 3.5s    
+     
+     2010-03-12 16:16:40 (1.42 MB/s) - `initrd.gz' saved [5183930/5183930]
+</pre>
+
+<p>
+Now we should create a <samp>syslinux.cfg</samp> configuration file, which at a
+bare minimum should contain the following two lines:
+</p>
+
+<pre>
+      
+     default vmlinuz
+     append initrd=initrd.gz
+</pre>
+
+<p>
+We finally copy a Debian ISO image (businesscard, netinst or full CD image; be
+sure to select one that fits) onto the stick and unmount the USB memory stick.
+</p>
+
+<hr>
+
+<h3 id="s-ref_usbboot">1.14.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.debian.org/releases/stable/i386/ch04s03.html.en">http://www.debian.org/releases/stable/i386/ch04s03.html.en</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_013">1.15 Upgrading <code>Flashplayer</code> in <code>Debian Lenny</code> using <em>backports</em>.</h2>
+
+<p>
+We start adding <em>Debian Backports</em>[<a href="footnotes.html#f4"
+name="fr4">4</a>] to <code>/etc/apt/sources.list</code>.  Be warned: once
+backports is active he resulting system <em>can't be considered plain
+&quot;stable&quot; anymore</em>.
+</p>
+
+<pre>
+      
+     # backports Added by Currix 28/04/10
+     deb http://www.backports.org/debian lenny-backports main contrib non-free
+</pre>
+
+<p>
+You then proceed to run <samp>apt-get update</samp>.  There would probably be
+an error due to the lack of <samp>backports.org</samp> archive's key.
+</p>
+
+<pre>
+      
+     # apt-get update
+     
+     ...
+     
+     Reading package lists... Done
+     W: GPG error: http://www.backports.org lenny-backports Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY EA8E8B2116BA136C
+     W: You may want to run apt-get update to correct these problems
+</pre>
+
+<p>
+In order to correct this we can now install the public key from
+<samp>backports.org</samp>.
+</p>
+
+<pre>
+      
+     # apt-get install debian-backports-keyring
+     Reading package lists... Done
+     Building dependency tree       
+     Reading state information... Done
+     The following packages were automatically installed and are no longer required:
+       libsilc-1.1-2 libhesiod0 libzephyr3
+     Use 'apt-get autoremove' to remove them.
+     The following NEW packages will be installed:
+       debian-backports-keyring
+     0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+     Need to get 3362B of archives.
+     After this operation, 49.2kB of additional disk space will be used.
+     WARNING: The following packages cannot be authenticated!
+       debian-backports-keyring
+     Install these packages without verification [y/N]? y
+     Get:1 http://www.backports.org lenny-backports/main debian-backports-keyring 2009.02.20 [3362B]
+     Fetched 3362B in 0s (29.2kB/s)
+     Selecting previously deselected package debian-backports-keyring.
+     (Reading database ... 219559 files and directories currently installed.)
+     Unpacking debian-backports-keyring (from .../debian-backports-keyring_2009.02.20_all.deb) ...
+     Setting up debian-backports-keyring (2009.02.20) ...
+     OK
+</pre>
+
+<p>
+We can now run <samp>apt-get update</samp> without any warning or error.
+Backport packages are deactivated by default (i.e.  the packages are pinned to
+1 by using NotAutomatic: yes in the Release files, just as in experimental).
+If you want to install a package from backports run:
+</p>
+
+<pre>
+      
+     apt-get -t lenny-backports install <var>package</var>
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+      
+     aptitude -t lenny-backports install <var>package</var>
+</pre>
+
+<p>
+In order to update to <code>Flash Player 10</code> first you should install the
+package <samp>flashplugin-nonfree</samp>
+</p>
+
+<pre>
+      
+     # apt-get -t lenny-backports install flashplugin-nonfree
+     
+        .
+        .
+        .
+     
+     2010-04-28 09:46:20 (450 KB/s) - `./install_flash_player_10_linux.tar.gz' saved [4050435/4050435]
+     
+     #
+</pre>
+
+<p>
+Then update the <code>Flash Player</code> with the command
+</p>
+
+<pre>
+      
+     # /usr/sbin/update-flashplugin-nonfree --install
+     #
+</pre>
+
+<p>
+To check if the plugin has been recognized by <code>iceweasel</code> type
+</p>
+
+<pre>
+      
+     about:plugins
+</pre>
+
+<p>
+in the browser address line.  If there are previous versions of the plugin
+installed they can interfere.  Uninstall them removing from
+<code>~/.mozilla/plugins</code> the corresponding file.
+</p>
+
+<hr>
+
+<h3 id="s-ref_flashplayer">1.15.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://backports.org/dokuwiki/doku.php?id=instructions">http://backports.org/dokuwiki/doku.php?id=instructions</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://wiki.debian.org/FlashPlayer">http://wiki.debian.org/FlashPlayer</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<code><a
+href="http://plugindoc.mozdev.org/">http://plugindoc.mozdev.org/</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_014">1.16 Passive network exploration with <code>p0f</code>.</h2>
+
+<p>
+This utility uses passive techniques to try to guess the what machines exist on
+a network and properties of these computers.  By default the application only
+listens to packets addressed to the machine executing the application
+</p>
+
+<pre>
+      
+     # p0f 
+     p0f - passive os fingerprinting utility, version 2.0.8
+     (C) M. Zalewski &lt;lcamtuf@dione.cc&gt;, W. Stearns &lt;wstearns@pobox.com&gt;
+     p0f: listening (SYN) on 'eth0', 262 sigs (14 generic, cksum 0F1F5CA2), rule: 'all'.
+</pre>
+
+<p>
+To look at all the packets, not only the packets addressed to the machine where
+<code>p0f</code> is running, the interface should be in promiscuous mode, using
+the <samp>-p</samp> option.  Be aware that this can cause a large capture data
+rate.
+</p>
+
+<p>
+Using the <samp>-s</samp> option, the application can work with
+<code>tcpdump</code> data logs.  The <samp>-w</samp> option allows to save
+network traffic data in <code>tcpdump</code> format.
+</p>
+
+<p>
+Other interesting options are <samp>-M</samp> to activate the masquerade
+detection algorithm to try to identify hosts behind a NAT, and <samp>-l</samp>
+to format the output in a one-line style that is easier to grep.
+</p>
+
+<hr>
+
+<h2 id="s-sec_015">1.17 Preparing a bootable flashdisk with <code>Billix</code>.</h2>
+
+<p>
+We start downloading <code>billix</code> from its <em>sourceforge</em> page.
+The link can be found in <a href="#s-ref_billix">References, Section
+1.17.1</a>.  In the present example the downloaded file name is
+<code>billix-0.27.tar.gz</code>.  We need a usb flashdisk of a minimum size of
+256 MB and with a <samp>FAT</samp> or <samp>FAT32</samp> filesystem.  In the
+present example is the device <code>/dev/sdb1</code> mounted in
+<code>/media/disk</code>.
+</p>
+
+<pre>
+      
+     $ mount | grep disk
+     /dev/sdb1 on /media/disk type vfat (rw,nosuid,nodev,uhelper=hal,shortname=winnt,uid=1001)
+</pre>
+
+<p>
+The downloaded file is untarred in the flashdisk
+</p>
+
+<pre>
+      
+     $ cd /media/disk
+     /media/disk$ tar xzf ~/Downloads/billix-0.27.tar.gz
+</pre>
+
+<p>
+The second step is the installation of the <samp>MBR</samp> (Master Boot
+Record) in the flahsdisk.  [<a href="footnotes.html#f5" name="fr5">5</a>] This
+has to be executed as superuser and the syntax is <samp>install-mbr -p1
+<var>device</var></samp> and it is important to select the correct device, as
+this can wreak havoc if executed in an incorrect device.
+</p>
+
+<pre>
+      
+     # install-mbr -p1 /dev/sdb
+</pre>
+
+<p>
+We can now install the bootsector within the first partition running
+<samp>syslinux -s <var>device/partition</var></samp>.  Again this is a
+potentially dangerous operation and should never be performed in a wrong
+partition.  Superuser privileges are not necessary to perform this operation.
+</p>
+
+<pre>
+      
+     /media/disk$ syslinux -s /dev/sdb1
+</pre>
+
+<p>
+The bootable flash disk is now ready and can be used as nice help for the
+system administrator.  If there is spare space in the flash disk can be used
+normally for file storing.
+</p>
+
+<hr>
+
+<h3 id="s-ref_billix">1.17.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://sourceforge.net/projects/billix/">Billix project
+homepage</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_016">1.18 Recovering a console that is unusable.</h2>
+
+<p>
+Sometimes it is convenient to clean the display of a text console, something
+that can be done using the shell command <samp>clean</samp>.  For more extreme
+cases, when the console has gone totally berserk, e.g.  after displaying binary
+characters, the initial state can be recovered using the command
+<samp>reset</samp>.  It is possible that you will not be able to see the
+command while you type, but after its execution the console should return to a
+saner state.
+</p>
+
+<hr>
+
+<h2 id="s-sec_017">1.19 Simple configuration of <code>sudo</code></h2>
+
+<p>
+A very quick and dirty configuration of <samp>sudo</samp> in order to allow a
+user, e.g.  <var>tuxie</var>, to execute programs with superuser privileges can
+be done adding one line to the <code>sudoers</code> file:
+</p>
+
+<pre>
+      
+     # echo &quot;tuxie  ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers
+</pre>
+
+<p>
+A more detailed configuration is required in a sensitive environment.
+</p>
+
+<hr>
+
+<h2 id="s-sec_018">1.20 Check the groups to which a user belongs.</h2>
+
+<p>
+In order to check to what groups a user, e.g.  <var>tuxie</var>, belongs the
+command <samp>groups</samp> can be used:
+</p>
+
+<pre>
+      
+     $ groups tuxie
+     tuxie adm dialout cdrom floppy audio video plugdev
+</pre>
+
+<hr>
+
+<h2 id="s-sec_019">1.21 Check the available system <samp>locale</samp> options and establish a default one.</h2>
+
+<p>
+In order to check what <samp>locale</samp> options are compiled and available
+in a <code>Debian</code> system the user should execute.
+</p>
+
+<pre>
+      
+     $ locale -a
+     C
+     en_IE
+     en_IE@euro
+     en_IE.iso88591
+     en_IE.iso885915@euro
+     en_IE.utf8
+     en_US
+     en_US.iso88591
+     es_ES
+     es_ES@euro
+     es_ES.iso88591
+     es_ES.iso885915@euro
+     es_ES.utf8
+     POSIX
+     spanish
+</pre>
+
+<p>
+The system's default locale in <code>Debian</code> systems is found in the
+<code>/etc/default/locale</code> file.
+</p>
+
+<pre>
+      
+     $ cat /etc/default/locale 
+     LANG=en_IE.UTF-8
+</pre>
+
+<p>
+The <samp>locale</samp> setting when executing a program can be changed on the
+fly
+</p>
+
+<pre>
+      
+     $  LANG=en_IE.utf8 date
+     Wed Oct 27 11:54:44 CEST 2010
+     $  LANG=es_ES.utf8 date
+     mié oct 27 11:54:52 CEST 2010
+     $
+</pre>
+
+<p>
+It is recommended to use always a <samp>utf-8</samp> locale as a standard.  And
+to define it only setting the <var>$LANG</var> variable, and not a complicate
+set of <var>$LC_*</var> variables.  To define the default local for the system
+use the <samp>dpkg-reconfigure locales</samp> command.
+</p>
+
+<hr>
+
+<h2 id="s-sec_020">1.22 Change the encoding of given files.</h2>
+
+<p>
+To change the encoding of a file is very useful the application
+<code>iconv</code>.  This application transforms a file from a given coding
+system to the default system encoding or to a different encoding.  The
+different available encoding schemes can be shown with the option
+<samp>-l</samp> or <samp>--list</samp>
+</p>
+
+<pre>
+      
+     $ iconv -l
+     The following list contain all the coded character sets known.  This does
+     not necessarily mean that all combinations of these names can be used for
+     the FROM and TO command line parameters.  One coded character set can be
+     listed with several different names (aliases).
+     
+       437, 500, 500V1, 850, 851, 852, 855, 856, 857, 860, 861, 862, 863, 864, 865,
+       866, 866NAV, 869, 874, 904, 1026, 1046, 1047, 8859_1, 8859_2, 8859_3, 8859_4,
+       8859_5, 8859_6, 8859_7, 8859_8, 8859_9, 10646-1:1993, 10646-1:1993/UCS4,
+     
+       ...
+     
+       ISO-2022-JP-2, ISO-2022-JP-3, ISO-2022-JP, ISO-2022-KR, ISO-8859-1,
+       ISO-8859-2, ISO-8859-3, ISO-8859-4, ISO-8859-5, ISO-8859-6, ISO-8859-7,
+       ISO-8859-8, ISO-8859-9, ISO-8859-9E, ISO-8859-10, ISO-8859-11, ISO-8859-13,
+       ISO-8859-14, ISO-8859-15, ISO-8859-16, ISO-10646, ISO-10646/UCS2,
+       ISO-10646/UCS4, ISO-10646/UTF-8, ISO-10646/UTF8, ISO-CELTIC, ISO-IR-4,
+     
+       ...
+     
+       UNICODEBIG, UNICODELITTLE, US-ASCII, US, UTF-7, UTF-8, UTF-16, UTF-16BE,
+       UTF-16LE, UTF-32, UTF-32BE, UTF-32LE, UTF7, UTF8, UTF16, UTF16BE, UTF16LE,
+       UTF32, UTF32BE, UTF32LE, VISCII, WCHAR_T, WIN-SAMI-2, WINBALTRIM,
+       WINDOWS-31J, WINDOWS-874, WINDOWS-936, WINDOWS-1250, WINDOWS-1251,
+       WINDOWS-1252, WINDOWS-1253, WINDOWS-1254, WINDOWS-1255, WINDOWS-1256,
+       WINDOWS-1257, WINDOWS-1258, WINSAMI2, WS2, YU
+</pre>
+
+<p>
+For example, if the default encoding is <samp>UTF-8</samp> and we want to
+transform an <samp>ISO-8859-1</samp> file named <var>example</var> to this
+encoding we should run
+</p>
+
+<pre>
+      
+     $ file non_standard_ISO 
+     non_standard_ISO: ISO-8859 text
+     $ file non_standard_ISO 
+     non_standard_ISO: ISO-8859 text
+     curro@deckard:~/temp$ iconv -f ISO-8859-1 non_standard_ISO 
+     ñññññññ
+     áááá
+     ééé
+     íí
+     ó
+     ú
+</pre>
+
+<p>
+If no output file name is given with the option <samp>-o</samp> the result is
+displayed in the standard output.  Thus, to save the file as
+<code>non_standard_UTF</code> we can execute
+</p>
+
+<pre>
+      
+     $ iconv -f ISO-8859-1 non_standard_ISO -o non_standard_UTF
+     curro@deckard:~/temp$ file non_standard_UTF 
+     non_standard_UTF: UTF-8 Unicode text
+</pre>
+
+<p>
+We can also transform to an encoding that is not the system's default one with
+the option <samp>-t</samp>
+</p>
+
+<pre>
+      
+     $ iconv -f ISO-8859-1 -t UNICODE non_standard_ISO -o non_standard_UNI
+     $ file non_standard_UNI 
+     non_standard_UNI: Little-endian UTF-16 Unicode character data
+</pre>
+
+<hr>
+
+<h2 id="s-sec_021">1.23 Problem with the wireless and <samp>nm</samp></h2>
+
+<p>
+Sometimes, specially after having tweaked with the network manually, the
+NetworkManager applet does not appear any more, or when it appears it informs
+that it does not manage the wireless networks.
+</p>
+
+<p>
+In order to fix this, ensure that the file <code>/etc/network/interfaces</code>
+is like the following, commenting any other thing previously added:
+</p>
+
+<pre>
+      
+     # This file describes the network interfaces available on your system
+     # and how to activate them. For more information, see interfaces(5).
+     
+     # The loopback network interface
+     auto lo
+     iface lo inet loopback
+</pre>
+
+<p>
+and make sure to change the option <samp>false</samp> to <samp>true</samp> in
+the file <code>/etc/NetworkManager/NetworkManager.conf</code>
+</p>
+
+<pre>
+      
+     [ifupdown]
+     managed=true
+</pre>
+
+<p>
+With this changes, restarting the network should be all you need to solve the
+problem.
+</p>
+
+<hr>
+
+<h2 id="s-sec_022">1.24 Updating a <code>Debian</code> box from <code>Lenny</code> to <code>Squeeze</code></h2>
+
+<p>
+Added on May 19, 2011.
+</p>
+
+<p>
+First edit the file <code>/etc/apt/sources.list</code> and replace any
+appearence of <samp>lenny</samp> to <samp>squeeze</samp>.  It could be a good
+idea to backup your original file before, just in case...  You just need to
+update and upgrade the system following this steps
+</p>
+
+<pre>
+     sudo apt-get update
+     sudo apt-get install apt dpkg 
+     sudo apt-get dist-upgrade
+</pre>
+
+<p>
+In the update from <code>Lenny</code> to <code>Squeeze</code> the following
+error message appears:
+</p>
+
+<pre>
+     Unable to migrate to dependency-based boot system                                                                                                              │  
+      │                                                                                                                                                                │  
+      │ Tests have determined that problems in the boot system exist which prevent migration to dependency-based boot sequencing:                                      │  
+      │                                                                                                                                                                │  
+      │ insserv: warning: script 'K20scdate' missing LSB tags and overrides, insserv: warning: script 'S25libdevmapper1.02' missing LSB tags and overrides, insserv:   │  
+      │ warning: script 'scdate' missing LSB tags and overrides, insserv: warning: script 'libdevmapper1.02' missing LSB tags and overrides, , package lprng removed   │  
+      │ but not purged, package modutils removed but not purged                                                                                                        │  
+      │                                                                                                                                                                │  
+      │ If the reported problem is a local modification, it needs to be fixed manually. If it's a bug in the package, it should be reported to the BTS and fixed in    │  
+      │ the package. See http://wiki.debian.org/LSBInitScripts/DependencyBasedBoot for more information about how to fix the problems preventing migration.            │  
+      │                                                                                                                                                                │  
+      │ To reattempt the migration process after the problems have been fixed, run &quot;dpkg-reconfigure sysv-rc&quot;. Unable to migrate to dependency-based boot system                                                                                                              │  
+      │                                                                                                                                                                │  
+      │ Tests have determined that problems in the boot system exist which prevent migration to dependency-based boot sequencing:                                      │  
+      │                                                                                                                                                                │  
+      │ insserv: warning: script 'K20scdate' missing LSB tags and overrides, insserv: warning: script 'S25libdevmapper1.02' missing LSB tags and overrides, insserv:   │  
+      │ warning: script 'scdate' missing LSB tags and overrides, insserv: warning: script 'libdevmapper1.02' missing LSB tags and overrides, , package lprng removed   │  
+      │ but not purged, package modutils removed but not purged                                                                                                        │  
+      │                                                                                                                                                                │  
+      │ If the reported problem is a local modification, it needs to be fixed manually. If it's a bug in the package, it should be reported to the BTS and fixed in    │  
+      │ the package. See http://wiki.debian.org/LSBInitScripts/DependencyBasedBoot for more information about how to fix the problems preventing migration.            │  
+      │                                                                                                                                                                │  
+      │ To reattempt the migration process after the problems have been fixed, run &quot;dpkg-reconfigure sysv-rc&quot;.
+</pre>
+
+<hr>
+
+<h2 id="s-sec_023">1.25 Error in file <code>/var/lib/dpkg/status</code></h2>
+
+<p>
+Added on May 21, 2011.
+</p>
+
+<p>
+The arrival of <code>Squeeze</code> has brought the &quot;illegalization&quot;
+of the underscore as a valid character in the <code>/var/lib/dpkg/status</code>
+file and this cause some havoc if there are some packages having this character
+in its name
+</p>
+
+<pre>
+     warning, in file '/var/lib/dpkg/status' near line 6627 package 'virtualbox':
+      error in Version string '1.3.6_Debian_etch': invalid character in version number
+     warning, in file '/var/lib/dpkg/status' near line 6628 package 'virtualbox':
+      error in Config-Version string '1.3.6_Debian_etch': invalid character in version number
+</pre>
+
+<p>
+The solution is to clean this packages from the list and from the available
+packages info.  In this particular case the package was not installed but still
+caused the problem.
+</p>
+
+<pre>
+     sudo dpkg --clear-avail
+     sudo aptitude purge virtualbox
+</pre>
+
+<hr>
+
+<h2 id="s-sec_024">1.26 How to record terminal sessions using <code>ttyrec</code></h2>
+
+<p>
+Added on September 2nd, 2011.
+</p>
+
+<p>
+The recording of terminal sessions can be of utility, specially for teaching
+purposes.  A nice tool to obtain this recordings is the <code>ttyrec</code>
+program.
+</p>
+
+<p>
+We will briefly show the way to record your terminal sessions.  The first step
+is to install the <code>ttyrec</code> package (in <code>Debian</code>)
+</p>
+
+<pre>
+     # apt-get install ttyrec
+     Reading package lists... Done
+     Building dependency tree... Done
+     The following NEW packages will be installed:
+       ttyrec
+     0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+     Need to get 30.9kB of archives.
+     After unpacking 131kB of additional disk space will be used.
+     Get:1 http://archive.debian.org etch/main ttyrec 1.0.6-1 [30.9kB]
+     Fetched 30.9kB in 1s (21.0kB/s)
+     Selecting previously deselected package ttyrec.
+     (Reading database ... 103998 files and directories currently installed.)
+     Unpacking ttyrec (from .../ttyrec_1.0.6-1_i386.deb) ...
+     Setting up ttyrec (1.0.6-1) ...
+     #
+</pre>
+
+<p>
+Then a second step is to open a terminal window with a 80x25 size where
+<code>ttyrec</code> will be executed.
+</p>
+
+<p>
+Prior to the execution it is useful to create an initialization file to start
+<code>ttyrec</code> with the appropriate settings.  This is not mandatory, but
+can be interesting.  A sample file is the following:
+</p>
+
+<pre>
+     # input file for starting a bash session using ttyrec
+     # by Currix TM.
+     #
+     # vt100 setting
+     export TERM=vt100
+     # 
+     # change prompt
+     export PS1=&quot;$ &quot;
+     #
+     # Remove trailing CTRL-C from comments
+     bind 'set echo-control-characters off'
+</pre>
+
+<p>
+If the name of this file is <code>.inputrc_ttyrec</code> the program
+<code>ttyrec</code> should be invoked as
+</p>
+
+<pre>
+     ttyrec -e 'bash --rcfile .inputrc_ttyrec'
+</pre>
+
+<p>
+In the references for this chapter (<a href="#s-ref_ttyrec">References, Section
+1.26.1</a>) a link to a recorded session is found.  There it is shown how for
+example a <code>vi</code> session can be included or how comments are made by
+typing <samp>CTRL-c</samp> at the end of each comment line.
+</p>
+
+<p>
+The default output of <code>ttyrec</code> is a file named
+<code>ttyrecord</code>.  To save the output in a different file the filename
+should be included at the end of the <code>ttyrec</code> program invocation.
+The output file can be played back using the program <code>ttyplay</code>,
+included in the <code>ttyrec</code> package.  A sample file can be downloaded
+and played
+</p>
+
+<pre>
+     wget http://www.uhu.es/gem/clinux/descargas/ttyrecord
+     ttyplay ttyrecord
+</pre>
+
+<p>
+The speed of the playback can be increased with the <samp>+</samp> key or
+slowed with <samp>-</samp>.
+</p>
+
+<p>
+An interesting site to find terminal recordings is <samp>Playterm</samp>, whose
+URL can be found in the references section.
+</p>
+
+<hr>
+
+<h3 id="s-ref_ttyrec">1.26.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://0xcc.net/ttyrec/index.html.en">ttyrec homepage</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a href="http://www.uhu.es/gem/clinux/descargas/ttyrecord">ttyrecord file
+sample</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<code><a href="http://www.playterm.org/">Playterm homepage</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_025">1.27 Using <code>Bash</code> to count the number of files in a directory</h2>
+
+<p>
+Added on September 6th, 2011.
+</p>
+
+<p>
+The number of files in a directory, or in general, the number of files
+displayed by the command <code>ls</code> can be counted using a pipe and the
+command <code>wc</code>
+</p>
+
+<pre>
+     $ ls -1 1*gif 
+     115810.strip.print.gif
+     115811.strip.print.gif
+     115813.strip.print.gif
+     116637.strip.print.gif
+     116639.strip.print.gif
+     116642.strip.print.gif
+     117321.strip.print.gif
+     117324.strip.print.gif
+     118015.strip.print.gif
+     $ ls -1 1*gif | wc -l
+     9
+</pre>
+
+<p>
+Some alternatives with <code>Perl</code> oneliners can be found in <a
+href="ch-cap_3.html#s-sec_32">Interesting perl oneliners, Section 5.2</a>
+</p>
+
+<hr>
+
+<h2 id="s-sec_026">1.28 Getting detailed information about your hardware</h2>
+
+<p>
+Added on November 30th, 2011.
+</p>
+
+<p>
+The command <samp>lshw</samp> lists a (very) detailed information about your
+hardware.  The <code>Debian</code> package has the same name.  This program
+should be executed as superuser.
+</p>
+
+<pre>
+     deckard
+         description: All In One
+         product: iMac8,1
+         vendor: Apple Inc.
+         version: 1.0
+     .
+     .
+     . Very long output here...
+     .
+     .
+       *-network DISABLED
+            description: Ethernet interface
+            physical id: 1
+            logical name: vboxnet0
+            serial: 0a:00:27:00:00:00
+            capabilities: ethernet physical
+            configuration: broadcast=yes multicast=yes
+</pre>
+
+<p>
+To get an abridged output with the essential info the program can be run with
+the option <samp>-short</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_027">1.29 Adding your servers load to the <code>screen</code> hardstatus line</h2>
+
+<p>
+Added on December 1st, 2011.
+</p>
+
+<p>
+It is possible to configure <code>screen</code> to display the cpu load or
+other information of interest in the hardstatus line.  In this case we use
+<code>Perl</code> and <code>ssh</code>.  We prepare a short <code>Perl</code>
+script that takes as arguments an argument related to the output format and a
+server ip.  The considered output formats are green (cpu load &lt; 1.0), yellow
+(3.0 &gt; cpu load &gt;= 1.0), and red (cpu load &gt;= 3.0).  The
+<code>Perl</code> code is called <code>perl_load</code>
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     #
+     use strict;
+     use warnings;
+     use 5.010;
+     #
+     # by Currix TM
+     #
+     my $code =  &quot;$ARGV[0]&quot;;
+     my $hostname = &quot;$ARGV[1]&quot;;
+     #
+     chomp(my $output = `ssh $hostname cat /proc/loadavg`);
+     my @load = ($1,$2,$3) if ($output =~ /^(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+\d.*$/);
+     #
+     given($code) {
+       when (&quot;red&quot;) {
+         if ($load[0] &gt;= 3.0) {
+           $output = $hostname.&quot;: &quot;.$load[0];
+         } else {
+           $output = '';
+         }
+       }
+       when (&quot;orange&quot;) {
+         if ($load[0] &gt;= 1.0 &amp;&amp; $load[0] &lt; 3.0) {
+           $output = $hostname.&quot;: &quot;.$load[0];
+         } else {
+           $output = '';
+         }
+       }
+       when (&quot;green&quot;) {
+         if ($load[0] &lt; 1.0) {
+           $output = $hostname.&quot;: &quot;.$load[0];
+         } else {
+           $output = '';
+         }
+       }
+       default {
+         $output = &quot;wrong option&quot;;
+       }
+     }
+     print &quot;$output&quot;;
+</pre>
+
+<p>
+The script output is the server name and the cpu load average for the past
+minute if the load is in the interval defined by the format output.
+</p>
+
+<p>
+The inclusion of this script in the <code>.screenrc</code> is accomplished
+using <samp>backticks</samp>.  For more information on this point and color
+formatting check the <code>screen</code> man page.  An example
+<code>.screenrc</code> is given below
+</p>
+
+<pre>
+      
+     shell -$SHELL
+     #
+     backtick 101 31 31 /home/username/bin/perl_load red server_name_or_IP
+     backtick 102 61 61 /home/username/bin/perl_load orange server_name_or_IP
+     backtick 103 91 91 /home/username/bin/perl_load green server_name_or_IP
+     #
+     hardstatus alwayslastline
+     hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c  | %{+b R}%101`%{+b Y}%102`%{+b G}%103`  %{g}]'
+     
+     # Default screens
+     screen -t mutt          0       mutt 
+     screen -t server	1       
+     screen -t box_1	        2       ssh username@rbox_1
+     screen -t box_2 	3       ssh username@box_2
+</pre>
+
+<hr>
+
+<h2 id="s-sec_028">1.30 Making a backup of a <code>Gmail</code> account.</h2>
+
+<p>
+Added on December 7th, 2011.
+</p>
+
+<p>
+We describe a way of backing up a <code>Gmail</code> mail account making use of
+<code>IMAP</code> and the <code>getmail</code> program.  We assume that the
+copies want to be made in different <samp>mbox</samp> files for different
+periods of time.  For example, a backup copy on a yearly basis.
+</p>
+
+<p>
+The first step consist in enabling <code>IMAP</code> access in the settings
+section of the <code>Gmail</code> account to be backed up and the creation of a
+set of labels in the <code>Gmail</code> account grouping the messages that will
+be backed up.  This can be accomplished using a search with <samp>before</samp>
+and <samp>after</samp>.  For example, we can search for mail that matches the
+search <samp>before:2007/10/01 AND after:2007/09/01</samp>, which will include
+conversations for September 2007, and group the result of the search under the
+label <samp>mail_sept_2007</samp>.
+</p>
+
+<p>
+The second step is the installation of the <code>getmail4</code> package, a
+mail agent program far simpler to configure than <code>fetchmail</code>.
+</p>
+
+<pre>
+     $ sudo aptitude install getmail4
+</pre>
+
+<p>
+The next step is the more complicated one and implies the configuration of the
+<code>getmail</code> program.  In order to do so a <code>.getmail</code>
+directory should be created, with restricted permissions, and a config file
+<code>getmail.gmail</code> edited
+</p>
+
+<pre>
+      
+     $ mkdir .getmail
+     $ chmod og-xr .getmail/
+</pre>
+
+<p>
+This is a sample <code>getmail.gmail</code>
+</p>
+
+<pre>
+      
+     $ cat getmail/getmail.gmail
+     [retriever]
+     type = SimpleIMAPSSLRetriever
+     server = imap.gmail.com
+     username = <var>XXXXX</var>@gmail.com
+     password = <var>XXXXXXXXXXXX</var>
+     mailboxes = (&quot;mail_sept_2007&quot;,)
+     
+     [destination]
+     type = Mboxrd
+     path = <var>DESTINATION_PATH/mail-sept_2007.mbox</var>
+     
+     [options]
+     # print messages about each action (verbose = 2)
+     # Other options:
+     # 0 prints only warnings and errors
+     # 1 prints messages about retrieving and deleting messages only
+     verbose = 2
+     message_log = ~/.getmail/gmail.log
+</pre>
+
+<p>
+This file should also have read permissions only for the user owning it.
+Messages in this example are saved with <samp>Mbox</samp> format.  For other
+alternatives check references.  The <samp>Mbox</samp> file has to be created
+before backing up.
+</p>
+
+<pre>
+      
+     $ touch <var>DESTINATION_PATH/mail-sept_2007.mbox</var>
+</pre>
+
+<p>
+The last step is to proceed to download the mail
+</p>
+
+<pre>
+      
+     $ getmail -r getmail.gmail 
+     getmail version 4.20.0
+     Copyright (C) 1998-2009 Charles Cazabon.  Licensed under the GNU GPL version 2.
+     SimpleIMAPSSLRetriever:currix@gmail.com@imap.gmail.com:993:
+     .
+     . Lots of output here...
+     .
+       1200 messages (596565682 bytes) retrieved, 0 skipped
+     Summary:
+     Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail.com@imap.gmail.com:993
+</pre>
+
+<p>
+The resulting <samp>Mbox</samp> files can be easily accessed with
+<code>Mutt</code> or other mail reader program.
+</p>
+
+<hr>
+
+<h3 id="s-ref_getmailgmail">1.30.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.mattcutts.com/blog/backup-gmail-in-linux-with-getmail">Matt
+Cutts Blog</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://blog.pengdeng.com/2008/03/backup-gmail-via-imap-using-getmail_16.html">Peng.u.i.n
+Blog</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_errred">1.31 Redirecting <samp>STDERR</samp> to <samp>SDTOUT</samp></h2>
+
+<p>
+Added on Febuary 3rd, 2012.
+</p>
+
+<p>
+Sometimes you need to redirect the standard error output, <samp>STDERR</samp>,
+merging it with the standard output, <samp>STDOUT</samp>.  This is needed, for
+example, when you have a long error output from a program compilation and you
+want to pipe it to <samp>less</samp> to peruse the compiler info.  This can be
+done using the standard <code>bash</code> redirection tools as
+<samp>2&gt;&amp;1</samp>.  If we want to check the error output of a
+compilation this can be done as follows
+</p>
+
+<pre>
+     $ make all 2&gt;&amp;1 | less
+</pre>
+
+<p>
+Instead, if instead you want to merge <samp>STDOUT</samp> into
+<samp>STDERR</samp> this is accomplished as <samp>1&gt;&amp;2</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_extrdeb">1.32 Listing and extracting files from a <samp>deb</samp> package file.</h2>
+
+<p>
+Added on August 11th, 2012.
+</p>
+
+<p>
+The <samp>deb</samp> extension marks <code>Debian</code> software package
+format.  This standard is also used in other distributions that are based on
+<code>Debian</code> (e.g.  <code>Ubuntu</code> or <code>Knoppix</code>).
+</p>
+
+<p>
+The <code>dpkg</code> program is the low level package manager for
+<code>Debian</code> and with this command you can list and extract the files
+containd in a package, as shown below.
+</p>
+
+<p>
+We use as an example the <samp>ovpc</samp> package.  Once we download the file,
+to display the contents of a debian package the required option is <samp>dpkg
+-c</samp>
+</p>
+
+<pre>
+      
+     $ dpkg -c ovpc_1.06.94-3_i386.deb
+     dr-xr-xr-x root/root         0 2010-02-25 10:54 ./
+     dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/
+     dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/
+     dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/lib/
+     dr-xr-xr-x root/root         0 2010-02-25 10:48 ./ovpc/pkg/lib/header/
+     -r-xr-xr-x root/root       130 2009-10-29 17:06 ./ovpc/pkg/lib/header/libov.so
+     .
+     .
+     .
+     
+     -r-xr-xr-x root/root       131 2009-10-29 17:06 ./ovpc/pkg/etc/conf
+     dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
+</pre>
+
+<p>
+You can use <samp>dpkg -x</samp> to extract the files from a deb package as
+shown below.
+</p>
+
+<pre>
+      
+     $ dpkg -x  ovpc_1.06.94-3_i386.deb /tmp/ov
+     $ ls /tmp/ov
+     ovpc
+</pre>
+
+<p>
+But there is also an alternative way of proceeding.  As <samp>deb</samp> files
+are <code>ar</code> archives, containing three files: debian-binary,
+control.tar.gz, and data.tar.gz.  We can use the <code>ar</code> and
+<code>tar</code> commands to extract and view the files from the deb package.
+</p>
+
+<p>
+First, extract the content of the <samp>deb</samp> archive file using
+<code>ar</code>.
+</p>
+
+<pre>
+      
+     $ ar -vx ovpc_1.06.94-3_i386.deb
+     x - debian-binary
+     x - control.tar.gz
+     x - data.tar.gz
+     $
+</pre>
+
+<p>
+Next, extract the content of <code>data.tar.gz</code> file as follows.
+</p>
+
+<pre>
+     $ tar -xvzf data.tar.gz
+     ./
+     ./ovpc/
+     ./ovpc/pkg/
+     ./ovpc/pkg/lib/
+     ./ovpc/pkg/lib/header/
+     ./ovpc/pkg/lib/header/libov.so
+     .
+     .
+     ./ovpc/pkg/etc/conf
+     ./ovpc/pkg/etc/conf/log.con
+</pre>
+
+<hr>
+
+<h3 id="s-ref_extrdeb">1.32.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.thegeekstuff.com/2010/04/view-and-extract-packages/">TheGeekStuff</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_script">1.33 Using <samp>script</samp> to keep terminal output records.</h2>
+
+<p>
+Added on November 18th, 2012.
+</p>
+
+<p>
+The <samp>script</samp> command saves in a file the output of the terminal
+where it has been executed.  The basis command syntax is
+</p>
+
+<pre>
+      
+     $ script [filename]
+</pre>
+
+<p>
+If no filename is given then the default filename is <samp>typescript</samp>.
+Be aware that script works best without making use of programs that manipulate
+the screen such that <code>vi</code> or <code>less</code>.
+</p>
+
+<p>
+To exit <samp>script</samp> you can type <samp>CTRL-D</samp> or
+<samp>exit</samp>.
+</p>
+
+<p>
+You can use the <samp>-a</samp> option to append the output to a file without
+overwriting it.  An example of use of script is the following:
+</p>
+
+<pre>
+      
+     $ script test_script
+     Script started, file is test_script
+     $ who
+     bara    tty8         2012-11-17 13:57 (:0)
+     bara    pts/1        2012-11-17 13:58 (:0.0)
+     $ exit
+     exit
+     Script done, file is test_script
+     $ ls -l test_script 
+     -rw-r--r-- 1 bara rsrchrs 780 Nov 18 12:02 test_script
+     $ cat test_script 
+     Script started on Sun 18 Nov 2012 12:02:17 PM CET
+     $ who
+     bara    tty8         2012-11-17 13:57 (:0)
+     bara    pts/1        2012-11-17 13:58 (:0.0)
+     $ exit
+     exit
+     
+     Script done on Sun 18 Nov 2012 12:02:33 PM CET
+     $
+</pre>
+
+<p>
+Another interesting option is to share a session output between two users.
+This is very handy when explaining to someone a particular feature in the
+console.  In order to do so the script output is sent to a fifo file and the
+flush option <samp>-t</samp> is added while the second user should have
+<code>ssh</code> access to the computer where script is run.
+</p>
+
+<p>
+For example if user <samp>bara</samp> in computer <samp>prague</samp> wants to
+show her output to user <samp>alice</samp> in computer <samp>wland</samp> the
+necessary steps are the following:
+</p>
+
+<p>
+On <samp>bara</samp>'s side
+</p>
+
+<pre>
+      
+     bara@prague$ mkfifo foo; script -f foo
+</pre>
+
+<p>
+The console now will be temporarily frozen until <samp>alice</samp> starts
+getting the output from the fifo file <code>foo</code>.
+</p>
+
+<pre>
+     alice@wland$ ssh alice@prague
+     alice@prague's password: 
+     WWelcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-33-generic i686)
+     
+      * Documentation:  https://help.ubuntu.com/
+     
+     0 packages can be updated.
+     0 updates are security updates.
+     
+     Last login: Sun Nov 18 10:50:37 2012 from platea.local
+     alice@prague$ cat /home/bara/foo
+     Script started on Sun 18 Nov 2012 11:21:29 AM CET
+     bara@prague$
+</pre>
+
+<p>
+And from now on user <samp>bara</samp> can proceed to work on the terminal
+sharing the output with <samp>alice</samp>.  Beware that the permissions in the
+fifo file and <samp>bara</samp>'s home directory should allow
+<samp>alice</samp> to access the fifo.
+</p>
+
+<hr>
+
+<h2 id="s-sec_modcompopt">1.34 Checking actual kernel compiling options.</h2>
+
+<p>
+Added on January 8th, 2013.
+</p>
+
+<p>
+Sometimes it is necessary to check if the kernel of your computer has been
+compiled including a particular option.  For example, let's check if the kernel
+has been compiled with the <samp>CONFIG_EFI_PARTITION</samp> option turned on
+(see <a href="#s-sec_parted">Formatting HD partitions larger than 2 TB, Section
+1.35</a>).
+</p>
+
+<pre>
+      
+     $ cd /boot/
+     $ ls
+     System.map-2.6.32-5-amd64  config-2.6.32-5-amd64  grub/  initrd.img-2.6.32-5-amd64  vmlinuz-2.6.32-5-amd64
+     $ grep _EFI_ config-2.6.32-5-amd64 
+     CONFIG_EFI_VARS=m
+     CONFIG_EFI_PARTITION=y
+</pre>
+
+<hr>
+
+<h2 id="s-sec_parted">1.35 Formatting HD partitions larger than 2 TB</h2>
+
+<p>
+Added on January 8th, 2013.
+</p>
+
+<p>
+The first step is to check whether your kernel has been compiled with the
+<samp>CONFIG_EFI_PARTITION</samp> option turned on (see <a
+href="#s-sec_modcompopt">Checking actual kernel compiling options., Section
+1.34</a>).  If this is so, let's assume that the device assigned to the HD that
+will be partitioned is <code>/dev/sdb</code>, that it is a 2 TB HD and will be
+mounted in <code>/large_disk</code>.  The <code>fdisk</code> program and its
+variants cannot be used because the new partition will be too large (larger
+than 1.5 TB).  Be warned that <code>fdisk</code> and all its variants will not
+issue warnings but will create partitions not larger than 1.5 TB.
+</p>
+
+<p>
+Be also warned that all the contents of the disk will be lost.  <em>Make the
+necessary backups in advance.</em>
+</p>
+
+<p>
+Let's assume that you've installed the <code>parted</code> program.
+</p>
+
+<pre>
+      
+     # parted /dev/sdb
+     GNU Parted 2.3
+     Using /dev/sdb
+     Welcome to GNU Parted! Type 'help' to view a list of commands.
+     (parted)
+</pre>
+
+<p>
+You can print the actual partition scheme
+</p>
+
+<pre>
+      
+     (parted) print
+     Model: DELL PERC H700 (scsi)
+     Disk /dev/sdb: 1933GB
+     Sector size (logical/physical): 512B/512B
+     Partition Table: msdos
+     
+     Number  Start   End     Size    Type     File system  Flags
+      1      1049kB  1933GB  1933GB  primary  ext3
+     
+     (parted)
+</pre>
+
+<p>
+The next step is to remove the existing partition
+</p>
+
+<pre>
+      
+     (parted) rm 1                                                             
+     (parted) print                                                            
+     Model: DELL PERC H700 (scsi)
+     Disk /dev/sdb: 1933GB
+     Sector size (logical/physical): 512B/512B
+     Partition Table: msdos
+     
+     Number  Start  End  Size  Type  File system  Flags
+     
+     (parted)
+</pre>
+
+<p>
+Next, the disk is labeled as a gpt disk
+</p>
+
+<pre>
+     (parted) mklabel gpt                                                      
+     Warning: The existing disk label on /dev/sdb will be destroyed and all data on this disk will be lost. Do you want to continue?
+     Yes/No? Yes                                                               
+     (parted) print                                                            
+     Model: DELL PERC H700 (scsi)
+     Disk /dev/sdb: 1933GB
+     Sector size (logical/physical): 512B/512B
+     Partition Table: gpt
+     
+     Number  Start  End  Size  File system  Name  Flags
+     
+     (parted)
+</pre>
+
+<p>
+Once the disk is relabeled, the new partition can be created and you can exit
+<code>parted</code>
+</p>
+
+<pre>
+     (parted) mkpart
+     Partition name?  []? primary                                              
+     File system type?  [ext2]?                                                
+     Start? 0                                                                  
+     End? -0                                                                   
+     Warning: The resulting partition is not properly aligned for best performance.
+     Ignore/Cancel? I                                                          
+     (parted) print                                                            
+     Model: DELL PERC H700 (scsi)
+     Disk /dev/sdb: 1933GB
+     Sector size (logical/physical): 512B/512B
+     Partition Table: gpt
+     
+     Number  Start   End     Size    File system  Name     Flags
+      1      17.4kB  1933GB  1933GB               primary
+     
+     (parted) quit                                                             
+     Information: You may need to update /etc/fstab.
+</pre>
+
+<p>
+Create the filesystem in the usual way
+</p>
+
+<pre>
+     # mkfs.ext4 /dev/sdb1 
+     mke2fs 1.41.12 (17-May-2010)
+     Filesystem label=
+     OS type: Linux
+     Block size=4096 (log=2)
+     Fragment size=4096 (log=2)
+     Stride=0 blocks, Stripe width=0 blocks
+     117964800 inodes, 471859191 blocks
+     23592959 blocks (5.00%) reserved for the super user
+     First data block=0
+     Maximum filesystem blocks=4294967296
+     14400 block groups
+     32768 blocks per group, 32768 fragments per group
+     8192 inodes per group
+     Superblock backups stored on blocks: 
+             32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+             4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
+             102400000, 214990848
+     Writing inode tables: done
+     Creating journal (32768 blocks): done
+     Writing superblocks and filesystem accounting information: done
+     
+     This filesystem will be automatically checked every 37 mounts or
+     180 days, whichever comes first.  Use tune2fs -c or -i to override.
+</pre>
+
+<p>
+Finally check the partition <samp>UUID</samp> and edit accordingly the
+<code>fstab</code> file.
+</p>
+
+<pre>
+     # ls -l /dev/disk/by-uuid/
+     total 0
+     lrwxrwxrwx 1 root root 10 Sep 21 11:43 346dc157-f150-4a1e-8b83-bf4a50dc3cad -&gt; ../../sda5
+     lrwxrwxrwx 1 root root 10 Sep 26 13:00 43615088-9470-419c-9958-199b0bcbbbd6 -&gt; ../../sdb1
+     lrwxrwxrwx 1 root root 10 Sep 21 11:43 5fa63da1-1ff9-4fbf-93c2-4fcdef686892 -&gt; ../../sda7
+     lrwxrwxrwx 1 root root 10 Sep 21 11:43 93272bd4-51b2-4e8a-940d-f85d5fa1978d -&gt; ../../sda6
+     #
+</pre>
+
+<p>
+In our case the previous partition <samp>UUID</samp> in <code>fstab</code>
+needs to be replaced by the new value
+<samp>43615088-9470-419c-9958-199b0bcbbbd6</samp> and the filesystem type
+should be changed also changed if necessary.  The corresponding
+<code>fstab</code> line should read as follows
+</p>
+
+<pre>
+     # cat /etc/fstab | grep large
+     # /large_disk was on /dev/sdb1 during installation
+     UUID=43615088-9470-419c-9958-199b0bcbbbd6 /large_disk     ext4    defaults        0       2
+</pre>
+
+<p>
+The final result is
+</p>
+
+<pre>
+     # df -h | grep large
+     /dev/sdb1             1.8T  196M  1.7T   1% /large_disk
+</pre>
+
+<p>
+If necessary, reboot and check that the partition is correctly mounted.
+</p>
+
+<hr>
+
+<h3 id="s-ref_parted">1.35.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html">Cyberciti</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_new_part">1.36 Adding a partition to <code>fstab</code> by <samp>UUID</samp></h2>
+
+<p>
+Added on January 31st, 2015.
+</p>
+
+<p>
+Assume that you have reformatted your hard disk and created a new partition,
+maybe liberating some space from other operating system, and you want to add
+the new partition to your <code>GNU/Linux</code> system.  In our case we
+suppose that the new partition is <code>/dev/sda9</code> with an
+<samp>ext4</samp> filesystem and we want to mount it in a <code>/data</code>
+directory.  We then want to give access to a system's user, for instace, user
+<samp>curro</samp> to this partition.
+</p>
+
+<p>
+The first step is check the partition <samp>UUID</samp>,
+</p>
+
+<pre>
+      
+     $ ls -l /dev/disk/by-uuid/
+     total 0
+     lrwxrwxrwx 1 root root 10 Feb  1 20:17 2AF23ED0F23E9FCD -&gt; ../../sda1
+     lrwxrwxrwx 1 root root 10 Jan 31 20:43 2e6850cc-0bb9-4f36-b0a8-c167aa257dd6 -&gt; ../../sda7
+     lrwxrwxrwx 1 root root 10 Jan 31 20:43 55d1fe60-aed5-43c2-9c57-34cdea5accda -&gt; ../../sda6
+     lrwxrwxrwx 1 root root 10 Jan 31 20:43 578091f7-b057-481a-82b3-6db5a3b86bec -&gt; ../../sda5
+     lrwxrwxrwx 1 root root 10 Feb  1 20:17 5c1dccb0-e78a-48cc-a63d-95148a8f6cb5 -&gt; ../../sda9
+     lrwxrwxrwx 1 root root 10 Feb  1 20:16 5F1F-1069 -&gt; ../../sdc1
+     lrwxrwxrwx 1 root root 10 Feb  1 20:17 6E223D37223D059D -&gt; ../../sda3
+     lrwxrwxrwx 1 root root 10 Feb  1 20:16 9dbd2628-0353-4798-85e4-738b25d0cdd5 -&gt; ../../sdc2
+     lrwxrwxrwx 1 root root 10 Feb  1 20:17 c30b003f-11f6-430d-8c19-892d68b2c0cf -&gt; ../../sda8
+     lrwxrwxrwx 1 root root 10 Feb  1 20:17 EC7A41587A412126 -&gt; ../../sda2
+</pre>
+
+<p>
+We then, as root, create the mount point, <code>/data</code> and add the
+following line to the <code>/etc/fstab</code>
+</p>
+
+<pre>
+      
+     UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults,user_xattr        0       2
+</pre>
+
+<p>
+Once the <code>fstab</code> file is saved, we can now mount the new partition
+</p>
+
+<pre>
+      
+     # mount /data
+     # mount | grep sda9
+     /dev/sda9 on /data type ext4 (rw,relatime,data=ordered)
+</pre>
+
+<p>
+The last step is to give user <var>curro</var> access to this directory.  This
+is done creating a directory and assigning the directory to this user
+</p>
+
+<pre>
+      
+     # mkdir downloads_curro
+     root@kimoshi:/data# chown curro:curro downloads_curro/
+</pre>
+
+<p>
+Then user curro can move the data in his folder <code>Downloads</code> to this
+new directory and link the old folder to the new one.
+</p>
+
+<pre>
+       $ mv Downloads/* /data/downloads_curro
+       $ rmdir Downloads
+       $ ln -fs /data/downloads_curro ./Downloads
+</pre>
+
+<hr>
+
+<h2 id="s-sec_error_eject">1.37 Error ejecting a CD</h2>
+
+<p>
+Added on January 31st, 2015.
+</p>
+
+<p>
+Sometimes when you eject a CD from the terminal the system displays the
+following error
+</p>
+
+<pre>
+      
+     $ eject
+     eject: unable to eject, last error: Inappropriate ioctl for device
+</pre>
+
+<p>
+The same error is obtained when we try to eject the CD as superuser
+</p>
+
+<pre>
+      
+     # eject
+     eject: unable to eject, last error: Inappropriate ioctl for device
+</pre>
+
+<p>
+The verbose output is
+</p>
+
+<pre>
+      
+     # eject -v /dev/sr0
+     eject: device name is `/dev/sr0'
+     eject: expanded name is `/dev/sr0'
+     eject: `/dev/sr0' is not mounted
+     eject: `/dev/sr0' is not a mount point
+     eject: `/dev/sr0' is not a multipartition device
+     eject: trying to eject `/dev/sr0' using CD-ROM eject command
+     eject: CD-ROM eject command failed
+     eject: trying to eject `/dev/sr0' using SCSI commands
+     eject: SCSI eject failed
+     eject: trying to eject `/dev/sr0' using floppy eject command
+     eject: floppy eject command failed
+     eject: trying to eject `/dev/sr0' using tape offline command
+     eject: tape offline command failed
+     eject: unable to eject, last error: Inappropriate ioctl for device
+</pre>
+
+<p>
+The solution is, as root, use the <samp>-i off</samp> option and then eject the
+cd
+</p>
+
+<pre>
+      
+     deckard:~# eject -i off /dev/cdrom 
+     CD-Drive may be ejected with device button
+     deckard:~# eject /dev/cdrom
+</pre>
+
+<p>
+An the CD is cleanly ejected.  Happy end.
+</p>
+
+<hr>
+
+<p>
+[ <a href="index.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ 1 ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_1.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Some Mini-Howtos of Interest
+</p>
+
+<address>
+Version $Revision: 1.90 $ ($Date: 2015/03/13 13:20:02 $)<br>
+<br>
+Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

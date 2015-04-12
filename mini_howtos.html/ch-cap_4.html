@@ -1,0 +1,1017 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Some Mini-Howtos of Interest - Text Processing and Formatting</title>
+
+<link href="index.html" rel="start">
+<link href="ch-cap_python.html" rel="prev">
+<link href="ch-cap_5.html" rel="next">
+<link href="index.html#contents" rel="contents">
+<link href="index.html#copyright" rel="copyright">
+<link href="ch-cap_0.html" rel="chapter" title="1 Basic Administration">
+<link href="ch-cap_1.html" rel="chapter" title="2 Network and Navigators">
+<link href="ch-cap_2.html" rel="chapter" title="3 The ssh application">
+<link href="ch-cap_emacs.html" rel="chapter" title="4 Emacs text editor">
+<link href="ch-cap_3.html" rel="chapter" title="5 Perl Language">
+<link href="ch-cap_python.html" rel="chapter" title="6 Python Tips and Templates">
+<link href="ch-cap_4.html" rel="chapter" title="7 Text Processing and Formatting">
+<link href="ch-cap_5.html" rel="chapter" title="8 Graphic Edition">
+<link href="ch-cap_6.html" rel="chapter" title="9 Miscelanea">
+<link href="ch-cap_Trans.html" rel="chapter" title="10 Translations of this document">
+<link href="ch-cap_0.html#s-sec_01" rel="section" title="1.1 Reinstalling a wiped out GRUB">
+<link href="ch-cap_0.html#s-sec_02" rel="section" title="1.2 Problem with journalizing">
+<link href="ch-cap_0.html#s-sec_02_2" rel="section" title="1.3 Labels in ext2 and ext3 units">
+<link href="ch-cap_0.html#s-sec_03" rel="section" title="1.4 Open a xconsole as normal user">
+<link href="ch-cap_0.html#s-sec_04" rel="section" title="1.5 Resetting the root password">
+<link href="ch-cap_0.html#s-sec_05" rel="section" title="1.6 Configure exim to use SMTP-TLS">
+<link href="ch-cap_0.html#s-sec_06" rel="section" title="1.7 Compile and install the LAPACK95 interface driver routine.">
+<link href="ch-cap_0.html#s-sec_07" rel="section" title="1.8 Compile and link statically with NAG and LAPACK">
+<link href="ch-cap_0.html#s-sec_08" rel="section" title="1.9 Copying CUPS configuration from one server to another">
+<link href="ch-cap_0.html#s-sec_09" rel="section" title="1.10 Mapping network interfaces to a fixed name.">
+<link href="ch-cap_0.html#s-sec_010" rel="section" title="1.11 Using labels to mount disk partitions">
+<link href="ch-cap_0.html#s-sec_011" rel="section" title="1.12 Using find and xargs">
+<link href="ch-cap_0.html#s-sec_012" rel="section" title="1.13 Preparing a USB bootable Linux installation device (Fast way).">
+<link href="ch-cap_0.html#s-sec_012b" rel="section" title="1.14 Preparing a USB bootable Debian installation device.">
+<link href="ch-cap_0.html#s-sec_013" rel="section" title="1.15 Upgrading Flashplayer in Debian Lenny using backports.">
+<link href="ch-cap_0.html#s-sec_014" rel="section" title="1.16 Passive network exploration with p0f.">
+<link href="ch-cap_0.html#s-sec_015" rel="section" title="1.17 Preparing a bootable flashdisk with Billix.">
+<link href="ch-cap_0.html#s-sec_016" rel="section" title="1.18 Recovering a console that is unusable.">
+<link href="ch-cap_0.html#s-sec_017" rel="section" title="1.19 Simple configuration of sudo">
+<link href="ch-cap_0.html#s-sec_018" rel="section" title="1.20 Check the groups to which a user belongs.">
+<link href="ch-cap_0.html#s-sec_019" rel="section" title="1.21 Check the available system locale options and establish a default one.">
+<link href="ch-cap_0.html#s-sec_020" rel="section" title="1.22 Change the encoding of given files.">
+<link href="ch-cap_0.html#s-sec_021" rel="section" title="1.23 Problem with the wireless and nm">
+<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating a Debian box from Lenny to Squeeze">
+<link href="ch-cap_0.html#s-sec_023" rel="section" title="1.25 Error in file /var/lib/dpkg/status">
+<link href="ch-cap_0.html#s-sec_024" rel="section" title="1.26 How to record terminal sessions using ttyrec">
+<link href="ch-cap_0.html#s-sec_025" rel="section" title="1.27 Using Bash to count the number of files in a directory">
+<link href="ch-cap_0.html#s-sec_026" rel="section" title="1.28 Getting detailed information about your hardware">
+<link href="ch-cap_0.html#s-sec_027" rel="section" title="1.29 Adding your servers load to the screen hardstatus line">
+<link href="ch-cap_0.html#s-sec_028" rel="section" title="1.30 Making a backup of a Gmail account.">
+<link href="ch-cap_0.html#s-sec_errred" rel="section" title="1.31 Redirecting STDERR to SDTOUT">
+<link href="ch-cap_0.html#s-sec_extrdeb" rel="section" title="1.32 Listing and extracting files from a deb package file.">
+<link href="ch-cap_0.html#s-sec_script" rel="section" title="1.33 Using script to keep terminal output records.">
+<link href="ch-cap_0.html#s-sec_modcompopt" rel="section" title="1.34 Checking actual kernel compiling options.">
+<link href="ch-cap_0.html#s-sec_parted" rel="section" title="1.35 Formatting HD partitions larger than 2 TB">
+<link href="ch-cap_0.html#s-sec_new_part" rel="section" title="1.36 Adding a partition to fstab by UUID">
+<link href="ch-cap_0.html#s-sec_error_eject" rel="section" title="1.37 Error ejecting a CD">
+<link href="ch-cap_1.html#s-sec_11" rel="section" title="2.1 Running multiple firefox instances">
+<link href="ch-cap_1.html#s-sec_12" rel="section" title="2.2 Electronic signature with iceweasel">
+<link href="ch-cap_1.html#s-sec_13" rel="section" title="2.3 Some tips to access the web using the console">
+<link href="ch-cap_1.html#s-sec_14" rel="section" title="2.4 Make files in a directory downloadable from a web server">
+<link href="ch-cap_2.html#s-sec_21" rel="section" title="3.1 Removing a known_hosts entry">
+<link href="ch-cap_2.html#s-sec_22" rel="section" title="3.2 Generating a key pair and exporting to a remote host">
+<link href="ch-cap_2.html#s-sec_23" rel="section" title="3.3 Launching with ssh programs that require a terminal">
+<link href="ch-cap_2.html#s-sec_24" rel="section" title="3.4 Tunneling with ssh">
+<link href="ch-cap_2.html#s-sec_tarssh" rel="section" title="3.5 Using ssh to make a tarball directly in a remote folder">
+<link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
+<link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
+<link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
+<link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
+<link href="ch-cap_3.html#s-sec_34" rel="section" title="5.4 Extracting matches from a regular expressions">
+<link href="ch-cap_3.html#s-sec_35" rel="section" title="5.5 Basic use of fork to launch a program">
+<link href="ch-cap_3.html#s-sec_36" rel="section" title="5.6 Perl predefined variables. Some examples.">
+<link href="ch-cap_3.html#s-sec_37" rel="section" title="5.7 Using a named pipe for interprocess communication in Perl">
+<link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
+<link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
+<link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.1 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.2 Creating a vector of random data">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.3 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.4 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
+<link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
+<link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
+<link href="ch-cap_4.html#s-sec_43" rel="section" title="7.4 Include bibliographical info in each chapter using LaTeX">
+<link href="ch-cap_4.html#s-sec_44" rel="section" title="7.5 Comment paragraphs in LaTeX">
+<link href="ch-cap_4.html#s-sec_45" rel="section" title="7.6 Installing appropriately a LaTeX package or style.">
+<link href="ch-cap_4.html#s-sec_46" rel="section" title="7.7 Change the selected language in DebianDoc files">
+<link href="ch-cap_4.html#s-sec_47" rel="section" title="7.8 Avoid Page %d may be too complex to print errors.">
+<link href="ch-cap_4.html#s-sec_49" rel="section" title="7.9 Diverse LaTeX lists">
+<link href="ch-cap_4.html#s-sec_410" rel="section" title="7.10 Use Unicode encoding in LaTeX">
+<link href="ch-cap_4.html#s-sec_latexcolor" rel="section" title="7.11 Use color in LaTeX">
+<link href="ch-cap_4.html#s-sec_fullpage" rel="section" title="7.12 Easy way of defining smaller margins in LaTeX">
+<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.13 Using the same footnote mark in LaTeX">
+<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.14 Using the euro symbol in LaTeX">
+<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.15 Changing pages to landscape orientation in LaTeX texts">
+<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.16 Including single column figures or tables in a double column LaTeX document">
+<link href="ch-cap_5.html#s-sec_51" rel="section" title="8.1 Include greek characters in inkscape">
+<link href="ch-cap_5.html#s-sec_52" rel="section" title="8.2 Include greek characters in Gimp">
+<link href="ch-cap_5.html#s-sec_53" rel="section" title="8.3 Change the text baseline in inkscape">
+<link href="ch-cap_5.html#s-sec_54" rel="section" title="8.4 Use ImageMagick to transform graphic files">
+<link href="ch-cap_5.html#s-sec_55" rel="section" title="8.5 Enhancing colors and resolution in Gimp">
+<link href="ch-cap_5.html#s-sec_56" rel="section" title="8.6 Remove the background of an image in Gimp">
+<link href="ch-cap_5.html#s-sec_57" rel="section" title="8.7 Take a screenshot using Gimp">
+<link href="ch-cap_5.html#s-sec_markersink" rel="section" title="8.8 Change the color of markers in inkscape">
+<link href="ch-cap_6.html#s-sec_61" rel="section" title="9.1 Compute the average from the results of Moodle test grading">
+<link href="ch-cap_6.html#s-sec_62" rel="section" title="9.2 Splitting in two lines a cell content in Openoffice/simpress">
+<link href="ch-cap_6.html#s-sec_63" rel="section" title="9.3 Solving BADSIG errors in UBUNTU (Oneiric Ocelot)">
+<link href="ch-cap_0.html#s-sec_0101" rel="subsection" title="1.1.1 Grub2 case.">
+<link href="ch-cap_0.html#s-sec_0102" rel="subsection" title="1.1.2 Old Grub case.">
+<link href="ch-cap_0.html#s-ref_wipedgrub" rel="subsection" title="1.1.3 References">
+<link href="ch-cap_0.html#s-ref_rootpasswd" rel="subsection" title="1.5.1 References">
+<link href="ch-cap_0.html#s-ref_exim" rel="subsection" title="1.6.1 References">
+<link href="ch-cap_0.html#s-make_inc_77" rel="subsection" title="1.7.1 make.inc for LAPACK compilation">
+<link href="ch-cap_0.html#s-make_inc_95" rel="subsection" title="1.7.2 make.inc for LAPACK95 compilation">
+<link href="ch-cap_0.html#s-sec_prg_example" rel="subsection" title="1.7.3 Example of program using LAPACK95">
+<link href="ch-cap_0.html#s-sec_makefile_example" rel="subsection" title="1.7.4 makefile for compiling programs with calls to LAPACK95">
+<link href="ch-cap_0.html#s-ref_cupscopy" rel="subsection" title="1.9.1 References">
+<link href="ch-cap_0.html#s-ref_xargs" rel="subsection" title="1.12.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot1" rel="subsection" title="1.13.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot" rel="subsection" title="1.14.1 References">
+<link href="ch-cap_0.html#s-ref_flashplayer" rel="subsection" title="1.15.1 References">
+<link href="ch-cap_0.html#s-ref_billix" rel="subsection" title="1.17.1 References">
+<link href="ch-cap_0.html#s-ref_ttyrec" rel="subsection" title="1.26.1 References">
+<link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
+<link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
+<link href="ch-cap_0.html#s-ref_parted" rel="subsection" title="1.35.1 References">
+<link href="ch-cap_1.html#s-ref_webconso" rel="subsection" title="2.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
+<link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
+<link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
+<link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
+<link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
+<link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
+<link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
+<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.13.1 References">
+<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.15.1 References">
+<link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
+<link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
+
+</head>
+
+<body>
+
+<p><a name="ch-cap_4"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-cap_python.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ 7 ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_5.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Some Mini-Howtos of Interest
+<br>Chapter 7 - Text Processing and Formatting
+</h1>
+
+<hr>
+
+<h2 id="s-sec_411">7.1 <code>pdftk</code> application examples</h2>
+
+<p>
+Updated on December 1st, 2011.
+</p>
+
+<p>
+We present several examples of transforming <samp>PDF</samp> files using the
+program <code>pdftk</code>, a powerful and simple application to work with
+<samp>PDF</samp> files.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Removing pages.  If we have a file named <code>text.pdf</code> with ten pages,
+the following commands transform the file removing certain pages and saving the
+transformed output in file <code>out_text.pdf</code>:
+</p>
+<ul>
+<li>
+<p>
+Remove first two pages:
+</p>
+
+<pre>
+      
+     $ pdftk text.pdf cat 3-10 output out_text.pdf
+</pre>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Remove pages 2, 3, and 6:
+</p>
+
+<pre>
+      
+     $ pdftk text.pdf cat 1 4-5 7-10 output out_text.pdf
+</pre>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Merge <samp>PDF</samp> files.
+</p>
+
+<pre>
+      
+     $ pdftk 1.pdf 2.pdf 3.pdf 4.pdf cat output file1234.pdf
+</pre>
+
+<p>
+This command merges four files into a final file <samp>file1234.pdf</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Split the pdf file into pages.  If you want to create a pdf including only the
+first page of file <samp>jpcA.pdf</samp>
+</p>
+
+<pre>
+      
+     pdftk jpcA.pdf cat 1 output jpcA_p1.pdf
+</pre>
+
+<p>
+In case you want to extract pages 1 to 3, leave out pages 4 and 5, and include
+the rest of the pages you can execute
+</p>
+
+<pre>
+      
+     pdftk jpcA.pdf cat 1-3 6-end output jpcA_partial.pdf
+</pre>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+(To Do) Decrypt input or encrypt output.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+(To Do) Generate FDF data stencil from PDF forms.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+(To do) Apply a background watermark or a foreground stamp.
+</p>
+</li>
+</ul>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_41">7.2 Merge two <samp>PostScript</samp> or <samp>PDF</samp> files</h2>
+
+<p>
+Updated on December 1st, 2011.
+</p>
+
+<p>
+We explain an alternative way to merge <samp>PDF</samp> files, to avoid using
+<code>pdftk</code>.  This is also applicable to <samp>PostScript</samp> files.
+</p>
+
+<p>
+You can also merge two <samp>PostScript</samp> or <samp>PDF</samp> files using
+<code>gs</code>
+</p>
+
+<pre>
+      
+     $gs -q -dNOPAUSE -dBATCH -sDEVICE=pswrite \
+            -sOutputFile=<var>bla.ps</var> -f <var>foo1.ps foo2.ps</var>
+      
+     $gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
+            -sOutputFile=<var>bla.pdf</var> -f <var>foo1.pdf foo2.pdf</var>
+</pre>
+
+<hr>
+
+<h3 id="s-ref_mergepdf">7.2.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://qref.sourceforge.net/Debian/reference/ch-tips.en.html#s8.6.24">Debian
+Reference Guide</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_42">7.3 Include <em>et al.</em> in <code>bibtex</code></h2>
+
+<p>
+You can include the term <em>et al.</em> to replace a long set of authors in a
+<code>bibtex</code> reference using <samp>and others</samp>.  Thus, if you want
+to include only the first two authors and replace the rest by others, the
+<code>bibtex</code> author field should be written as
+</p>
+
+<pre>
+      
+     author =    {<var>First Author</var> and <var>Second Author</var> and others},
+</pre>
+
+<hr>
+
+<h2 id="s-sec_43">7.4 Include bibliographical info in each chapter using <code>LaTeX</code></h2>
+
+<p>
+You can include the bibliography after each chapter in <code>LaTeX</code> using
+the package <code>chapterbib</code>.  You can even change the citation style
+for each chapter.  In order to do so include at the beginning of the main
+<samp>tex</samp> source file the line
+</p>
+
+<pre>
+      
+     \usepackage{chapterbib}
+</pre>
+
+<p>
+Then at the end of each chapter include
+</p>
+
+<pre>
+      
+     \bibliographystyle{alpha}
+     \bibliography{<var>texfilename</var>}
+</pre>
+
+<p>
+For each chapter you can change the bibliography style if necessary.  If you
+are using <samp>\include{<var>filename</var></samp> do not forget to run
+<code>bibtex</code> to each of the included files possessing a bibliography
+entry.
+</p>
+
+<hr>
+
+<h2 id="s-sec_44">7.5 Comment paragraphs in <code>LaTeX</code></h2>
+
+<p>
+In order to comment one or several paragraphs in a <code>LaTeX</code> source
+file instead of making use of the % character you can use the
+<samp>verbatim</samp> package including at the beginning of your <samp>tex
+file</samp>
+</p>
+
+<pre>
+      
+     \usepackage{verbatim}
+</pre>
+
+<p>
+And then you can simply comment several lines of the file making use of
+<samp>\begin{comment}</samp> and <samp>\end{comment}</samp>
+</p>
+
+<pre>
+      
+     \begin{comment}
+     <var>Commented fragment ...</var>
+     \end{comment}
+</pre>
+
+<hr>
+
+<h2 id="s-sec_45">7.6 Installing appropriately a <code>LaTeX</code> package or style.</h2>
+
+<p>
+The way to install a <code>LaTeX</code> package in the right path is shown.
+The first step is to look for the place where the package should be installed.
+</p>
+
+<pre>
+     $ kpsewhich -expand-var &quot;\$TEXMFLOCAL&quot;
+     /usr/local/share/texmf
+</pre>
+
+<p>
+Unpack the latex package that is going to be installed and copy the directories
+(<samp>bibtex/</samp>, <samp>doc/</samp>, <samp>tex/</samp> ...) to the
+previous path, <samp>/usr/local/share/texmf</samp> and rehash the database.
+</p>
+
+<pre>
+     $ sudo cp -r doc tex source bibtex  /usr/local/share/texmf
+     $ texhash 
+     texhash: Updating /usr/local/share/texmf/ls-R... 
+     texhash: Updating /var/lib/texmf/ls-R-TEXMFMAIN... 
+     texhash: Updating /var/lib/texmf/ls-R-TEXLIVE... 
+     texhash: Updating /var/lib/texmf/ls-R... 
+     texhash: Done.
+</pre>
+
+<p>
+The style is now ready and installed.
+</p>
+
+<hr>
+
+<h2 id="s-sec_46">7.7 Change the selected language in <code>DebianDoc</code> files</h2>
+
+<p>
+In order to change the selected language for a <code>DebianDoc</code>
+<samp>sgml</samp> file the option <samp>-l</samp> is employed.  This affects
+the different tags and labels in the text.
+</p>
+
+<p>
+For example, assuming that the default language in the system is English and we
+want to generate a version in Spanish in <samp>ASCII</samp> format of the file
+<samp>test.sgml</samp> we should employ
+</p>
+
+<pre>
+      
+     debiandoc2text -les_ES test.sgml
+</pre>
+
+<p>
+In this case we suppose that the locale <samp>es_ES</samp> is available[<a
+href="footnotes.html#f13" name="fr13">13</a>].
+</p>
+
+<hr>
+
+<h2 id="s-sec_47">7.8 Avoid <samp>Page %d may be too complex to print</samp> errors.</h2>
+
+<p>
+When preparing pdf files from <code>LaTeX</code> files sometimes the
+<samp>dvipdf</samp> script takes a very long time to complete the pdf file and
+outputs some errors like in the following example.
+</p>
+
+<pre>
+      
+     $ dvipdf test.dvi 
+     Page 1 may be too complex to print
+     Page 3 may be too complex to print
+     Warning:  no %%Page comments generated.
+</pre>
+
+<p>
+Moreover, when the final pdf file is opened with a viewer there is a long
+series of error messages
+</p>
+
+<pre>
+      
+     $ xpdf test.pdf 
+     Error: Bad bounding box in Type 3 glyph
+     Error: Bad bounding box in Type 3 glyph
+     Error: Bad bounding box in Type 3 glyph
+     Error: Bad bounding box in Type 3 glyph
+     Error: Bad bounding box in Type 3 glyph
+     Error: Bad bounding box in Type 3 glyph
+</pre>
+
+<p>
+This is due to the inclusion of the command
+<samp>\usepackage[T1]{fontenc}</samp> in the input file.  This is convenient
+when writing in Spanish because in this way you have access to special
+characters (as accented letter).
+</p>
+
+<p>
+The solution to the problem consists in making use of the
+<samp>latin-modern</samp> fonts.  The heading of the tex file should include
+</p>
+
+<pre>
+      
+     \usepackage[T1]{fontenc}
+     \usepackage{lmodern}
+</pre>
+
+<p>
+The <code>Debian</code> package that includes this fonts should be installed
+and its name is <samp>lmodern.deb</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_49">7.9 Diverse <code>LaTeX</code> lists</h2>
+
+<p>
+<code>LaTeX</code> distinguishes between three different list environments:
+<samp>enumerate</samp>, <samp>itemize</samp>, and <samp>description</samp>.
+Each environment provides four levels, which implies you can have nested lists
+of up to four levels.  The description of the three environments is the
+following.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<em>Enumerate</em>
+</p>
+
+<p>
+The syntax in this case is
+</p>
+
+<pre>
+     \begin{enumerate}
+     \item ...
+     \end{enumerate}
+</pre>
+
+<p>
+The enumerate environment permits the definition of numbered lists.  If you
+like to change the appearance of the enumerator, the simplest way to change is
+to use the enumerate-package, giving you the possibility to optionally choose
+an enumerator.
+</p>
+
+<pre>
+     \usepackage{enumerate}
+     ...
+     \begin{enumerate}[I]<var>%for capital roman numbers.</var>
+     \item
+     \end{enumerate}
+     
+     \begin{enumerate}[(a)]<var>%for small alpha-characters within brackets.</var>
+     \item
+     \end{enumerate}
+</pre>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<em>Itemize</em>
+</p>
+
+<p>
+Itemization is probably the mostly used list in <code>LaTeX</code>.  It also
+provides four levels.
+</p>
+
+<pre>
+     \begin{itemize}
+     \item ...
+     \end{itemize}
+</pre>
+
+<p>
+The bullets marking each item can be changed for each level using the following
+command:
+</p>
+
+<pre>
+     \renewcommand{\labelitemi}{$\bullet$}
+     \renewcommand{\labelitemii}{$\cdot$}
+     \renewcommand{\labelitemiii}{$\diamond$}
+     \renewcommand{\labelitemiv}{$\ast$}
+</pre>
+
+<p>
+Amongst the more commonly used symbols are <samp>$\bullet$</samp>,
+<samp>$\cdot$</samp>, <samp>$\diamond$</samp>, <samp>$-$</samp>,
+<samp>$\ast$</samp>, and <samp>$\circ$</samp>.
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<em>Description</em>
+</p>
+
+<p>
+The description list is very handy if you need to explain notations or terms.
+Its neither numbered nor bulleted.  The user can define the string marking each
+item.
+</p>
+
+<pre>
+     \begin{description}
+     \item[] ...
+     \end{description}
+</pre>
+</li>
+</ol>
+
+<p>
+In the three environments the space between different items can be controlled
+with the <samp>\itemsep</samp> command that can only be added just after
+<samp>begin</samp>
+</p>
+
+<pre>
+     \begin{itemize}\itemsep2pt
+     \item
+     \end{itemize}
+</pre>
+
+<hr>
+
+<h3 id="s-ref_latexlists">7.9.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://texblog.wordpress.com/2008/10/16/lists-enumerate-itemize-description-and-how-to-change-them/">LaTeX
+Lists Environments</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_410">7.10 Use <samp>Unicode</samp> encoding in <code>LaTeX</code></h2>
+
+<p>
+In order to use <samp>utf</samp> encoding in <code>LaTeX</code> the following
+line should be added to the tex file
+</p>
+
+<pre>
+      
+     \usepackage[utf8]{inputenc}
+</pre>
+
+<p>
+If this option does not work use <samp>utf8x</samp> instead <samp>utf8</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_latexcolor">7.11 Use color in <code>LaTeX</code></h2>
+
+<p>
+Added on November 30th, 2011.
+</p>
+
+<p>
+In order to use colors in your in <code>LaTeX</code> the following line should
+be added to the file preamble
+</p>
+
+<pre>
+      
+     \usepackage{color}
+</pre>
+
+<p>
+The text can be colored in different ways
+</p>
+
+<pre>
+      
+     \textcolor{declared-color}{text}
+     {black text\color{declared-color} text}
+</pre>
+
+<p>
+where declared-color is a color that was defined before by
+<samp>\definecolor.</samp> You can change the background color of the whole
+page by:
+</p>
+
+<pre>
+      
+     \pagecolor{declared-color}
+</pre>
+
+<hr>
+
+<h3 id="s-ref_latexcolor">7.11.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://en.wikibooks.org/wiki/LaTeX/Colors#Adding_the_color_package">LaTeX
+Color in LaTeX Wiki Book</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_fullpage">7.12 Easy way of defining smaller margins in <code>LaTeX</code></h2>
+
+<p>
+Added on January 20th, 2012.
+</p>
+
+<p>
+Updated on February 1st, 2012
+</p>
+
+<p>
+In order to define a <code>LaTeX</code> document with smaller margins than the
+default without tampering too much with measures and sizes the
+<samp>fullpage</samp> package can be used adding the your document header
+</p>
+
+<pre>
+      
+     \usepackage[<var>options</var>]{fullpage}
+</pre>
+
+<p>
+Possible options for this package are
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>in</samp>: (<em>default</em>) margins set to 1 in.
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<samp>cm</samp>: margins set to 1.5 cm.
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<samp>plain</samp>: (<em>default</em>) selects plain page style.
+</p>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+<samp>empty</samp>: neither headers nor footers.
+</p>
+</li>
+</ol>
+<ol type="1" start="5" >
+<li>
+<p>
+<samp>headings</samp>: both headers and footers.
+</p>
+</li>
+</ol>
+<ol type="1" start="6" >
+<li>
+<p>
+<samp>myheadings</samp>: both headers and footers.
+</p>
+</li>
+</ol>
+
+<pre>
+      
+     \usepackage[cm]{fullpage}
+</pre>
+
+<p>
+With <samp>A4</samp> papersize another possibility is
+</p>
+
+<pre>
+      
+     \usepackage{a4wide}
+</pre>
+
+<hr>
+
+<h2 id="s-sec_sevfootn">7.13 Using the same footnote mark in <code>LaTeX</code></h2>
+
+<p>
+Added on February 5th, 2012.
+</p>
+
+<p>
+Sometimes in <code>LaTeX</code> it is necessary to make reference to the same
+footnote several times in a page.  The following syntax allows for this
+</p>
+
+<pre>
+      
+     Text that has a footnote\footnote{This is the footnote} looks like this. Later text referring to same footnote\footnotemark[\value{footnote}] uses the other command.
+</pre>
+
+<p>
+It is important to take into account that this doesn't work if there are other
+footnotes between the first reference and any of the other <em>duplicates</em>.
+</p>
+
+<hr>
+
+<h3 id="s-ref_sevfootn">7.13.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://en.wikibooks.org/wiki/LaTeX/Formatting#Footnotes">LaTeX
+wikibooks</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_eurosym">7.14 Using the euro symbol in <code>LaTeX</code></h2>
+
+<p>
+Added on February 7th, 2012.
+</p>
+
+<p>
+The euro currency symbol in <code>LaTeX</code> is added making use of the
+package <samp>eurosym</samp>, which is part of all the major
+<code>GNU/Linux</code> distributions.  The package has to be loaded in the
+document header
+</p>
+
+<pre>
+      
+     \usepackage{eurosym}
+</pre>
+
+<p>
+Then there are two possible ways of including the euro currency symbol.
+</p>
+
+<pre>
+      
+     The book is 10 \euro.
+     The book is \euro 10.
+     The book is \EUR{10}.
+     \textbf{The book is \EUR{10}.}
+     \textit{The book is \EUR{10}.}
+</pre>
+
+<hr>
+
+<h2 id="s-sec_landscape">7.15 Changing pages to landscape orientation in <code>LaTeX</code> texts</h2>
+
+<p>
+Added on November 16th, 2012.
+</p>
+
+<p>
+The occurrence of a large table or figure in <code>LaTeX</code> sometimes
+hamper the display in the default portrait orientation.  This can be solved
+changing one or various pages to landscape orientation.
+</p>
+
+<p>
+The <samp>geometry</samp> package allows to change the full document to
+landscape orientation adding to the document header
+</p>
+
+<pre>
+      
+     \usepackage[landscape]{geometry}
+</pre>
+
+<p>
+The <samp>lscape</samp> package allows to change to landscape orientation a
+section of the document.  To do so add the following line to the document
+header
+</p>
+
+<pre>
+      
+     \usepackage{lscape}
+</pre>
+
+<p>
+And whenever it is needed to switch to landscape orientation, e.g.  to include
+a large table or figure the region affected by the change is defined as
+</p>
+
+<pre>
+      
+     \begin{landscape}
+     ... table or figure here ...
+     \end{landscape}
+</pre>
+
+<p>
+This is specially suited for printing.  To change also the orientation in the
+pdf file and for better screen readibility use the package
+<samp>pdflscape</samp> in the header instead of <samp>lscape</samp>
+</p>
+
+<pre>
+      
+     \usepackage{pdflscape}
+</pre>
+
+<p>
+And proceed as before
+</p>
+
+<pre>
+      
+     \begin{landscape}
+     ... table or figure here ...
+     \end{landscape}
+</pre>
+
+<hr>
+
+<h3 id="s-ref_landscape">7.15.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://texblog.org/2007/11/10/landscape-in-latex">Landscape in
+LaTeX</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_singledouble">7.16 Including single column figures or tables in a double column <code>LaTeX</code> document</h2>
+
+<p>
+Added on November 18th, 2012.
+</p>
+
+<p>
+Sometimes when writing a two-column document the occurrence of a large table or
+figure in <code>LaTeX</code> forces its display in a single-column way.  This
+can be solved for figures and tables using the <samp>-*</samp> variant
+</p>
+
+<pre>
+      
+     
+       \begin{table*}
+     
+       \end{table*}
+       \begin{figure*}
+     
+       \end{figure*}
+</pre>
+
+<p>
+In this way figures and tables will occupy the full page.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-cap_python.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ 7 ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_5.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Some Mini-Howtos of Interest
+</p>
+
+<address>
+Version $Revision: 1.90 $ ($Date: 2015/03/13 13:20:02 $)<br>
+<br>
+Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

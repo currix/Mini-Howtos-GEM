@@ -1,0 +1,1339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Some Mini-Howtos of Interest - Perl Language</title>
+
+<link href="index.html" rel="start">
+<link href="ch-cap_emacs.html" rel="prev">
+<link href="ch-cap_python.html" rel="next">
+<link href="index.html#contents" rel="contents">
+<link href="index.html#copyright" rel="copyright">
+<link href="ch-cap_0.html" rel="chapter" title="1 Basic Administration">
+<link href="ch-cap_1.html" rel="chapter" title="2 Network and Navigators">
+<link href="ch-cap_2.html" rel="chapter" title="3 The ssh application">
+<link href="ch-cap_emacs.html" rel="chapter" title="4 Emacs text editor">
+<link href="ch-cap_3.html" rel="chapter" title="5 Perl Language">
+<link href="ch-cap_python.html" rel="chapter" title="6 Python Tips and Templates">
+<link href="ch-cap_4.html" rel="chapter" title="7 Text Processing and Formatting">
+<link href="ch-cap_5.html" rel="chapter" title="8 Graphic Edition">
+<link href="ch-cap_6.html" rel="chapter" title="9 Miscelanea">
+<link href="ch-cap_Trans.html" rel="chapter" title="10 Translations of this document">
+<link href="ch-cap_0.html#s-sec_01" rel="section" title="1.1 Reinstalling a wiped out GRUB">
+<link href="ch-cap_0.html#s-sec_02" rel="section" title="1.2 Problem with journalizing">
+<link href="ch-cap_0.html#s-sec_02_2" rel="section" title="1.3 Labels in ext2 and ext3 units">
+<link href="ch-cap_0.html#s-sec_03" rel="section" title="1.4 Open a xconsole as normal user">
+<link href="ch-cap_0.html#s-sec_04" rel="section" title="1.5 Resetting the root password">
+<link href="ch-cap_0.html#s-sec_05" rel="section" title="1.6 Configure exim to use SMTP-TLS">
+<link href="ch-cap_0.html#s-sec_06" rel="section" title="1.7 Compile and install the LAPACK95 interface driver routine.">
+<link href="ch-cap_0.html#s-sec_07" rel="section" title="1.8 Compile and link statically with NAG and LAPACK">
+<link href="ch-cap_0.html#s-sec_08" rel="section" title="1.9 Copying CUPS configuration from one server to another">
+<link href="ch-cap_0.html#s-sec_09" rel="section" title="1.10 Mapping network interfaces to a fixed name.">
+<link href="ch-cap_0.html#s-sec_010" rel="section" title="1.11 Using labels to mount disk partitions">
+<link href="ch-cap_0.html#s-sec_011" rel="section" title="1.12 Using find and xargs">
+<link href="ch-cap_0.html#s-sec_012" rel="section" title="1.13 Preparing a USB bootable Linux installation device (Fast way).">
+<link href="ch-cap_0.html#s-sec_012b" rel="section" title="1.14 Preparing a USB bootable Debian installation device.">
+<link href="ch-cap_0.html#s-sec_013" rel="section" title="1.15 Upgrading Flashplayer in Debian Lenny using backports.">
+<link href="ch-cap_0.html#s-sec_014" rel="section" title="1.16 Passive network exploration with p0f.">
+<link href="ch-cap_0.html#s-sec_015" rel="section" title="1.17 Preparing a bootable flashdisk with Billix.">
+<link href="ch-cap_0.html#s-sec_016" rel="section" title="1.18 Recovering a console that is unusable.">
+<link href="ch-cap_0.html#s-sec_017" rel="section" title="1.19 Simple configuration of sudo">
+<link href="ch-cap_0.html#s-sec_018" rel="section" title="1.20 Check the groups to which a user belongs.">
+<link href="ch-cap_0.html#s-sec_019" rel="section" title="1.21 Check the available system locale options and establish a default one.">
+<link href="ch-cap_0.html#s-sec_020" rel="section" title="1.22 Change the encoding of given files.">
+<link href="ch-cap_0.html#s-sec_021" rel="section" title="1.23 Problem with the wireless and nm">
+<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating a Debian box from Lenny to Squeeze">
+<link href="ch-cap_0.html#s-sec_023" rel="section" title="1.25 Error in file /var/lib/dpkg/status">
+<link href="ch-cap_0.html#s-sec_024" rel="section" title="1.26 How to record terminal sessions using ttyrec">
+<link href="ch-cap_0.html#s-sec_025" rel="section" title="1.27 Using Bash to count the number of files in a directory">
+<link href="ch-cap_0.html#s-sec_026" rel="section" title="1.28 Getting detailed information about your hardware">
+<link href="ch-cap_0.html#s-sec_027" rel="section" title="1.29 Adding your servers load to the screen hardstatus line">
+<link href="ch-cap_0.html#s-sec_028" rel="section" title="1.30 Making a backup of a Gmail account.">
+<link href="ch-cap_0.html#s-sec_errred" rel="section" title="1.31 Redirecting STDERR to SDTOUT">
+<link href="ch-cap_0.html#s-sec_extrdeb" rel="section" title="1.32 Listing and extracting files from a deb package file.">
+<link href="ch-cap_0.html#s-sec_script" rel="section" title="1.33 Using script to keep terminal output records.">
+<link href="ch-cap_0.html#s-sec_modcompopt" rel="section" title="1.34 Checking actual kernel compiling options.">
+<link href="ch-cap_0.html#s-sec_parted" rel="section" title="1.35 Formatting HD partitions larger than 2 TB">
+<link href="ch-cap_0.html#s-sec_new_part" rel="section" title="1.36 Adding a partition to fstab by UUID">
+<link href="ch-cap_0.html#s-sec_error_eject" rel="section" title="1.37 Error ejecting a CD">
+<link href="ch-cap_1.html#s-sec_11" rel="section" title="2.1 Running multiple firefox instances">
+<link href="ch-cap_1.html#s-sec_12" rel="section" title="2.2 Electronic signature with iceweasel">
+<link href="ch-cap_1.html#s-sec_13" rel="section" title="2.3 Some tips to access the web using the console">
+<link href="ch-cap_1.html#s-sec_14" rel="section" title="2.4 Make files in a directory downloadable from a web server">
+<link href="ch-cap_2.html#s-sec_21" rel="section" title="3.1 Removing a known_hosts entry">
+<link href="ch-cap_2.html#s-sec_22" rel="section" title="3.2 Generating a key pair and exporting to a remote host">
+<link href="ch-cap_2.html#s-sec_23" rel="section" title="3.3 Launching with ssh programs that require a terminal">
+<link href="ch-cap_2.html#s-sec_24" rel="section" title="3.4 Tunneling with ssh">
+<link href="ch-cap_2.html#s-sec_tarssh" rel="section" title="3.5 Using ssh to make a tarball directly in a remote folder">
+<link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
+<link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
+<link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
+<link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
+<link href="ch-cap_3.html#s-sec_34" rel="section" title="5.4 Extracting matches from a regular expressions">
+<link href="ch-cap_3.html#s-sec_35" rel="section" title="5.5 Basic use of fork to launch a program">
+<link href="ch-cap_3.html#s-sec_36" rel="section" title="5.6 Perl predefined variables. Some examples.">
+<link href="ch-cap_3.html#s-sec_37" rel="section" title="5.7 Using a named pipe for interprocess communication in Perl">
+<link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
+<link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
+<link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.1 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.2 Creating a vector of random data">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.3 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.4 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
+<link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
+<link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
+<link href="ch-cap_4.html#s-sec_43" rel="section" title="7.4 Include bibliographical info in each chapter using LaTeX">
+<link href="ch-cap_4.html#s-sec_44" rel="section" title="7.5 Comment paragraphs in LaTeX">
+<link href="ch-cap_4.html#s-sec_45" rel="section" title="7.6 Installing appropriately a LaTeX package or style.">
+<link href="ch-cap_4.html#s-sec_46" rel="section" title="7.7 Change the selected language in DebianDoc files">
+<link href="ch-cap_4.html#s-sec_47" rel="section" title="7.8 Avoid Page %d may be too complex to print errors.">
+<link href="ch-cap_4.html#s-sec_49" rel="section" title="7.9 Diverse LaTeX lists">
+<link href="ch-cap_4.html#s-sec_410" rel="section" title="7.10 Use Unicode encoding in LaTeX">
+<link href="ch-cap_4.html#s-sec_latexcolor" rel="section" title="7.11 Use color in LaTeX">
+<link href="ch-cap_4.html#s-sec_fullpage" rel="section" title="7.12 Easy way of defining smaller margins in LaTeX">
+<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.13 Using the same footnote mark in LaTeX">
+<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.14 Using the euro symbol in LaTeX">
+<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.15 Changing pages to landscape orientation in LaTeX texts">
+<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.16 Including single column figures or tables in a double column LaTeX document">
+<link href="ch-cap_5.html#s-sec_51" rel="section" title="8.1 Include greek characters in inkscape">
+<link href="ch-cap_5.html#s-sec_52" rel="section" title="8.2 Include greek characters in Gimp">
+<link href="ch-cap_5.html#s-sec_53" rel="section" title="8.3 Change the text baseline in inkscape">
+<link href="ch-cap_5.html#s-sec_54" rel="section" title="8.4 Use ImageMagick to transform graphic files">
+<link href="ch-cap_5.html#s-sec_55" rel="section" title="8.5 Enhancing colors and resolution in Gimp">
+<link href="ch-cap_5.html#s-sec_56" rel="section" title="8.6 Remove the background of an image in Gimp">
+<link href="ch-cap_5.html#s-sec_57" rel="section" title="8.7 Take a screenshot using Gimp">
+<link href="ch-cap_5.html#s-sec_markersink" rel="section" title="8.8 Change the color of markers in inkscape">
+<link href="ch-cap_6.html#s-sec_61" rel="section" title="9.1 Compute the average from the results of Moodle test grading">
+<link href="ch-cap_6.html#s-sec_62" rel="section" title="9.2 Splitting in two lines a cell content in Openoffice/simpress">
+<link href="ch-cap_6.html#s-sec_63" rel="section" title="9.3 Solving BADSIG errors in UBUNTU (Oneiric Ocelot)">
+<link href="ch-cap_0.html#s-sec_0101" rel="subsection" title="1.1.1 Grub2 case.">
+<link href="ch-cap_0.html#s-sec_0102" rel="subsection" title="1.1.2 Old Grub case.">
+<link href="ch-cap_0.html#s-ref_wipedgrub" rel="subsection" title="1.1.3 References">
+<link href="ch-cap_0.html#s-ref_rootpasswd" rel="subsection" title="1.5.1 References">
+<link href="ch-cap_0.html#s-ref_exim" rel="subsection" title="1.6.1 References">
+<link href="ch-cap_0.html#s-make_inc_77" rel="subsection" title="1.7.1 make.inc for LAPACK compilation">
+<link href="ch-cap_0.html#s-make_inc_95" rel="subsection" title="1.7.2 make.inc for LAPACK95 compilation">
+<link href="ch-cap_0.html#s-sec_prg_example" rel="subsection" title="1.7.3 Example of program using LAPACK95">
+<link href="ch-cap_0.html#s-sec_makefile_example" rel="subsection" title="1.7.4 makefile for compiling programs with calls to LAPACK95">
+<link href="ch-cap_0.html#s-ref_cupscopy" rel="subsection" title="1.9.1 References">
+<link href="ch-cap_0.html#s-ref_xargs" rel="subsection" title="1.12.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot1" rel="subsection" title="1.13.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot" rel="subsection" title="1.14.1 References">
+<link href="ch-cap_0.html#s-ref_flashplayer" rel="subsection" title="1.15.1 References">
+<link href="ch-cap_0.html#s-ref_billix" rel="subsection" title="1.17.1 References">
+<link href="ch-cap_0.html#s-ref_ttyrec" rel="subsection" title="1.26.1 References">
+<link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
+<link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
+<link href="ch-cap_0.html#s-ref_parted" rel="subsection" title="1.35.1 References">
+<link href="ch-cap_1.html#s-ref_webconso" rel="subsection" title="2.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
+<link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
+<link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
+<link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
+<link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
+<link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
+<link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
+<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.13.1 References">
+<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.15.1 References">
+<link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
+<link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
+
+</head>
+
+<body>
+
+<p><a name="ch-cap_3"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-cap_emacs.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ 5 ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_python.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Some Mini-Howtos of Interest
+<br>Chapter 5 - Perl Language
+</h1>
+
+<hr>
+
+<p>
+This chapter has been translated into <code><a
+href="http://www.webhostinghub.com/support/es/misc/instalacion-de-perl">Spanish</a></code>
+language by Maria Ramos from <code><a
+href="http://www.webhostinghub.com/support/edu">Webhostinghub.com/support/edu</a></code>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_31">5.1 Installing a <samp>CPAN</samp> module</h2>
+
+<p>
+There are two possible ways to install a CPAN module.  We give both
+alternatives.
+</p>
+
+<hr>
+
+<h3 id="s-sec_311">5.1.1 First alternative for installing a <samp>CPAN</samp> module</h3>
+
+<p>
+Download the <samp>CPAN</samp> module (we use the module
+<samp>Devel-SmallProf-2.02</samp> as an example) and untar it
+</p>
+
+<pre>
+     # tar xzvf Devel-SmallProf-2.02.tar.gz
+     # cd Devel-SmallProf-2.02
+     Devel-SmallProf-2.02# ls
+     Changes  MANIFEST  META.yml  Makefile.PL  README  TODO  lib  t
+</pre>
+
+<p>
+Compile and install the module
+</p>
+
+<pre>
+     Devel-SmallProf-2.02# perl Makefile.PL
+     Checking if your kit is complete...
+     Looks good
+     Writing Makefile for Devel::SmallProf
+     
+     Devel-SmallProf-2.02# make
+     cp lib/Devel/SmallProf.pm blib/lib/Devel/SmallProf.pm
+     Manifying blib/man3/Devel::SmallProf.3pm
+     
+     Devel-SmallProf-2.02# make test
+     PERL_DL_NONLAZY=1 /usr/bin/perl &quot;-MExtUtils::Command::MM&quot; &quot;-e&quot; &quot;test_harness(0, 'blib/lib', 'blib/arch')&quot; t/*.t
+     t/part1....ok
+     t/part2....ok
+     t/part3....ok
+     t/part4....ok
+     t/pods.....skipped
+             all skipped: Only the author needs to check that POD docs are right
+     All tests successful, 1 test skipped.
+     Files=5, Tests=14,  1 wallclock secs ( 0.08 cusr +  0.01 csys =  0.09 CPU)
+     
+     Devel-SmallProf-2.02# make install
+     Installing /usr/local/share/perl/5.8.8/Devel/SmallProf.pm
+     Installing /usr/local/man/man3/Devel::SmallProf.3pm
+     Writing /usr/local/lib/perl/5.8.8/auto/Devel/SmallProf/.packlist
+     Appending installation info to /usr/local/lib/perl/5.8.8/perllocal.pod
+</pre>
+
+<hr>
+
+<h3 id="s-sec_312">5.1.2 Second alternative for installing a <samp>CPAN</samp> module</h3>
+
+<p>
+In this case we use an interactive shell that we launch as
+</p>
+
+<pre>
+     # perl -MCPAN -e shell
+</pre>
+
+<p>
+The first time the shell is launched the system has to be configured and
+upgraded.  The system prompts for several programs (unzip, etc.).  Install them
+if they are not already installed in the computer.  Select a repository (in my
+case <samp>ftp://ftp.rediris.es/mirror/CPAN</samp>) and most questions can
+safely answered using the default choice.
+</p>
+
+<p>
+The first thing to do after configuration is to upgrade your <samp>CPAN</samp>:
+</p>
+
+<pre>
+     cpan&gt; install Bundle::CPAN
+     
+     
+     CPAN: Storable loaded ok
+     Fetching with LWP:
+       ftp://ftp.rediris.es/mirror/CPAN/authors/01mailrc.txt.gz
+     Going to read /root/.cpan/sources/authors/01mailrc.txt.gz
+     CPAN: Compress::Zlib loaded ok
+     Fetching with LWP:
+       ftp://ftp.rediris.es/mirror/CPAN/modules/02packages.details.txt.gz
+     .
+     .
+     .
+</pre>
+
+<p>
+Then you reload it:
+</p>
+
+<pre>
+     cpan&gt; reload cpan
+</pre>
+
+<p>
+And install the required module, <samp>Roots</samp> in this example:
+</p>
+
+<pre>
+     cpan&gt; install Math::Function::Roots
+     
+     .
+     .
+     .
+     
+     Appending installation info to /usr/lib/perl/5.8/perllocal.pod
+       /usr/bin/make install  -- OK
+</pre>
+
+<hr>
+
+<h2 id="s-sec_32">5.2 Interesting perl oneliners</h2>
+
+<p>
+Updated on January 31st, 2015.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Execute a program, in this case <code>epstopdf</code>, using as an input all
+files sharing an common extension , in this case <samp>eps</samp>, in the
+current directory.
+</p>
+
+<pre>
+     perl -e 'system &quot;epstopdf $_&quot; for (glob &quot;*.eps&quot;);'
+</pre>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+Erasing &quot;phantom&quot; files with 0 bytes size.
+</p>
+
+<pre>
+     perl -e 'foreach (glob &quot;*&quot;) \
+     {unless (-s $_) {&quot;Deleting $_\n&quot;;unlink &quot;$_&quot;;}}'
+</pre>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+Checking <code>Postscript</code> files referred in a <code>LaTeX</code> output
+message.
+</p>
+
+<pre>
+     latex <var>filename.tex</var> | perl -e \
+     'while (&lt;&gt;){foreach (split) {/&lt;(.*?\.eps)&gt;/ and push(@eps, $1)}};\ 
+     foreach (sort @eps) {print;print &quot;\n&quot;}'
+</pre>
+</li>
+</ol>
+<ol type="1" start="4" >
+<li>
+<p>
+Print apostrophe character.
+</p>
+
+<pre>
+     perl -le 'print &quot;'\'' is an apostrophe...&quot;'
+</pre>
+</li>
+</ol>
+<ol type="1" start="5" >
+<li>
+<p>
+Changing a text file from UTF-8 encoding to ASCII.  Note that it does not work
+for Spanish accented characters.
+</p>
+
+<pre>
+     perl -ne 'for (unpack &quot;U*&quot;, $_) \ 
+     { printf $_ &gt; 128 ? &quot;x&quot; :  &quot;%c&quot;, $_ }' <var>fileUTF.txt</var> &gt; <var>fileASCII.txt</var>
+</pre>
+</li>
+</ol>
+<ol type="1" start="6" >
+<li>
+<p>
+Adding an <samp>E</samp> character to the output of <code>Fortran</code>
+programs with three digits in the exponent that lacks this character.
+</p>
+
+<pre>
+     perl -pi'.bak' -e 's/(\d)-(\d\d\d)/$1E-$2/g' <var>fort.output</var>
+</pre>
+</li>
+</ol>
+<ol type="1" start="7" >
+<li>
+<p>
+Delete empty lines in a file.
+</p>
+
+<pre>
+      perl -ni -e 'chomp($_);print &quot;$_\n&quot; if ($_)'<var>test.dat</var>
+</pre>
+</li>
+</ol>
+<ol type="1" start="8" >
+<li>
+<p>
+Makes a substitution in a file, in the selected example substitute the word
+<var>figures</var> by <var>Figures</var> in all files with extension
+<samp>tex</samp> in the current directory.
+</p>
+
+<pre>
+      perl -pi'.bak' -e 's/figures\//Figures\//g' *.tex
+</pre>
+</li>
+</ol>
+<ol type="1" start="9" >
+<li>
+<p>
+Search and display occurrences in a log file (<var>/var/log/loginlog.0</var> in
+this example) of succesful logins of user <var>curro</var>, showing the number
+of times the user has logged from each machine.
+</p>
+
+<pre>
+      
+     perl -e 'while (&lt;&gt;) {
+     if (m|\d+:\d+:\d+\s+(.*?)\s+.*ccepted.*<var>curro</var>\s+from\s+(.*?)\s+.*|) 
+      {$vh{&quot;$1 from $2&quot;}++;} } 
+      foreach (keys %vh) 
+       {print &quot;$vh{$_} login(s) to $_\n&quot;;}'<var>/var/log/loginlog.0</var>
+</pre>
+</li>
+</ol>
+<ol type="1" start="10" >
+<li>
+<p>
+Count the number of files in a directory.
+</p>
+
+<p>
+In the first example we use globbing to count the total number of files
+including hidden files or the number of files subject to some restriction.
+</p>
+
+<pre>
+      
+     $ perl -e 'my @files = glob &quot;* .*&quot;; print 1+$#files.&quot;\n&quot;'
+     129
+     $ perl -e 'my @files = glob &quot;1*gif&quot;; print 1+$#files.&quot;\n&quot;'
+     9
+</pre>
+
+<p>
+The same can be accomplished using directory handles and <code>grep</code>
+</p>
+
+<pre>
+      
+     $ perl -e 'opendir DH, &quot;.&quot;;my @files = readdir DH; print 1+$#files.&quot;\n&quot;'
+     129
+     $ perl -e 'opendir DH, &quot;.&quot;;my @files = grep /^1.*\.gif$/, (readdir DH); print 1+$#files.&quot;\n&quot;'
+     9
+</pre>
+</li>
+</ol>
+<ol type="1" start="11" >
+<li>
+<p>
+Get the last line of a file.
+</p>
+
+<p>
+We include a oneliner that gets the last line of a series of files
+</p>
+
+<pre>
+     perl -e 'foreach (@ARGV) {my $line = `tail -n 1 $_`; print $line}' output_notes_1* output_notes_2* output_notes_3* ...
+</pre>
+
+<p>
+In the original application the line was prepended with a number appearing in
+the filename as follows
+</p>
+
+<pre>
+     perl -e 'foreach (@ARGV) {/.*(\d\d).*/;my $line = $1.`tail -n 1 $_`; print $line}' output_notes_1* output_notes_2* output_notes_3* ...
+</pre>
+</li>
+</ol>
+<ol type="1" start="12" >
+<li>
+<p>
+Change <code>Mac</code> carriage return to <code>UNIX</code> new line
+</p>
+
+<p>
+Let's assume we have a bunch of <samp>csv</samp> files with <code>Mac</code>
+carriage return that our system interprets as a very long unique line.  Instead
+of using <code>emacs</code> we can easily fix this with
+</p>
+
+<pre>
+     perl -pi -e 's/\r/\n/g' *.csv
+</pre>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_33">5.3 Environment Codification and Character Ordering</h2>
+
+<p>
+The following short script permit to test a terminal codification.
+</p>
+
+<pre>
+       
+     #!/usr/bin/perl
+     use warnings;
+     use strict;
+     use Encode;
+     my @charsets = qw(utf-8 latin1 iso-8859-15 utf-16);
+     # some non-ASCII codepoints:
+     my $test = 'Ue: ' . chr(220) .'; Euro: '. chr(8364) . &quot;\n&quot;;
+     #
+     for (@charsets){print &quot;$_: &quot; . encode($_, $test);}
+</pre>
+
+<p>
+Once the script is run, different lines appear, and the terminal charset is the
+one of the line correctly displayed.  For example, if we execute the script in
+a terminal using the <samp>UTF-8</samp> coding system the output is something
+similar to
+</p>
+
+<pre>
+       
+     $ encodings.plx 
+     utf-8: Ue: Ü; Euro: €
+     latin1: Ue: �; Euro: ?
+     iso-8859-15: Ue: �; Euro: �
+     utf-16: ��Ue: �; Euro:  �
+</pre>
+
+<p>
+Note that both special characters, Ü and the euro symbol, only appear in
+correcto form in the <samp>utf-8</samp> charset line.
+</p>
+
+<p>
+The function <samp>chr</samp> in <code>Perl</code> takes a number as an
+argument and returns the character represented by that NUMBER in the selected
+character set.  The function <samp>encode</samp> allows the codification of the
+character is different character sets.  The four most common character sets are
+the ones included in the former example.
+</p>
+
+<p>
+Another problem with character sets arise when ordering alphabetically a set of
+words of characters when the characters in the set are not the standard 127
+<samp>ASCII</samp> character.  For example, suppose that we are trying to order
+alphabetically the following set of names
+</p>
+
+<pre>
+     Álvarez
+     Mínguez  
+     Pérez
+     Perales
+     Pilar
+     Mola
+     Borrero
+     Díaz
+     Diz
+     Delgado
+     Cuesta
+     Castro
+     Cáñamo
+</pre>
+
+<p>
+A standard program, comparing with the <samp>cmp</samp> function is as follows
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     use strict;
+     use warnings;
+     #
+     my @names;
+     #
+     while (defined(my $line = &lt;&gt;)) {
+         chomp($line);
+         my $elem = push(@names,$line);
+         print &quot;$elem element(s) added\n&quot;;
+     }
+     #
+     print &quot;Reading process finished. Sorting ... &quot;;
+     #
+     print &quot;Done.\n\n&quot;;
+     print &quot;Sorted set of names:\n&quot;;
+     foreach (sort by_name @names) {
+         print &quot;\t$_\n&quot;;
+     }
+     #
+     sub by_name {$a cmp $b}
+</pre>
+
+<p>
+However, when we run the program we obtain the somewhat surprising output
+</p>
+
+<pre>
+     Sorted set of names:
+     	Borrero
+     	Castro
+     	Cuesta
+     	Cáñamo
+     	Delgado
+     	Diz
+     	Díaz
+     	Mola
+     	Mínguez  
+     	Perales
+     	Pilar
+     	Pérez
+     	Álvarez
+</pre>
+
+<p>
+Clearly this is not the expected output if we intend to sort alphabetically
+(using Spanish sorting rules).  The reason of this unexpected behavior is that
+the <samp>cmp</samp> function compares non-ASCII chars by codepoint number[<a
+href="footnotes.html#f9" name="fr9">9</a>], which might give unexpected
+results.  In order to sort according to a particular languague convention we
+should use the <samp>locale</samp> pragma.  The previous program can be
+rewritten as follows
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     use strict;
+     use warnings;
+     #
+     ##########
+     use locale;
+     use POSIX qw(locale_h);
+     setlocale(LC_COLLATE, 'es_ES@euro') or die &quot;Locale es_ES\@euro not installed.\n&quot;;
+     ##########
+     #
+     #
+     my @names;
+     #
+     while (defined(my $line = &lt;&gt;)) {
+         chomp($line);
+         my $elem = push(@names,$line);
+         print &quot;$elem element(s) added\n&quot;;
+     }
+     #
+     print &quot;Reading process finished. Sorting ... &quot;;
+     #
+     print &quot;Done.\n\n&quot;;
+     print &quot;Sorted set of names:\n&quot;;
+     foreach (sort by_name @names) {
+         print &quot;\t$_\n&quot;;
+     }
+     #
+     sub by_name {$a cmp $b}
+</pre>
+
+<p>
+After this change the word order is the usual one in Spanish.
+</p>
+
+<pre>
+     Sorted set of names:
+             Álvarez
+             Borrero
+             Cáñamo
+             Castro
+             Cuesta
+             Delgado
+             Díaz
+             Diz
+             Mínguez  
+             Mola
+             Perales
+             Pérez
+             Pilar
+</pre>
+
+<hr>
+
+<h3 id="s-ref_codifs">5.3.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://perlgeek.de/en/article/encodings-and-unicode">http://perlgeek.de/en/article/encodings-and-unicode</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://perldoc.perl.org/perllocale.html#USING-LOCALES">http://perldoc.perl.org/perllocale.html#USING-LOCALES</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_34">5.4 Extracting matches from a regular expressions</h2>
+
+<p>
+This can be easily done using the grouping metacharacters '<samp>()</samp>'.
+They allow the extraction of the parts of a string that matched the imposed
+condition.  Each grouping marked by parentheses goes into a special variable
+<samp>$1</samp>, <samp>$2</samp>, etc.  They can be used as ordinary variables.
+</p>
+
+<p>
+If we want to extract the day, month and year from a date expressed as
+<var>dd/mm/yyyy</var> we can do the following
+</p>
+
+<pre>
+      # extract day, month, year
+            if ($date =~ m!(\d\d)/(\d\d)/(\d\d\d\d)!) { # match dd/mm/yyyy format
+                $day = $1;
+                $month = $2;
+                $year = $3;
+            }
+</pre>
+
+<p>
+Note the use of the pattern match operator <samp>m!!</samp> to change the
+standard pattern delimiters.  We can rewrite in a shorter form the previous
+code, taking advantage of the different behavior of the binding operator in
+scalar and list contexts.
+</p>
+
+<p>
+In scalar context the binding operator returns a true or false value.
+</p>
+
+<pre>
+     $answer = $date =~ m!(\d\d)/(\d\d)/(\d\d\d\d)!
+</pre>
+
+<p>
+Thus <var>$answer</var> equals to one or zero.  In list context, however, the
+binding operator returns the list of matched values <samp>($1, $2, $3,
+...)</samp>.  Thus we can abbreviate the previous code as
+</p>
+
+<pre>
+     ($day,$month,$year) = ($date =~ m!(\d\d)/(\d\d)/(\d\d\d\d)!)
+</pre>
+
+<p>
+If the groupings in a regexp are nested, <samp>$1</samp> gets the group with
+the leftmost opening parenthesis, <samp>$2</samp> the next opening parenthesis,
+etc.
+</p>
+
+<p>
+For more information: <samp>man perlretut</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_35">5.5 Basic use of <code>fork</code> to launch a program</h2>
+
+<p>
+Apart from the <code>system</code> utility, a <code>Perl</code> script can
+launch child processes using the <code>fork</code> utility.  Let's assume that
+we are interested in launching applications, called <samp>fort_1</samp> and
+<samp>fort_2</samp> from a script, but we are not interested in waiting for the
+end of the application.  Using <code>fork</code> we can do the following in our
+script
+</p>
+
+<pre>
+     defined(my $pid0 = fork) or die &quot;Cannot fork: $!&quot;;
+     unless ($pid0) {
+       # Child 0 process is here
+       exec &quot;fort_1&quot;;
+       die &quot;cannot exec fort_1: $!&quot;;
+     }
+     defined(my $pid1 = fork) or die &quot;Cannot fork: $!&quot;;
+     unless ($pid1) {
+       # Child 1 process is here
+       exec &quot;fort_2&quot;;
+       die &quot;cannot exec fort_2: $!&quot;;
+     }
+     print &quot;Program output: \n&quot;;
+     # Parent processes are here
+     <var># script continues ...</var>
+     waitpid($pid0, 0);
+     waitpid($pid1, 0);
+</pre>
+
+<p>
+Only the parent process has a non-zero value in <samp>$pid0</samp> and
+<samp>$pid1</samp> and skip the two <samp>unless</samp> conditionals.  The
+program arrives to the <samp>waitpid</samp> function.  This function waits for
+a particular child process to terminate and returns the pid of the deceased
+process.  It is important to do so in order to get rid of zombie processes.
+</p>
+
+<p>
+For more information: <samp>man perlipc</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_36">5.6 <code>Perl</code> predefined variables. Some examples.</h2>
+
+<p>
+Apart from the ubiquitous <code>Perl</code> default variable, <samp>$_</samp>
+there is a large number of useful predefined variables.  We give some examples
+of them in the following short codes.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>$.</samp>
+</p>
+
+<p>
+<em>Current line number for the last filehandle accessed.</em>
+</p>
+
+<p>
+The following code displays each line of the file and the corresponding line
+number.
+</p>
+
+<pre>
+     #
+     open(INPUT,&quot;&lt;/etc/motd&quot;) or die &quot;/etc/motd: $!&quot;;
+     #
+     while (&lt;INPUT&gt;) {
+         print &quot;Line $.: $_&quot;;
+     }
+</pre>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<samp>$0</samp>
+</p>
+
+<p>
+<em>Name of the program being executed.</em>
+</p>
+
+<p>
+The following code removes directories preceding the program name and stores it
+in a variable called <samp>$prgname</samp>
+</p>
+
+<pre>
+     #
+     (my $prgname) = $0 =~ m#.*/(.+$)#;
+     #
+</pre>
+</li>
+</ol>
+
+<p>
+For more information: <samp>man perlvar</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-sec_37">5.7 Using a named pipe for interprocess communication in <code>Perl</code></h2>
+
+<p>
+A named pipe (or <samp>fifo</samp> file) can be used for interprocess
+communication between a parent process and a child process or children
+processes.  Let's suppose that we forked and launched a couple of child
+processes <a href="#s-sec_35">Basic use of <code>fork</code> to launch a
+program, Section 5.5</a> and we want to check whether each of the child
+processes has finished.  Once the first process finishes we execute the
+<samp>waitpid</samp>.  It is not efficient to directly execute
+<samp>waitpid</samp> because we do not know which of the processes will finish
+first.
+</p>
+
+<p>
+A commented sample of code that manages to do so, launching a couple of child
+processes and waiting for each of them to finish is the following
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     #
+     # named pipe use for ipc example
+     #
+     # by Currix TM
+     #
+     use strict;
+     use warnings;
+     use POSIX qw(mkfifo);
+     #
+     # fifo definition
+     my $FIFOname = &quot;.prgfifo&quot;;
+     unless (-p $FIFOname) { # Create the pipe if it doesn't exist
+         unlink $FIFOname;
+         mkfifo($FIFOname, 0700) or die &quot;mkfifo in the current directory failed: $!&quot;;
+     }
+     #
+     my @pid;
+     #
+     print &quot;This is the parent process before forking with pid $$\n&quot;;
+     #
+     defined ($pid[0]=fork) or die &quot;Cannot fork (1): $!&quot;;
+     #
+     # 
+     unless ($pid[0]) {
+         print &quot;fork1 pid: $pid[0]\n&quot;;
+         print &quot;fork1 ps: $$\n&quot;;
+         sleep 10; # Sleeeeeeeping
+         system &quot;cat /etc/motd&quot;;
+     #   Child process ended. Write process number in the FIFO
+         open (FIFO, &quot;&gt;$FIFOname&quot;) || die &quot;can't write prgfifo: $!&quot;;
+         print FIFO &quot;$$&quot;;
+         sleep 2;    # to avoid dup signals
+         print &quot;Exiting child 1\n&quot;;
+         exit(0) # Remember to cleanly close the child process
+     } else {
+         print &quot;This is the parent process after forking 1 with pid: $pid[0]\n&quot;;
+     }
+     #
+     defined ($pid[1]=fork) or die &quot;Cannot fork (2): $!&quot;; 
+     #
+     unless ($pid[1]) {
+         print &quot;fork2 pid: $pid[1]\n&quot;;
+         print &quot;fork2 ps: $$\n&quot;;
+         sleep 5; # Sleeeeeeeping
+         system &quot;cat /etc/fstab&quot;;
+     #   Child process ended. Write process number in the FIFO
+         open (FIFO, &quot;&gt;$FIFOname&quot;) || die &quot;can't write prgfifo: $!&quot;;
+         print FIFO &quot;$$&quot;;
+         sleep 1;    # to avoid dup signals
+         print &quot;Exiting child 2\n&quot;;
+         exit(0); # Remember to cleanly close the child process
+     } else {
+         print &quot;This is the parent process after forking 2 with pid: $pid[1]\n&quot;;
+     }
+     #
+     print &quot;This are the pids from the parent process after forking: $pid[0], $pid[1]\n&quot;;
+     #
+     my $iprocess = 0;
+     open (FIFO, &quot;&lt;$FIFOname&quot;) || die &quot;can't read prgfifo: $!&quot;;
+     while (1)  {
+         my $kidpid = &lt;FIFO&gt;;
+         if (defined $kidpid) {
+     	print &quot;child process $kidpid ended\n&quot;;
+     	sleep 2; # To avoid dup signals again
+     	waitpid($kidpid, 0);
+     	last if ((++$iprocess) == 2);
+         }
+     } 
+     #
+     print &quot;The two child processes have finished. Closing the parent process.\n&quot;;
+     # 
+     unlink(&quot;$FIFOname&quot;); # Remove the named pipe
+</pre>
+
+<p>
+For more information: <samp>man perlipc</samp> and references below.
+</p>
+
+<hr>
+
+<h3 id="s-ref_perlipc">5.7.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://perldoc.perl.org/perlipc.html">Perldoc website</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_38">5.8 <samp>CperlMode</samp> in <code>Emacs</code></h2>
+
+<p>
+The <samp>CPerlMode</samp> can be set as the standard mode for editing
+<code>Perl</code> adding the following line to the <code>.emacs</code>
+configuration file:
+</p>
+
+<pre>
+     (defalias 'perl-mode 'cperl-mode)
+</pre>
+
+<p>
+To access the documentation about the mode use the <samp>describe-mode</samp>
+function by typing <samp>C-h m</samp> when in <samp>CPerlMode</samp>.  When not
+in <samp>CPerlMode</samp> use <samp>M-x describe-function RET cperl-mode</samp>
+or <samp>C-h f cperl-mode</samp>.
+</p>
+
+<hr>
+
+<h3 id="s-ref_cperlmode">5.8.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://www.emacswiki.org/emacs/CPerlMode">Emacs wiki</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_39">5.9 Using <code>Perl</code> to benchmark code.</h2>
+
+<p>
+The <code>Benchmark</code> module included in the base <code>Perl</code>
+distribution includes a series of procedures to to benchmark running times of
+code.
+</p>
+
+<p>
+Some of the available procedures are the following[<a href="footnotes.html#f10"
+name="fr10">10</a>]
+</p>
+<ul>
+<li>
+<p>
+<samp>timethis</samp>: run a chunk of code several times.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>timethese</samp>: run several chunks of code several times.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>cmpthese</samp>: print results of timethese as a comparison chart (*).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>timeit</samp>: run a chunk of code and see how long it goes (*).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>countit</samp>: see how many times a chunk of code runs in a given time
+(*).
+</p>
+</li>
+</ul>
+
+<p>
+The procedures marked with an asterisk (*) are not included by default and
+should be explicitly loaded.
+</p>
+
+<p>
+Two of the most useful options are <samp>timethese</samp> and
+<samp>cmpthese</samp>.
+</p>
+
+<p>
+The <samp>timethese</samp> procedure runs several chunks of code several times.
+The syntax is
+</p>
+
+<pre>
+     timethese($count, {
+     'Name1' =&gt; sub { ...code1... },
+     'Name2' =&gt; sub { ...code2... },
+     });
+</pre>
+
+<p>
+If the argument <samp>$count</samp> is a positive integer it gives the number
+of times the code is run, a negative intiger indicates the minimum number of
+CPU seconds to run[<a href="footnotes.html#f11" name="fr11">11</a>].  The
+minimum in this case is 0.1 sec.  If <samp>$count</samp> is zero a default
+value of 3 CPU seconds is assumed.
+</p>
+
+<p>
+The output of <samp>timethese</samp> is an object that can be used as an input
+for <samp>cmpthese</samp>.
+</p>
+
+<p>
+We apply this to the following example, comparing different ways of calculating
+the square of a number.
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     use strict;
+     use warnings;
+     use Benchmark qw( timethese cmpthese ) ;
+     my $x = 3.1;
+     my $CNT = -6;
+     my $r = timethese( $CNT, {
+     a =&gt; sub{$x*$x},
+     b =&gt; sub{$x**2},
+     c =&gt; sub{exp(2*log($x))}
+     } );
+     cmpthese $r;
+     $CNT=40_000_000;
+     $r = timethese( $CNT, {
+     a =&gt; sub{$x*$x},
+     b =&gt; sub{$x**2},
+     c =&gt; sub{exp(2*log($x))}
+     } );
+     cmpthese $r;
+</pre>
+
+<p>
+The procedures are run twice, the first with <samp>$count=-6</samp> and the
+second with <samp>$count=40_000_000</samp>.
+</p>
+
+<p>
+In the first case the <samp>timethese</samp> output is the following
+</p>
+
+<pre>
+     Benchmark: running a, b, c for at least 6 CPU seconds...
+        a:  8 wallclock secs ( 7.07 usr +  0.00 sys =  7.07 CPU) @ 17313412.45/s (n=122405826)
+        b:  7 wallclock secs ( 6.13 usr + -0.02 sys =  6.11 CPU) @ 12221032.41/s (n=74670508)
+        c:  6 wallclock secs ( 6.39 usr +  0.00 sys =  6.39 CPU) @ 3914053.68/s (n=25010803)
+</pre>
+
+<p>
+In these case the real (wallclock) time is given, and also the distribution of
+the addition of the time spent by the user and the system to accomplish the CPU
+time goal[<a href="footnotes.html#f12" name="fr12">12</a>].  In case the
+program spawns one or more children processes the <samp>cusr</samp> and
+<samp>csys</samp> times are also given.  The number after the <samp>@</samp>
+symbol is the number of iterations per second and n is the total number of
+iterations.  Thus the larger the better in these two last cases.  The first
+version of the code can be concluded to be more efficient.  This is more easily
+denoted using the <samp>cmpthese</samp> output.  It gives in increasing order
+the number of iterations per second and the percentage of improvement
+(positive) or worsening (negative value) compared to the other options.
+</p>
+
+<pre>
+      
+            Rate    c    b    a
+     c  3914054/s   -- -68% -77%
+     b 12221032/s 212%   -- -29%
+     a 17313412/s 342%  42%   --
+</pre>
+
+<p>
+In this case the codes are ordered starting on the slowest (c in this case),
+giving in Rate the iterations per second and the percentages of comparison of
+the rate with the rate of the other codes under evaluation.
+</p>
+
+<p>
+If the <samp>$count</samp> argument is positive the code is executed the number
+of times indicated by the argument.  If this number is high enough the results
+should coincide with the previously obtained.
+</p>
+
+<pre>
+     enchmark: timing 40000000 iterations of a, b, c...
+        a:  2 wallclock secs ( 1.90 usr + -0.01 sys =  1.89 CPU) @ 21164021.16/s (n=40000000)
+        b:  3 wallclock secs ( 3.25 usr +  0.00 sys =  3.25 CPU) @ 12307692.31/s (n=40000000)
+        c: 10 wallclock secs (10.16 usr +  0.00 sys = 10.16 CPU) @ 3937007.87/s (n=40000000)
+             Rate    c    b    a
+     c  3937008/s   -- -68% -81%
+     b 12307692/s 213%   -- -42%
+     a 21164021/s 438%  72%   --
+</pre>
+
+<p>
+The output will vary even for the same box, and several runnings are sometimes
+necessary to get a final answer.  Also the output vary from box to box.  If the
+same code is run in a different computer we obtain
+</p>
+
+<pre>
+     
+     Benchmark: running a, b, c for at least 6 CPU seconds...
+        a:  7 wallclock secs ( 6.18 usr +  0.00 sys =  6.18 CPU) @ 19332920.23/s (n=119477447)
+        b:  7 wallclock secs ( 7.25 usr +  0.00 sys =  7.25 CPU) @ 10521698.76/s (n=76282316)
+        c:  8 wallclock secs ( 6.96 usr +  0.00 sys =  6.96 CPU) @ 4018543.53/s (n=27969063)
+             Rate    c    b    a
+     c  4018544/s   -- -62% -79%
+     b 10521699/s 162%   -- -46%
+     a 19332920/s 381%  84%   --
+     Benchmark: timing 40000000 iterations of a, b, c...
+        a:  2 wallclock secs ( 0.77 usr +  0.00 sys =  0.77 CPU) @ 51948051.95/s (n=40000000)
+        b:  2 wallclock secs ( 2.40 usr +  0.00 sys =  2.40 CPU) @ 16666666.67/s (n=40000000)
+        c:  9 wallclock secs ( 9.40 usr +  0.00 sys =  9.40 CPU) @ 4255319.15/s (n=40000000)
+             Rate     c     b     a
+     c  4255319/s    --  -74%  -92%
+     b 16666667/s  292%    --  -68%
+     a 51948052/s 1121%  212%    --
+</pre>
+
+<hr>
+
+<h3 id="s-ref_benchmark">5.9.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a href="http://perldoc.perl.org/Benchmark.html">Perldoc Benchmarc
+Entry</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://www.techrepublic.com/article/benchmarking-perl-scripts-with-benchmarkpm/5278558">Benchmarking
+in techrepublic</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+<code><a href="http://en.wikipedia.org/wiki/Process_time">Process
+time</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_perlrecdir">5.10 Accessing recursively files and directories in <code>Perl</code></h2>
+
+<p>
+Added on November 22nd, 2012.
+</p>
+
+<p>
+The easiest way in <code>Perl</code> to access files and directories
+recursively is making use of the <samp>File::Find</samp> module.  For example
+let's assume that we want to, recursively, change the permissions of a given
+directory contents in such a way that files have <samp>rw-r----</samp>
+permision and directories <samp>rwxr-x--</samp>.
+</p>
+
+<p>
+We can do this with the following script, than makes use of the
+<samp>File::Find</samp> module.
+</p>
+
+<pre>
+     #!/usr/bin/perl
+     #
+     # script to process recursively a directory.
+     # by Currix TM.
+     use strict;
+     use warnings;
+     #
+     use File::Find;
+     #
+     sub process_files {
+       my $permission_dir = 0750;
+       my $permission_file = 0740;
+       if (-d $_) {
+         #print &quot;processing dir $_\n&quot;;
+         chmod $permission_dir, $_;
+       } elsif (-f $_) {
+         #print &quot;\tprocessing file $_\n&quot;;
+         chmod $permission_file, $_;
+       }
+     }
+     @ARGV = qw(.) unless @ARGV;
+     find(\&amp;process_files, @ARGV);
+</pre>
+
+<p>
+Notice that the <samp>chmod</samp> function in <code>Perl</code> needs that the
+permission are expressed in octal values.  Note also de lack of apostrophes in
+the permisision variables definition.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-cap_emacs.html">previous</a> ]
+[ <a href="index.html#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ 5 ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_python.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Some Mini-Howtos of Interest
+</p>
+
+<address>
+Version $Revision: 1.90 $ ($Date: 2015/03/13 13:20:02 $)<br>
+<br>
+Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

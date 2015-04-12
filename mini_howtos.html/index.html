@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+
+<title>Some Mini-Howtos of Interest</title>
+
+<link href="index.html" rel="start">
+<link href="ch-cap_Trans.html" rel="prev">
+<link href="ch-cap_0.html" rel="next">
+<link href="index.html#contents" rel="contents">
+<link href="index.html#copyright" rel="copyright">
+<link href="ch-cap_0.html" rel="chapter" title="1 Basic Administration">
+<link href="ch-cap_1.html" rel="chapter" title="2 Network and Navigators">
+<link href="ch-cap_2.html" rel="chapter" title="3 The ssh application">
+<link href="ch-cap_emacs.html" rel="chapter" title="4 Emacs text editor">
+<link href="ch-cap_3.html" rel="chapter" title="5 Perl Language">
+<link href="ch-cap_python.html" rel="chapter" title="6 Python Tips and Templates">
+<link href="ch-cap_4.html" rel="chapter" title="7 Text Processing and Formatting">
+<link href="ch-cap_5.html" rel="chapter" title="8 Graphic Edition">
+<link href="ch-cap_6.html" rel="chapter" title="9 Miscelanea">
+<link href="ch-cap_Trans.html" rel="chapter" title="10 Translations of this document">
+<link href="ch-cap_0.html#s-sec_01" rel="section" title="1.1 Reinstalling a wiped out GRUB">
+<link href="ch-cap_0.html#s-sec_02" rel="section" title="1.2 Problem with journalizing">
+<link href="ch-cap_0.html#s-sec_02_2" rel="section" title="1.3 Labels in ext2 and ext3 units">
+<link href="ch-cap_0.html#s-sec_03" rel="section" title="1.4 Open a xconsole as normal user">
+<link href="ch-cap_0.html#s-sec_04" rel="section" title="1.5 Resetting the root password">
+<link href="ch-cap_0.html#s-sec_05" rel="section" title="1.6 Configure exim to use SMTP-TLS">
+<link href="ch-cap_0.html#s-sec_06" rel="section" title="1.7 Compile and install the LAPACK95 interface driver routine.">
+<link href="ch-cap_0.html#s-sec_07" rel="section" title="1.8 Compile and link statically with NAG and LAPACK">
+<link href="ch-cap_0.html#s-sec_08" rel="section" title="1.9 Copying CUPS configuration from one server to another">
+<link href="ch-cap_0.html#s-sec_09" rel="section" title="1.10 Mapping network interfaces to a fixed name.">
+<link href="ch-cap_0.html#s-sec_010" rel="section" title="1.11 Using labels to mount disk partitions">
+<link href="ch-cap_0.html#s-sec_011" rel="section" title="1.12 Using find and xargs">
+<link href="ch-cap_0.html#s-sec_012" rel="section" title="1.13 Preparing a USB bootable Linux installation device (Fast way).">
+<link href="ch-cap_0.html#s-sec_012b" rel="section" title="1.14 Preparing a USB bootable Debian installation device.">
+<link href="ch-cap_0.html#s-sec_013" rel="section" title="1.15 Upgrading Flashplayer in Debian Lenny using backports.">
+<link href="ch-cap_0.html#s-sec_014" rel="section" title="1.16 Passive network exploration with p0f.">
+<link href="ch-cap_0.html#s-sec_015" rel="section" title="1.17 Preparing a bootable flashdisk with Billix.">
+<link href="ch-cap_0.html#s-sec_016" rel="section" title="1.18 Recovering a console that is unusable.">
+<link href="ch-cap_0.html#s-sec_017" rel="section" title="1.19 Simple configuration of sudo">
+<link href="ch-cap_0.html#s-sec_018" rel="section" title="1.20 Check the groups to which a user belongs.">
+<link href="ch-cap_0.html#s-sec_019" rel="section" title="1.21 Check the available system locale options and establish a default one.">
+<link href="ch-cap_0.html#s-sec_020" rel="section" title="1.22 Change the encoding of given files.">
+<link href="ch-cap_0.html#s-sec_021" rel="section" title="1.23 Problem with the wireless and nm">
+<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating a Debian box from Lenny to Squeeze">
+<link href="ch-cap_0.html#s-sec_023" rel="section" title="1.25 Error in file /var/lib/dpkg/status">
+<link href="ch-cap_0.html#s-sec_024" rel="section" title="1.26 How to record terminal sessions using ttyrec">
+<link href="ch-cap_0.html#s-sec_025" rel="section" title="1.27 Using Bash to count the number of files in a directory">
+<link href="ch-cap_0.html#s-sec_026" rel="section" title="1.28 Getting detailed information about your hardware">
+<link href="ch-cap_0.html#s-sec_027" rel="section" title="1.29 Adding your servers load to the screen hardstatus line">
+<link href="ch-cap_0.html#s-sec_028" rel="section" title="1.30 Making a backup of a Gmail account.">
+<link href="ch-cap_0.html#s-sec_errred" rel="section" title="1.31 Redirecting STDERR to SDTOUT">
+<link href="ch-cap_0.html#s-sec_extrdeb" rel="section" title="1.32 Listing and extracting files from a deb package file.">
+<link href="ch-cap_0.html#s-sec_script" rel="section" title="1.33 Using script to keep terminal output records.">
+<link href="ch-cap_0.html#s-sec_modcompopt" rel="section" title="1.34 Checking actual kernel compiling options.">
+<link href="ch-cap_0.html#s-sec_parted" rel="section" title="1.35 Formatting HD partitions larger than 2 TB">
+<link href="ch-cap_0.html#s-sec_new_part" rel="section" title="1.36 Adding a partition to fstab by UUID">
+<link href="ch-cap_0.html#s-sec_error_eject" rel="section" title="1.37 Error ejecting a CD">
+<link href="ch-cap_1.html#s-sec_11" rel="section" title="2.1 Running multiple firefox instances">
+<link href="ch-cap_1.html#s-sec_12" rel="section" title="2.2 Electronic signature with iceweasel">
+<link href="ch-cap_1.html#s-sec_13" rel="section" title="2.3 Some tips to access the web using the console">
+<link href="ch-cap_1.html#s-sec_14" rel="section" title="2.4 Make files in a directory downloadable from a web server">
+<link href="ch-cap_2.html#s-sec_21" rel="section" title="3.1 Removing a known_hosts entry">
+<link href="ch-cap_2.html#s-sec_22" rel="section" title="3.2 Generating a key pair and exporting to a remote host">
+<link href="ch-cap_2.html#s-sec_23" rel="section" title="3.3 Launching with ssh programs that require a terminal">
+<link href="ch-cap_2.html#s-sec_24" rel="section" title="3.4 Tunneling with ssh">
+<link href="ch-cap_2.html#s-sec_tarssh" rel="section" title="3.5 Using ssh to make a tarball directly in a remote folder">
+<link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
+<link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
+<link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
+<link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
+<link href="ch-cap_3.html#s-sec_34" rel="section" title="5.4 Extracting matches from a regular expressions">
+<link href="ch-cap_3.html#s-sec_35" rel="section" title="5.5 Basic use of fork to launch a program">
+<link href="ch-cap_3.html#s-sec_36" rel="section" title="5.6 Perl predefined variables. Some examples.">
+<link href="ch-cap_3.html#s-sec_37" rel="section" title="5.7 Using a named pipe for interprocess communication in Perl">
+<link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
+<link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
+<link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.1 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.2 Creating a vector of random data">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.3 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.4 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
+<link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
+<link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
+<link href="ch-cap_4.html#s-sec_43" rel="section" title="7.4 Include bibliographical info in each chapter using LaTeX">
+<link href="ch-cap_4.html#s-sec_44" rel="section" title="7.5 Comment paragraphs in LaTeX">
+<link href="ch-cap_4.html#s-sec_45" rel="section" title="7.6 Installing appropriately a LaTeX package or style.">
+<link href="ch-cap_4.html#s-sec_46" rel="section" title="7.7 Change the selected language in DebianDoc files">
+<link href="ch-cap_4.html#s-sec_47" rel="section" title="7.8 Avoid Page %d may be too complex to print errors.">
+<link href="ch-cap_4.html#s-sec_49" rel="section" title="7.9 Diverse LaTeX lists">
+<link href="ch-cap_4.html#s-sec_410" rel="section" title="7.10 Use Unicode encoding in LaTeX">
+<link href="ch-cap_4.html#s-sec_latexcolor" rel="section" title="7.11 Use color in LaTeX">
+<link href="ch-cap_4.html#s-sec_fullpage" rel="section" title="7.12 Easy way of defining smaller margins in LaTeX">
+<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.13 Using the same footnote mark in LaTeX">
+<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.14 Using the euro symbol in LaTeX">
+<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.15 Changing pages to landscape orientation in LaTeX texts">
+<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.16 Including single column figures or tables in a double column LaTeX document">
+<link href="ch-cap_5.html#s-sec_51" rel="section" title="8.1 Include greek characters in inkscape">
+<link href="ch-cap_5.html#s-sec_52" rel="section" title="8.2 Include greek characters in Gimp">
+<link href="ch-cap_5.html#s-sec_53" rel="section" title="8.3 Change the text baseline in inkscape">
+<link href="ch-cap_5.html#s-sec_54" rel="section" title="8.4 Use ImageMagick to transform graphic files">
+<link href="ch-cap_5.html#s-sec_55" rel="section" title="8.5 Enhancing colors and resolution in Gimp">
+<link href="ch-cap_5.html#s-sec_56" rel="section" title="8.6 Remove the background of an image in Gimp">
+<link href="ch-cap_5.html#s-sec_57" rel="section" title="8.7 Take a screenshot using Gimp">
+<link href="ch-cap_5.html#s-sec_markersink" rel="section" title="8.8 Change the color of markers in inkscape">
+<link href="ch-cap_6.html#s-sec_61" rel="section" title="9.1 Compute the average from the results of Moodle test grading">
+<link href="ch-cap_6.html#s-sec_62" rel="section" title="9.2 Splitting in two lines a cell content in Openoffice/simpress">
+<link href="ch-cap_6.html#s-sec_63" rel="section" title="9.3 Solving BADSIG errors in UBUNTU (Oneiric Ocelot)">
+<link href="ch-cap_0.html#s-sec_0101" rel="subsection" title="1.1.1 Grub2 case.">
+<link href="ch-cap_0.html#s-sec_0102" rel="subsection" title="1.1.2 Old Grub case.">
+<link href="ch-cap_0.html#s-ref_wipedgrub" rel="subsection" title="1.1.3 References">
+<link href="ch-cap_0.html#s-ref_rootpasswd" rel="subsection" title="1.5.1 References">
+<link href="ch-cap_0.html#s-ref_exim" rel="subsection" title="1.6.1 References">
+<link href="ch-cap_0.html#s-make_inc_77" rel="subsection" title="1.7.1 make.inc for LAPACK compilation">
+<link href="ch-cap_0.html#s-make_inc_95" rel="subsection" title="1.7.2 make.inc for LAPACK95 compilation">
+<link href="ch-cap_0.html#s-sec_prg_example" rel="subsection" title="1.7.3 Example of program using LAPACK95">
+<link href="ch-cap_0.html#s-sec_makefile_example" rel="subsection" title="1.7.4 makefile for compiling programs with calls to LAPACK95">
+<link href="ch-cap_0.html#s-ref_cupscopy" rel="subsection" title="1.9.1 References">
+<link href="ch-cap_0.html#s-ref_xargs" rel="subsection" title="1.12.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot1" rel="subsection" title="1.13.1 References">
+<link href="ch-cap_0.html#s-ref_usbboot" rel="subsection" title="1.14.1 References">
+<link href="ch-cap_0.html#s-ref_flashplayer" rel="subsection" title="1.15.1 References">
+<link href="ch-cap_0.html#s-ref_billix" rel="subsection" title="1.17.1 References">
+<link href="ch-cap_0.html#s-ref_ttyrec" rel="subsection" title="1.26.1 References">
+<link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
+<link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
+<link href="ch-cap_0.html#s-ref_parted" rel="subsection" title="1.35.1 References">
+<link href="ch-cap_1.html#s-ref_webconso" rel="subsection" title="2.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
+<link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
+<link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
+<link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
+<link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
+<link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
+<link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
+<link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
+<link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
+<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.13.1 References">
+<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.15.1 References">
+<link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
+<link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
+
+</head>
+
+<body>
+
+<p><a name="index"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-cap_Trans.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_0.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Some Mini-Howtos of Interest
+<br></h1>
+
+<hr>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>
+A little collection of Mini-Howtos for GNU/Linux systems trying to help solving
+everyday problems I have found in different aspects, from system administration
+to basic graphic edition or text processing.  The howtos were prepared having
+Debian systems in mind, but they should be useful for other GNU/Linux systems
+as well.  Translations of all or part of this document to <code><a
+href="http://www.autoteiledirekt.de/science/certains-mini-howtos-dinteret">French</a></code>
+(by Kate Bondareva) is also available online.
+</p>
+
+<hr>
+
+<h2 id="copyright">Copyright Notice</h2>
+
+<p>
+Copyright 2013 by Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code>
+</p>
+
+<p>
+<code><a href="http://www.gnu.org/licenses/fdl-1.3.html">This document may be
+used under the terms of the GNU Free Documentation License version 1.3 or
+higher.</a></code>
+</p>
+
+<hr>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+<li><a href="ch-cap_0.html">1 Basic Administration</a>
+  <ul>
+  <li><a href="ch-cap_0.html#s-sec_01">1.1 Reinstalling a wiped out <code>GRUB</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_02">1.2 Problem with journalizing</a></li>
+  <li><a href="ch-cap_0.html#s-sec_02_2">1.3 Labels in <samp>ext2</samp> and <samp>ext3</samp> units</a></li>
+  <li><a href="ch-cap_0.html#s-sec_03">1.4 Open a <code>xconsole</code> as normal user</a></li>
+  <li><a href="ch-cap_0.html#s-sec_04">1.5 Resetting the <samp>root</samp> password</a></li>
+  <li><a href="ch-cap_0.html#s-sec_05">1.6 Configure <code>exim</code> to use <code>SMTP-TLS</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_06">1.7 Compile and install the <code>LAPACK95</code> interface driver routine.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_07">1.8 Compile and link statically with <code>NAG</code> and <code>LAPACK</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_08">1.9 Copying <code>CUPS</code> configuration from one server to another</a></li>
+  <li><a href="ch-cap_0.html#s-sec_09">1.10 Mapping network interfaces to a fixed name.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_010">1.11 Using labels to mount disk partitions</a></li>
+  <li><a href="ch-cap_0.html#s-sec_011">1.12 Using <code>find</code> and <code>xargs</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_012">1.13 Preparing a USB bootable <code>Linux</code> installation device (Fast way).</a></li>
+  <li><a href="ch-cap_0.html#s-sec_012b">1.14 Preparing a USB bootable <code>Debian</code> installation device.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_013">1.15 Upgrading <code>Flashplayer</code> in <code>Debian Lenny</code> using <em>backports</em>.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_014">1.16 Passive network exploration with <code>p0f</code>.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_015">1.17 Preparing a bootable flashdisk with <code>Billix</code>.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_016">1.18 Recovering a console that is unusable.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_017">1.19 Simple configuration of <code>sudo</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_018">1.20 Check the groups to which a user belongs.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_019">1.21 Check the available system <samp>locale</samp> options and establish a default one.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_020">1.22 Change the encoding of given files.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_021">1.23 Problem with the wireless and <samp>nm</samp></a></li>
+  <li><a href="ch-cap_0.html#s-sec_022">1.24 Updating a <code>Debian</code> box from <code>Lenny</code> to <code>Squeeze</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_023">1.25 Error in file <code>/var/lib/dpkg/status</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_024">1.26 How to record terminal sessions using <code>ttyrec</code></a></li>
+  <li><a href="ch-cap_0.html#s-sec_025">1.27 Using <code>Bash</code> to count the number of files in a directory</a></li>
+  <li><a href="ch-cap_0.html#s-sec_026">1.28 Getting detailed information about your hardware</a></li>
+  <li><a href="ch-cap_0.html#s-sec_027">1.29 Adding your servers load to the <code>screen</code> hardstatus line</a></li>
+  <li><a href="ch-cap_0.html#s-sec_028">1.30 Making a backup of a <code>Gmail</code> account.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_errred">1.31 Redirecting <samp>STDERR</samp> to <samp>SDTOUT</samp></a></li>
+  <li><a href="ch-cap_0.html#s-sec_extrdeb">1.32 Listing and extracting files from a <samp>deb</samp> package file.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_script">1.33 Using <samp>script</samp> to keep terminal output records.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_modcompopt">1.34 Checking actual kernel compiling options.</a></li>
+  <li><a href="ch-cap_0.html#s-sec_parted">1.35 Formatting HD partitions larger than 2 TB</a></li>
+  <li><a href="ch-cap_0.html#s-sec_new_part">1.36 Adding a partition to <code>fstab</code> by <samp>UUID</samp></a></li>
+  <li><a href="ch-cap_0.html#s-sec_error_eject">1.37 Error ejecting a CD</a>
+  </ul></li>
+<li><a href="ch-cap_1.html">2 Network and Navigators</a>
+  <ul>
+  <li><a href="ch-cap_1.html#s-sec_11">2.1 Running multiple <code>firefox</code> instances</a></li>
+  <li><a href="ch-cap_1.html#s-sec_12">2.2 Electronic signature with <code>iceweasel</code></a></li>
+  <li><a href="ch-cap_1.html#s-sec_13">2.3 Some tips to access the web using the console</a></li>
+  <li><a href="ch-cap_1.html#s-sec_14">2.4 Make files in a directory downloadable from a web server</a>
+  </ul></li>
+<li><a href="ch-cap_2.html">3 The <code>ssh</code> application</a>
+  <ul>
+  <li><a href="ch-cap_2.html#s-sec_21">3.1 Removing a <samp>known_hosts</samp> entry</a></li>
+  <li><a href="ch-cap_2.html#s-sec_22">3.2 Generating a key pair and exporting to a remote host</a></li>
+  <li><a href="ch-cap_2.html#s-sec_23">3.3 Launching with <code>ssh</code> programs that require a terminal</a></li>
+  <li><a href="ch-cap_2.html#s-sec_24">3.4 Tunneling with <code>ssh</code></a></li>
+  <li><a href="ch-cap_2.html#s-sec_tarssh">3.5 Using <code>ssh</code> to make a tarball directly in a remote folder</a>
+  </ul></li>
+<li><a href="ch-cap_emacs.html">4 <code>Emacs</code> text editor</a>
+  <ul>
+  <li><a href="ch-cap_emacs.html#s-sec_emacs1">4.1 <code>Emacs</code> macros</a></li>
+  <li><a href="ch-cap_emacs.html#s-sec_emacs2">4.2 Changing the default system's text editor to <code>Emacs</code></a>
+  </ul></li>
+<li><a href="ch-cap_3.html">5 Perl Language</a>
+  <ul>
+  <li><a href="ch-cap_3.html#s-sec_31">5.1 Installing a <samp>CPAN</samp> module</a></li>
+  <li><a href="ch-cap_3.html#s-sec_32">5.2 Interesting perl oneliners</a></li>
+  <li><a href="ch-cap_3.html#s-sec_33">5.3 Environment Codification and Character Ordering</a></li>
+  <li><a href="ch-cap_3.html#s-sec_34">5.4 Extracting matches from a regular expressions</a></li>
+  <li><a href="ch-cap_3.html#s-sec_35">5.5 Basic use of <code>fork</code> to launch a program</a></li>
+  <li><a href="ch-cap_3.html#s-sec_36">5.6 <code>Perl</code> predefined variables. Some examples.</a></li>
+  <li><a href="ch-cap_3.html#s-sec_37">5.7 Using a named pipe for interprocess communication in <code>Perl</code></a></li>
+  <li><a href="ch-cap_3.html#s-sec_38">5.8 <samp>CperlMode</samp> in <code>Emacs</code></a></li>
+  <li><a href="ch-cap_3.html#s-sec_39">5.9 Using <code>Perl</code> to benchmark code.</a></li>
+  <li><a href="ch-cap_3.html#s-sec_perlrecdir">5.10 Accessing recursively files and directories in <code>Perl</code></a>
+  </ul></li>
+<li><a href="ch-cap_python.html">6 Python Tips and Templates</a>
+  <ul>
+  <li><a href="ch-cap_python.html#s-sec_python_maxindex">6.1 Getting the maximum component of a vector and its index in <code>numpy</code></a></li>
+  <li><a href="ch-cap_python.html#s-sec_python_random">6.2 Creating a vector of random data</a></li>
+  <li><a href="ch-cap_python.html#s-sec_mplotlib_1">6.3 Creating a panel array of plots with <code>Matplotlib</code></a></li>
+  <li><a href="ch-cap_python.html#s-sec_mplotlib_2">6.4 Creating a panel array of plots with common axes using <code>Matplotlib</code></a>
+  </ul></li>
+<li><a href="ch-cap_4.html">7 Text Processing and Formatting</a>
+  <ul>
+  <li><a href="ch-cap_4.html#s-sec_411">7.1 <code>pdftk</code> application examples</a></li>
+  <li><a href="ch-cap_4.html#s-sec_41">7.2 Merge two <samp>PostScript</samp> or <samp>PDF</samp> files</a></li>
+  <li><a href="ch-cap_4.html#s-sec_42">7.3 Include <em>et al.</em> in <code>bibtex</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_43">7.4 Include bibliographical info in each chapter using <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_44">7.5 Comment paragraphs in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_45">7.6 Installing appropriately a <code>LaTeX</code> package or style.</a></li>
+  <li><a href="ch-cap_4.html#s-sec_46">7.7 Change the selected language in <code>DebianDoc</code> files</a></li>
+  <li><a href="ch-cap_4.html#s-sec_47">7.8 Avoid <samp>Page %d may be too complex to print</samp> errors.</a></li>
+  <li><a href="ch-cap_4.html#s-sec_49">7.9 Diverse <code>LaTeX</code> lists</a></li>
+  <li><a href="ch-cap_4.html#s-sec_410">7.10 Use <samp>Unicode</samp> encoding in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_latexcolor">7.11 Use color in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_fullpage">7.12 Easy way of defining smaller margins in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_sevfootn">7.13 Using the same footnote mark in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_eurosym">7.14 Using the euro symbol in <code>LaTeX</code></a></li>
+  <li><a href="ch-cap_4.html#s-sec_landscape">7.15 Changing pages to landscape orientation in <code>LaTeX</code> texts</a></li>
+  <li><a href="ch-cap_4.html#s-sec_singledouble">7.16 Including single column figures or tables in a double column <code>LaTeX</code> document</a>
+  </ul></li>
+<li><a href="ch-cap_5.html">8 Graphic Edition</a>
+  <ul>
+  <li><a href="ch-cap_5.html#s-sec_51">8.1 Include greek characters in <code>inkscape</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_52">8.2 Include greek characters in <code>Gimp</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_53">8.3 Change the text baseline in <code>inkscape</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_54">8.4 Use <code>ImageMagick</code> to transform graphic files</a></li>
+  <li><a href="ch-cap_5.html#s-sec_55">8.5 Enhancing colors and resolution in <code>Gimp</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_56">8.6 Remove the background of an image in <code>Gimp</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_57">8.7 Take a screenshot using <code>Gimp</code></a></li>
+  <li><a href="ch-cap_5.html#s-sec_markersink">8.8 Change the color of markers in <code>inkscape</code></a>
+  </ul></li>
+<li><a href="ch-cap_6.html">9 Miscelanea</a>
+  <ul>
+  <li><a href="ch-cap_6.html#s-sec_61">9.1 Compute the average from the results of <code>Moodle</code> test grading</a></li>
+  <li><a href="ch-cap_6.html#s-sec_62">9.2 Splitting in two lines a cell content in <code>Openoffice/simpress</code></a></li>
+  <li><a href="ch-cap_6.html#s-sec_63">9.3 Solving <samp>BADSIG</samp> errors in <code>UBUNTU (Oneiric Ocelot)</code></a>
+  </ul></li>
+<li><a href="ch-cap_Trans.html">10 Translations of this document</a></li>
+</ul>
+
+<hr>
+
+<p>
+[ <a href="ch-cap_Trans.html">previous</a> ]
+[ <a href="#contents">Contents</a> ]
+[ <a href="ch-cap_0.html">1</a> ]
+[ <a href="ch-cap_1.html">2</a> ]
+[ <a href="ch-cap_2.html">3</a> ]
+[ <a href="ch-cap_emacs.html">4</a> ]
+[ <a href="ch-cap_3.html">5</a> ]
+[ <a href="ch-cap_python.html">6</a> ]
+[ <a href="ch-cap_4.html">7</a> ]
+[ <a href="ch-cap_5.html">8</a> ]
+[ <a href="ch-cap_6.html">9</a> ]
+[ <a href="ch-cap_Trans.html">10</a> ]
+[ <a href="ch-cap_0.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Some Mini-Howtos of Interest
+</p>
+
+<address>
+Version $Revision: 1.90 $ ($Date: 2015/03/13 13:20:02 $)<br>
+<br>
+Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

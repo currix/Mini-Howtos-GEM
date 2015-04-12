@@ -1,0 +1,7 @@
+# Created by Currix
+*~
+*.tex,v
+*.aux
+*.tpt
+*.dvi
+*.out
