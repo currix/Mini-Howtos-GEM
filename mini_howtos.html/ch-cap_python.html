@@ -81,10 +81,11 @@
 <link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
 <link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
 <link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
-<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.1 Getting the maximum component of a vector and its index in numpy">
-<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.2 Creating a vector of random data">
-<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.3 Creating a panel array of plots with Matplotlib">
-<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.4 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.1 Creating a vector of random data">
+<link href="ch-cap_python.html#s-sec_python_iterval" rel="section" title="6.2 Creating a loop iterating on a list and the list index">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.3 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.4 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.5 Creating a panel array of plots with common axes using Matplotlib">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -181,35 +182,7 @@ Some Mini-Howtos of Interest
 
 <hr>
 
-<h2 id="s-sec_python_maxindex">6.1 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
-
-<p>
-Created on April 12th, 2015.
-</p>
-
-<p>
-The following snippet of <code>Ipython</code> code computes a vector, called
-<var>vectorn</var>, with 200 elements of uniformly distributed random data in
-the interval $[0,1)$.
-</p>
-
-<pre>
-     import numpy as np
-     
-     vectoru = np.random.rand(200)
-     
-     max_val, max_index = vectoru.max(), vectoru.argmax()
-     
-     max_val
-     Out[87]: 0.99652709220203461
-     
-     max_index
-     Out[88]: 117
-</pre>
-
-<hr>
-
-<h2 id="s-sec_python_random">6.2 Creating a vector of random data</h2>
+<h2><a name="s-sec_python_random"></a>6.1 Creating a vector of random data</h2>
 
 <p>
 Created on April 12th, 2015.
@@ -233,7 +206,69 @@ The following snippet of <code>Ipython</code> code computes a vector, called
 
 <hr>
 
-<h2 id="s-sec_mplotlib_1">6.3 Creating a panel array of plots with <code>Matplotlib</code></h2>
+<h2><a name="s-sec_python_iterval"></a>6.2 Creating a loop iterating on a list and the list index</h2>
+
+<p>
+Created on April 16th, 2015.
+</p>
+
+<p>
+The following snippet of <code>Ipython</code> code uses as a starting point a a
+vector, called <var>vn</var>, with 10 elements of uniformly distributed random
+data in the interval $[0,1)$ and in a loop, using as iterator a pair
+<var>index, value</var>, we build a symmetric matrix <var>A</var> such that
+<var>A_ij = vn_i*vn_j</var>.
+</p>
+
+<pre>
+     import numpy as np
+     ##
+     vn = np.random.rand(20)
+     ##
+     A_matrix = np.zeros((20,20))
+     ##
+     for i, ival in enumerate(vn):
+         for j, jval in enumerate(vn):
+             A_matrix[i,j] = ival*jval
+</pre>
+
+<p>
+It can be easily optimized not computing the full matrix but the upper or lower
+diagonal and adding to its transpose (beware of double counting diagonal
+elements).
+</p>
+
+<hr>
+
+<h2><a name="s-sec_python_maxindex"></a>6.3 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
+
+<p>
+Created on April 12th, 2015.
+</p>
+
+<p>
+The following snippet of <code>Ipython</code> code computes a vector, called
+<var>vectorn</var>, with 200 elements of uniformly distributed random data in
+the interval $[0,1)$.
+</p>
+
+<pre>
+     import numpy as np
+     
+     vectorn = np.random.rand(200)
+     
+     max_val, max_index = vectoru.max(), vectoru.argmax()
+     
+     max_val
+     Out[87]: 0.99652709220203461
+     
+     max_index
+     Out[88]: 117
+</pre>
+
+<hr>
+
+<h2><a name="s-sec_mplotlib_1"></a>6.4 Creating a panel array of plots with <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -242,7 +277,7 @@ Created on April 12th, 2015.
 <p>
 The following snippet of code uses a vector of length 200 with random normally
 distributed data (see <a href="#s-sec_python_random">Creating a vector of
-random data, Section 6.2</a>) and plot in four panels the data, their
+random data, Section 6.1</a>) and plot in four panels the data, their
 cumulative sum, a histogram with the data, and the sum of the data to a
 quadratic function.
 </p>
@@ -281,7 +316,7 @@ quadratic function.
 
 <hr>
 
-<h2 id="s-sec_mplotlib_2">6.4 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_2"></a>6.5 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -290,7 +325,7 @@ Created on April 12th, 2015.
 <p>
 The following snippet of code add different vectors of length 200 with random
 normally distributed data (see <a href="#s-sec_python_random">Creating a vector
-of random data, Section 6.2</a>) to a parabollic function (mimicking
+of random data, Section 6.1</a>) to a parabollic function (mimicking
 experimental errors in a object free fall) and plot the results in four panels,
 with common abscyssa and ordinate axes, and controlling the spacing between the
 panels.
@@ -356,7 +391,7 @@ Some Mini-Howtos of Interest
 <address>
 Version $Revision: 1.90 $ ($Date: 2015/03/13 13:20:02 $)<br>
 <br>
-Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">mailto:francisco.perez@dfaie.uhu.es</a></code><br>
+Curro Perez-Bernal <code><a href="mailto:francisco.perez@dfaie.uhu.es">francisco.perez@dfaie.uhu.es</a></code><br>
 <br>
 </address>
 <hr>
