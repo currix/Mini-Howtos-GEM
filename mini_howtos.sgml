@@ -4082,6 +4082,33 @@ for i, ival in enumerate(vn):
 It can be easily optimized not computing the full matrix but the upper or lower diagonal and adding to its transpose (beware of double counting diagonal elements).
 </sect>
 
+<sect id="sec_python_addframecol"><heading>Adding a column to a  <prgn>Pandas</prgn> dataframe</heading> 
+<p>
+Created on April 21st, 2015.
+<p>
+If we have a <prgn>Pandas</prgn> dataframe for example, the following
+one, called <tt>df0</tt>
+<p>
+<example>
+import numpy as np
+import pandas as pd
+
+vectorn = np.random.rand(20)
+df0 = pd.DataFrame(data=vectorn, columns = ["s0"])
+
+</example>
+<p>
+We can now add a second column of random data using the <tt>pd.Series</tt> command;
+the column is labeled <tt>s1</tt>
+<p>
+<example>
+vectors = np.random.rand(20)
+df0["s1"] = Series(data=vectors, index = index.df0)
+
+</example>
+
+</sect>
+
 <sect id="sec_python_maxindex"><heading>Getting the maximum component of a vector and its index in <prgn>numpy</prgn> </heading> 
 <p>
 Created on April 12th, 2015.

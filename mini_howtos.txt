@@ -114,10 +114,11 @@ Contents
      6.        Python Tips and Templates
      6.1.      Creating a vector of random data
      6.2.      Creating a loop iterating on a list and the list index
-     6.3.      Getting the maximum component of a vector and its index in
+     6.3.      Adding a column to a `Pandas' dataframe
+     6.4.      Getting the maximum component of a vector and its index in
                `numpy'
-     6.4.      Creating a panel array of plots with `Matplotlib'
-     6.5.      Creating a panel array of plots with common axes using
+     6.5.      Creating a panel array of plots with `Matplotlib'
+     6.6.      Creating a panel array of plots with common axes using
                `Matplotlib'
 
      7.        Text Processing and Formatting
@@ -3532,7 +3533,28 @@ vectorn = np.random.randn(200)
      counting diagonal elements).
 
 
-6.3. Getting the maximum component of a vector and its index in `numpy'
+6.3. Adding a column to a `Pandas' dataframe
+--------------------------------------------
+
+     Created on April 21st, 2015.
+
+     If we have a `Pandas' dataframe for example, the following one, called
+     `df0'
+
+          import numpy as np
+          import pandas as pd
+          
+          vectorn = np.random.rand(20)
+          df0 = pd.DataFrame(data=vectorn, columns = ["s0"])
+
+     We can now add a second column of random data using the `pd.Series'
+     command; the column is labeled `s1'
+
+          vectors = np.random.rand(20)
+          df0["s1"] = Series(data=vectors, index = index.df0)
+
+
+6.4. Getting the maximum component of a vector and its index in `numpy'
 -----------------------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -3554,7 +3576,7 @@ vectorn = np.random.randn(200)
           Out[88]: 117
 
 
-6.4. Creating a panel array of plots with `Matplotlib'
+6.5. Creating a panel array of plots with `Matplotlib'
 ------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -3596,7 +3618,7 @@ Out[39]: <matplotlib.collections.PathCollection at 0x7f827aedae90>
 pyplot.show()
 
 
-6.5. Creating a panel array of plots with common axes using `Matplotlib'
+6.6. Creating a panel array of plots with common axes using `Matplotlib'
 ------------------------------------------------------------------------
 
      Created on April 12th, 2015.

@@ -83,9 +83,10 @@
 <link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
 <link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.1 Creating a vector of random data">
 <link href="ch-cap_python.html#s-sec_python_iterval" rel="section" title="6.2 Creating a loop iterating on a list and the list index">
-<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.3 Getting the maximum component of a vector and its index in numpy">
-<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.4 Creating a panel array of plots with Matplotlib">
-<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.5 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_python.html#s-sec_python_addframecol" rel="section" title="6.3 Adding a column to a Pandas dataframe">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.4 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.5 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.6 Creating a panel array of plots with common axes using Matplotlib">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -240,7 +241,38 @@ elements).
 
 <hr>
 
-<h2><a name="s-sec_python_maxindex"></a>6.3 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
+<h2><a name="s-sec_python_addframecol"></a>6.3 Adding a column to a <code>Pandas</code> dataframe</h2>
+
+<p>
+Created on April 21st, 2015.
+</p>
+
+<p>
+If we have a <code>Pandas</code> dataframe for example, the following one,
+called <samp>df0</samp>
+</p>
+
+<pre>
+     import numpy as np
+     import pandas as pd
+     
+     vectorn = np.random.rand(20)
+     df0 = pd.DataFrame(data=vectorn, columns = [&quot;s0&quot;])
+</pre>
+
+<p>
+We can now add a second column of random data using the <samp>pd.Series</samp>
+command; the column is labeled <samp>s1</samp>
+</p>
+
+<pre>
+     vectors = np.random.rand(20)
+     df0[&quot;s1&quot;] = Series(data=vectors, index = index.df0)
+</pre>
+
+<hr>
+
+<h2><a name="s-sec_python_maxindex"></a>6.4 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -268,7 +300,7 @@ the interval $[0,1)$.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_1"></a>6.4 Creating a panel array of plots with <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_1"></a>6.5 Creating a panel array of plots with <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -316,7 +348,7 @@ quadratic function.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_2"></a>6.5 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_2"></a>6.6 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
