@@ -82,11 +82,12 @@
 <link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
 <link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
 <link href="ch-cap_python.html#s-sec_python_random" rel="section" title="6.1 Creating a vector of random data">
-<link href="ch-cap_python.html#s-sec_python_iterval" rel="section" title="6.2 Creating a loop iterating on a list and the list index">
-<link href="ch-cap_python.html#s-sec_python_addframecol" rel="section" title="6.3 Adding a column to a Pandas dataframe">
-<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.4 Getting the maximum component of a vector and its index in numpy">
-<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.5 Creating a panel array of plots with Matplotlib">
-<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.6 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_python.html#s-sec_python_boolvec" rel="section" title="6.2 Logical comparison between two boolean vectors">
+<link href="ch-cap_python.html#s-sec_python_interval" rel="section" title="6.3 Creating a loop iterating on a list and the list index">
+<link href="ch-cap_python.html#s-sec_python_addframecol" rel="section" title="6.4 Adding a column to a Pandas dataframe">
+<link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.5 Getting the maximum component of a vector and its index in numpy">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.6 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.7 Creating a panel array of plots with common axes using Matplotlib">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -191,7 +192,7 @@ Created on April 12th, 2015.
 
 <p>
 The following snippet of <code>Ipython</code> code computes a vector, called
-<var>vectorn</var>, with 100 elements of normally distributed random data
+<var>vectorn</var>, with 10 elements of normally distributed random data
 </p>
 
 <pre>
@@ -207,7 +208,38 @@ The following snippet of <code>Ipython</code> code computes a vector, called
 
 <hr>
 
-<h2><a name="s-sec_python_iterval"></a>6.2 Creating a loop iterating on a list and the list index</h2>
+<h2><a name="s-sec_python_boolvec"></a>6.2 Logical comparison between two boolean vectors</h2>
+
+<p>
+Created on May 06th, 2015.
+</p>
+
+<p>
+The following snippet of <code>Ipython</code> code defines two vector, called
+<var>vectorA</var> and <var>vectorB</var>, with 20 elements of normally
+distributed random data each and, using the <code>NumPy</code> function
+<samp>logical_and</samp> check the occurrences where the corresponding elements
+of the two vectors are larger than zero
+</p>
+
+<pre>
+     import numpy as np
+     
+     vectorA = np.random.randn(20)
+     vectorB = np.random.randn(20)
+     
+     boolvec = np.logical_and(vectorA &gt; 0, vectorB &gt; 0)
+     
+     vectorA[boolvec]
+     Out[47]: array([ 0.39058535,  1.0062992 ])
+     
+     vectorB[boolvec]
+     Out[48]: array([ 0.87795544,  0.59063525])
+</pre>
+
+<hr>
+
+<h2><a name="s-sec_python_interval"></a>6.3 Creating a loop iterating on a list and the list index</h2>
 
 <p>
 Created on April 16th, 2015.
@@ -241,7 +273,7 @@ elements).
 
 <hr>
 
-<h2><a name="s-sec_python_addframecol"></a>6.3 Adding a column to a <code>Pandas</code> dataframe</h2>
+<h2><a name="s-sec_python_addframecol"></a>6.4 Adding a column to a <code>Pandas</code> dataframe</h2>
 
 <p>
 Created on April 21st, 2015.
@@ -272,7 +304,7 @@ command; the column is labeled <samp>s1</samp>
 
 <hr>
 
-<h2><a name="s-sec_python_maxindex"></a>6.4 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
+<h2><a name="s-sec_python_maxindex"></a>6.5 Getting the maximum component of a vector and its index in <code>numpy</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -300,7 +332,7 @@ the interval $[0,1)$.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_1"></a>6.5 Creating a panel array of plots with <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_1"></a>6.6 Creating a panel array of plots with <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -348,7 +380,7 @@ quadratic function.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_2"></a>6.6 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_2"></a>6.7 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.

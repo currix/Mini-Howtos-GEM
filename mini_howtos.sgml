@@ -4045,7 +4045,7 @@ of apostrophes in the permisision variables definition.
 <p>
 Created on April 12th, 2015.
 <p>
-  The following snippet of <prgn>Ipython</prgn> code computes a vector, called <var>vectorn</var>, with 100 elements of normally distributed random data 
+  The following snippet of <prgn>Ipython</prgn> code computes a vector, called <var>vectorn</var>, with 10 elements of normally distributed random data 
 <p>
 <example>
 import numpy as np
@@ -4060,7 +4060,36 @@ vectorn = np.random.randn(200)
 
 </sect>
 
-<sect id="sec_python_iterval"><heading>Creating a loop iterating on a list and the list index </heading> 
+<sect id="sec_python_boolvec"><heading>Logical comparison between two
+    boolean vectors </heading> 
+<p>
+Created on May 06th, 2015.
+<p>
+  The following snippet of <prgn>Ipython</prgn> code defines two
+  vector, called <var>vectorA</var> and <var>vectorB</var>, with 20
+  elements of normally distributed random data each and, using
+  the <prgn>NumPy</prgn> function <tt>logical_and</tt> check the
+  occurrences where the corresponding elements of the two vectors are
+  larger than zero
+<p>
+<example>
+import numpy as np
+
+vectorA = np.random.randn(20)
+vectorB = np.random.randn(20)
+
+boolvec = np.logical_and(vectorA > 0, vectorB > 0)
+
+vectorA[boolvec]
+Out[47]: array([ 0.39058535,  1.0062992 ])
+
+vectorB[boolvec]
+Out[48]: array([ 0.87795544,  0.59063525])
+</example>
+
+</sect>
+
+<sect id="sec_python_interval"><heading>Creating a loop iterating on a list and the list index </heading> 
 <p>
 Created on April 16th, 2015.
 <p>

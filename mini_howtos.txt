@@ -113,12 +113,13 @@ Contents
 
      6.        Python Tips and Templates
      6.1.      Creating a vector of random data
-     6.2.      Creating a loop iterating on a list and the list index
-     6.3.      Adding a column to a `Pandas' dataframe
-     6.4.      Getting the maximum component of a vector and its index in
+     6.2.      Logical comparison between two boolean vectors
+     6.3.      Creating a loop iterating on a list and the list index
+     6.4.      Adding a column to a `Pandas' dataframe
+     6.5.      Getting the maximum component of a vector and its index in
                `numpy'
-     6.5.      Creating a panel array of plots with `Matplotlib'
-     6.6.      Creating a panel array of plots with common axes using
+     6.6.      Creating a panel array of plots with `Matplotlib'
+     6.7.      Creating a panel array of plots with common axes using
                `Matplotlib'
 
      7.        Text Processing and Formatting
@@ -3495,7 +3496,7 @@ a 51948052/s 1121%  212%    --
      Created on April 12th, 2015.
 
      The following snippet of `Ipython' code computes a vector, called
-     <vectorn>, with 100 elements of normally distributed random data
+     <vectorn>, with 10 elements of normally distributed random data
 
 import numpy as np
 
@@ -3507,7 +3508,32 @@ array([-0.20490308, -0.39783301, -0.6802615 , -0.57939922, -0.10054472,
 vectorn = np.random.randn(200)
 
 
-6.2. Creating a loop iterating on a list and the list index
+6.2. Logical comparison between two boolean vectors
+---------------------------------------------------
+
+     Created on May 06th, 2015.
+
+     The following snippet of `Ipython' code defines two vector, called
+     <vectorA> and <vectorB>, with 20 elements of normally distributed
+     random data each and, using the `NumPy' function `logical_and' check
+     the occurrences where the corresponding elements of the two vectors
+     are larger than zero
+
+          import numpy as np
+          
+          vectorA = np.random.randn(20)
+          vectorB = np.random.randn(20)
+          
+          boolvec = np.logical_and(vectorA > 0, vectorB > 0)
+          
+          vectorA[boolvec]
+          Out[47]: array([ 0.39058535,  1.0062992 ])
+          
+          vectorB[boolvec]
+          Out[48]: array([ 0.87795544,  0.59063525])
+
+
+6.3. Creating a loop iterating on a list and the list index
 -----------------------------------------------------------
 
      Created on April 16th, 2015.
@@ -3533,7 +3559,7 @@ vectorn = np.random.randn(200)
      counting diagonal elements).
 
 
-6.3. Adding a column to a `Pandas' dataframe
+6.4. Adding a column to a `Pandas' dataframe
 --------------------------------------------
 
      Created on April 21st, 2015.
@@ -3554,7 +3580,7 @@ vectorn = np.random.randn(200)
           df0["s1"] = Series(data=vectors, index = index.df0)
 
 
-6.4. Getting the maximum component of a vector and its index in `numpy'
+6.5. Getting the maximum component of a vector and its index in `numpy'
 -----------------------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -3576,7 +3602,7 @@ vectorn = np.random.randn(200)
           Out[88]: 117
 
 
-6.5. Creating a panel array of plots with `Matplotlib'
+6.6. Creating a panel array of plots with `Matplotlib'
 ------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -3618,7 +3644,7 @@ Out[39]: <matplotlib.collections.PathCollection at 0x7f827aedae90>
 pyplot.show()
 
 
-6.6. Creating a panel array of plots with common axes using `Matplotlib'
+6.7. Creating a panel array of plots with common axes using `Matplotlib'
 ------------------------------------------------------------------------
 
      Created on April 12th, 2015.
