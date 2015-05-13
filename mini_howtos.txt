@@ -118,8 +118,9 @@ Contents
      6.4.      Adding a column to a `Pandas' dataframe
      6.5.      Getting the maximum component of a vector and its index in
                `numpy'
-     6.6.      Creating a panel array of plots with `Matplotlib'
-     6.7.      Creating a panel array of plots with common axes using
+     6.6.      Some easy examples of offset-aware times with `pytz'
+     6.7.      Creating a panel array of plots with `Matplotlib'
+     6.8.      Creating a panel array of plots with common axes using
                `Matplotlib'
 
      7.        Text Processing and Formatting
@@ -3602,7 +3603,76 @@ vectorn = np.random.randn(200)
           Out[88]: 117
 
 
-6.6. Creating a panel array of plots with `Matplotlib'
+6.6. Some easy examples of offset-aware times with `pytz'
+---------------------------------------------------------
+
+     Created on May 13th, 2015.
+
+     Dealing with imezones and the associated DST (daylight saving times)
+     can cause a more than serious headache.  Some (very limited) examples
+     of their use.
+
+     Let's assume that we have two strings: `stdate1 = "20/03/2015 12:22"'
+     and `stdate1 = "23/03/2015 22:22"' and we want to parse them to a
+     `datetime' object.  This is done as follows:
+
+          from dateutil.parser import parse
+          stdate1 = "20/03/2015 12:22"
+          stdate2 = "23/03/2015 22:22"
+          
+          date1 = parse(stdate1)
+          
+          date2 = parse(stdate2)
+          
+          date1
+          Out[6]: datetime.datetime(2015, 3, 20, 12, 22)
+          
+          date2
+          Out[7]: datetime.datetime(2015, 3, 23, 22, 22)
+          
+          date2-date1
+          Out[8]: datetime.timedelta(3, 36000)
+
+     At this point we have offset-naive times.  If we want to transform to
+     a given time zone, e.g.  `CET' then we use
+
+import pytz
+
+cet_tz = pytz.timezone("CET")
+
+cet_date1 = cet_tz.normalize(cet_tz.localize(date1))
+cet_date2 = cet_tz.normalize(cet_tz.localize(date2))
+
+cet_date1
+Out[12]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=<DstTzInfo 'CET' CET+1:00:00 STD>)
+
+cet_date2-cet_date1
+Out[14]: datetime.timedelta(3, 36000)
+
+     We can now transform these time data to `UTC'
+
+          utc_tz = pytz.timezone('UTC')
+          
+          utc_date1 = cet_date1.astimezone(utc_tz)
+          utc_date2 = cet_date2.astimezone(utc_tz)
+          
+          utc_date2 - utc_date1
+          Out[22]: datetime.timedelta(3, 36000)
+
+     We can transform directly to `UTC' from the initially parsed variables
+
+          UTC_date1 = utc_tz.normalize(utc_tz.localize(date1))
+          
+          UTC_date1
+          Out[28]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=<UTC>)
+          
+          UTC_date1 - utc_date1
+          Out[27]: datetime.timedelta(0, 3600)
+
+     These functions can be applied on lists using lambda functions.
+
+
+6.7. Creating a panel array of plots with `Matplotlib'
 ------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -3644,7 +3714,7 @@ Out[39]: <matplotlib.collections.PathCollection at 0x7f827aedae90>
 pyplot.show()
 
 
-6.7. Creating a panel array of plots with common axes using `Matplotlib'
+6.8. Creating a panel array of plots with common axes using `Matplotlib'
 ------------------------------------------------------------------------
 
      Created on April 12th, 2015.

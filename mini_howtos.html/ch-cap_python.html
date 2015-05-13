@@ -86,8 +86,9 @@
 <link href="ch-cap_python.html#s-sec_python_interval" rel="section" title="6.3 Creating a loop iterating on a list and the list index">
 <link href="ch-cap_python.html#s-sec_python_addframecol" rel="section" title="6.4 Adding a column to a Pandas dataframe">
 <link href="ch-cap_python.html#s-sec_python_maxindex" rel="section" title="6.5 Getting the maximum component of a vector and its index in numpy">
-<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.6 Creating a panel array of plots with Matplotlib">
-<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.7 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_python.html#s-sec_python_tzone" rel="section" title="6.6 Some easy examples of offset-aware times with pytz">
+<link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.7 Creating a panel array of plots with Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.8 Creating a panel array of plots with common axes using Matplotlib">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -332,7 +333,99 @@ the interval $[0,1)$.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_1"></a>6.6 Creating a panel array of plots with <code>Matplotlib</code></h2>
+<h2><a name="s-sec_python_tzone"></a>6.6 Some easy examples of offset-aware times with <code>pytz</code></h2>
+
+<p>
+Created on May 13th, 2015.
+</p>
+
+<p>
+Dealing with imezones and the associated DST (daylight saving times) can cause
+a more than serious headache.  Some (very limited) examples of their use.
+</p>
+
+<p>
+Let's assume that we have two strings: <samp>stdate1 = &quot;20/03/2015
+12:22&quot;</samp> and <samp>stdate1 = &quot;23/03/2015 22:22&quot;</samp> and
+we want to parse them to a <samp>datetime</samp> object.  This is done as
+follows:
+</p>
+
+<pre>
+     from dateutil.parser import parse
+     stdate1 = &quot;20/03/2015 12:22&quot;
+     stdate2 = &quot;23/03/2015 22:22&quot;
+     
+     date1 = parse(stdate1)
+     
+     date2 = parse(stdate2)
+     
+     date1
+     Out[6]: datetime.datetime(2015, 3, 20, 12, 22)
+     
+     date2
+     Out[7]: datetime.datetime(2015, 3, 23, 22, 22)
+     
+     date2-date1
+     Out[8]: datetime.timedelta(3, 36000)
+</pre>
+
+<p>
+At this point we have offset-naive times.  If we want to transform to a given
+time zone, e.g.  <samp>CET</samp> then we use
+</p>
+
+<pre>
+     import pytz
+     
+     cet_tz = pytz.timezone(&quot;CET&quot;) 
+     
+     cet_date1 = cet_tz.normalize(cet_tz.localize(date1))
+     cet_date2 = cet_tz.normalize(cet_tz.localize(date2))
+     
+     cet_date1
+     Out[12]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=&lt;DstTzInfo 'CET' CET+1:00:00 STD&gt;)
+     
+     cet_date2-cet_date1
+     Out[14]: datetime.timedelta(3, 36000)
+</pre>
+
+<p>
+We can now transform these time data to <samp>UTC</samp>
+</p>
+
+<pre>
+     utc_tz = pytz.timezone('UTC')
+     
+     utc_date1 = cet_date1.astimezone(utc_tz)
+     utc_date2 = cet_date2.astimezone(utc_tz)
+     
+     utc_date2 - utc_date1
+     Out[22]: datetime.timedelta(3, 36000)
+</pre>
+
+<p>
+We can transform directly to <samp>UTC</samp> from the initially parsed
+variables
+</p>
+
+<pre>
+     UTC_date1 = utc_tz.normalize(utc_tz.localize(date1))
+     
+     UTC_date1
+     Out[28]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=&lt;UTC&gt;)
+     
+     UTC_date1 - utc_date1
+     Out[27]: datetime.timedelta(0, 3600)
+</pre>
+
+<p>
+These functions can be applied on lists using lambda functions.
+</p>
+
+<hr>
+
+<h2><a name="s-sec_mplotlib_1"></a>6.7 Creating a panel array of plots with <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.
@@ -380,7 +473,7 @@ quadratic function.
 
 <hr>
 
-<h2><a name="s-sec_mplotlib_2"></a>6.7 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
+<h2><a name="s-sec_mplotlib_2"></a>6.8 Creating a panel array of plots with common axes using <code>Matplotlib</code></h2>
 
 <p>
 Created on April 12th, 2015.

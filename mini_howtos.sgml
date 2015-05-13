@@ -4162,6 +4162,84 @@ Out[88]: 117
 
 </sect>
 
+<sect id="sec_python_tzone"><heading>Some easy examples of
+    offset-aware times with <prgn>pytz</prgn> </heading> 
+<p>
+Created on May 13th, 2015.
+<p>
+Dealing with imezones and the associated DST (daylight saving times)
+can cause a more than serious headache. Some (very limited) examples
+of their use.
+<p>
+Let's assume that we have two strings: <tt>stdate1 = "20/03/2015 12:22"</tt>
+and <tt>stdate1 = "23/03/2015 22:22"</tt> and we want to parse them to
+a <tt>datetime</tt> object. This is done as follows:
+<p>
+<example>
+from dateutil.parser import parse
+stdate1 = "20/03/2015 12:22"
+stdate2 = "23/03/2015 22:22"
+
+date1 = parse(stdate1)
+
+date2 = parse(stdate2)
+
+date1
+Out[6]: datetime.datetime(2015, 3, 20, 12, 22)
+
+date2
+Out[7]: datetime.datetime(2015, 3, 23, 22, 22)
+
+date2-date1
+Out[8]: datetime.timedelta(3, 36000)
+</example>
+<p>
+At this point we have offset-naive times. If we want to transform to a
+given time zone, e.g. <tt>CET</tt> then we use
+<p>
+<example>
+import pytz
+
+cet_tz = pytz.timezone("CET") 
+
+cet_date1 = cet_tz.normalize(cet_tz.localize(date1))
+cet_date2 = cet_tz.normalize(cet_tz.localize(date2))
+
+cet_date1
+Out[12]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=&lt;DstTzInfo 'CET' CET+1:00:00 STD&gt;)
+
+cet_date2-cet_date1
+Out[14]: datetime.timedelta(3, 36000)
+</example>
+<p>
+We can now transform these time data to <tt>UTC</tt>
+<p>
+<example>
+utc_tz = pytz.timezone('UTC')
+
+utc_date1 = cet_date1.astimezone(utc_tz)
+utc_date2 = cet_date2.astimezone(utc_tz)
+
+utc_date2 - utc_date1
+Out[22]: datetime.timedelta(3, 36000)
+</example>
+<p>
+We can transform directly to <tt>UTC</tt> from the initially parsed
+variables
+<example>
+UTC_date1 = utc_tz.normalize(utc_tz.localize(date1))
+
+UTC_date1
+Out[28]: datetime.datetime(2015, 3, 20, 12, 22, tzinfo=&lt;UTC&gt;)
+
+UTC_date1 - utc_date1
+Out[27]: datetime.timedelta(0, 3600)
+</example>
+
+<p>
+These functions can be applied on lists using lambda functions.
+</sect>
+
 <sect id="sec_mplotlib_1"><heading>Creating a panel array of plots with <prgn>Matplotlib</prgn> </heading> 
 <p>
 Created on April 12th, 2015.
