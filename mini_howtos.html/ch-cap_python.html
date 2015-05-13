@@ -356,9 +356,9 @@ follows:
      stdate1 = &quot;20/03/2015 12:22&quot;
      stdate2 = &quot;23/03/2015 22:22&quot;
      
-     date1 = parse(stdate1)
+     date1 = parse(stdate1, dayfirst=True)
      
-     date2 = parse(stdate2)
+     date2 = parse(stdate2, dayfirst=True)
      
      date1
      Out[6]: datetime.datetime(2015, 3, 20, 12, 22)

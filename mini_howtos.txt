@@ -3620,9 +3620,9 @@ vectorn = np.random.randn(200)
           stdate1 = "20/03/2015 12:22"
           stdate2 = "23/03/2015 22:22"
           
-          date1 = parse(stdate1)
+          date1 = parse(stdate1, dayfirst=True)
           
-          date2 = parse(stdate2)
+          date2 = parse(stdate2, dayfirst=True)
           
           date1
           Out[6]: datetime.datetime(2015, 3, 20, 12, 22)
