@@ -3111,6 +3111,38 @@ decide which editor to use. For the sake of consistency on Debian
 systems, these variables should be set to <file>/usr/bin/editor</file>.
 
 </sect>
+
+<sect id="sec_emacs3"><heading>Removing empty lines in <prgn>Emacs</prgn></heading> 
+<p>
+Created on May 21st, 2015.
+
+<p>
+In order to remove all blank lines in a text file (or a selected text
+file region) you can use the command  <tt>M-x flush-lines</tt> that
+removes all lines that matches a regexp condition as follows
+<p>
+<example>
+M-x flush-lines RET ^$ RET
+</example>
+<p>
+In case you want to remove lines containing only spaces the command is 
+<p>
+<example>
+M-x flush-lines RET ^\s-*$ RET
+</example>
+<p>
+<sect1 id="ref_emacs03"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="https://www.masteringemacs.org/article/removing-blank-lines-buffer"
+name="Mastering Emacs">
+</enumlist>  
+</sect1>
+
+
+
+</sect>
 <chapt id="cap_3"><heading>Perl Language</heading> 
 <p>
 This chapter has been translated

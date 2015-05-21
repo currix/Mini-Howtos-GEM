@@ -71,6 +71,7 @@
 <link href="ch-cap_2.html#s-sec_tarssh" rel="section" title="3.5 Using ssh to make a tarball directly in a remote folder">
 <link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
 <link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
+<link href="ch-cap_emacs.html#s-sec_emacs3" rel="section" title="4.3 Removing empty lines in Emacs">
 <link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
 <link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
@@ -139,6 +140,7 @@
 <link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
 <link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs03" rel="subsection" title="4.3.1 References">
 <link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
@@ -255,6 +257,45 @@ Some programs use the environment variables <samp>$EDITOR</samp> or
 consistency on Debian systems, these variables should be set to
 <code>/usr/bin/editor</code>.
 </p>
+
+<hr>
+
+<h2><a name="s-sec_emacs3"></a>4.3 Removing empty lines in <code>Emacs</code></h2>
+
+<p>
+Created on May 21st, 2015.
+</p>
+
+<p>
+In order to remove all blank lines in a text file (or a selected text file
+region) you can use the command <samp>M-x flush-lines</samp> that removes all
+lines that matches a regexp condition as follows
+</p>
+
+<pre>
+     M-x flush-lines RET ^$ RET
+</pre>
+
+<p>
+In case you want to remove lines containing only spaces the command is
+</p>
+
+<pre>
+     M-x flush-lines RET ^\s-*$ RET
+</pre>
+
+<hr>
+
+<h3><a name="s-ref_emacs03"></a>4.3.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="https://www.masteringemacs.org/article/removing-blank-lines-buffer">Mastering
+Emacs</a></code>
+</p>
+</li>
+</ol>
 
 <hr>
 

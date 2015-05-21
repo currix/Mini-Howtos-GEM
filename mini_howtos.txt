@@ -98,6 +98,7 @@ Contents
      4.        `Emacs' text editor
      4.1.      `Emacs' macros
      4.2.      Changing the default system's text editor to `Emacs'
+     4.3.      Removing empty lines in `Emacs'
 
      5.        Perl Language
      5.1.      Installing a `CPAN' module
@@ -2699,6 +2700,28 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
      Some programs use the environment variables `$EDITOR' or `$VISUAL' to
      decide which editor to use.  For the sake of consistency on Debian
      systems, these variables should be set to `/usr/bin/editor'.
+
+
+4.3. Removing empty lines in `Emacs'
+------------------------------------
+
+     Created on May 21st, 2015.
+
+     In order to remove all blank lines in a text file (or a selected text
+     file region) you can use the command `M-x flush-lines' that removes
+     all lines that matches a regexp condition as follows
+
+          M-x flush-lines RET ^$ RET
+
+     In case you want to remove lines containing only spaces the command is
+
+          M-x flush-lines RET ^\s-*$ RET
+
+4.3.1. References
+-----------------
+
+     1.   Mastering Emacs
+          (https://www.masteringemacs.org/article/removing-blank-lines-buffer)
 
 
 -------------------------------------------------------------------------------
