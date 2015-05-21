@@ -2831,6 +2831,8 @@ Appending installation info to /usr/local/lib/perl/5.8.8/perllocal.pod
 
      Updated on January 31st, 2015.
 
+     Updated on May 21st, 2015.
+
      1.   Execute a program, in this case `epstopdf', using as an input all
           files sharing an common extension , in this case `eps', in the
           current directory.
@@ -2921,6 +2923,18 @@ perl -e 'foreach (@ARGV) {/.*(\d\d).*/;my $line = $1.`tail -n 1 $_`; print $line
           Instead of using `emacs' we can easily fix this with
 
                perl -pi -e 's/\r/\n/g' *.csv
+
+     13.  Extract the figure names from a `LaTeX' compile output and
+          prepare a tarball with the figure files.
+
+          We assume that we compile a file called `rdiary_2014.tex' and all
+          figs are in a directory called `Figs' and are `png' files.  We
+          use two pipes, the first one connect the output of `pdflatex'
+          with a `perl' oneliner that reads the standad input and extract
+          the file names.  A second pipe sends to `tar' the file names.
+          Notice the `-T -' options.
+
+pdflatex rdiary_2014.tex | perl -e 'while (<>) {print "$1\n" if /<.*(F.*png).*>/g}' | tar czf figs.tgz -T -
 
 
 5.3. Environment Codification and Character Ordering

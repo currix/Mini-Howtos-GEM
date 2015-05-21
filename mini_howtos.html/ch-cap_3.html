@@ -321,6 +321,10 @@ And install the required module, <samp>Roots</samp> in this example:
 <p>
 Updated on January 31st, 2015.
 </p>
+
+<p>
+Updated on May 21st, 2015.
+</p>
 <ol type="1" start="1" >
 <li>
 <p>
@@ -508,6 +512,27 @@ of using <code>emacs</code> we can easily fix this with
 
 <pre>
      perl -pi -e 's/\r/\n/g' *.csv
+</pre>
+</li>
+</ol>
+<ol type="1" start="13" >
+<li>
+<p>
+Extract the figure names from a <code>LaTeX</code> compile output and prepare a
+tarball with the figure files.
+</p>
+
+<p>
+We assume that we compile a file called <code>rdiary_2014.tex</code> and all
+figs are in a directory called <samp>Figs</samp> and are <samp>png</samp>
+files.  We use two pipes, the first one connect the output of
+<code>pdflatex</code> with a <code>perl</code> oneliner that reads the standad
+input and extract the file names.  A second pipe sends to <code>tar</code> the
+file names.  Notice the <samp>-T -</samp> options.
+</p>
+
+<pre>
+     pdflatex rdiary_2014.tex | perl -e 'while (&lt;&gt;) {print &quot;$1\n&quot; if /&lt;.*(F.*png).*&gt;/g}' | tar czf figs.tgz -T -
 </pre>
 </li>
 </ol>
