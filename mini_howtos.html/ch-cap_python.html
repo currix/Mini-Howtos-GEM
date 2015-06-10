@@ -90,6 +90,7 @@
 <link href="ch-cap_python.html#s-sec_python_tzone" rel="section" title="6.6 Some easy examples of offset-aware times with pytz">
 <link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.7 Creating a panel array of plots with Matplotlib">
 <link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.8 Creating a panel array of plots with common axes using Matplotlib">
+<link href="ch-cap_python.html#s-sec_mplotlib_3" rel="section" title="6.9 Combining several plots in a figure">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -521,6 +522,43 @@ panels.
      pyplot.subplots_adjust(wspace=0,hspace=0)
      
      pyplot.show()
+</pre>
+
+<hr>
+
+<h2><a name="s-sec_mplotlib_3"></a>6.9 Combining several plots in a figure</h2>
+
+<p>
+Created on June 10th, 2015.
+</p>
+
+<p>
+The following snippet of <code>Ipython</code> code computes three vectors,
+called <var>vector1</var>, <var>vector2</var>, and <var>vector3</var>, with 100
+elements of normally distributed random data with the same mean value (2) and
+different standard deviations (0.1, 0.2, and 0.4).  We then plot the three
+vectors in a single graph controlling the line styles and labels and ticks font
+sizes.
+</p>
+
+<pre>
+     import numpy as np
+     
+     meanval = 2
+     vector1 = np.random.normal(loc = meanval, scale = 0.2, size = 100)
+     vector2 = np.random.normal(loc = meanval, scale = 0.4, size = 100)
+     vector3 = np.random.normal(loc = meanval, scale = 0.8, size = 100)
+     
+     ax = pyplot.subplot(111)
+     
+     ax.plot(vector1,&quot;o--b&quot;,lw=3)
+     ax.plot(vector2,&quot;x:r&quot;,lw=2)
+     ax.plot(vector3,&quot;g&quot;,lw=2)
+     
+     ax.set_xlabel(r'X axis Label (a.u.)',fontsize=16)
+     ax.set_ylabel(r'Y axis Label $v_1, v_2, v_3$',fontsize = 16)
+     pyplot.setp(ax.get_xticklabels(), fontsize=14)
+     pyplot.setp(ax.get_yticklabels(), fontsize=14)
 </pre>
 
 <hr>

@@ -4370,7 +4370,38 @@ pyplot.show()
 </example>
 
 </sect>
+<sect id="sec_mplotlib_3"><heading>Combining several plots in a figure </heading> 
+<p>
+Created on June 10th, 2015.
+<p>
+  The following snippet of <prgn>Ipython</prgn> code computes three
+  vectors, called <var>vector1</var>, <var>vector2</var>,
+  and <var>vector3</var>, with 100 elements of normally distributed
+  random data with the same mean value (2) and different standard
+  deviations (0.1, 0.2, and 0.4). We then plot the three vectors in a
+  single graph controlling the line styles and labels and ticks font sizes.
+<p>
+<example>
+import numpy as np
 
+meanval = 2
+vector1 = np.random.normal(loc = meanval, scale = 0.2, size = 100)
+vector2 = np.random.normal(loc = meanval, scale = 0.4, size = 100)
+vector3 = np.random.normal(loc = meanval, scale = 0.8, size = 100)
+
+ax = pyplot.subplot(111)
+
+ax.plot(vector1,"o--b",lw=3)
+ax.plot(vector2,"x:r",lw=2)
+ax.plot(vector3,"g",lw=2)
+
+ax.set_xlabel(r'X axis Label (a.u.)',fontsize=16)
+ax.set_ylabel(r'Y axis Label $v_1, v_2, v_3$',fontsize = 16)
+pyplot.setp(ax.get_xticklabels(), fontsize=14)
+pyplot.setp(ax.get_yticklabels(), fontsize=14)
+</example>
+
+</sect>
 
 <chapt id="cap_4"><heading>Text Processing and Formatting</heading> 
 <sect id="sec_411"><heading><prgn>pdftk</prgn> application examples</heading> 
