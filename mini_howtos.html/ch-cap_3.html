@@ -60,6 +60,7 @@
 <link href="ch-cap_0.html#s-sec_parted" rel="section" title="1.35 Formatting HD partitions larger than 2 TB">
 <link href="ch-cap_0.html#s-sec_new_part" rel="section" title="1.36 Adding a partition to fstab by UUID">
 <link href="ch-cap_0.html#s-sec_error_eject" rel="section" title="1.37 Error ejecting a CD">
+<link href="ch-cap_0.html#s-sec_cpp_gfortran" rel="section" title="1.38 Creating a Makefile to use cpp with gfortran">
 <link href="ch-cap_1.html#s-sec_11" rel="section" title="2.1 Running multiple firefox instances">
 <link href="ch-cap_1.html#s-sec_12" rel="section" title="2.2 Electronic signature with iceweasel">
 <link href="ch-cap_1.html#s-sec_13" rel="section" title="2.3 Some tips to access the web using the console">
@@ -137,6 +138,8 @@
 <link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
 <link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
 <link href="ch-cap_0.html#s-ref_parted" rel="subsection" title="1.35.1 References">
+<link href="ch-cap_0.html#s-ref_f90_codes_Makefile" rel="subsection" title="1.38.1 Fortran Codes">
+<link href="ch-cap_0.html#s-ref_Makefile" rel="subsection" title="1.38.2 References">
 <link href="ch-cap_1.html#s-ref_webconso" rel="subsection" title="2.3.1 References">
 <link href="ch-cap_2.html#s-ref_sshtty" rel="subsection" title="3.3.1 References">
 <link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
@@ -664,7 +667,7 @@ However, when we run the program we obtain the somewhat surprising output
 Clearly this is not the expected output if we intend to sort alphabetically
 (using Spanish sorting rules).  The reason of this unexpected behavior is that
 the <samp>cmp</samp> function compares non-ASCII chars by codepoint number[<a
-href="footnotes.html#f9" name="fr9">9</a>], which might give unexpected
+href="footnotes.html#f10" name="fr10">10</a>], which might give unexpected
 results.  In order to sort according to a particular languague convention we
 should use the <samp>locale</samp> pragma.  The previous program can be
 rewritten as follows
@@ -1063,8 +1066,8 @@ code.
 </p>
 
 <p>
-Some of the available procedures are the following[<a href="footnotes.html#f10"
-name="fr10">10</a>]
+Some of the available procedures are the following[<a href="footnotes.html#f11"
+name="fr11">11</a>]
 </p>
 <ul>
 <li>
@@ -1128,7 +1131,7 @@ The syntax is
 <p>
 If the argument <samp>$count</samp> is a positive integer it gives the number
 of times the code is run, a negative intiger indicates the minimum number of
-CPU seconds to run[<a href="footnotes.html#f11" name="fr11">11</a>].  The
+CPU seconds to run[<a href="footnotes.html#f12" name="fr12">12</a>].  The
 minimum in this case is 0.1 sec.  If <samp>$count</samp> is zero a default
 value of 3 CPU seconds is assumed.
 </p>
@@ -1184,7 +1187,7 @@ In the first case the <samp>timethese</samp> output is the following
 <p>
 In these case the real (wallclock) time is given, and also the distribution of
 the addition of the time spent by the user and the system to accomplish the CPU
-time goal[<a href="footnotes.html#f12" name="fr12">12</a>].  In case the
+time goal[<a href="footnotes.html#f13" name="fr13">13</a>].  In case the
 program spawns one or more children processes the <samp>cusr</samp> and
 <samp>csys</samp> times are also given.  The number after the <samp>@</samp>
 symbol is the number of iterations per second and n is the total number of

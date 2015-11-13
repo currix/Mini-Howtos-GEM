@@ -81,6 +81,7 @@ Contents
      1.35.     Formatting HD partitions larger than 2 TB
      1.36.     Adding a partition to `fstab' by `UUID'
      1.37.     Error ejecting a CD
+     1.38.     Creating a `Makefile' to use `cpp' with `gfortran'
 
      2.        Network and Navigators
      2.1.      Running multiple `firefox' instances
@@ -2363,6 +2364,270 @@ UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults
           deckard:~# eject /dev/cdrom
 
      An the CD is cleanly ejected.  Happy end.
+
+
+1.38. Creating a `Makefile' to use `cpp' with `gfortran'
+--------------------------------------------------------
+
+     Added on November 09th, 2015.
+
+     There is a way of using the C language preprocessor, `cpp', with
+     gfortran.  In this way we can communicate via `Makefile' with our
+     program.  Let's assume that we have a `Fortran 90' program to compute
+     two normally distributed set of random numbers that use the Box-Muller
+     transform.  The program is called `box_muller.f90' and we also compute
+     the mean, median and standard variance of the resulting distributions
+     using a subroutine called `stats.f90'[1].  The `FORTRAN 90' codes are
+     provided in Section 1.38.1, `Fortran Codes'.
+
+     The `Makefile' used for compilation is
+
+          # Fortran Compiler
+          FC=gfortran
+          #
+          # C Preprocessor
+          CPP=cpp
+          #
+          TYPE_DEF=-DPREC=DP
+          ifdef USE_SINGLE
+          TYPE_DEF = -DPREC=SP
+          endif
+          #
+          # Optimization Flags
+          OPTFLAGS = -O3 -funroll-loops -march=native
+          OPTFLAGS_P = "\"-O3 -funroll-loops -march=native\""
+          #
+          all: box_muller
+          #
+          .FORCE:
+          #
+          box_muller: box_muller.f90 stats.f90 .FORCE
+          	$(CPP)  -std=c89 $(TYPE_DEF) -DFLAGS=$(OPTFLAGS_P) $< > /tmp/$<
+          	$(CPP)  -std=c89 $(TYPE_DEF)  stats.f90 > /tmp/stats.f90
+          	$(FC) $(OPTFLAGS) -o $@ /tmp/stats.f90 /tmp/$<
+          	rm /tmp/stats.f90 /tmp/$<
+          #
+          clean:
+          	rm -f *.o box_muller
+
+     Note how `cpp' is called twice, once for each file and the `PREC'
+     string are replaced either by `DP' or `SP', the last case if the
+     option `USE_SINGLE' is set.  In the main program the string `FLAGS' is
+     replaced by the contents of the variable `OPTFLAGS_P' to print the
+     compilation flags used.  Thus to run the program in single precision
+     the user proceed as follows
+
+$ make all USE_SINGLE=1
+cpp  -std=c89 -DPREC=SP  -DFLAGS="\"-O3 -funroll-loops -march=native\"" box_muller.f90 > /tmp/box_muller.f90
+cpp  -std=c89 -DPREC=SP   stats.f90 > /tmp/stats.f90
+gfortran -O3 -funroll-loops -march=native -o box_muller /tmp/stats.f90 /tmp/box_muller.f90
+rm /tmp/stats.f90 /tmp/box_muller.f90
+$ ./box_muller
+10000
+ Time Box Muller subroutine :   4.00000019E-03
+  MEAN =   -7.31508713E-03
+  STANDARD DEVIATION =   0.995381057
+  MEDIAN IS =    1.01202750E-04
+ Time STATS subroutine 1:  0.100005999
+  MEAN =    2.96602229E-04
+  STANDARD DEVIATION =   0.999957144
+  MEDIAN IS =    1.29099786E-02
+ Time STATS subroutine 2:  0.100006007
+ KIND = SINGLE ;  Optimization Flags: -O3 -funroll-loops -march=native
+
+[1]  Please, note that the subroutine is not optimized and could take a
+     long time for a large number of data due to an inefficient sort
+     algorithm.
+
+1.38.1. Fortran Codes
+---------------------
+
+     Main program: `box_muller.f90'
+
+PROGRAM Box_Muller_Prog
+  !
+  IMPLICIT NONE
+  !
+  ! Single and double precision kind parameters
+  INTEGER, PARAMETER :: SP = KIND(1.0)
+  INTEGER, PARAMETER :: DP = KIND(1.0D0)
+  !
+  INTEGER :: I, IERR
+  REAL(KIND = PREC), DIMENSION(:), ALLOCATABLE :: X, Y
+  REAL(KIND = PREC) :: M, SD, MEDIAN
+  REAL(KIND = SP) :: time_end, time_start
+  !
+  !
+  CHARACTER(LEN = 6) :: PRECISION
+  !
+  ! interface block
+  INTERFACE
+     SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+       IMPLICIT NONE
+       ! Single and double precision kind parameters
+       INTEGER, PARAMETER :: SP = KIND(1.0)
+       INTEGER, PARAMETER :: DP = KIND(1.0D0)
+       INTEGER , INTENT(IN)                    ::  N
+       REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)   :: VECTOR
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEAN
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: STD_DEV
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEDIAN
+     END SUBROUTINE STATS
+  END INTERFACE
+  !
+  ! Set Precision for output
+  IF (PREC == DP) THEN
+     PRECISION = "DOUBLE"
+  ELSE
+     PRECISION = "SINGLE"
+  ENDIF
+  !
+  ! Input number of data
+  READ*, I
+  !
+  ALLOCATE(X(1:I), STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "X allocation request denied."
+     STOP
+  ENDIF
+  !
+  ALLOCATE(Y(1:I), STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "Y allocation request denied."
+     STOP
+  ENDIF
+  !
+  ! Set time start
+  CALL CPU_TIME(time_start)
+  !
+  CALL BOX_MULLER(I)
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  !PRINT*, X
+  !PRINT*, Y
+  !
+  PRINT*, "Time Box Muller subroutine :", time_end - time_start
+  time_start = time_end
+  !
+  CALL STATS(X,I,M,SD,MEDIAN)
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 1:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(X)) DEALLOCATE(X, STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "X NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  CALL STATS(Y,I,M,SD,MEDIAN)
+  !
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 2:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(Y)) DEALLOCATE(Y, STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "Y NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  PRINT*, "KIND = ", PRECISION, " ;  Optimization Flags: ", FLAGS
+  !
+CONTAINS
+  !
+  SUBROUTINE BOX_MULLER(dim)
+    !
+    ! Uses the Box-Muller method to create two normally distributed vectors
+    !
+    INTEGER, INTENT(IN) :: dim
+    !
+    REAL(KIND = PREC), PARAMETER :: PI = ACOS(-1.0)
+    REAL(KIND = PREC), DIMENSION(dim) :: RANDOM_u, RANDOM_v ! Automatic arrays
+    !
+    CALL RANDOM_NUMBER(RANDOM_u)
+    CALL RANDOM_NUMBER(RANDOM_v)
+    !
+    X = SQRT(-2.0_ PREC*LOG(RANDOM_u))
+    Y = X*SIN(2*PI*RANDOM_v)
+    X = X*COS(2*PI*RANDOM_v)
+    !
+  END SUBROUTINE BOX_MULLER
+  !
+END PROGRAM Box_Muller_Prog
+
+     Subroutine: `stats.f90'
+
+          SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+            IMPLICIT NONE
+            ! Single and double precision kind parameters
+            INTEGER, PARAMETER :: SP = KIND(1.0)
+            INTEGER, PARAMETER :: DP = KIND(1.0D0)
+            ! Argument definition
+            INTEGER , INTENT(IN)                    ::  N
+            REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)    ::  VECTOR
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEAN
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  STD_DEV
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEDIAN
+            ! Local variables
+            REAL(KIND = PREC) :: VARIANCE = 0.0
+            REAL(KIND = PREC)      :: SUMXI = 0.0, SUMXI2 = 0.0
+            REAL(KIND = PREC)      , DIMENSION(1:N)              ::  Y
+            !
+            SUMXI=SUM(VECTOR)
+            SUMXI2=SUM(VECTOR*VECTOR)
+            MEAN=SUMXI/N
+            VARIANCE=(SUMXI2-SUMXI*SUMXI/N)/(N-1)
+            STD_DEV = SQRT(VARIANCE)
+            Y=VECTOR
+            ! Sort values
+            CALL SELECTION
+            IF (MOD(N,2) == 0) THEN
+               MEDIAN=(Y(N/2)+Y((N/2)+1))/2
+            ELSE
+               MEDIAN=Y((N/2)+1)
+            ENDIF
+          CONTAINS
+            SUBROUTINE SELECTION
+              IMPLICIT NONE
+              INTEGER :: I,J,K
+              REAL :: MINIMUM
+              DO I=1,N-1
+                 K=I
+                 MINIMUM=Y(I)
+                 DO J=I+1,N
+                    IF (Y(J) < MINIMUM) THEN
+                       K=J
+                       MINIMUM=Y(K)
+                    END IF
+                 END DO
+                 Y(K)=Y(I)
+                 Y(I)=MINIMUM
+              END DO
+            END SUBROUTINE SELECTION
+          END SUBROUTINE STATS
+
+1.38.2. References
+------------------
+
+     1.   Breaking Firewalls with OpenSSH and PuTTY
+          (http://souptonuts.sourceforge.net/sshtips.htm)
 
 
 -------------------------------------------------------------------------------
