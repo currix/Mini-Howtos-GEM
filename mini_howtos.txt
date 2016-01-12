@@ -953,10 +953,10 @@ LABEL=usbdisk0       /media/usb_disk_0 ext3    exec,user,noauto  0       0
 1.12. Using `find' and `xargs'
 ------------------------------
 
-     Updated on August 16th, 2013.
+     Updated on January 12th, 2016.
 
      The combination of the utilities `find' and `xargs' is a powerful tool
-     when you need to apply a program or do a task with several files.
+     if you need to apply a program or repeat a task with several files.
 
      As an example let's imagine that we have a directory with many `LaTeX'
      files, and some of them are letters, named as `lett_'<name>`.tex' and
@@ -1018,6 +1018,15 @@ $ find . -iname "lett*.tex" -print | xargs -I {} perl -e '(my $name= $ARGV[0])=~
 
 $ find ./* -newer fulltext.pdf -print | xargs -I {} scp {} user@destination.org:<FilesPath>
 
+     Another possible example, let's think that you have several
+     directories and you want to copy files that fulfill some condition to
+     a directory.  For example, you want to copy all files having names
+     ending as `_presentation.pdf' to the directory
+     `/media/user/3908-E1A4/'.  You can achieve this goal with the
+     following pipe:
+
+$ find . -name "*_presentation.pdf" | xargs -I {} cp {} /media/user/3908-E1A4/
+
      The following case is a practical example that shows how useful is the
      combination of pipes in `bash', making also use of the `xargs'
      command.
@@ -1044,8 +1053,8 @@ $ find ./* -newer fulltext.pdf -print | xargs -I {} scp {} user@destination.org:
      directory is where the backup takes place) belonging to user `tigu'.
 
      The first pipe _pipes_ the result of this search to the grep command,
-     where the directory named `tigu'.  This is done to prevent the command
-     from erasing the original user home directory.
+     where the directory named `tigu' is explicitly excluded.  This is done
+     to prevent the command from erasing the original user home directory.
 
      Finally the output of `grep' is piped to a combination of `xargs' and
      `rm' that removes the files.  For more details in the use of `xargs'
@@ -2626,8 +2635,8 @@ END PROGRAM Box_Muller_Prog
 1.38.2. References
 ------------------
 
-     1.   Breaking Firewalls with OpenSSH and PuTTY
-          (http://souptonuts.sourceforge.net/sshtips.htm)
+     1.   StackOverflow
+          (https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386)
 
 
 -------------------------------------------------------------------------------

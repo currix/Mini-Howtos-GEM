@@ -960,10 +960,10 @@ the previously labelled partition will be mounted.
 
 <sect id="sec_011">Using <prgn>find</prgn> and <prgn>xargs</prgn>
 <p>
-Updated on August 16th, 2013.
+Updated on January 12th, 2016.
 
 <p>
-The combination of the utilities <prgn>find</prgn> and <prgn>xargs</prgn> is a powerful tool when you need to apply a program or do a task with several files. 
+The combination of the utilities <prgn>find</prgn> and <prgn>xargs</prgn> is a powerful tool if you need to apply a program or repeat a task with several files. 
 
 <p>
 As an example let's imagine that we have a directory with
@@ -1053,6 +1053,17 @@ Another interesting option of <prgn>find</prgn> is <tt>-newer
 $ find ./* -newer fulltext.pdf -print | xargs -I {} scp {} user@destination.org:<var>FilesPath</var>
 </example> 
 
+<p>
+Another possible example, let's think that you have several
+directories and you want to copy files that fulfill some condition to
+a directory. For example, you want to copy all files having names
+ending as <tt>_presentation.pdf</tt> to the
+directory <file>/media/user/3908-E1A4/</file>. You can achieve this goal with the following
+pipe:
+<p>
+<example> 
+$ find . -name "*_presentation.pdf" | xargs -I {} cp {} /media/user/3908-E1A4/
+</example> 
 
 
 <p>
@@ -1096,7 +1107,7 @@ user <tt>tigu</tt>.
 
 <p>
 The first pipe <em>pipes</em> the result of this search to the grep
-command, where the directory named <tt>tigu</tt>. This is done to
+command, where the directory named <tt>tigu</tt> is explicitly excluded. This is done to
 prevent the command from erasing the original user home
 directory. 
 
