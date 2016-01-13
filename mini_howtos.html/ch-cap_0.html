@@ -46,7 +46,7 @@
 <link href="ch-cap_0.html#s-sec_019" rel="section" title="1.21 Check the available system locale options and establish a default one.">
 <link href="ch-cap_0.html#s-sec_020" rel="section" title="1.22 Change the encoding of given files.">
 <link href="ch-cap_0.html#s-sec_021" rel="section" title="1.23 Problem with the wireless and nm">
-<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating a Debian box from Lenny to Squeeze">
+<link href="ch-cap_0.html#s-sec_022" rel="section" title="1.24 Updating Debian from Wheezy to Jessie">
 <link href="ch-cap_0.html#s-sec_023" rel="section" title="1.25 Error in file /var/lib/dpkg/status">
 <link href="ch-cap_0.html#s-sec_024" rel="section" title="1.26 How to record terminal sessions using ttyrec">
 <link href="ch-cap_0.html#s-sec_025" rel="section" title="1.27 Using Bash to count the number of files in a directory">
@@ -134,6 +134,7 @@
 <link href="ch-cap_0.html#s-ref_usbboot" rel="subsection" title="1.14.1 References">
 <link href="ch-cap_0.html#s-ref_flashplayer" rel="subsection" title="1.15.1 References">
 <link href="ch-cap_0.html#s-ref_billix" rel="subsection" title="1.17.1 References">
+<link href="ch-cap_0.html#s-ref_jessieupdate" rel="subsection" title="1.24.1 References">
 <link href="ch-cap_0.html#s-ref_ttyrec" rel="subsection" title="1.26.1 References">
 <link href="ch-cap_0.html#s-ref_getmailgmail" rel="subsection" title="1.30.1 References">
 <link href="ch-cap_0.html#s-ref_extrdeb" rel="subsection" title="1.32.1 References">
@@ -2296,55 +2297,416 @@ problem.
 
 <hr>
 
-<h2 id="s-sec_022">1.24 Updating a <code>Debian</code> box from <code>Lenny</code> to <code>Squeeze</code></h2>
+<h2 id="s-sec_022">1.24 Updating <code>Debian</code> from <code>Wheezy</code> to <code>Jessie</code></h2>
 
 <p>
-Added on May 19, 2011.
+Updated on January 19, 2011.
 </p>
 
 <p>
-First edit the file <code>/etc/apt/sources.list</code> and replace any
-appearence of <samp>lenny</samp> to <samp>squeeze</samp>.  It could be a good
-idea to backup your original file before, just in case...  You just need to
-update and upgrade the system following this steps
+A sensible previous step is to backup some files and directories
 </p>
 
 <pre>
-     sudo apt-get update
-     sudo apt-get install apt dpkg 
-     sudo apt-get dist-upgrade
+      
+     # tar czf /temp/bck_dck/etc.tgz /etc &amp;
+     # tar czf /temp/bck_dck/var_lib_dpkg.tgz /var/lib/dpkg/ &amp;
+     # tar czf /temp/bck_dck/var_lib_apt.tgz /var/lib/apt/ &amp;
+     # dpkg --get-selections &quot;*&quot; &gt; /temp/bck_dck/selections.txt 
+     # tar czf /temp/bck_dck/var_lib_aptitude_pkgstates.tgz /var/lib/aptitud
 </pre>
 
 <p>
-In the update from <code>Lenny</code> to <code>Squeeze</code> the following
-error message appears:
+In order to gain an extra safety margin when upgrading remotely, we suggest
+that you run upgrade processes in the virtual console provided by
+<code>screen</code>, which enables safe reconnection and ensures the upgrade
+process is not interrupted even if the remote connection process fails.
 </p>
 
 <pre>
-     Unable to migrate to dependency-based boot system                                                                                                              │  
-      │                                                                                                                                                                │  
-      │ Tests have determined that problems in the boot system exist which prevent migration to dependency-based boot sequencing:                                      │  
-      │                                                                                                                                                                │  
-      │ insserv: warning: script 'K20scdate' missing LSB tags and overrides, insserv: warning: script 'S25libdevmapper1.02' missing LSB tags and overrides, insserv:   │  
-      │ warning: script 'scdate' missing LSB tags and overrides, insserv: warning: script 'libdevmapper1.02' missing LSB tags and overrides, , package lprng removed   │  
-      │ but not purged, package modutils removed but not purged                                                                                                        │  
-      │                                                                                                                                                                │  
-      │ If the reported problem is a local modification, it needs to be fixed manually. If it's a bug in the package, it should be reported to the BTS and fixed in    │  
-      │ the package. See http://wiki.debian.org/LSBInitScripts/DependencyBasedBoot for more information about how to fix the problems preventing migration.            │  
-      │                                                                                                                                                                │  
-      │ To reattempt the migration process after the problems have been fixed, run &quot;dpkg-reconfigure sysv-rc&quot;. Unable to migrate to dependency-based boot system                                                                                                              │  
-      │                                                                                                                                                                │  
-      │ Tests have determined that problems in the boot system exist which prevent migration to dependency-based boot sequencing:                                      │  
-      │                                                                                                                                                                │  
-      │ insserv: warning: script 'K20scdate' missing LSB tags and overrides, insserv: warning: script 'S25libdevmapper1.02' missing LSB tags and overrides, insserv:   │  
-      │ warning: script 'scdate' missing LSB tags and overrides, insserv: warning: script 'libdevmapper1.02' missing LSB tags and overrides, , package lprng removed   │  
-      │ but not purged, package modutils removed but not purged                                                                                                        │  
-      │                                                                                                                                                                │  
-      │ If the reported problem is a local modification, it needs to be fixed manually. If it's a bug in the package, it should be reported to the BTS and fixed in    │  
-      │ the package. See http://wiki.debian.org/LSBInitScripts/DependencyBasedBoot for more information about how to fix the problems preventing migration.            │  
-      │                                                                                                                                                                │  
-      │ To reattempt the migration process after the problems have been fixed, run &quot;dpkg-reconfigure sysv-rc&quot;.
+      
+     #  
+     # screen
+     # screen -ls
+     There is a screen on:
+             10305.pts-0.deck     (22/12/15 14:28:45)     (Attached)
+     1 Socket in /var/run/screen/S-root.
 </pre>
+
+<p>
+To have a smooth and flawless upgrade, review actions pending in package
+manager launching aptitude and press <samp>g</samp> (Go).  If it shows any
+actions, you should review them and either fix them or implement the suggested
+actions.  If no actions are suggested you will be presented with a message
+saying <samp>No packages are scheduled to be installed, removed, or
+upgraded</samp>.  In case you have configured APT pinning it should also be
+changed to point to packages in the new version.  In case you do not know what
+pinning is do not worry and follow on.
+</p>
+
+<p>
+Regardless of the method used for upgrading, it is recommended that you check
+the status of all packages first, and verify that all packages are in an
+upgradable state.  The following command will show any packages which have a
+status of <samp>Half-Installed</samp> or <samp>Failed-Config</samp>, and those
+with any error status.
+</p>
+
+<pre>
+      
+     # dpkg --audit
+     The following packages are missing the md5sums control file in the
+     database, they need to be reinstalled:
+      p0f                  Passive OS fingerprinting tool
+      libdb4.5             Berkeley v4.5 Database Libraries [runtime]
+      dhcp3-common         ISC DHCP common files (transitional package)
+</pre>
+
+<p>
+Reinstall packages with some issues.  Transitional packages and other packages
+in the Obsolete Section often can be removed once reinstalled.
+</p>
+
+<pre>
+      
+     # 
+     # aptitude reinstall p0f
+     The following packages will be REINSTALLED:
+       p0f 
+     0 packages upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 0 not upgraded.
+     Need to get 71.0 kB of archives. After unpacking 0 B will be used.
+     Get: 1 http://ftp.de.debian.org/debian/ wheezy/main p0f i386 2.0.8-2 [71.0 kB]
+     Fetched 71.0 kB in 0s (122 kB/s)
+     dpkg: warning: parsing file '/var/lib/dpkg/available' near line 447064 package 'cnews':
+      error in Version string 'cr.g7-40.4': version number does not start with digit
+     dpkg: warning: parsing file '/var/lib/dpkg/available' near line 600967 package 'epic4':
+      'Conflicts' field, reference to 'epic4-help': error in version: version number does not start with digit
+     (Reading database ... 397695 files and directories currently installed.)
+     Preparing to replace p0f 2.0.8-2 (using .../archives/p0f_2.0.8-2_i386.deb) ...
+     Unpacking replacement p0f ...
+     Processing triggers for man-db ...
+     Setting up p0f (2.0.8-2) ...
+     #
+     # aptitude reinstall libdb4.5
+     The following packages will be REINSTALLED:
+       libdb4.5 
+     0 packages upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 0 not upgraded.
+     Need to get 0 B of archives. After unpacking 0 B will be used.
+     E: I wasn't able to locate a file for the libdb4.5 package. This might mean you need to manually fix this package.
+     E: I wasn't able to locate a file for the libdb4.5 package. This might mean you need to manually fix this package.
+     E: Internal error: couldn't generate list of packages to download
+</pre>
+
+<p>
+Check packages on hold
+</p>
+
+<pre>
+      
+     # aptitude search &quot;~ahold&quot; 
+     No packages on hold
+</pre>
+
+<p>
+Edit <code>/etc/apt/sources.list</code> replacing wheezy by jessie
+</p>
+
+<pre>
+      
+     # vi sources.list
+     # cat sources.list
+     # 
+     #deb http://ftp.de.debian.org/debian/ wheezy  main contrib non-free
+     #deb-src http://ftp.de.debian.org/debian/ wheezy main contrib non-free
+     deb http://ftp.de.debian.org/debian/ jessie  main contrib non-free
+     deb-src http://ftp.de.debian.org/debian/ jessie main contrib non-free
+     
+     #deb http://security.debian.org/ wheezy/updates main contrib non-free
+     #deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+     deb http://security.debian.org/ jessie/updates main contrib non-free
+     deb-src http://security.debian.org/ jessie/updates main contrib non-free
+</pre>
+
+<p>
+Upgrade packages using the package management tool <code>apt-get</code>.  In
+previous releases, <code>aptitude</code> was recommended for this purpose, but
+recent versions of <code>apt-get</code> provide equivalent functionality and
+also have shown to more consistently give the desired upgrade results.  Use
+<code>/usr/bin/script</code> program to record a transcript of the upgrade
+session.  Then if a problem occurs, you will have a log of what happened that
+could provide exact information in a bug report.  To start the recording, type:
+</p>
+
+<pre>
+      
+     # script -t 2&gt;~/upgrade-jessiestep.time -a ~/upgrade-jessiestep.script
+     Script started, file is /root/upgrade-jessiestep.script
+     #
+</pre>
+
+<p>
+Update package list
+</p>
+
+<pre>
+      
+     # apt-get update
+</pre>
+
+<p>
+Check if you have enough space for the update
+</p>
+
+<pre>
+      
+     # apt-get -o APT::Get::Trivial-Only=true dist-upgrade
+     ....
+       xserver-xorg-video-fbdev xserver-xorg-video-geode xserver-xorg-video-intel xserver-xorg-video-mach64 xserver-xorg-video-mga
+       xserver-xorg-video-neomagic xserver-xorg-video-nouveau xserver-xorg-video-openchrome xserver-xorg-video-r128
+       xserver-xorg-video-radeon xserver-xorg-video-savage xserver-xorg-video-siliconmotion xserver-xorg-video-sisusb
+       xserver-xorg-video-tdfx xserver-xorg-video-trident xserver-xorg-video-vesa xserver-xorg-video-vmware xsltproc xterm xtrans-dev xvfb
+       xz-utils yelp yelp-xsl zenity zenity-common zip zlib1g zlib1g-dev
+     2095 upgraded, 820 newly installed, 54 to remove and 0 not upgraded.
+     Need to get 3,135 MB of archives.
+     After this operation, 1,645 MB of additional disk space will be used.
+     E: You don't have enough free space in /var/cache/apt/archives/.
+</pre>
+
+<p>
+In cases like the present one, when you do not have enough space in
+<samp>var</samp>, create a temporary <code>/var/cache/apt/archives</code>
+directory
+</p>
+
+<pre>
+      
+     # cp -ax /var/cache/apt/archives/ /home/
+     # ls /home/archives/
+     lock  partial
+     #  mount --bind /home/archives /var/cache/apt/archives
+     # mount | grep arch
+     /dev/sda6 on /var/cache/apt/archives type ext3 (rw,relatime,errors=continue,user_xattr,barrier=1,data=ordered)
+</pre>
+
+<p>
+Proceed to a minimal system upgrade to overcome deleting a large number of
+packages and some possible inconsistencies, and then a full upgrade.  To do
+this run first <samp>apt-get upgrade</samp> followed by <samp>apt-get
+dist-upgrade</samp>.  In case the error message indicates so, like in the
+following example, run <samp>apt-get -f install</samp>
+</p>
+
+<pre>
+      
+     # apt-get upgrade
+     
+     ...
+     Running updmap-sys. This may take some time... done.
+     Running mktexlsr /var/lib/texmf ... done.
+     Processing triggers for initramfs-tools ...
+     update-initramfs: Generating /boot/initrd.img-3.2.0-4-686-pae
+     Processing triggers for python-support ...
+     Processing triggers for menu ...
+     
+     # apt-get dist-upgrade
+     
+     ....
+     
+     dpkg: error processing package libgtk-3-0:i386 (--configure):
+      dependency problems - leaving unconfigured
+     Processing triggers for libc-bin (2.19-18+deb8u1) ...
+     Errors were encountered while processing:
+      libpango-1.0-0:i386
+      libpangoft2-1.0-0:i386
+      libpangocairo-1.0-0:i386
+      libgtk-3-bin
+      librsvg2-2:i386
+      librsvg2-common:i386
+      adwaita-icon-theme
+      libgtk-3-common
+      libgtk-3-0:i386
+     E: Sub-process /usr/bin/dpkg returned an error code (1)
+     deckard:~# 
+     deckard:~# apt-get dist-upgrade
+     Reading package lists... Done
+     Building dependency tree       
+     Reading state information... Done
+     You might want to run 'apt-get -f install' to correct these.
+     The following packages have unmet dependencies:
+      cgmanager : Depends: init-system-helpers (&gt;= 1.18~) but it is not installed
+      cups-daemon : Depends: init-system-helpers (&gt;= 1.18~) but it is not installed
+                    Recommends: cups-browsed but it is not installed
+                    Recommends: avahi-daemon (&gt;= 0.6.31-3~) but 0.6.31-2 is installed
+      dpkg : Breaks: fontconfig (&lt; 2.11.0-6.2~) but 2.9.0-7.1 is installed
+             Breaks: man-db (&lt; 2.6.3-6~) but 2.6.2-1 is installed
+      emacs24 : Depends: libmagickcore-6.q16-2 (&gt;= 8:6.8.8.2) but it is not installed
+      grace : Depends: libxbae4m (&gt;= 4.60.2) but it is not installed
+              Depends: libxmhtml1.1 (&gt;= 1.1.9) but it is not installed
+      libmagickwand-6.q16-2 : Depends: libmagickcore-6.q16-2 (&gt;= 8:6.8.9.9) but it is not installed
+      libperl5.20 : Depends: perl-base (= 5.20.2-3+deb8u1) but 5.14.2-21+deb7u2 is installed
+      policycoreutils : Depends: init-system-helpers (&gt;= 1.18~) but it is not installed
+                        Recommends: python-audit but it is not installed
+     E: Unmet dependencies. Try using -f.
+     
+     deckard:~# apt-get -f install
+     ....
+       libclass-c3-xs-perl libcpan-meta-perl libdata-optlist-perl libdata-section-perl libfcgi-perl libgadu3 liblog-message-perl
+       liblog-message-simple-perl libmagickcore-6.q16-2 libmodule-build-perl libmodule-pluggable-perl libmodule-signature-perl
+       libmro-compat-perl libpackage-constants-perl libparams-util-perl libperl4-corelibs-perl libpod-latex-perl libpod-readme-perl
+       libprotobuf-c1 libregexp-common-perl libsoftware-license-perl libsub-exporter-perl libsub-install-perl libterm-ui-perl
+       libtext-soundex-perl libtext-template-perl libxbae4m libxmhtml1.1 rename
+     The following packages will be upgraded:
+       fontconfig libalgorithm-diff-xs-perl libbit-vector-perl libfile-fcntllock-perl libgeant321-2-gfortran libhtml-parser-perl
+       libio-pty-perl liblocale-gettext-perl libnet-dbus-perl libnet-ssleay-perl libpawlib-lesstif3-gfortran libpawlib2-dev
+       libpawlib2-gfortran libpipeline1 libpurple0 libsocket-perl libtext-charwidth-perl libtext-iconv-perl libuuid-perl libxbae-dev
+       libxml-parser-perl libyaml-syck-perl man-db paw++ perl perl-base perl-doc perl-modules perl-tk pidgin pidgin-data
+     31 upgraded, 35 newly installed, 7 to remove and 1041 not upgraded.
+     343 not fully installed or removed.
+     Need to get 0 B/31.0 MB of archives.
+     After this operation, 5,868 kB of additional disk space will be used.
+     Do you want to continue [Y/n]? 
+     ......Setting up gnome-themes-standard:i386 (3.14.2.2-1) ...
+     Processing triggers for libc-bin (2.19-18+deb8u1) ...
+     Processing triggers for menu (2.1.46) ...
+     Processing triggers for libgdk-pixbuf2.0-0:i386 (2.31.1-2+deb8u4) ...
+     Processing triggers for systemd (215-17+deb8u2) ...
+     Processing triggers for auctex (11.87-3+deb8u1) ...
+     update-auctex-elisp[8251]: Will scan macros for Emacs flavor emacs24 (log to /var/lib/auctex/emacs24/CompilationLog)
+     update-auctex-elisp[8251]: Will scan macros for Emacs flavor emacs23 (log to /var/lib/auctex/emacs23/CompilationLog)
+     #
+</pre>
+
+<p>
+Success...  Now run <samp>apt-get update</samp> and <samp>upgrade</samp> to
+check that the system has been correctly updated and edit
+<code>/etc/apt/sources.list.d/dropbox.list</code> in case it exists and change
+it to
+</p>
+
+<pre>
+      
+     deckard:/etc/apt/sources.list.d# cat dropbox.list 
+     deb [arch=i386,amd64] http://linux.dropbox.com/debian jessie main
+</pre>
+
+<p>
+Rerun <samp>apt-get update</samp> and <samp>apt-get upgrade</samp> until no
+more errors are found.  If required run <samp>apt-get autoremove</samp>
+</p>
+
+<pre>
+      
+     # apt-get upgrade
+     .....
+     Processing triggers for libc-bin (2.19-18+deb8u1) ...
+     Processing triggers for systemd (215-17+deb8u2) ...
+     Processing triggers for dbus (1.8.20-0+deb8u1) ...
+     Processing triggers for menu (2.1.47) ...
+     Processing triggers for python-support (1.0.15) ...
+     Processing triggers for initramfs-tools (0.120) ...
+     update-initramfs: Generating /boot/initrd.img-3.2.0-4-686-pae
+     # 
+     # apt-get update
+     # apt-get upgrade
+     Reading package lists... Done
+     Building dependency tree
+     Reading state information... Done
+     Calculating upgrade... The following packages were automatically installed and are no longer required:
+       cernlib-core cernlib-montecarlo dzedit geant321-data geant321-doc html2text kdebase-bin kdebase-runtime kuipc kxterm lesstif2-dev
+       ......
+       m17n-contrib montecarlo-base montecarlo-data nypatchy paw paw++ paw-common paw-demos x11proto-print-dev
+     Use 'apt-get autoremove' to remove them.
+     Done
+     The following packages have been kept back:
+       alsa-utils amarok amarok-common amarok-utils aptitude aptitude-common banshee base-passwd bind9-host blt brasero brasero-common
+       bwidget colord console-common console-data default-jre default-jre-headless dia dia-common dia-libs diffpdf dnsmasq-base dnsutils
+       docutils-common dolphin etherape exiv2 exo-utils fail2ban fakeroot file-roller flex fop gettext gir1.2-gnomebluetooth-1.0
+     ............
+       xfce4-power-manager-data xfce4-quicklauncher-plugin xfce4-screenshooter xfce4-sensors-plugin xfce4-session xfce4-settings
+       xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-terminal xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin
+       xfce4-weather-plugin xfce4-xkb-plugin xfconf xfdesktop4 xfdesktop4-data xfwm4 xfwm4-themes xpra yelp
+     0 upgraded, 0 newly installed, 0 to remove and 560 not upgraded.
+     # apt-get autoremove
+     .......
+     Removing montecarlo-base (20061220+dfsg3-3) ...
+     Removing paw-common (1:2.14.04.dfsg.2-9) ...
+     Removing x11proto-print-dev (1.0.5-2) ...
+     Removing libmathlib2-gfortran (20061220+dfsg3-2) ...
+     Removing libpacklib1-gfortran (20061220+dfsg3-2) ...
+     Removing libkernlib1-gfortran (20061220+dfsg3-2) ...
+     Processing triggers for man-db (2.7.0.2-5) ...
+     Processing triggers for libc-bin (2.19-18+deb8u1) ...
+     Processing triggers for doc-base (0.10.6) ...
+     Processing 6 removed doc-base files, 2 added doc-base files...
+     Error while merging /usr/share/doc-base/kino-en with /usr/share/doc-base/kino-fr: format html already defined.
+     Registering documents with scrollkeeper...
+     Processing triggers for mime-support (3.58) ...
+     Processing triggers for desktop-file-utils (0.22-1) ...
+     Processing triggers for menu (2.1.47) ...
+     Processing triggers for hal (0.5.14-8) ...
+     Regenerating hal fdi cache ...
+     Processing triggers for hicolor-icon-theme (0.13-1) ...
+     # 
+     # apt-get update
+     # apt-get upgrade
+     ....................
+       xfce4-diskperf-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mixer xfce4-mount-plugin
+       xfce4-netload-plugin xfce4-notes xfce4-notes-plugin xfce4-notifyd xfce4-panel xfce4-places-plugin xfce4-power-manager
+       xfce4-power-manager-data xfce4-quicklauncher-plugin xfce4-screenshooter xfce4-sensors-plugin xfce4-session xfce4-settings
+       xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-terminal xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin
+       xfce4-weather-plugin xfce4-xkb-plugin xfconf xfdesktop4 xfdesktop4-data xfwm4 xfwm4-themes xpra yelp
+     0 upgraded, 0 newly installed, 0 to remove and 548 not upgraded.
+     deckard:~# 
+     deckard:~# apt-get dist-upgrade
+     .....
+     Setting up libmono-compilerservices-symbolwriter4.0-cil (3.2.8+dfsg-10) ...
+     Setting up tomboy (1.14.1-3) ...
+     Processing triggers for systemd (215-17+deb8u2) ...
+     Processing triggers for libc-bin (2.19-18+deb8u1) ...
+     Processing triggers for menu (2.1.47) ...
+     Processing triggers for dbus (1.8.20-0+deb8u1) ...
+     Processing triggers for python-support (1.0.15) ...
+     Processing triggers for rygel (0.24.2-1+b1) ...
+     # 
+     # apt-get upgrade
+     Reading package lists... Done
+     Building dependency tree       
+     Reading state information... Done
+     Calculating upgrade... The following packages were automatically installed and are no longer required:
+       gcj-4.6-base gcj-4.6-jre-lib gcj-4.7-base gcj-4.7-jre-lib gir1.2-gnomebluetooth-1.0 gnome-js-common kdemultimedia-kio-plugins
+       ........
+       squeeze texlive-luatex tsconf ttf-dejavu ttf-liberation ttf-marvosym ttf-sil-gentium-basic xbase-clients xfprint4
+     Use 'apt-get autoremove' to remove them.
+     Done
+     0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+     deckard:~# apt-get autoremove
+</pre>
+
+<p>
+Once finisished with no more errors umount the temporary <samp>archives</samp>
+directory and you can use <code>aptitude</code> for package management.
+</p>
+
+<pre>
+      
+     # umount /var/cache/apt/archives/
+     
+       
+     And That's all....
+</pre>
+
+<hr>
+
+<h3 id="s-ref_jessieupdate">1.24.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html">Debian
+Jessie Release Notes</a></code>
+</p>
+</li>
+</ol>
 
 <hr>
 
