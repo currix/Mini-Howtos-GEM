@@ -144,6 +144,7 @@ Contents
      7.15.     Changing pages to landscape orientation in `LaTeX' texts
      7.16.     Including single column figures or tables in a double column
                `LaTeX' document
+     7.17.     Controlling horizontal spacing in `LaTeX'
 
      8.        Graphic Edition
      8.1.      Include greek characters in `inkscape'
@@ -4855,6 +4856,42 @@ document
             \end{figure*}
 
      In this way figures and tables will occupy the full page.
+
+
+7.17. Controlling horizontal spacing in `LaTeX'
+-----------------------------------------------
+
+     Added on January 15th, 2016.
+
+     The horizontal spacing between words and between words and objects in
+     `LaTeX' is automatically determined.  However we may be interested in
+     adding or removing space.  This can be done making use of the command
+
+          \hspace{length}
+
+     Where length can be expressed in `cm', `px', etc.  If such a space
+     should be kept even if it falls at the end or the start of a line, use
+     the command `\hspace*'.
+
+     The command
+
+          \stretch{n}
+
+     acts differently, generating "elastic" spacing.  It extends until all
+     the remaining space on a line is occupied.  If two
+     `\hspace{\stretch{n}}' commands are issued on the same line, they grow
+     according to the stretch factor.
+
+          X\hspace{\stretch{1}}
+          X\hspace{\stretch{2}} X
+          
+          x        x                x
+
+7.17.1. References
+------------------
+
+     1.   Horizontal Space LaTeX WikiBooks
+          (http://en.wikibooks.org/wiki/LaTeX/Formatting#Horizontal_Space)
 
 
 -------------------------------------------------------------------------------

@@ -5605,6 +5605,45 @@ Added on November 18th, 2012.
 <p>
 In this way figures and tables will occupy the full page.
 </sect>
+<sect id="sec_horizontal"><heading>Controlling horizontal spacing in <prgn>LaTeX</prgn></heading> 
+<p>
+Added on January 15th, 2016.
+
+<p>The horizontal spacing between words and between words and objects  in <prgn>LaTeX</prgn> is automatically determined. However we may be interested in adding or removing space. This can be done making use of the command
+<p>
+<example> 
+\hspace{length}
+</example>
+
+<p>
+  Where length can be expressed in <tt>cm</tt>, <tt>px</tt>, etc. If such a space should be kept even if it falls at the end or the start of a line, use the command <tt>\hspace*</tt>.
+  
+<p>
+The command
+<p>
+<example> 
+\stretch{n}
+</example>
+
+<p>
+  acts differently, generating "elastic" spacing. It extends until all the remaining space on a line is occupied. If two <tt>\hspace{\stretch{n}}</tt> commands are issued on the same line, they grow according to the stretch factor.
+<p>
+<example> 
+X\hspace{\stretch{1}}
+X\hspace{\stretch{2}} X
+
+x        x                x
+</example>
+<p>
+
+<sect1 id="ref_horizspace"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="http://en.wikibooks.org/wiki/LaTeX/Formatting#Horizontal_Space" name="Horizontal Space LaTeX WikiBooks">
+</enumlist>  
+</sect1>
+</sect>
 <chapt id="cap_5"><heading>Graphic Edition</heading> 
 
 <sect id="sec_51"><heading>Include greek characters
