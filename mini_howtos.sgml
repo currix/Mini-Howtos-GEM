@@ -5046,7 +5046,7 @@ Created on January 29th, 2016.
 <example>
 pd.set_option('display.max_rows', len(exp_vals_H2))
 print(exp_vals_H2)
-pd.reset_option('display.max_rows'
+pd.reset_option('display.max_rows')
 </example>
 <p>
 If this is repeatedly needed a function can be defined as follows
