@@ -92,6 +92,7 @@
 <link href="ch-cap_python.html#s-sec_mplotlib_1" rel="section" title="6.7 Creating a panel array of plots with Matplotlib">
 <link href="ch-cap_python.html#s-sec_mplotlib_2" rel="section" title="6.8 Creating a panel array of plots with common axes using Matplotlib">
 <link href="ch-cap_python.html#s-sec_mplotlib_3" rel="section" title="6.9 Combining several plots in a figure">
+<link href="ch-cap_python.html#s-sec_python_dispall" rel="section" title="6.10 Display in Ipythonall the components of a Pandas Series or DataFrame">
 <link href="ch-cap_4.html#s-sec_411" rel="section" title="7.1 pdftk application examples">
 <link href="ch-cap_4.html#s-sec_41" rel="section" title="7.2 Merge two PostScript or PDF files">
 <link href="ch-cap_4.html#s-sec_42" rel="section" title="7.3 Include et al. in bibtex">
@@ -153,6 +154,7 @@
 <link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
 <link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
 <link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_python.html#s-ref_dispall" rel="subsection" title="6.10.1 References">
 <link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
 <link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
 <link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
@@ -566,6 +568,51 @@ sizes.
      pyplot.setp(ax.get_xticklabels(), fontsize=14)
      pyplot.setp(ax.get_yticklabels(), fontsize=14)
 </pre>
+
+<hr>
+
+<h2 id="s-sec_python_dispall">6.10 Display in <code>Ipython</code>all the components of a <code>Pandas</code> <samp>Series</samp> or <samp>DataFrame</samp></h2>
+
+<p>
+Created on January 29th, 2016.
+</p>
+
+<p>
+Working in <code>Ipython&gt;</code> only the head and tail of
+<samp>Series</samp> or <samp>DataFrames</samp> data structures are displayed.
+In order to display the full contents of <samp>DataFrames</samp> named e.g.
+<samp>exp_vals_H2</samp> the following commands can be used.
+</p>
+
+<pre>
+     pd.set_option('display.max_rows', len(exp_vals_H2))
+     print(exp_vals_H2)
+     pd.reset_option('display.max_rows'
+</pre>
+
+<p>
+If this is repeatedly needed a function can be defined as follows
+</p>
+
+<pre>
+     def print_full(x):
+         pd.set_option('display.max_rows', len(x))
+         print(x)
+         pd.reset_option('display.max_rows')
+</pre>
+
+<hr>
+
+<h3 id="s-ref_dispall">6.10.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://stackoverflow.com/questions/19124601/is-there-a-way-to-pretty-print-the-entire-pandas-series-dataframe">Stack
+Exchange</a></code>
+</p>
+</li>
+</ol>
 
 <hr>
 

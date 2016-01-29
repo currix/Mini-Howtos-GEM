@@ -5032,6 +5032,42 @@ pyplot.setp(ax.get_yticklabels(), fontsize=14)
 </example>
 
 </sect>
+<sect id="sec_python_dispall"><heading>Display in <prgn>Ipython</prgn>all the components of a
+    <prgn>Pandas</prgn> <tt>Series</tt> or <tt>DataFrame</tt></heading> 
+<p>
+Created on January 29th, 2016.
+<p>
+  Working in <prgn>Ipython></prgn> only the head and tail
+  of  <tt>Series</tt> or <tt>DataFrames</tt> data structures are
+  displayed. In order to display the full contents
+  of <tt>DataFrames</tt> named e.g. <tt>exp_vals_H2</tt> the following
+  commands can be used. 
+<p>
+<example>
+pd.set_option('display.max_rows', len(exp_vals_H2))
+print(exp_vals_H2)
+pd.reset_option('display.max_rows'
+</example>
+<p>
+If this is repeatedly needed a function can be defined as follows
+  <p>
+<example>
+def print_full(x):
+    pd.set_option('display.max_rows', len(x))
+    print(x)
+    pd.reset_option('display.max_rows')
+</example>
+
+
+<sect1 id="ref_dispall"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="http://stackoverflow.com/questions/19124601/is-there-a-way-to-pretty-print-the-entire-pandas-series-dataframe"
+name="Stack Exchange">
+</enumlist>  
+</sect1>
+
 
 <chapt id="cap_4"><heading>Text Processing and Formatting</heading> 
 <sect id="sec_411"><heading><prgn>pdftk</prgn> application examples</heading> 

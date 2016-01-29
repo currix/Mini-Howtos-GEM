@@ -125,6 +125,8 @@ Contents
      6.8.      Creating a panel array of plots with common axes using
                `Matplotlib'
      6.9.      Combining several plots in a figure
+     6.10.     Display in `Ipython'all the components of a `Pandas'
+               `Series' or `DataFrame'
 
      7.        Text Processing and Formatting
      7.1.      `pdftk' application examples
@@ -4393,6 +4395,35 @@ pyplot.show()
           ax.set_ylabel(r'Y axis Label $v_1, v_2, v_3$',fontsize = 16)
           pyplot.setp(ax.get_xticklabels(), fontsize=14)
           pyplot.setp(ax.get_yticklabels(), fontsize=14)
+
+
+6.10. Display in `Ipython'all the components of a `Pandas' `Series' or
+`DataFrame'
+----------------------------------------------------------------------------
+
+     Created on January 29th, 2016.
+
+     Working in `Ipython>' only the head and tail of `Series' or
+     `DataFrames' data structures are displayed.  In order to display the
+     full contents of `DataFrames' named e.g.  `exp_vals_H2' the following
+     commands can be used.
+
+          pd.set_option('display.max_rows', len(exp_vals_H2))
+          print(exp_vals_H2)
+          pd.reset_option('display.max_rows'
+
+     If this is repeatedly needed a function can be defined as follows
+
+          def print_full(x):
+              pd.set_option('display.max_rows', len(x))
+              print(x)
+              pd.reset_option('display.max_rows')
+
+6.10.1. References
+------------------
+
+     1.   Stack Exchange
+          (http://stackoverflow.com/questions/19124601/is-there-a-way-to-pretty-print-the-entire-pandas-series-dataframe)
 
 
 -------------------------------------------------------------------------------
