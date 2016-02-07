@@ -199,6 +199,10 @@ Some Mini-Howtos of Interest
 <h2 id="s-sec_emacs1">4.1 <code>Emacs</code> macros</h2>
 
 <p>
+Updated on February 7th, 2016.
+</p>
+
+<p>
 To define several <code>emacs</code> macros simultaneously and save them, the
 macros should be named.  To give a macro a name define the macro and then
 execute <samp>M-x (name-last-kbd-macro)</samp> and give the macro a name[<a
@@ -213,11 +217,17 @@ should be executed, it should be recalled by its name as <samp>M-x</samp>
 </p>
 
 <p>
-If you consider the macro worth to be saved for use in future sessions it could
-be added to the <code>emacs</code> startup file.  In order to do so, open the
-<samp>.emacs</samp> file or the file where you keep <code>emacs</code> macros
-and execute <samp>M-x (insert-kbd-macro)</samp> giving the name of the macro to
-be saved.
+If you consider the macro worth to be saved for future sessions you can open a
+file and save the macro in this file with the command <samp>M-x
+insert-kbd-macro RET <var>macroname</var> RET</samp>.  You can load the file
+later with <samp>load-file</samp>.
+</p>
+
+<p>
+The macro can also be added to the <code>emacs</code> startup file.  In order
+to do so, open the <samp>.emacs</samp> file or the file where you keep
+<code>emacs</code> macros and execute <samp>M-x (insert-kbd-macro)</samp>
+giving the name of the macro to be saved.
 </p>
 
 <hr>
@@ -228,6 +238,15 @@ be saved.
 <p>
 <code><a
 href="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html">Emacs
+Manual</a></code>
 </p>
 </li>
 </ol>

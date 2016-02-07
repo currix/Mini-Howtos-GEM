@@ -3680,7 +3680,8 @@ $ tar czf - data_EXP | ssh username@backup_server "cat &gt; data_EXP_dir.tgz"
 <chapt id="cap_emacs"><heading><prgn>Emacs</prgn> text editor</heading> 
 
 <sect id="sec_emacs1"><heading><prgn>Emacs</prgn> macros</heading> 
-
+<p>
+Updated on February 7th, 2016.
 <p> To define several <prgn>emacs</prgn> macros simultaneously and
   save them, the macros should be named. To give a macro a name define
   the macro and then execute <tt>M-x (name-last-kbd-macro)</tt> and
@@ -3692,8 +3693,10 @@ $ tar czf - data_EXP | ssh username@backup_server "cat &gt; data_EXP_dir.tgz"
     the one that should be executed, it should be recalled by its name
     as <tt>M-x</tt> <var>macro_name</var>.
 
-<p> If you consider the macro worth to be saved for use in future
-  sessions it could be added to the <prgn>emacs</prgn> startup
+<p> If you consider the macro worth to be saved for future
+  sessions you can open a file and save the macro in this file with the command <tt>M-x insert-kbd-macro RET <var>macroname</var> RET</tt>. You can load the file later with <tt>load-file</tt>.
+
+  <p> The macro can also be added to the <prgn>emacs</prgn> startup
   file. In order to do so, open the <tt>.emacs</tt> file or the file
   where you keep <prgn>emacs</prgn> macros and execute <tt>M-x
   (insert-kbd-macro)</tt> giving the name of the macro to be saved.
@@ -3704,6 +3707,8 @@ $ tar czf - data_EXP | ssh username@backup_server "cat &gt; data_EXP_dir.tgz"
 <enumlist>  
 <item><url id="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm"
 name="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">
+<item><url id="http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html"
+name="Emacs Manual">
 </enumlist>  
 </sect1>
 </sect>

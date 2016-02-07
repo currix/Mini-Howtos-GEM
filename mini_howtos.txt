@@ -3221,6 +3221,8 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 4.1. `Emacs' macros
 -------------------
 
+     Updated on February 7th, 2016.
+
      To define several `emacs' macros simultaneously and save them, the
      macros should be named.  To give a macro a name define the macro and
      then execute `M-x (name-last-kbd-macro)' and give the macro a name[1].
@@ -3230,11 +3232,15 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
      one that should be executed, it should be recalled by its name as
      `M-x' <macro_name>.
 
-     If you consider the macro worth to be saved for use in future sessions
-     it could be added to the `emacs' startup file.  In order to do so,
-     open the `.emacs' file or the file where you keep `emacs' macros and
-     execute `M-x (insert-kbd-macro)' giving the name of the macro to be
-     saved.
+     If you consider the macro worth to be saved for future sessions you
+     can open a file and save the macro in this file with the command `M-x
+     insert-kbd-macro RET <macroname> RET'.  You can load the file later
+     with `load-file'.
+
+     The macro can also be added to the `emacs' startup file.  In order to
+     do so, open the `.emacs' file or the file where you keep `emacs'
+     macros and execute `M-x (insert-kbd-macro)' giving the name of the
+     macro to be saved.
 
 [1]  It is interesting to prefix the macros with your initials or your
      username to prevent conflicts.
@@ -3243,6 +3249,9 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 -----------------
 
      1.   http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm
+
+     2.   Emacs Manual
+          (http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html)
 
 
 4.2. Changing the default system's text editor to `Emacs'
