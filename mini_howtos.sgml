@@ -3775,6 +3775,22 @@ name="Mastering Emacs">
 </enumlist>  
 </sect1>
 
+<sect id="sec_comment"><heading>Commenting a region of a code in <prgn>Emacs</prgn></heading> 
+<p>
+Created on February 23rd, 2016.
+
+<p>
+  In order to remove comment several lines of a source code, in <prgn>LaTeX</prgn>, <prgn>Python</prgn>, <prgn>Fortran</prgn>, etc. select the region to comment and press <tt>M-;</tt>. To uncomment a region type <tt>C-u C-;</tt>.
+<p>
+<sect1 id="ref_comment"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="https://www.gnu.org/software/emacs/manual/html_node/emacs/Comment-Commands.html"
+name="Emacs manual">
+</enumlist>  
+</sect1>
+
 
 
 </sect>

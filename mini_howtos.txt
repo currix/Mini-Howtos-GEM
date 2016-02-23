@@ -100,6 +100,7 @@ Contents
      4.1.      `Emacs' macros
      4.2.      Changing the default system's text editor to `Emacs'
      4.3.      Removing empty lines in `Emacs'
+     4.4.      Commenting a region of a code in `Emacs'
 
      5.        Perl Language
      5.1.      Installing a `CPAN' module
@@ -3302,6 +3303,22 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 
      1.   Mastering Emacs
           (https://www.masteringemacs.org/article/removing-blank-lines-buffer)
+
+
+4.4. Commenting a region of a code in `Emacs'
+---------------------------------------------
+
+     Created on February 23rd, 2016.
+
+     In order to remove comment several lines of a source code, in `LaTeX',
+     `Python', `Fortran', etc.  select the region to comment and press
+     `M-;'.  To uncomment a region type `C-u C-;'.
+
+4.4.1. References
+-----------------
+
+     1.   Emacs manual
+          (https://www.gnu.org/software/emacs/manual/html_node/emacs/Comment-Commands.html)
 
 
 -------------------------------------------------------------------------------
