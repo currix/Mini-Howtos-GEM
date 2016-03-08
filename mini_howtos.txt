@@ -142,12 +142,13 @@ Contents
      7.10.     Use `Unicode' encoding in `LaTeX'
      7.11.     Use color in `LaTeX'
      7.12.     Easy way of defining smaller margins in `LaTeX'
-     7.13.     Using the same footnote mark in `LaTeX'
-     7.14.     Using the euro symbol in `LaTeX'
-     7.15.     Changing pages to landscape orientation in `LaTeX' texts
-     7.16.     Including single column figures or tables in a double column
+     7.13.     Changing footnote symbols in `LaTeX'
+     7.14.     Using the same footnote mark in `LaTeX'
+     7.15.     Using the euro symbol in `LaTeX'
+     7.16.     Changing pages to landscape orientation in `LaTeX' texts
+     7.17.     Including single column figures or tables in a double column
                `LaTeX' document
-     7.17.     Controlling horizontal spacing in `LaTeX'
+     7.18.     Controlling horizontal spacing in `LaTeX'
 
      8.        Graphic Edition
      8.1.      Include greek characters in `inkscape'
@@ -4805,7 +4806,25 @@ pyplot.show()
           \usepackage{a4wide}
 
 
-7.13. Using the same footnote mark in `LaTeX'
+7.13. Changing footnote symbols in `LaTeX'
+------------------------------------------
+
+     Added on January 8th, 2016.
+
+     The standard footnote symbol in a `LaTeX' text are numbers, and
+     sometimes, when combined with equations, can produce certain
+     ambiguity.  The symbols can be changed to a set of rotating nine
+     different symbols adding to the text preamble
+
+          \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+     Another option is to change to alphabetic uppercase labels with the
+     command
+
+          \renewcommand{\thefootnote}{\Alph{footnote}}
+
+
+7.14. Using the same footnote mark in `LaTeX'
 ---------------------------------------------
 
      Added on February 5th, 2012.
@@ -4820,14 +4839,14 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
      are other footnotes between the first reference and any of the other
      _duplicates_.
 
-7.13.1. References
+7.14.1. References
 ------------------
 
      1.   LaTeX wikibooks
           (http://en.wikibooks.org/wiki/LaTeX/Formatting#Footnotes)
 
 
-7.14. Using the euro symbol in `LaTeX'
+7.15. Using the euro symbol in `LaTeX'
 --------------------------------------
 
      Added on February 7th, 2012.
@@ -4848,7 +4867,7 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
           \textit{The book is \EUR{10}.}
 
 
-7.15. Changing pages to landscape orientation in `LaTeX' texts
+7.16. Changing pages to landscape orientation in `LaTeX' texts
 --------------------------------------------------------------
 
      Added on November 16th, 2012.
@@ -4888,14 +4907,14 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
           ... table or figure here ...
           \end{landscape}
 
-7.15.1. References
+7.16.1. References
 ------------------
 
      1.   Landscape in LaTeX
           (http://texblog.org/2007/11/10/landscape-in-latex)
 
 
-7.16. Including single column figures or tables in a double column `LaTeX'
+7.17. Including single column figures or tables in a double column `LaTeX'
 document
 ----------------------------------------------------------------------------
 
@@ -4915,7 +4934,7 @@ document
      In this way figures and tables will occupy the full page.
 
 
-7.17. Controlling horizontal spacing in `LaTeX'
+7.18. Controlling horizontal spacing in `LaTeX'
 -----------------------------------------------
 
      Added on January 15th, 2016.
@@ -4944,7 +4963,7 @@ document
           
           x        x                x
 
-7.17.1. References
+7.18.1. References
 ------------------
 
      1.   Horizontal Space LaTeX WikiBooks

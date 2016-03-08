@@ -106,11 +106,12 @@
 <link href="ch-cap_4.html#s-sec_410" rel="section" title="7.10 Use Unicode encoding in LaTeX">
 <link href="ch-cap_4.html#s-sec_latexcolor" rel="section" title="7.11 Use color in LaTeX">
 <link href="ch-cap_4.html#s-sec_fullpage" rel="section" title="7.12 Easy way of defining smaller margins in LaTeX">
-<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.13 Using the same footnote mark in LaTeX">
-<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.14 Using the euro symbol in LaTeX">
-<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.15 Changing pages to landscape orientation in LaTeX texts">
-<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.16 Including single column figures or tables in a double column LaTeX document">
-<link href="ch-cap_4.html#s-sec_horizontal" rel="section" title="7.17 Controlling horizontal spacing in LaTeX">
+<link href="ch-cap_4.html#s-sec_changefootnsym" rel="section" title="7.13 Changing footnote symbols in LaTeX">
+<link href="ch-cap_4.html#s-sec_sevfootn" rel="section" title="7.14 Using the same footnote mark in LaTeX">
+<link href="ch-cap_4.html#s-sec_eurosym" rel="section" title="7.15 Using the euro symbol in LaTeX">
+<link href="ch-cap_4.html#s-sec_landscape" rel="section" title="7.16 Changing pages to landscape orientation in LaTeX texts">
+<link href="ch-cap_4.html#s-sec_singledouble" rel="section" title="7.17 Including single column figures or tables in a double column LaTeX document">
+<link href="ch-cap_4.html#s-sec_horizontal" rel="section" title="7.18 Controlling horizontal spacing in LaTeX">
 <link href="ch-cap_5.html#s-sec_51" rel="section" title="8.1 Include greek characters in inkscape">
 <link href="ch-cap_5.html#s-sec_52" rel="section" title="8.2 Include greek characters in Gimp">
 <link href="ch-cap_5.html#s-sec_53" rel="section" title="8.3 Change the text baseline in inkscape">
@@ -160,9 +161,9 @@
 <link href="ch-cap_4.html#s-ref_mergepdf" rel="subsection" title="7.2.1 References">
 <link href="ch-cap_4.html#s-ref_latexlists" rel="subsection" title="7.9.1 References">
 <link href="ch-cap_4.html#s-ref_latexcolor" rel="subsection" title="7.11.1 References">
-<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.13.1 References">
-<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.15.1 References">
-<link href="ch-cap_4.html#s-ref_horizspace" rel="subsection" title="7.17.1 References">
+<link href="ch-cap_4.html#s-ref_sevfootn" rel="subsection" title="7.14.1 References">
+<link href="ch-cap_4.html#s-ref_landscape" rel="subsection" title="7.16.1 References">
+<link href="ch-cap_4.html#s-ref_horizspace" rel="subsection" title="7.18.1 References">
 <link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
 <link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
 
@@ -820,7 +821,36 @@ With <samp>A4</samp> papersize another possibility is
 
 <hr>
 
-<h2 id="s-sec_sevfootn">7.13 Using the same footnote mark in <code>LaTeX</code></h2>
+<h2 id="s-sec_changefootnsym">7.13 Changing footnote symbols in <code>LaTeX</code></h2>
+
+<p>
+Added on January 8th, 2016.
+</p>
+
+<p>
+The standard footnote symbol in a <code>LaTeX</code> text are numbers, and
+sometimes, when combined with equations, can produce certain ambiguity.  The
+symbols can be changed to a set of rotating nine different symbols adding to
+the text preamble
+</p>
+
+<pre>
+      
+     \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+</pre>
+
+<p>
+Another option is to change to alphabetic uppercase labels with the command
+</p>
+
+<pre>
+      
+     \renewcommand{\thefootnote}{\Alph{footnote}}
+</pre>
+
+<hr>
+
+<h2 id="s-sec_sevfootn">7.14 Using the same footnote mark in <code>LaTeX</code></h2>
 
 <p>
 Added on February 5th, 2012.
@@ -843,7 +873,7 @@ footnotes between the first reference and any of the other <em>duplicates</em>.
 
 <hr>
 
-<h3 id="s-ref_sevfootn">7.13.1 References</h3>
+<h3 id="s-ref_sevfootn">7.14.1 References</h3>
 <ol type="1" start="1" >
 <li>
 <p>
@@ -855,7 +885,7 @@ wikibooks</a></code>
 
 <hr>
 
-<h2 id="s-sec_eurosym">7.14 Using the euro symbol in <code>LaTeX</code></h2>
+<h2 id="s-sec_eurosym">7.15 Using the euro symbol in <code>LaTeX</code></h2>
 
 <p>
 Added on February 7th, 2012.
@@ -888,7 +918,7 @@ Then there are two possible ways of including the euro currency symbol.
 
 <hr>
 
-<h2 id="s-sec_landscape">7.15 Changing pages to landscape orientation in <code>LaTeX</code> texts</h2>
+<h2 id="s-sec_landscape">7.16 Changing pages to landscape orientation in <code>LaTeX</code> texts</h2>
 
 <p>
 Added on November 16th, 2012.
@@ -957,7 +987,7 @@ And proceed as before
 
 <hr>
 
-<h3 id="s-ref_landscape">7.15.1 References</h3>
+<h3 id="s-ref_landscape">7.16.1 References</h3>
 <ol type="1" start="1" >
 <li>
 <p>
@@ -969,7 +999,7 @@ LaTeX</a></code>
 
 <hr>
 
-<h2 id="s-sec_singledouble">7.16 Including single column figures or tables in a double column <code>LaTeX</code> document</h2>
+<h2 id="s-sec_singledouble">7.17 Including single column figures or tables in a double column <code>LaTeX</code> document</h2>
 
 <p>
 Added on November 18th, 2012.
@@ -998,7 +1028,7 @@ In this way figures and tables will occupy the full page.
 
 <hr>
 
-<h2 id="s-sec_horizontal">7.17 Controlling horizontal spacing in <code>LaTeX</code></h2>
+<h2 id="s-sec_horizontal">7.18 Controlling horizontal spacing in <code>LaTeX</code></h2>
 
 <p>
 Added on January 15th, 2016.
@@ -1047,7 +1077,7 @@ grow according to the stretch factor.
 
 <hr>
 
-<h3 id="s-ref_horizspace">7.17.1 References</h3>
+<h3 id="s-ref_horizspace">7.18.1 References</h3>
 <ol type="1" start="1" >
 <li>
 <p>
