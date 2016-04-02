@@ -82,6 +82,7 @@ Contents
      1.36.     Adding a partition to `fstab' by `UUID'
      1.37.     Error ejecting a CD
      1.38.     Creating a `Makefile' to use `cpp' with `gfortran'
+     1.39.     Killing an unresponsive X-windows
 
      2.        Network and Navigators
      2.1.      Running multiple `firefox' instances
@@ -2935,6 +2936,57 @@ END PROGRAM Box_Muller_Prog
 
      1.   StackOverflow
           (https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386)
+
+
+1.39. Killing an unresponsive X-windows
+---------------------------------------
+
+     Added on April 2nd, 2016.
+
+     Assuming that we have a terminal or any XWindows application that is
+     unresponsive and we do not know its associated PID we can kill it in
+     the following way.
+
+     We first open a terminal and start the `xwininfo' program.  It will
+     ask us to select the window we are interested in, and once we click on
+     it we will get info like the following:
+
+$ xwininfo
+
+xwininfo: Please select the window about which you
+          would like information by clicking the
+          mouse in that window.
+
+xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on localhost"
+
+  Absolute upper-left X:  1422
+  Absolute upper-left Y:  649
+  Relative upper-left X:  1
+  Relative upper-left Y:  28
+  Width: 537
+  Height: 336
+  Depth: 32
+  Visual: 0x7b
+  Visual Class: TrueColor
+  Border width: 0
+  Class: InputOutput
+  Colormap: 0x5c00049 (not installed)
+  Bit Gravity State: NorthWestGravity
+  Window Gravity State: NorthWestGravity
+  Backing Store State: NotUseful
+  Save Under State: no
+  Map State: IsViewable
+  Override Redirect State: no
+  Corners:  +1422+649  -1327+649  -1327-95  +1422-95
+  -geometry 537x336+1421-94
+
+     The important piece of data is the window id, in this case
+     `0x5c0006a'.  We can now kill the window using the program
+
+          $ xkill -id 0x5c0006a
+          xkill:  killing creator of resource 0x5c0006a
+
+     And the window is killed.  RIP.
 
 
 -------------------------------------------------------------------------------
