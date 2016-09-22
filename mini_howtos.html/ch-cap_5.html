@@ -248,7 +248,7 @@ change the text base line in a text cell using the keys:
 <h2 id="s-sec_54">8.4 Use <code>ImageMagick</code> to transform graphic files</h2>
 
 <p>
-Updated on July 06th, 2014.
+Updated on July 06th, 2014; September 22nd, 2016.
 </p>
 
 <p>
@@ -329,6 +329,22 @@ png format:
      $ identify bsplot.png 
      bsplot.png PNG 613x661 613x661+0+0 8-bit PseudoClass 6c 8.64KB 0.000u 0:00.000
 </pre>
+
+<p>
+Convert can be also used to stack horizontally or vertically several images.
+For example, the command
+</p>
+
+<pre>
+      
+     $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
+</pre>
+
+<p>
+will produce a file <code>test.png</code> that includes the three figures
+appended in a row.  To append them vertically the option is
+<samp>-append</samp>.
+</p>
 
 <hr>
 

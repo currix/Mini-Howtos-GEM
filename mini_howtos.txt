@@ -5065,7 +5065,7 @@ document
 8.4. Use `ImageMagick' to transform graphic files
 -------------------------------------------------
 
-     Updated on July 06th, 2014.
+     Updated on July 06th, 2014; September 22nd, 2016.
 
      You can easily transform a graphic file from the console using the
      tool `convert' from the `ImageMagick' suite.  Imagine for example that
@@ -5112,6 +5112,14 @@ bsplot_N40.eps PS 613x661 613x661+0+0 16-bit DirectClass 20.4KB 0.000u 0:00.000
 $ convert bsplot_N40.eps bsplot.png
 $ identify bsplot.png
 bsplot.png PNG 613x661 613x661+0+0 8-bit PseudoClass 6c 8.64KB 0.000u 0:00.000
+
+     Convert can be also used to stack horizontally or vertically several
+     images.  For example, the command
+
+$ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
+
+     will produce a file `test.png' that includes the three figures
+     appended in a row.  To append them vertically the option is `-append'.
 
 [1]  Note that we added the option `-depth 8' to avoid the image depth to
      be changed to 16, the default system value.
