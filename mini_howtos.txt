@@ -3483,6 +3483,8 @@ Appending installation info to /usr/local/lib/perl/5.8.8/perllocal.pod
 
      Updated on May 21st, 2015.
 
+     Updated on October 29th, 2016.
+
      1.   Execute a program, in this case `epstopdf', using as an input all
           files sharing an common extension , in this case `eps', in the
           current directory.
@@ -3525,7 +3527,22 @@ perl -ne 'for (unpack "U*", $_) \
 
                 perl -pi'.bak' -e 's/figures\//Figures\//g' *.tex
 
-     9.   Search and display occurrences in a log file
+     9.   Counting the number of words per line in a file.  If the filename
+          is `test.out' then
+
+               perl -n -e 'my @line = split;print scalar @line,"\n"' test.out
+               10000
+               202
+               10000
+               202
+               10000
+               202
+               10000
+               202
+               10000
+               202
+
+     10.  Search and display occurrences in a log file
           (</var/log/loginlog.0> in this example) of succesful logins of
           user <curro>, showing the number of times the user has logged
           from each machine.
@@ -3536,7 +3553,7 @@ if (m|\d+:\d+:\d+\s+(.*?)\s+.*ccepted.*<curro>\s+from\s+(.*?)\s+.*|)
  foreach (keys %vh)
   {print "$vh{$_} login(s) to $_\n";}'</var/log/loginlog.0>
 
-     10.  Count the number of files in a directory.
+     11.  Count the number of files in a directory.
 
           In the first example we use globbing to count the total number of
           files including hidden files or the number of files subject to
@@ -3554,7 +3571,7 @@ $ perl -e 'opendir DH, ".";my @files = readdir DH; print 1+$#files."\n"'
 $ perl -e 'opendir DH, ".";my @files = grep /^1.*\.gif$/, (readdir DH); print 1+$#files."\n"'
 9
 
-     11.  Get the last line of a file.
+     12.  Get the last line of a file.
 
           We include a oneliner that gets the last line of a series of
           files
@@ -3566,7 +3583,7 @@ perl -e 'foreach (@ARGV) {my $line = `tail -n 1 $_`; print $line}' output_notes_
 
 perl -e 'foreach (@ARGV) {/.*(\d\d).*/;my $line = $1.`tail -n 1 $_`; print $line}' output_notes_1* output_notes_2* output_notes_3* ...
 
-     12.  Change `Mac' carriage return to `UNIX' new line
+     13.  Change `Mac' carriage return to `UNIX' new line
 
           Let's assume we have a bunch of `csv' files with `Mac' carriage
           return that our system interprets as a very long unique line.
@@ -3574,7 +3591,7 @@ perl -e 'foreach (@ARGV) {/.*(\d\d).*/;my $line = $1.`tail -n 1 $_`; print $line
 
                perl -pi -e 's/\r/\n/g' *.csv
 
-     13.  Extract the figure names from a `LaTeX' compile output and
+     14.  Extract the figure names from a `LaTeX' compile output and
           prepare a tarball with the figure files.
 
           We assume that we compile a file called `rdiary_2014.tex' and all

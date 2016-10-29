@@ -338,6 +338,10 @@ Updated on January 31st, 2015.
 <p>
 Updated on May 21st, 2015.
 </p>
+
+<p>
+Updated on October 29th, 2016.
+</p>
 <ol type="1" start="1" >
 <li>
 <p>
@@ -440,6 +444,28 @@ Makes a substitution in a file, in the selected example substitute the word
 <ol type="1" start="9" >
 <li>
 <p>
+Counting the number of words per line in a file.  If the filename is
+<code>test.out</code> then
+</p>
+
+<pre>
+     perl -n -e 'my @line = split;print scalar @line,&quot;\n&quot;' test.out 
+     10000
+     202
+     10000
+     202
+     10000
+     202
+     10000
+     202
+     10000
+     202
+</pre>
+</li>
+</ol>
+<ol type="1" start="10" >
+<li>
+<p>
 Search and display occurrences in a log file (<var>/var/log/loginlog.0</var> in
 this example) of succesful logins of user <var>curro</var>, showing the number
 of times the user has logged from each machine.
@@ -455,7 +481,7 @@ of times the user has logged from each machine.
 </pre>
 </li>
 </ol>
-<ol type="1" start="10" >
+<ol type="1" start="11" >
 <li>
 <p>
 Count the number of files in a directory.
@@ -487,7 +513,7 @@ The same can be accomplished using directory handles and <code>grep</code>
 </pre>
 </li>
 </ol>
-<ol type="1" start="11" >
+<ol type="1" start="12" >
 <li>
 <p>
 Get the last line of a file.
@@ -511,7 +537,7 @@ the filename as follows
 </pre>
 </li>
 </ol>
-<ol type="1" start="12" >
+<ol type="1" start="13" >
 <li>
 <p>
 Change <code>Mac</code> carriage return to <code>UNIX</code> new line
@@ -528,7 +554,7 @@ of using <code>emacs</code> we can easily fix this with
 </pre>
 </li>
 </ol>
-<ol type="1" start="13" >
+<ol type="1" start="14" >
 <li>
 <p>
 Extract the figure names from a <code>LaTeX</code> compile output and prepare a

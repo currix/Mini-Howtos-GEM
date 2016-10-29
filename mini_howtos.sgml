@@ -3956,6 +3956,8 @@ Updated on January 31st, 2015.
 <p>
 Updated on May 21st, 2015.
 <p>
+Updated on October 29th, 2016.
+<p>
 <enumlist>  
 <item>Execute a program, in this case <prgn>epstopdf</prgn>, using as
   an input all files sharing an common extension , in this
@@ -4019,6 +4021,23 @@ perl -pi'.bak' -e 's/(\d)-(\d\d\d)/$1E-$2/g' <var>fort.output</var>
 
 <p>
 <example> perl -pi'.bak' -e 's/figures\//Figures\//g' *.tex
+</example>
+
+<item> Counting the number of words per line in a file. If the filename is <file>test.out</file> then
+
+<p>
+<example>
+perl -n -e 'my @line = split;print scalar @line,"\n"' test.out 
+10000
+202
+10000
+202
+10000
+202
+10000
+202
+10000
+202
 </example>
 
 <item> Search and display occurrences in a log file
