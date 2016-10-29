@@ -4040,6 +4040,24 @@ perl -n -e 'my @line = split;print scalar @line,"\n"' test.out
 202
 </example>
 
+<item> Join even lines at the end of odd lines in a file.  If the filename is <file>test.out</file> then we can count the number of words in each line prior and after the merging.
+
+<p>
+<example>
+perl -n -e 'my @line = split;print scalar @line,"\n"' test.out 
+10000
+202
+10000
+202
+10000
+202
+perl -n -e 'chomp; $.%2 ? print "$_ ": print "$_\n";' test.out > test2.out 
+perl -n -e 'my @line = split;print scalar @line,"\n"' test2.out 
+10202
+10202
+10202
+</example>
+
 <item> Search and display occurrences in a log file
   (<var>/var/log/loginlog.0</var> in this example) of succesful logins
   of user <var>curro</var>, showing the number of times the user has logged from

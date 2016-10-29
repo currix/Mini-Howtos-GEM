@@ -466,6 +466,30 @@ Counting the number of words per line in a file.  If the filename is
 <ol type="1" start="10" >
 <li>
 <p>
+Join even lines at the end of odd lines in a file.  If the filename is
+<code>test.out</code> then we can count the number of words in each line prior
+and after the merging.
+</p>
+
+<pre>
+     perl -n -e 'my @line = split;print scalar @line,&quot;\n&quot;' test.out 
+     10000
+     202
+     10000
+     202
+     10000
+     202
+     perl -n -e 'chomp; $.%2 ? print &quot;$_ &quot;: print &quot;$_\n&quot;;' test.out &gt; test2.out 
+     perl -n -e 'my @line = split;print scalar @line,&quot;\n&quot;' test2.out 
+     10202
+     10202
+     10202
+</pre>
+</li>
+</ol>
+<ol type="1" start="11" >
+<li>
+<p>
 Search and display occurrences in a log file (<var>/var/log/loginlog.0</var> in
 this example) of succesful logins of user <var>curro</var>, showing the number
 of times the user has logged from each machine.
@@ -481,7 +505,7 @@ of times the user has logged from each machine.
 </pre>
 </li>
 </ol>
-<ol type="1" start="11" >
+<ol type="1" start="12" >
 <li>
 <p>
 Count the number of files in a directory.
@@ -513,7 +537,7 @@ The same can be accomplished using directory handles and <code>grep</code>
 </pre>
 </li>
 </ol>
-<ol type="1" start="12" >
+<ol type="1" start="13" >
 <li>
 <p>
 Get the last line of a file.
@@ -537,7 +561,7 @@ the filename as follows
 </pre>
 </li>
 </ol>
-<ol type="1" start="13" >
+<ol type="1" start="14" >
 <li>
 <p>
 Change <code>Mac</code> carriage return to <code>UNIX</code> new line
@@ -554,7 +578,7 @@ of using <code>emacs</code> we can easily fix this with
 </pre>
 </li>
 </ol>
-<ol type="1" start="14" >
+<ol type="1" start="15" >
 <li>
 <p>
 Extract the figure names from a <code>LaTeX</code> compile output and prepare a
