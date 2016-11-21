@@ -211,6 +211,8 @@ This filesystem will be automatically checked every 22 mounts or
 </sect>
 
 <sect id="sec_02_2">Labels in <tt>ext2</tt> and <tt>ext3</tt> units
+<p>
+Updated on November 21st, 2016.
 
 <p> The use of labels is a convenient way to handle disk units,
   specially for <em>usb</em> units that can be plugged in and
@@ -262,6 +264,21 @@ in. The corresponding mount point should be defined:
 <example>
 $ mount /media/usb_disk
 </example>
+
+<p>
+  In the case of <tt>vfat</tt> partitions the equivalent command
+  is <tt>dosfslabel</tt>, provided in the Debian
+  package <tt>dosfstools</tt>. For example, to check and change the
+  label of a <tt>vfat</tt> partition:
+<p>
+<example>
+# dosfslabel /dev/sdc1 
+LABEL
+# dosfslabel /dev/sdc1 DATA_CPB
+# dosfslabel /dev/sdc1 
+DATA_CPB
+</example>
+  
 
 </sect>
 
