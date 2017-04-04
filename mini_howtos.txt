@@ -3577,11 +3577,13 @@ Appending installation info to /usr/local/lib/perl/5.8.8/perllocal.pod
 5.2. Interesting perl oneliners
 -------------------------------
 
-     Updated on January 31st, 2015.
+     Updated on March 5th, 2017.
+
+     Updated on October 29th, 2016.
 
      Updated on May 21st, 2015.
 
-     Updated on October 29th, 2016.
+     Updated on January 31st, 2015.
 
      1.   Execute a program, in this case `epstopdf', using as an input all
           files sharing an common extension , in this case `eps', in the
@@ -3717,6 +3719,15 @@ perl -e 'foreach (@ARGV) {/.*(\d\d).*/;my $line = $1.`tail -n 1 $_`; print $line
           Notice the `-T -' options.
 
 pdflatex rdiary_2014.tex | perl -e 'while (<>) {print "$1\n" if /<.*(F.*png).*>/g}' | tar czf figs.tgz -T -
+
+     16.  We have two files, each with two columns of data in an X Y
+          format.  Let's say `File_1' with `X1 Y1' and `File_2' with `X2
+          Y2'.  The abscissa are common and we want to create a third file
+          with called `File_3' with three columns and the following format:
+          X1 Y1 Y2.
+
+perl -e '@fhs=map { open my $fh, "<", $_; $fh } @ARGV; $f0 =
+$fhs[0]; $f1 = $fhs[1]; while (!$done) { $done=1; chomp($l0=<$f0>); $l1=<$f1>; do { @ll1 = split " ", $l1; print "$l0 $ll1[-1] \n"; $done=0 } if (defined $l0); } ' File_1 File_2
 
 
 5.3. Environment Codification and Character Ordering

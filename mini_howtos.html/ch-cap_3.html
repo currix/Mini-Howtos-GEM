@@ -334,7 +334,11 @@ And install the required module, <samp>Roots</samp> in this example:
 <h2 id="s-sec_32">5.2 Interesting perl oneliners</h2>
 
 <p>
-Updated on January 31st, 2015.
+Updated on March 5th, 2017.
+</p>
+
+<p>
+Updated on October 29th, 2016.
 </p>
 
 <p>
@@ -342,7 +346,7 @@ Updated on May 21st, 2015.
 </p>
 
 <p>
-Updated on October 29th, 2016.
+Updated on January 31st, 2015.
 </p>
 <ol type="1" start="1" >
 <li>
@@ -598,6 +602,23 @@ file names.  Notice the <samp>-T -</samp> options.
 
 <pre>
      pdflatex rdiary_2014.tex | perl -e 'while (&lt;&gt;) {print &quot;$1\n&quot; if /&lt;.*(F.*png).*&gt;/g}' | tar czf figs.tgz -T -
+</pre>
+</li>
+</ol>
+<ol type="1" start="16" >
+<li>
+<p>
+We have two files, each with two columns of data in an X Y format.  Let's say
+<code>File_1</code> with <samp>X1 Y1</samp> and <code>File_2</code> with
+<samp>X2 Y2</samp>.  The abscissa are common and we want to create a third file
+with called <code>File_3</code> with three columns and the following format: X1
+Y1 Y2.
+</p>
+
+<pre>
+      
+     perl -e '@fhs=map { open my $fh, &quot;&lt;&quot;, $_; $fh } @ARGV; $f0 =
+     $fhs[0]; $f1 = $fhs[1]; while (!$done) { $done=1; chomp($l0=&lt;$f0&gt;); $l1=&lt;$f1&gt;; do { @ll1 = split &quot; &quot;, $l1; print &quot;$l0 $ll1[-1] \n&quot;; $done=0 } if (defined $l0); } ' File_1 File_2
 </pre>
 </li>
 </ol>
