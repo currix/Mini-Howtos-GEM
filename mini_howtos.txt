@@ -4658,6 +4658,8 @@ pyplot.show()
 7.1. `pdftk' application examples
 ---------------------------------
 
+     Updated on April 18th, 2017.
+
      Updated on December 1st, 2011.
 
      We present several examples of transforming `PDF' files using the
@@ -4692,6 +4694,23 @@ pyplot.show()
                and 5, and include the rest of the pages you can execute
 
                     pdftk jpcA.pdf cat 1-3 6-end output jpcA_partial.pdf
+
+             * If you want to extract all the pages of a pdf document in
+               separate files you can use the `burst' option.  If the file
+               `document_A.pdf' has 8 pages the command
+
+                    pdftk document_A.pdf burst output document_A_page_%01d.pdf
+
+               creates files `document_A_page_1.pdf' ...
+               `document_A_page_8.pdf'.
+
+             * If you want to include a pdf file amid the pages of another
+               pdf document, e.g.  we want to include file
+               `document_small.pdf' after page 8 of file `document_big.pdf'
+               and save the final result into a file called `document.pdf',
+               we can do this as follows
+
+pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.pdf
 
              * (To Do) Decrypt input or encrypt output.
 
