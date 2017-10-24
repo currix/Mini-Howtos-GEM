@@ -6177,7 +6177,7 @@ name="Inkscape FAQ">
 Added on October 24th, 2017.
 
 <p>
-  If you need to extract images from a  <tt>pdf</tt> file a convenient terminal application is <prgn>pdftoimages</prgn>. For example if we need to extract the images from a file named <file>article.pdf</file> you can proceed as follows
+  If you need to extract images from a  <tt>pdf</tt> file a convenient terminal application is <prgn>pdfimages</prgn>. For example if we need to extract the images from a file named <file>article.pdf</file> you can proceed as follows
 
 <p>
   <example>
