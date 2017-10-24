@@ -122,6 +122,7 @@
 <link href="ch-cap_5.html#s-sec_56" rel="section" title="8.6 Remove the background of an image in Gimp">
 <link href="ch-cap_5.html#s-sec_57" rel="section" title="8.7 Take a screenshot using Gimp">
 <link href="ch-cap_5.html#s-sec_markersink" rel="section" title="8.8 Change the color of markers in inkscape">
+<link href="ch-cap_5.html#s-sec_extractpdfimg" rel="section" title="8.9 Terminal app to extract images from a pdf file">
 <link href="ch-cap_6.html#s-sec_61" rel="section" title="9.1 Compute the average from the results of Moodle test grading">
 <link href="ch-cap_6.html#s-sec_62" rel="section" title="9.2 Splitting in two lines a cell content in Openoffice/simpress">
 <link href="ch-cap_6.html#s-sec_63" rel="section" title="9.3 Solving BADSIG errors in UBUNTU (Oneiric Ocelot)">
@@ -169,6 +170,7 @@
 <link href="ch-cap_4.html#s-ref_horizspace" rel="subsection" title="7.18.1 References">
 <link href="ch-cap_5.html#s-ref_convertgraf" rel="subsection" title="8.4.1 References">
 <link href="ch-cap_5.html#s-ref_markersink" rel="subsection" title="8.8.1 References">
+<link href="ch-cap_5.html#s-ref_extractpdfimg" rel="subsection" title="8.9.1 References">
 
 </head>
 
@@ -483,6 +485,51 @@ If
 <code><a
 href="http://wiki.inkscape.org/wiki/index.php/Frequently_asked_questions#How_do_I_change_the_color_of_markers_.28e.g._arrow_ends.29.3F">Inkscape
 FAQ</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_extractpdfimg">8.9 Terminal app to extract images from a <samp>pdf</samp> file</h2>
+
+<p>
+Added on October 24th, 2017.
+</p>
+
+<p>
+If you need to extract images from a <samp>pdf</samp> file a convenient
+terminal application is <code>pdftoimages</code>.  For example if we need to
+extract the images from a file named <code>article.pdf</code> you can proceed
+as follows
+</p>
+
+<pre>
+         $ pdfimages -all article.pdf ./article_images
+         $ ls
+     article.pdf  article_images-003.tif  article_images-006.tif
+     article_images-000.tif   article_images-004.pbm  article_images-007.tif
+     article_images-001.tif   article_images-004.png
+     article_images-002.tif   article_images-005.tif
+</pre>
+
+<p>
+The article contains seven images.  The options <samp>-all</samp> indicate that
+<samp>JPEG</samp>, <samp>JPEG2000</samp>, <samp>JBIG2</samp>, and
+<samp>CCITT</samp> images are extracted in their native format while
+<samp>CMYK</samp> files are written as TIFF files and all other images are
+written as <samp>PNG</samp> files.
+</p>
+
+<hr>
+
+<h3 id="s-ref_extractpdfimg">8.9.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="https://www.howtogeek.com/228796/how-to-extract-and-save-images-from-a-pdf-file-in-linux/">Howto
+Geek 228796</a></code>
 </p>
 </li>
 </ol>

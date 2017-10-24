@@ -159,6 +159,7 @@ Contents
      8.6.      Remove the background of an image in `Gimp'
      8.7.      Take a screenshot using `Gimp'
      8.8.      Change the color of markers in `inkscape'
+     8.9.      Terminal app to extract images from a `pdf' file
 
      9.        Miscelanea
      9.1.      Compute the average from the results of `Moodle' test
@@ -5362,6 +5363,34 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
 
      1.   Inkscape FAQ
           (http://wiki.inkscape.org/wiki/index.php/Frequently_asked_questions#How_do_I_change_the_color_of_markers_.28e.g._arrow_ends.29.3F)
+
+
+8.9. Terminal app to extract images from a `pdf' file
+-----------------------------------------------------
+
+     Added on October 24th, 2017.
+
+     If you need to extract images from a `pdf' file a convenient terminal
+     application is `pdftoimages'.  For example if we need to extract the
+     images from a file named `article.pdf' you can proceed as follows
+
+    $ pdfimages -all article.pdf ./article_images
+    $ ls
+article.pdf  article_images-003.tif  article_images-006.tif
+article_images-000.tif   article_images-004.pbm  article_images-007.tif
+article_images-001.tif   article_images-004.png
+article_images-002.tif   article_images-005.tif
+
+     The article contains seven images.  The options `-all' indicate that
+     `JPEG', `JPEG2000', `JBIG2', and `CCITT' images are extracted in their
+     native format while `CMYK' files are written as TIFF files and all
+     other images are written as `PNG' files.
+
+8.9.1. References
+-----------------
+
+     1.   Howto Geek 228796
+          (https://www.howtogeek.com/228796/how-to-extract-and-save-images-from-a-pdf-file-in-linux/)
 
 
 -------------------------------------------------------------------------------

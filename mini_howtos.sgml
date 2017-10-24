@@ -6172,6 +6172,35 @@ name="Inkscape FAQ">
 
 </sect>
 
+<sect id="sec_extractpdfimg"><heading>Terminal app to extract images from a  <tt>pdf</tt> file</heading> 
+<p>
+Added on October 24th, 2017.
+
+<p>
+  If you need to extract images from a  <tt>pdf</tt> file a convenient terminal application is <prgn>pdftoimages</prgn>. For example if we need to extract the images from a file named <file>article.pdf</file> you can proceed as follows
+
+<p>
+  <example>
+    $ pdfimages -all article.pdf ./article_images
+    $ ls
+article.pdf  article_images-003.tif  article_images-006.tif
+article_images-000.tif   article_images-004.pbm  article_images-007.tif
+article_images-001.tif   article_images-004.png
+article_images-002.tif   article_images-005.tif
+  </example>
+  <p>
+    The article contains seven images. The options <tt>-all</tt> indicate that <tt>JPEG</tt>,  <tt>JPEG2000</tt>,  <tt>JBIG2</tt>, and <tt>CCITT</tt> images are extracted in their native
+    format while <tt>CMYK</tt> files are written as TIFF files and all  other  images are  written as <tt>PNG</tt> files.
+    <sect1 id="ref_extractpdfimg"><heading>References</heading> 
+<p>
+<enumlist>  
+<item><url id="https://www.howtogeek.com/228796/how-to-extract-and-save-images-from-a-pdf-file-in-linux/"
+name="Howto Geek 228796">
+</enumlist>  
+</sect1>
+
+</sect>
+
 <chapt id="cap_6"><heading>Miscelanea</heading> 
 
 <sect id="sec_61"><heading>Compute the average from the results of
