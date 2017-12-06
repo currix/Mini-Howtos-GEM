@@ -76,6 +76,7 @@
 <link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
 <link href="ch-cap_emacs.html#s-sec_emacs3" rel="section" title="4.3 Removing empty lines in Emacs">
 <link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.4 Commenting a region of a code in Emacs">
+<link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.5 Emacs org-mode">
 <link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
 <link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
@@ -155,6 +156,7 @@
 <link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs03" rel="subsection" title="4.3.1 References">
 <link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.5.1 References">
 <link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
@@ -357,6 +359,84 @@ region to comment and press <samp>M-;</samp>.  To uncomment a region type
 <code><a
 href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Comment-Commands.html">Emacs
 manual</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_emacs_orgmode">4.5 <code>Emacs</code> <samp>org-mode</samp></h2>
+
+<p>
+Added on December 6th, 2017.
+</p>
+
+<p>
+We include in this section information about different aspects of the
+<code>Emacs</code> text editor and its <samp>org-mode</samp>.
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Adding a title, a subtitle, and an author name to an <samp>org-mode</samp> file
+is done in the preamble as in the following example
+</p>
+
+<pre>
+     #+TITLE: Notes on the Quartic Potential
+     #+SUBTITLE: Quantum Cusp and Isomerization in 1D
+     #+AUTHOR Curro Pérez-Bernal
+     #
+     #+STARTUP: latexpreview
+</pre>
+
+<p>
+The <samp>#+STARTUP: latexpreview</samp> command in the preamble produce a
+preview image of the <code>LaTeX</code> fragments in the text at point and
+overlay them over the source code.
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+Shortcuts of interest:
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>TAB (Shift-TAB)</samp> :: Fold-unfold parts.  With <samp>Shift</samp>
+affects the whole file.
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<samp>Alt-up/down</samp> :: move a headline up or down
+</p>
+</li>
+</ol>
+</li>
+</ol>
+
+<hr>
+
+<h3 id="s-ref_emacs_orgmode">4.5.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm</a></code>
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+<code><a
+href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html">Emacs
+Manual</a></code>
 </p>
 </li>
 </ol>

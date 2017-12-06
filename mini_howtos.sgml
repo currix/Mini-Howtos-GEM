@@ -3967,9 +3967,47 @@ name="Emacs manual">
 </enumlist>  
 </sect1>
 
+<sect id="sec_emacs_orgmode"><heading><prgn>Emacs</prgn> <tt>org-mode</tt></heading> 
+<p>
+Added on December 6th, 2017.
+<p> We include in this section information about different aspects of the <prgn>Emacs</prgn> text editor and its <tt>org-mode</tt>.
+
+<p>
+<enumlist>  
+  <item> Adding a title, a subtitle, and an author name to an <tt>org-mode</tt> file is done in the preamble as in the following example
+    <p>
+      <example>
+#+TITLE: Notes on the Quartic Potential
+#+SUBTITLE: Quantum Cusp and Isomerization in 1D
+#+AUTHOR Curro Pérez-Bernal
+#
+#+STARTUP: latexpreview
+      </example>
+      <p>
+	The <tt>#+STARTUP: latexpreview</tt> command in the preamble produce a preview image of the <prgn>LaTeX</prgn> fragments in the text at point and overlay them over the source code.
+    
+    <item> Shortcuts of interest:
+      <enumlist>
+	<item>  <tt>TAB (Shift-TAB)</tt> :: Fold-unfold parts. With <tt>Shift</tt> affects the whole file.
+	  <item> <tt>Alt-up/down</tt> ::  move a headline up or down
+
+      </enumlist>  
+</enumlist>  
 
 
+<sect1 id="ref_emacs_orgmode"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm"
+name="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">
+<item><url id="http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html"
+name="Emacs Manual">
+</enumlist>  
+</sect1>
 </sect>
+
+
 <chapt id="cap_3"><heading>Perl Language</heading> 
 <p>
 This chapter has been translated
