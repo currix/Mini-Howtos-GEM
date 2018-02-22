@@ -75,8 +75,9 @@
 <link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
 <link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
 <link href="ch-cap_emacs.html#s-sec_emacs3" rel="section" title="4.3 Removing empty lines in Emacs">
-<link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.4 Commenting a region of a code in Emacs">
-<link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.5 Emacs org-mode">
+<link href="ch-cap_emacs.html#s-sec_emacs_init" rel="section" title="4.4 Reading init file .emacs">
+<link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.5 Commenting a region of a code in Emacs">
+<link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.6 Emacs org-mode">
 <link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
 <link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
@@ -155,8 +156,9 @@
 <link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs03" rel="subsection" title="4.3.1 References">
-<link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.4.1 References">
-<link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.5.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs_init" rel="subsection" title="4.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.5.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.6.1 References">
 <link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
@@ -777,22 +779,28 @@ href="http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html">http://ww
 <h2 id="s-sec_06">1.7 Compile and install the <code>LAPACK95</code> interface driver routine.</h2>
 
 <p>
+Updated on February 22nd, 2018.
+</p>
+
+<p>
 Updated on September 16th, 2011.
 </p>
 
 <p>
-This howto has been checked in a <code>Debian Squeeze</code> box, with
+This howto was checked initially in a <code>Debian Squeeze</code> box, with a
 <code>gfortran 4.4.5</code> compiler and in a <code>Ubuntu Lucid Lynx</code>
-with compiler <code>gfortran 4.4.3</code>.
+with a compiler <code>gfortran 4.4.3</code>.  Last version has been checked in
+a <code>Debian Stretch</code> box, with a <code>gfortran 6.3.0</code> compiler.
 </p>
 
 <p>
 In this howto we install from scratch the <code>Fortran 77</code> libraries
 <code>BLAS</code> and <code>LAPACK</code>, and then compile the <code>FORTRAN
-95</code> extension to <code>LAPACK</code>.  If the system already has working
-<code>BLAS</code> and <code>LAPACK</code> libraries this first step could be
-skipped.  In any case it is interesting to compile all the libraries with
-optimized flags for the system in question.
+95</code> extension to <code>LAPACK</code>.  Both <code>Debian</code> and
+<code>Ubuntu</code> systems provide <code>BLAS</code> and <code>LAPACK</code>
+libraries as native packages and this first step could be skipped and you can
+ignore next two paragraphs.  In any case it may be interesting to compile all
+the libraries with optimized flags for the system in question.
 </p>
 
 <p>
@@ -852,7 +860,7 @@ the compilation of the included <code>BLAS</code> library
 </pre>
 
 <p>
-The next step is the compilation of the <code>LAPACK</code> library
+The next step is the compilation of the <code>BLAS</code> library
 </p>
 
 <pre>
@@ -881,9 +889,11 @@ The next step is to copy the compiled libraries to their final destination
 </pre>
 
 <p>
-We now proceed to compile and install the <code>LAPACK 95</code> library.
-First we unpack the tarball and edit the <code>make.inc</code> file.  A working
-example for <code>gfortran</code> is shown in <a
+We now proceed to compile and install the <code>LAPACK 95</code> library.  This
+is where you should start if you are using the <code>BLAS</code> and
+<code>LAPACK</code> provided by the distribution.  First we unpack the
+<code>LAPACK 95</code> tarball and edit the <code>make.inc</code> file.  A
+working example for <code>gfortran</code> is shown in <a
 href="#s-make_inc_95"><samp>make.inc</samp> for <code>LAPACK95</code>
 compilation, Section 1.7.2</a>.
 </p>
@@ -1009,8 +1019,8 @@ compiling programs with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
      #     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
      #     August 5, 2000
      #
-     FC	 = gfortran
-     FC1      = gfortran
+     FC	 = gfortran 
+     FC1      = gfortran  
      # -dcfuns  Enable recognition of non-standard double
      #          precision  complex intrinsic functions
      # -dusty   Allows the compilation and execution of &quot;legacy&quot;
@@ -1018,22 +1028,20 @@ compiling programs with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
      #          errors  found  in  such software from &quot;Error&quot; to
      # -ieee=full enables all IEEE arithmetic facilities
      #          including non-stop arithmetic.
-     
-     OPTS0    = -O2 -m32
+     OPTS0    = -O3
      MODLIB   = -I./../lapack95_modules
      OPTS1    = -c $(OPTS0)
      OPTS3    = $(OPTS1) $(MODLIB)
      OPTL     = -o 
      OPTLIB   =
      
-     LAPACK_PATH = /usr/local/lapack-3.3.1/
+     #LAPACK_PATH = /usr/local/lib/LAPACK3/
      
      LAPACK95 = ../lapack95.a
-     LAPACK77 = $(LAPACK_PATH)/lapack_DEBSQUEEZE_DECKARD.a
-     TMG77    = $(LAPACK_PATH)/tmglib_DEBSQUEEZE_DECKARD.a
-     BLAS     = $(LAPACK_PATH)/blas_DEBSQUEEZE_DECKARD.a
+     LAPACK77 = -llapack
+     BLAS     = -lblas
      
-     LIBS     = $(LAPACK95) $(TMG77) $(LAPACK77) $(BLAS)
+     LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
      SUF      = f90
      
      XX = 'rm' -f $@; \
@@ -1057,48 +1065,46 @@ compiling programs with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
 
 <h3 id="s-sec_prg_example">1.7.3 Example of program using <code>LAPACK95</code></h3>
 
+<p>
+This source should be saved in a file called <code>ejemplo_la_spsv.f90</code>
+to use the <samp>Makefile</samp> provided in n <a
+href="#s-sec_makefile_example"><samp>makefile</samp> for compiling programs
+with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
+</p>
+
 <pre>
      PROGRAM LA_SSPSV_EXAMPLE
-       
+     
        !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
-       !     UNI-C, DENMARK
-       !     DECEMBER, 1999
        !
-       !  .. &quot;Use Statements&quot;
+       !  .Use Statements
        USE LA_PRECISION, ONLY: WP =&gt; SP
        USE F95_LAPACK, ONLY: LA_SPSV
-       !  .. &quot;Implicit Statement&quot; ..
+       !  Implicit Statement
        IMPLICIT NONE
-       !  .. &quot;Local Scalars&quot; ..
+       !  Local Scalars
        INTEGER :: I, N, NN, NRHS
-       !  .. &quot;Local Arrays&quot; ..
+       !  Local Arrays
        INTEGER, ALLOCATABLE :: IPIV(:)
        REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
-       !  .. &quot;Executable Statements&quot; ..
+       !  Executable Statements
        WRITE (*,*) 'SSPSV Example Program Results.'
        N = 5; NRHS = 1
        WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
        NN = N*(N+1)/2
        ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
        !
-       OPEN(UNIT=21,FILE='spsv.ma',STATUS='UNKNOWN')
-       DO I=1,NN 
-          READ(21,'(F3.0)') AP(I)
-       ENDDO
-       CLOSE(21)
+       CALL  RANDOM_NUMBER(AP)
+       AP = 10*AP
        !
        WRITE(*,*)'Matrix AP :'
-       DO I=1,NN; WRITE(*,&quot;(15(I3,1X,1X),I3,1X))&quot;) INT(AP(I));
+       DO I=1,NN; WRITE(*,&quot;(15(I3,1X,1X),I3,1X)&quot;) INT(AP(I));
        ENDDO
-       !
-       OPEN(UNIT=21,FILE='spsv.mb',STATUS='UNKNOWN')
-       DO I=1,N 
-          READ(21,'(F3.0)') B(I,1)
-       ENDDO
-       CLOSE(21)
        !
        WRITE(*,*)'Matrix B :'
-       DO I=1,N; WRITE(*,&quot;(10(I3,1X,1X),I3,1X)')&quot;) INT(B(I,1));
+       CALL  RANDOM_NUMBER(B)
+       B = 10*B
+       DO I=1,N; WRITE(*,&quot;(10(I3,1X,1X),I3,1X)&quot;) INT(B(I,1));
        ENDDO
        !
        WRITE(*,*)&quot; CALL LA_SPSV( AP, B, 'L', IPIV )&quot;
@@ -1112,6 +1118,7 @@ compiling programs with calls to <code>LAPACK95</code>, Section 1.7.4</a>.
        WRITE(*,*)'Matrix B on exit :'
        DO I=1,N; WRITE(*,&quot;(F9.5)&quot;) B(I,1);
        ENDDO
+       !
        WRITE(*,*)'IPIV = ', IPIV
        !
      END PROGRAM LA_SSPSV_EXAMPLE

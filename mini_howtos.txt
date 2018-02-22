@@ -100,8 +100,9 @@ Contents
      4.1.      `Emacs' macros
      4.2.      Changing the default system's text editor to `Emacs'
      4.3.      Removing empty lines in `Emacs'
-     4.4.      Commenting a region of a code in `Emacs'
-     4.5.      `Emacs' `org-mode'
+     4.4.      Reading init file `.emacs'
+     4.5.      Commenting a region of a code in `Emacs'
+     4.6.      `Emacs' `org-mode'
 
      5.        Perl Language
      5.1.      Installing a `CPAN' module
@@ -500,16 +501,20 @@ mailgw.uhu.es:coco.elmo.dfaie:frdg098r
 1.7. Compile and install the `LAPACK95' interface driver routine.
 -----------------------------------------------------------------
 
+     Updated on February 22nd, 2018.
+
      Updated on September 16th, 2011.
 
-     This howto has been checked in a `Debian Squeeze' box, with `gfortran
-     4.4.5' compiler and in a `Ubuntu Lucid Lynx' with compiler `gfortran
-     4.4.3'.
+     This howto was checked initially in a `Debian Squeeze' box, with a
+     `gfortran 4.4.5' compiler and in a `Ubuntu Lucid Lynx' with a compiler
+     `gfortran 4.4.3'.  Last version has been checked in a `Debian Stretch'
+     box, with a `gfortran 6.3.0' compiler.
 
      In this howto we install from scratch the `Fortran 77' libraries
      `BLAS' and `LAPACK', and then compile the `FORTRAN 95' extension to
-     `LAPACK'.  If the system already has working `BLAS' and `LAPACK'
-     libraries this first step could be skipped.  In any case it is
+     `LAPACK'.  Both `Debian' and `Ubuntu' systems provide `BLAS' and
+     `LAPACK' libraries as native packages and this first step could be
+     skipped and you can ignore next two paragraphs.  In any case it may be
      interesting to compile all the libraries with optimized flags for the
      system in question.
 
@@ -554,7 +559,7 @@ $ wget http://www.netlib.org/lapack95/lapack95.tgz
           ranlib ../../blas_linux_gfortran.a
           lapack-3.3.1/BLAS/SRC$
 
-     The next step is the compilation of the `LAPACK' library
+     The next step is the compilation of the `BLAS' library
 
 lapack-3.3.1/BLAS/SRC$ cd ../../
 lapack-3.3.1$ make
@@ -576,10 +581,11 @@ blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
           [sudo] password for curro:
           lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
 
-     We now proceed to compile and install the `LAPACK 95' library.  First
-     we unpack the tarball and edit the `make.inc' file.  A working example
-     for `gfortran' is shown in Section 1.7.2, ``make.inc' for `LAPACK95'
-     compilation'.
+     We now proceed to compile and install the `LAPACK 95' library.  This
+     is where you should start if you are using the `BLAS' and `LAPACK'
+     provided by the distribution.  First we unpack the `LAPACK 95' tarball
+     and edit the `make.inc' file.  A working example for `gfortran' is
+     shown in Section 1.7.2, ``make.inc' for `LAPACK95' compilation'.
 
           $ tar xzf lapack95.tgz
           $ cd LAPACK95/
@@ -698,22 +704,20 @@ LINSRCLIB    = linsrc$(PLAT).a
           #          errors  found  in  such software from "Error" to
           # -ieee=full enables all IEEE arithmetic facilities
           #          including non-stop arithmetic.
-          
-          OPTS0    = -O2 -m32
+          OPTS0    = -O3
           MODLIB   = -I./../lapack95_modules
           OPTS1    = -c $(OPTS0)
           OPTS3    = $(OPTS1) $(MODLIB)
           OPTL     = -o
           OPTLIB   =
           
-          LAPACK_PATH = /usr/local/lapack-3.3.1/
+          #LAPACK_PATH = /usr/local/lib/LAPACK3/
           
           LAPACK95 = ../lapack95.a
-          LAPACK77 = $(LAPACK_PATH)/lapack_DEBSQUEEZE_DECKARD.a
-          TMG77    = $(LAPACK_PATH)/tmglib_DEBSQUEEZE_DECKARD.a
-          BLAS     = $(LAPACK_PATH)/blas_DEBSQUEEZE_DECKARD.a
+          LAPACK77 = -llapack
+          BLAS     = -lblas
           
-          LIBS     = $(LAPACK95) $(TMG77) $(LAPACK77) $(BLAS)
+          LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
           SUF      = f90
           
           XX = 'rm' -f $@; \
@@ -735,47 +739,42 @@ LINSRCLIB    = linsrc$(PLAT).a
 1.7.3. Example of program using `LAPACK95'
 ------------------------------------------
 
+     This source should be saved in a file called `ejemplo_la_spsv.f90' to
+     use the `Makefile' provided in n Section 1.7.4, ``makefile' for
+     compiling programs with calls to `LAPACK95''.
+
           PROGRAM LA_SSPSV_EXAMPLE
           
             !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
-            !     UNI-C, DENMARK
-            !     DECEMBER, 1999
             !
-            !  .. "Use Statements"
+            !  .Use Statements
             USE LA_PRECISION, ONLY: WP => SP
             USE F95_LAPACK, ONLY: LA_SPSV
-            !  .. "Implicit Statement" ..
+            !  Implicit Statement
             IMPLICIT NONE
-            !  .. "Local Scalars" ..
+            !  Local Scalars
             INTEGER :: I, N, NN, NRHS
-            !  .. "Local Arrays" ..
+            !  Local Arrays
             INTEGER, ALLOCATABLE :: IPIV(:)
             REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
-            !  .. "Executable Statements" ..
+            !  Executable Statements
             WRITE (*,*) 'SSPSV Example Program Results.'
             N = 5; NRHS = 1
             WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
             NN = N*(N+1)/2
             ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
             !
-            OPEN(UNIT=21,FILE='spsv.ma',STATUS='UNKNOWN')
-            DO I=1,NN
-               READ(21,'(F3.0)') AP(I)
-            ENDDO
-            CLOSE(21)
+            CALL  RANDOM_NUMBER(AP)
+            AP = 10*AP
             !
             WRITE(*,*)'Matrix AP :'
-            DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X))") INT(AP(I));
+            DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X)") INT(AP(I));
             ENDDO
-            !
-            OPEN(UNIT=21,FILE='spsv.mb',STATUS='UNKNOWN')
-            DO I=1,N
-               READ(21,'(F3.0)') B(I,1)
-            ENDDO
-            CLOSE(21)
             !
             WRITE(*,*)'Matrix B :'
-            DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)')") INT(B(I,1));
+            CALL  RANDOM_NUMBER(B)
+            B = 10*B
+            DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)") INT(B(I,1));
             ENDDO
             !
             WRITE(*,*)" CALL LA_SPSV( AP, B, 'L', IPIV )"
@@ -789,6 +788,7 @@ LINSRCLIB    = linsrc$(PLAT).a
             WRITE(*,*)'Matrix B on exit :'
             DO I=1,N; WRITE(*,"(F9.5)") B(I,1);
             ENDDO
+            !
             WRITE(*,*)'IPIV = ', IPIV
             !
           END PROGRAM LA_SSPSV_EXAMPLE
@@ -3458,7 +3458,34 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
           (https://www.masteringemacs.org/article/removing-blank-lines-buffer)
 
 
-4.4. Commenting a region of a code in `Emacs'
+4.4. Reading init file `.emacs'
+-------------------------------
+
+     Created on December 7th, 2017.
+
+     If you perform changes in the `emacs' init file `.emacs' and you want
+     to reload the definitions in an already open editor instance there are
+     several ways to proceed:
+
+     1.   Open emacs and then `load-file' (`M-x load-file', then press
+          return twice to accept the default filename, which is the current
+          file being edited).
+
+     2.   move the point to the end of any sexp and press `C-xC-e' to
+          execute just that sexp.  Usually it's not necessary to reload the
+          whole file if you're just changing a line or two.
+
+     3.   Open .emacs and execute `M-x eval-buffer'.  It immediately
+          evaluates all code in the buffer.
+
+4.4.1. References
+-----------------
+
+     1.   Answer from Stackoverflow
+          (https://stackoverflow.com/questions/2580650/how-can-i-reload-emacs-after-changing-it)
+
+
+4.5. Commenting a region of a code in `Emacs'
 ---------------------------------------------
 
      Created on February 23rd, 2016.
@@ -3467,14 +3494,14 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
      `Python', `Fortran', etc.  select the region to comment and press
      `M-;'.  To uncomment a region type `C-u C-;'.
 
-4.4.1. References
+4.5.1. References
 -----------------
 
      1.   Emacs manual
           (https://www.gnu.org/software/emacs/manual/html_node/emacs/Comment-Commands.html)
 
 
-4.5. `Emacs' `org-mode'
+4.6. `Emacs' `org-mode'
 -----------------------
 
      Added on December 6th, 2017.
@@ -3493,7 +3520,15 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 
           The `#+STARTUP: latexpreview' command in the preamble produce a
           preview image of the `LaTeX' fragments in the text at point and
-          overlay them over the source code.
+          overlay them over the source code.  To activate
+          tttttttttttttttttttttttt
+
+          Adding references from a `bibtex'.  Include a line
+
+               	      #+BIBLIOGRAPHY: refs plain
+
+          and call `org-reftex-citation' each time you need to include a
+          reference.
 
      2.   Shortcuts of interest:
 
@@ -3502,7 +3537,7 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 
           2.   `Alt-up/down' :: move a headline up or down
 
-4.5.1. References
+4.6.1. References
 -----------------
 
      1.   http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm

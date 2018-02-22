@@ -75,8 +75,9 @@
 <link href="ch-cap_emacs.html#s-sec_emacs1" rel="section" title="4.1 Emacs macros">
 <link href="ch-cap_emacs.html#s-sec_emacs2" rel="section" title="4.2 Changing the default system's text editor to Emacs">
 <link href="ch-cap_emacs.html#s-sec_emacs3" rel="section" title="4.3 Removing empty lines in Emacs">
-<link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.4 Commenting a region of a code in Emacs">
-<link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.5 Emacs org-mode">
+<link href="ch-cap_emacs.html#s-sec_emacs_init" rel="section" title="4.4 Reading init file .emacs">
+<link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.5 Commenting a region of a code in Emacs">
+<link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.6 Emacs org-mode">
 <link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
 <link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
@@ -155,8 +156,9 @@
 <link href="ch-cap_2.html#s-ref_sshtunnel" rel="subsection" title="3.4.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs" rel="subsection" title="4.1.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs03" rel="subsection" title="4.3.1 References">
-<link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.4.1 References">
-<link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.5.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs_init" rel="subsection" title="4.4.1 References">
+<link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.5.1 References">
+<link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.6.1 References">
 <link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
@@ -337,7 +339,60 @@ Emacs</a></code>
 
 <hr>
 
-<h2 id="s-sec_comment">4.4 Commenting a region of a code in <code>Emacs</code></h2>
+<h2 id="s-sec_emacs_init">4.4 Reading init file <code>.emacs</code></h2>
+
+<p>
+Created on December 7th, 2017.
+</p>
+
+<p>
+If you perform changes in the <code>emacs</code> init file <code>.emacs</code>
+and you want to reload the definitions in an already open editor instance there
+are several ways to proceed:
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+Open emacs and then <samp>load-file</samp> (<samp>M-x load-file</samp>, then
+press return twice to accept the default filename, which is the current file
+being edited).
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+move the point to the end of any sexp and press <samp>C-xC-e</samp> to execute
+just that sexp.  Usually it's not necessary to reload the whole file if you're
+just changing a line or two.
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+Open .emacs and execute <samp>M-x eval-buffer</samp>.  It immediately evaluates
+all code in the buffer.
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h3 id="s-ref_emacs_init">4.4.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="https://stackoverflow.com/questions/2580650/how-can-i-reload-emacs-after-changing-it">Answer
+from Stackoverflow</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_comment">4.5 Commenting a region of a code in <code>Emacs</code></h2>
 
 <p>
 Created on February 23rd, 2016.
@@ -352,7 +407,7 @@ region to comment and press <samp>M-;</samp>.  To uncomment a region type
 
 <hr>
 
-<h3 id="s-ref_comment">4.4.1 References</h3>
+<h3 id="s-ref_comment">4.5.1 References</h3>
 <ol type="1" start="1" >
 <li>
 <p>
@@ -365,7 +420,7 @@ manual</a></code>
 
 <hr>
 
-<h2 id="s-sec_emacs_orgmode">4.5 <code>Emacs</code> <samp>org-mode</samp></h2>
+<h2 id="s-sec_emacs_orgmode">4.6 <code>Emacs</code> <samp>org-mode</samp></h2>
 
 <p>
 Added on December 6th, 2017.
@@ -393,7 +448,20 @@ is done in the preamble as in the following example
 <p>
 The <samp>#+STARTUP: latexpreview</samp> command in the preamble produce a
 preview image of the <code>LaTeX</code> fragments in the text at point and
-overlay them over the source code.
+overlay them over the source code.  To activate tttttttttttttttttttttttt
+</p>
+
+<p>
+Adding references from a <code>bibtex</code>.  Include a line
+</p>
+
+<pre>
+     	      #+BIBLIOGRAPHY: refs plain
+</pre>
+
+<p>
+and call <samp>org-reftex-citation</samp> each time you need to include a
+reference.
 </p>
 </li>
 </ol>
@@ -422,7 +490,7 @@ affects the whole file.
 
 <hr>
 
-<h3 id="s-ref_emacs_orgmode">4.5.1 References</h3>
+<h3 id="s-ref_emacs_orgmode">4.6.1 References</h3>
 <ol type="1" start="1" >
 <li>
 <p>
