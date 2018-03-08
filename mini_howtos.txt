@@ -46,42 +46,39 @@ Contents
      1.4.      Open a `xconsole' as normal user
      1.5.      Resetting the `root' password
      1.6.      Configure `exim' to use `SMTP-TLS'
-     1.7.      Compile and install the `LAPACK95' interface driver routine.
-     1.8.      Compile and link statically with `NAG' and `LAPACK'
-     1.9.      Copying `CUPS' configuration from one server to another
-     1.10.     Mapping network interfaces to a fixed name.
-     1.11.     Using labels to mount disk partitions
-     1.12.     Using `find' and `xargs'
-     1.13.     Preparing a USB bootable `Linux' installation device (Fast
+     1.7.      Copying `CUPS' configuration from one server to another
+     1.8.      Mapping network interfaces to a fixed name.
+     1.9.      Using labels to mount disk partitions
+     1.10.     Using `find' and `xargs'
+     1.11.     Preparing a USB bootable `Linux' installation device (Fast
                way).
-     1.14.     Preparing a USB bootable `Debian' installation device.
-     1.15.     Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
-     1.16.     Passive network exploration with `p0f'.
-     1.17.     Preparing a bootable flashdisk with `Billix'.
-     1.18.     Recovering a console that is unusable.
-     1.19.     Simple configuration of `sudo'
-     1.20.     Check the groups to which a user belongs.
-     1.21.     Check the available system `locale' options and establish a
+     1.12.     Preparing a USB bootable `Debian' installation device.
+     1.13.     Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
+     1.14.     Passive network exploration with `p0f'.
+     1.15.     Preparing a bootable flashdisk with `Billix'.
+     1.16.     Recovering a console that is unusable.
+     1.17.     Simple configuration of `sudo'
+     1.18.     Check the groups to which a user belongs.
+     1.19.     Check the available system `locale' options and establish a
                default one.
-     1.22.     Change the encoding of given files.
-     1.23.     Problem with the wireless and `nm'
-     1.24.     Updating `Debian' from `Wheezy' to `Jessie'
-     1.25.     Error in file `/var/lib/dpkg/status'
-     1.26.     How to record terminal sessions using `ttyrec'
-     1.27.     Using `Bash' to count the number of files in a directory
-     1.28.     Getting detailed information about your hardware
-     1.29.     Adding your servers load to the `screen' hardstatus line
-     1.30.     Making a backup of a `Gmail' account.
-     1.31.     Redirecting `STDERR' to `SDTOUT'
-     1.32.     Listing and extracting files from a `deb' package file.
-     1.33.     Using `script' to keep terminal output records.
-     1.34.     Checking actual kernel compiling options.
-     1.35.     Formatting HD partitions larger than 2 TB
-     1.36.     Adding a partition to `fstab' by `UUID'
-     1.37.     Error ejecting a CD
-     1.38.     Creating a `Makefile' to use `cpp' with `gfortran'
-     1.39.     Killing an unresponsive X-windows
-     1.40.     Enlarging the size of a `tmp' directory
+     1.20.     Change the encoding of given files.
+     1.21.     Problem with the wireless and `nm'
+     1.22.     Updating `Debian' from `Wheezy' to `Jessie'
+     1.23.     Error in file `/var/lib/dpkg/status'
+     1.24.     How to record terminal sessions using `ttyrec'
+     1.25.     Using `Bash' to count the number of files in a directory
+     1.26.     Getting detailed information about your hardware
+     1.27.     Adding your servers load to the `screen' hardstatus line
+     1.28.     Making a backup of a `Gmail' account.
+     1.29.     Redirecting `STDERR' to `SDTOUT'
+     1.30.     Listing and extracting files from a `deb' package file.
+     1.31.     Using `script' to keep terminal output records.
+     1.32.     Checking actual kernel compiling options.
+     1.33.     Formatting HD partitions larger than 2 TB
+     1.34.     Adding a partition to `fstab' by `UUID'
+     1.35.     Error ejecting a CD
+     1.36.     Killing an unresponsive X-windows
+     1.37.     Enlarging the size of a `tmp' directory
 
      2.        Network and Navigators
      2.1.      Running multiple `firefox' instances
@@ -116,61 +113,67 @@ Contents
      5.9.      Using `Perl' to benchmark code.
      5.10.     Accessing recursively files and directories in `Perl'
 
-     6.        Python Tips and Templates
-     6.1.      Creating a vector of random data
-     6.2.      Logical comparison between two boolean vectors
-     6.3.      Creating a loop iterating on a list and the list index
-     6.4.      Adding a column to a `Pandas' dataframe
-     6.5.      Getting the maximum component of a vector and its index in
+     6.        Fortran Tips and Templates
+     6.1.      Compile and install the `LAPACK95' interface driver routine.
+     6.2.      Compile and link statically with `NAG' and `LAPACK'
+     6.3.      Creating a `Makefile' to use `cpp' with `gfortran'
+     6.4.      Creating a vector of random data
+
+     7.        Python Tips and Templates
+     7.1.      Creating a vector of random data
+     7.2.      Logical comparison between two boolean vectors
+     7.3.      Creating a loop iterating on a list and the list index
+     7.4.      Adding a column to a `Pandas' dataframe
+     7.5.      Getting the maximum component of a vector and its index in
                `numpy'
-     6.6.      Some easy examples of offset-aware times with `pytz'
-     6.7.      Creating a panel array of plots with `Matplotlib'
-     6.8.      Creating a panel array of plots with common axes using
+     7.6.      Some easy examples of offset-aware times with `pytz'
+     7.7.      Creating a panel array of plots with `Matplotlib'
+     7.8.      Creating a panel array of plots with common axes using
                `Matplotlib'
-     6.9.      Combining several plots in a figure
-     6.10.     Display in `Ipython'all the components of a `Pandas'
+     7.9.      Combining several plots in a figure
+     7.10.     Display in `Ipython'all the components of a `Pandas'
                `Series' or `DataFrame'
 
-     7.        Text Processing and Formatting
-     7.1.      `pdftk' application examples
-     7.2.      Merge two `PostScript' or `PDF' files
-     7.3.      Include _et al._ in `bibtex'
-     7.4.      Include bibliographical info in each chapter using `LaTeX'
-     7.5.      Comment paragraphs in `LaTeX'
-     7.6.      Installing appropriately a `LaTeX' package or style.
-     7.7.      Change the selected language in `DebianDoc' files
-     7.8.      Avoid `Page %d may be too complex to print' errors.
-     7.9.      Diverse `LaTeX' lists
-     7.10.     Use `Unicode' encoding in `LaTeX'
-     7.11.     Use color in `LaTeX'
-     7.12.     Easy way of defining smaller margins in `LaTeX'
-     7.13.     Changing footnote symbols in `LaTeX'
-     7.14.     Using the same footnote mark in `LaTeX'
-     7.15.     Using the euro symbol in `LaTeX'
-     7.16.     Changing pages to landscape orientation in `LaTeX' texts
-     7.17.     Including single column figures or tables in a double column
+     8.        Text Processing and Formatting
+     8.1.      `pdftk' application examples
+     8.2.      Merge two `PostScript' or `PDF' files
+     8.3.      Include _et al._ in `bibtex'
+     8.4.      Include bibliographical info in each chapter using `LaTeX'
+     8.5.      Comment paragraphs in `LaTeX'
+     8.6.      Installing appropriately a `LaTeX' package or style.
+     8.7.      Change the selected language in `DebianDoc' files
+     8.8.      Avoid `Page %d may be too complex to print' errors.
+     8.9.      Diverse `LaTeX' lists
+     8.10.     Use `Unicode' encoding in `LaTeX'
+     8.11.     Use color in `LaTeX'
+     8.12.     Easy way of defining smaller margins in `LaTeX'
+     8.13.     Changing footnote symbols in `LaTeX'
+     8.14.     Using the same footnote mark in `LaTeX'
+     8.15.     Using the euro symbol in `LaTeX'
+     8.16.     Changing pages to landscape orientation in `LaTeX' texts
+     8.17.     Including single column figures or tables in a double column
                `LaTeX' document
-     7.18.     Controlling horizontal spacing in `LaTeX'
+     8.18.     Controlling horizontal spacing in `LaTeX'
 
-     8.        Graphic Edition
-     8.1.      Include greek characters in `inkscape'
-     8.2.      Include greek characters in `Gimp'
-     8.3.      Change the text baseline in `inkscape'
-     8.4.      Use `ImageMagick' to transform graphic files
-     8.5.      Enhancing colors and resolution in `Gimp'
-     8.6.      Remove the background of an image in `Gimp'
-     8.7.      Take a screenshot using `Gimp'
-     8.8.      Change the color of markers in `inkscape'
-     8.9.      Terminal app to extract images from a `pdf' file
+     9.        Graphic Edition
+     9.1.      Include greek characters in `inkscape'
+     9.2.      Include greek characters in `Gimp'
+     9.3.      Change the text baseline in `inkscape'
+     9.4.      Use `ImageMagick' to transform graphic files
+     9.5.      Enhancing colors and resolution in `Gimp'
+     9.6.      Remove the background of an image in `Gimp'
+     9.7.      Take a screenshot using `Gimp'
+     9.8.      Change the color of markers in `inkscape'
+     9.9.      Terminal app to extract images from a `pdf' file
 
-     9.        Miscelanea
-     9.1.      Compute the average from the results of `Moodle' test
+     10.       Miscelanea
+     10.1.     Compute the average from the results of `Moodle' test
                grading
-     9.2.      Splitting in two lines a cell content in
+     10.2.     Splitting in two lines a cell content in
                `Openoffice/simpress'
-     9.3.      Solving `BADSIG' errors in `UBUNTU (Oneiric Ocelot)'
+     10.3.     Solving `BADSIG' errors in `UBUNTU (Oneiric Ocelot)'
 
-     10.       Translations of this document
+     11.       Translations of this document
 
 
 -------------------------------------------------------------------------------
@@ -498,376 +501,7 @@ mailgw.uhu.es:coco.elmo.dfaie:frdg098r
      1.   http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html
 
 
-1.7. Compile and install the `LAPACK95' interface driver routine.
------------------------------------------------------------------
-
-     Updated on February 22nd, 2018.
-
-     Updated on September 16th, 2011.
-
-     This howto was checked initially in a `Debian Squeeze' box, with a
-     `gfortran 4.4.5' compiler and in a `Ubuntu Lucid Lynx' with a compiler
-     `gfortran 4.4.3'.  Last version has been checked in a `Debian Stretch'
-     box, with a `gfortran 6.3.0' compiler.
-
-     In this howto we install from scratch the `Fortran 77' libraries
-     `BLAS' and `LAPACK', and then compile the `FORTRAN 95' extension to
-     `LAPACK'.  Both `Debian' and `Ubuntu' systems provide `BLAS' and
-     `LAPACK' libraries as native packages and this first step could be
-     skipped and you can ignore next two paragraphs.  In any case it may be
-     interesting to compile all the libraries with optimized flags for the
-     system in question.
-
-     First we should upload the `LAPACK' and `LAPACK 95' libraries, for
-     example from the _Netlib_ website (LAPACK tgz from Netlib
-     (http://www.netlib.org/lapack/lapack-3.3.1.tgz), (LAPACK95 tgz from
-     Netlib (http://www.netlib.org/lapack95/lapack95.tgz) ).  The `LAPACK'
-     version we will install is 3.3.1.
-
-$ wget  -c http://www.netlib.org/lapack/lapack-3.3.1.tgz
---2011-09-16 13:49:37--  http://www.netlib.org/lapack/lapack-3.3.1.tgz
-Resolving www.netlib.org... 160.36.58.108
-.
-.
-.
-2011-09-16 13:49:48 (439 KB/s) - `lapack-3.3.1.tgz' saved [4945204/4945204]
-
-$ wget http://www.netlib.org/lapack95/lapack95.tgz
---2011-09-16 13:49:54--  http://www.netlib.org/lapack95/lapack95.tgz
-.
-.
-.
-2011-09-16 13:49:59 (368 KB/s) - `lapack95.tgz' saved [1579613/1579613]
-
-     Untar the `LAPACK' library tarball.
-
-          $ tar xzf lapack-3.3.1.tgz
-          $ cd lapack-3.3.1/
-          lapack-3.3.1$
-
-     Edit the file `make.inc' to a file conveniently tuned for your system.
-     A working example for `gfortran' is shown in Section 1.7.1,
-     ``make.inc' for `LAPACK' compilation'.  The library can now be
-     compiled, starting with the compilation of the included `BLAS' library
-
-          lapack-3.3.1$ cd BLAS/SRC
-          lapack-3.3.1/BLAS/SRC$ make
-          .
-          .
-          .
-           zhemm.o zherk.o zher2k.o lsame.o xerbla.o xerbla_array.o
-          ranlib ../../blas_linux_gfortran.a
-          lapack-3.3.1/BLAS/SRC$
-
-     The next step is the compilation of the `BLAS' library
-
-lapack-3.3.1/BLAS/SRC$ cd ../../
-lapack-3.3.1$ make
-.
-.
-.
-make[1]: Leaving directory `/home/curro/1/lapack-3.3.1/BLAS/TESTING'
-( cd BLAS; ./xblat3s < sblat3.in     ; \
-	           ./xblat3d < dblat3.in     ; \
-	           ./xblat3c < cblat3.in     ; \
-	           ./xblat3z < zblat3.in     )
-lapack-3.3.1$ ls *.a
-blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
-
-     The next step is to copy the compiled libraries to their final
-     destination
-
-          lapack-3.3.1$ sudo mkdir /usr/local/lapack-3.3.1
-          [sudo] password for curro:
-          lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
-
-     We now proceed to compile and install the `LAPACK 95' library.  This
-     is where you should start if you are using the `BLAS' and `LAPACK'
-     provided by the distribution.  First we unpack the `LAPACK 95' tarball
-     and edit the `make.inc' file.  A working example for `gfortran' is
-     shown in Section 1.7.2, ``make.inc' for `LAPACK95' compilation'.
-
-          $ tar xzf lapack95.tgz
-          $ cd LAPACK95/
-          LAPACK95$ cd SRC
-          LAPACK95/SRC$ make single_double_complex_dcomplex
-          .
-          .
-          .
-          ranlib ../lapack95.a
-          rm -fr ../lapack95_modules
-          mkdir ../lapack95_modules
-          'cp' *.mod ../lapack95_modules/
-          rm -f f77_lapack.* f95_lapack.*
-          rm -f *_lapack_single_double_complex_dcomplex.o
-          LAPACK95/SRC$
-
-     The final step is to copy the libfile and modules to a convenient
-     location.
-
-          LAPACK95$ sudo mkdir /usr/local/lib/lapack95
-          LAPACK95$ sudo cp -r lapack95.a lapack95_modules /usr/local/lapack95
-
-     We include a program template invoking this library in Section 1.7.3,
-     `Example of program using `LAPACK95'' and a `makefile' that can be
-     used to compile this program in Section 1.7.4, ``makefile' for
-     compiling programs with calls to `LAPACK95''.
-
-1.7.1. `make.inc' for `LAPACK' compilation
-------------------------------------------
-
-# -*- Makefile -*-
-####################################################################
-#  LAPACK make include file.                                       #
-#  LAPACK, Version 3.3.1                                           #
-#  April 2011                                                      #
-####################################################################
-#
-# See the INSTALL/ directory for more examples.
-#
-SHELL = /bin/sh
-#
-#  The machine (platform) identifier to append to the library names
-#
-PLAT = _linux_gfortran
-#
-#  Modify the FORTRAN and OPTS definitions to refer to the
-#  compiler and desired compiler options for your machine.  NOOPT
-#  refers to the compiler options desired when NO OPTIMIZATION is
-#  selected.  Define LOADER and LOADOPTS to refer to the loader
-#  and desired load options for your machine.
-#
-FORTRAN  = gfortran -O2 -m32
-OPTS     =
-DRVOPTS  = $(OPTS)
-NOOPT    = -g -O0
-LOADER   = gfortran -g
-LOADOPTS =
-#
-# Timer for the SECOND and DSECND routines
-#
-# Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
-# TIMER    = EXT_ETIME
-# For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_
-# TIMER    = EXT_ETIME_
-# For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME
-TIMER    = INT_ETIME
-# If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
-# SECOND and DSECND will use a call to the Fortran standard INTERNAL FUNCTION CPU_TIME
-# TIMER    = INT_CPU_TIME
-# If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0
-# TIMER     = NONE
-#
-#  The archiver and the flag(s) to use when building archive (library)
-#  If you system has no ranlib, set RANLIB = echo.
-#
-ARCH     = ar
-ARCHFLAGS= cr
-RANLIB   = ranlib
-#
-#  The location of BLAS library for linking the testing programs.
-#  The target's machine-specific, optimized BLAS library should be
-#  used whenever possible.
-#
-BLASLIB      = ../../blas$(PLAT).a
-#
-#  Location of the extended-precision BLAS (XBLAS) Fortran library
-#  used for building and testing extended-precision routines.  The
-#  relevant routines will be compiled and XBLAS will be linked only if
-#  USEXBLAS is defined.
-#
-# USEXBLAS    = Yes
-XBLASLIB     =
-# XBLASLIB    = -lxblas
-#
-#  Names of generated libraries.
-#
-LAPACKLIB    = lapack$(PLAT).a
-TMGLIB       = tmglib$(PLAT).a
-EIGSRCLIB    = eigsrc$(PLAT).a
-LINSRCLIB    = linsrc$(PLAT).a
-
-1.7.2. `make.inc' for `LAPACK95' compilation
---------------------------------------------
-
-          #
-          #  -- LAPACK95 interface driver routine (version 2.0) --
-          #     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
-          #     August 5, 2000
-          #
-          FC	 = gfortran
-          FC1      = gfortran
-          # -dcfuns  Enable recognition of non-standard double
-          #          precision  complex intrinsic functions
-          # -dusty   Allows the compilation and execution of "legacy"
-          #          software by downgrading the category  of  common
-          #          errors  found  in  such software from "Error" to
-          # -ieee=full enables all IEEE arithmetic facilities
-          #          including non-stop arithmetic.
-          OPTS0    = -O3
-          MODLIB   = -I./../lapack95_modules
-          OPTS1    = -c $(OPTS0)
-          OPTS3    = $(OPTS1) $(MODLIB)
-          OPTL     = -o
-          OPTLIB   =
-          
-          #LAPACK_PATH = /usr/local/lib/LAPACK3/
-          
-          LAPACK95 = ../lapack95.a
-          LAPACK77 = -llapack
-          BLAS     = -lblas
-          
-          LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
-          SUF      = f90
-          
-          XX = 'rm' -f $@; \
-                  'rm' -f $@.res; \
-          	$(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS); \
-                  $@ < $@.dat > $@.res; \
-                  'rm' -f $@
-          
-          YY = $(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
-          
-          .SUFFIXES: .f90 .f .o
-          
-          .$(SUF).o:
-          	$(FC) $(OPTS3) $<
-          
-          .f.o:
-          	$(FC1) $(OPTS3) $<
-
-1.7.3. Example of program using `LAPACK95'
-------------------------------------------
-
-     This source should be saved in a file called `ejemplo_la_spsv.f90' to
-     use the `Makefile' provided in n Section 1.7.4, ``makefile' for
-     compiling programs with calls to `LAPACK95''.
-
-          PROGRAM LA_SSPSV_EXAMPLE
-          
-            !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
-            !
-            !  .Use Statements
-            USE LA_PRECISION, ONLY: WP => SP
-            USE F95_LAPACK, ONLY: LA_SPSV
-            !  Implicit Statement
-            IMPLICIT NONE
-            !  Local Scalars
-            INTEGER :: I, N, NN, NRHS
-            !  Local Arrays
-            INTEGER, ALLOCATABLE :: IPIV(:)
-            REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
-            !  Executable Statements
-            WRITE (*,*) 'SSPSV Example Program Results.'
-            N = 5; NRHS = 1
-            WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
-            NN = N*(N+1)/2
-            ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
-            !
-            CALL  RANDOM_NUMBER(AP)
-            AP = 10*AP
-            !
-            WRITE(*,*)'Matrix AP :'
-            DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X)") INT(AP(I));
-            ENDDO
-            !
-            WRITE(*,*)'Matrix B :'
-            CALL  RANDOM_NUMBER(B)
-            B = 10*B
-            DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)") INT(B(I,1));
-            ENDDO
-            !
-            WRITE(*,*)" CALL LA_SPSV( AP, B, 'L', IPIV )"
-            !
-            CALL LA_SPSV( AP, B, 'L', IPIV )
-            !
-            WRITE(*,*)'AP on exit: '
-            DO I=1,NN; WRITE(*,"(15(E13.5))") AP(I);
-            ENDDO
-            !
-            WRITE(*,*)'Matrix B on exit :'
-            DO I=1,N; WRITE(*,"(F9.5)") B(I,1);
-            ENDDO
-            !
-            WRITE(*,*)'IPIV = ', IPIV
-            !
-          END PROGRAM LA_SSPSV_EXAMPLE
-
-1.7.4. `makefile' for compiling programs with calls to `LAPACK95'
------------------------------------------------------------------
-
-          #
-          #  -- LAPACK95 makefile (version 1.0) --
-          #
-          FC	 = gfortran
-          #
-          MODLIB   = -I/usr/local/lib/lapack95_modules
-          OPTS1    = -c
-          OPTS3    = $(OPTS1) $(MODLIB)
-          OPTL     = -o
-          OPTLIB   = -lblas -llapack
-          
-          LAPACK_PATH = /usr/local/lib
-          LAPACK95_PATH = /usr/local/lib
-          
-          LAPACK95 = $(LAPACK95_PATH)/lapack95.a
-          
-          LIBS     = $(LAPACK95)
-          SUF      = f90
-          
-          YY = $(FC) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
-          
-          .SUFFIXES: .f90 .f .o
-          
-          .$(SUF).o:
-          	$(FC) $(OPTS3) $<
-          
-          ejemplo_la_spsv:
-          	$(YY)
-          
-          clean:
-          	'rm' -f *.o *.mod core
-
-
-1.8. Compile and link statically with `NAG' and `LAPACK'
---------------------------------------------------------
-
-     It is important to be able to compile and link statically programs
-     when libraries are not available in all nodes.  This is the case with
-     the `NAG' library which is not compatible with `gfortran', the only
-     `Fortran' compiler in `Debian Lenny'.  The program statically linked
-     in one node (where `Etch' is installed and `g77' is available can the
-     be executed in any other node.
-
-     An example of compilation is the following
-
-g77 -static -o infsq_box_1D  infsq_box_1D.f ../Potentials/wsaxon_Box_pot.f -L /usr/lib/atlas -L/usr/local2/NAG -lnag  -llapack -lblas-3
-
-     Some important points:
-
-     1.   It is necessary to include both `Lapack' and `Blas' libraries.
-
-     2.   The `Blas' library should be `blas-3'.
-
-     3.   The use of standard `Lapack' and `Blas' libraries give an error
-          due to the different sizes of object files.  Something like
-
-(xerbla.o): In function `xerbla_': multiple definition of `xerbla_'
-/usr/lib/liblapack.a(xerbla.o): first defined here
-/usr/bin/ld: Warning: size of symbol `xerbla_' changed from 86
-in /usr/lib/liblapack.a(xerbla.o) to 38
-in /usr/lib/libblas.a(xerbla.o)
-collect2: ld returned 1 exit status
-
-          This is a known bug and can be solved using the libraries
-          provided with the `Atlas' packages and adding the corresponding
-          path to the compilation: `-L /usr/lib/atlas'.
-
-     4.   The order of the libraries is not irrelevant.  In particular I
-          found that `lapack' has to be invoked prior to `blas-3'.
-
-
-1.9. Copying `CUPS' configuration from one server to another
+1.7. Copying `CUPS' configuration from one server to another
 ------------------------------------------------------------
 
      The simplest way to copy the `CUPS' configuration from one server to
@@ -903,15 +537,15 @@ target# scp -r source:/usr/share/cups/model /usr/share/cups/model
 
      7.   Restart cups in the target system and test it.
 
-1.9.1. References
+1.7.1. References
 -----------------
 
      1.   Tech tip in My Scripts and Tips
           (http://www.tipsandscripts.net/archives/19)
 
 
-1.10. Mapping network interfaces to a fixed name.
--------------------------------------------------
+1.8. Mapping network interfaces to a fixed name.
+------------------------------------------------
 
      As modules on the booting process or during the system's activity are
      not loaded always in the same order, it is difficult to get the
@@ -935,8 +569,8 @@ target# scp -r source:/usr/share/cups/model /usr/share/cups/model
      changing the `MAC''s addresses and `NAME''s accordingly.
 
 
-1.11. Using labels to mount disk partitions
--------------------------------------------
+1.9. Using labels to mount disk partitions
+------------------------------------------
 
      Using the possibility of labelling the disk partitions it is useful
      for avoiding ambiguities and errors mounting them.  This is valid for
@@ -969,7 +603,7 @@ LABEL=usbdisk0       /media/usb_disk_0 ext3    exec,user,noauto  0       0
      interface such as `gparted'.
 
 
-1.12. Using `find' and `xargs'
+1.10. Using `find' and `xargs'
 ------------------------------
 
      Updated on January 12th, 2016.
@@ -1098,13 +732,13 @@ $ ls -1 *f90 | xargs -I % sh -c 'echo %; diff % /users/home/laura/prototipo_1.0/
 
  ssh root@backup_server ls -1 /home_backup | grep -v laura | xargs -I % sh -c "rdiff-backup -v4 --restore-as-of now  root@backup_server::/home_backup/% /home/%"
 
-1.12.1. References
+1.10.1. References
 ------------------
 
      1.   http://www.linuxjournal.com/article/10643
 
 
-1.13. Preparing a USB bootable `Linux' installation device (Fast way).
+1.11. Preparing a USB bootable `Linux' installation device (Fast way).
 ----------------------------------------------------------------------
 
      Updated on October 6th, 2014.
@@ -1112,7 +746,7 @@ $ ls -1 *f90 | xargs -I % sh -c 'echo %; diff % /users/home/laura/prototipo_1.0/
      We need a USB disk that is at least 256 MB in size with a `FAT16'
      partition.  Normally the sticks come with a preconfigured single
      `FAT16' partition that is valid.  If it is necessary to format the
-     disk you can find instructions in Section 1.14, `Preparing a USB
+     disk you can find instructions in Section 1.12, `Preparing a USB
      bootable `Debian' installation device.'.  Take also into account that
      _all data in the stick will be erased_.  Plug in and mount the dist.
      Let's assume that the USB disk corresponds to the `/dev/sdb' device.
@@ -1150,13 +784,13 @@ Saving to: `debian-6.0.1a-i386-netinst.iso'
 
      And the stick is ready.
 
-1.13.1. References
+1.11.1. References
 ------------------
 
      1.   http://www.debian.org/releases/stable/i386/ch04s03.html.en
 
 
-1.14. Preparing a USB bootable `Debian' installation device.
+1.12. Preparing a USB bootable `Debian' installation device.
 ------------------------------------------------------------
 
      The first step is the creation of a `FAT16' partition and filesystem
@@ -1232,13 +866,13 @@ Saving to: `initrd.gz'
 [1]  Please, note that the packages `syslinux' and `mtools' have to be
      installed to be able to run `syslinux'.
 
-1.14.1. References
+1.12.1. References
 ------------------
 
      1.   http://www.debian.org/releases/stable/i386/ch04s03.html.en
 
 
-1.15. Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
+1.13. Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
 ------------------------------------------------------------------
 
      We start adding _Debian Backports_[1] to `/etc/apt/sources.list'.  Be
@@ -1330,7 +964,7 @@ OK
      your needs, and not to use all backports available here (from
      http://www.backports.org/dokuwiki/doku.php).
 
-1.15.1. References
+1.13.1. References
 ------------------
 
      1.   http://backports.org/dokuwiki/doku.php?id=instructions
@@ -1340,7 +974,7 @@ OK
      3.   http://plugindoc.mozdev.org/
 
 
-1.16. Passive network exploration with `p0f'.
+1.14. Passive network exploration with `p0f'.
 ---------------------------------------------
 
      This utility uses passive techniques to try to guess the what machines
@@ -1367,11 +1001,11 @@ p0f: listening (SYN) on 'eth0', 262 sigs (14 generic, cksum 0F1F5CA2), rule: 'al
      format the output in a one-line style that is easier to grep.
 
 
-1.17. Preparing a bootable flashdisk with `Billix'.
+1.15. Preparing a bootable flashdisk with `Billix'.
 ---------------------------------------------------
 
      We start downloading `billix' from its _sourceforge_ page.  The link
-     can be found in Section 1.17.1, `References'.  In the present example
+     can be found in Section 1.15.1, `References'.  In the present example
      the downloaded file name is `billix-0.27.tar.gz'.  We need a usb
      flashdisk of a minimum size of 256 MB and with a `FAT' or `FAT32'
      filesystem.  In the present example is the device `/dev/sdb1' mounted
@@ -1408,13 +1042,13 @@ $ mount | grep disk
 [1]  In `Debian' systems it is necessary to install the `mbr' package to
      have access to this tool.
 
-1.17.1. References
+1.15.1. References
 ------------------
 
      1.   Billix project homepage (http://sourceforge.net/projects/billix/)
 
 
-1.18. Recovering a console that is unusable.
+1.16. Recovering a console that is unusable.
 --------------------------------------------
 
      Sometimes it is convenient to clean the display of a text console,
@@ -1426,7 +1060,7 @@ $ mount | grep disk
      return to a saner state.
 
 
-1.19. Simple configuration of `sudo'
+1.17. Simple configuration of `sudo'
 ------------------------------------
 
      A very quick and dirty configuration of `sudo' in order to allow a
@@ -1438,7 +1072,7 @@ $ mount | grep disk
      A more detailed configuration is required in a sensitive environment.
 
 
-1.20. Check the groups to which a user belongs.
+1.18. Check the groups to which a user belongs.
 -----------------------------------------------
 
      In order to check to what groups a user, e.g.  <tuxie>, belongs the
@@ -1448,7 +1082,7 @@ $ mount | grep disk
           tuxie adm dialout cdrom floppy audio video plugdev
 
 
-1.21. Check the available system `locale' options and establish a default
+1.19. Check the available system `locale' options and establish a default
 one.
 ----------------------------------------------------------------------------
 
@@ -1493,7 +1127,7 @@ one.
      use the `dpkg-reconfigure locales' command.
 
 
-1.22. Change the encoding of given files.
+1.20. Change the encoding of given files.
 -----------------------------------------
 
      To change the encoding of a file is very useful the application
@@ -1561,7 +1195,7 @@ listed with several different names (aliases).
           non_standard_UNI: Little-endian UTF-16 Unicode character data
 
 
-1.23. Problem with the wireless and `nm'
+1.21. Problem with the wireless and `nm'
 ----------------------------------------
 
      Sometimes, specially after having tweaked with the network manually,
@@ -1588,7 +1222,7 @@ listed with several different names (aliases).
      solve the problem.
 
 
-1.24. Updating `Debian' from `Wheezy' to `Jessie'
+1.22. Updating `Debian' from `Wheezy' to `Jessie'
 -------------------------------------------------
 
      Updated on January 19, 2011.
@@ -1916,14 +1550,14 @@ deckard:~# apt-get autoremove
           
           And That's all....
 
-1.24.1. References
+1.22.1. References
 ------------------
 
      1.   Debian Jessie Release Notes
           (https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html)
 
 
-1.25. Error in file `/var/lib/dpkg/status'
+1.23. Error in file `/var/lib/dpkg/status'
 ------------------------------------------
 
      Added on May 21, 2011.
@@ -1946,7 +1580,7 @@ warning, in file '/var/lib/dpkg/status' near line 6628 package 'virtualbox':
           sudo aptitude purge virtualbox
 
 
-1.26. How to record terminal sessions using `ttyrec'
+1.24. How to record terminal sessions using `ttyrec'
 ----------------------------------------------------
 
      Added on September 2nd, 2011.
@@ -1998,7 +1632,7 @@ Setting up ttyrec (1.0.6-1) ...
 
           ttyrec -e 'bash --rcfile .inputrc_ttyrec'
 
-     In the references for this chapter (Section 1.26.1, `References') a
+     In the references for this chapter (Section 1.24.1, `References') a
      link to a recorded session is found.  There it is shown how for
      example a `vi' session can be included or how comments are made by
      typing `CTRL-c' at the end of each comment line.
@@ -2018,7 +1652,7 @@ Setting up ttyrec (1.0.6-1) ...
      An interesting site to find terminal recordings is `Playterm', whose
      URL can be found in the references section.
 
-1.26.1. References
+1.24.1. References
 ------------------
 
      1.   ttyrec homepage (http://0xcc.net/ttyrec/index.html.en)
@@ -2029,7 +1663,7 @@ Setting up ttyrec (1.0.6-1) ...
      3.   Playterm homepage (http://www.playterm.org/)
 
 
-1.27. Using `Bash' to count the number of files in a directory
+1.25. Using `Bash' to count the number of files in a directory
 --------------------------------------------------------------
 
      Added on September 6th, 2011.
@@ -2055,7 +1689,7 @@ Setting up ttyrec (1.0.6-1) ...
      `Interesting perl oneliners'
 
 
-1.28. Getting detailed information about your hardware
+1.26. Getting detailed information about your hardware
 ------------------------------------------------------
 
      Added on November 30th, 2011.
@@ -2086,7 +1720,7 @@ Setting up ttyrec (1.0.6-1) ...
      run with the option `-short'.
 
 
-1.29. Adding your servers load to the `screen' hardstatus line
+1.27. Adding your servers load to the `screen' hardstatus line
 --------------------------------------------------------------
 
      Added on December 1st, 2011.
@@ -2165,7 +1799,7 @@ screen -t box_1	        2       ssh username@rbox_1
 screen -t box_2 	3       ssh username@box_2
 
 
-1.30. Making a backup of a `Gmail' account.
+1.28. Making a backup of a `Gmail' account.
 -------------------------------------------
 
      Added on December 7th, 2011.
@@ -2242,7 +1876,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
      The resulting `Mbox' files can be easily accessed with `Mutt' or other
      mail reader program.
 
-1.30.1. References
+1.28.1. References
 ------------------
 
      1.   Matt Cutts Blog
@@ -2252,7 +1886,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
           (http://blog.pengdeng.com/2008/03/backup-gmail-via-imap-using-getmail_16.html)
 
 
-1.31. Redirecting `STDERR' to `SDTOUT'
+1.29. Redirecting `STDERR' to `SDTOUT'
 --------------------------------------
 
      Added on Febuary 3rd, 2012.
@@ -2271,7 +1905,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
      accomplished as `1>&2'.
 
 
-1.32. Listing and extracting files from a `deb' package file.
+1.30. Listing and extracting files from a `deb' package file.
 -------------------------------------------------------------
 
      Added on August 11th, 2012.
@@ -2336,14 +1970,14 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
           ./ovpc/pkg/etc/conf
           ./ovpc/pkg/etc/conf/log.con
 
-1.32.1. References
+1.30.1. References
 ------------------
 
      1.   TheGeekStuff
           (http://www.thegeekstuff.com/2010/04/view-and-extract-packages/)
 
 
-1.33. Using `script' to keep terminal output records.
+1.31. Using `script' to keep terminal output records.
 -----------------------------------------------------
 
      Added on November 18th, 2012.
@@ -2420,7 +2054,7 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
      the fifo.
 
 
-1.34. Checking actual kernel compiling options.
+1.32. Checking actual kernel compiling options.
 -----------------------------------------------
 
      Added on January 8th, 2013.
@@ -2428,7 +2062,7 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
      Sometimes it is necessary to check if the kernel of your computer has
      been compiled including a particular option.  For example, let's check
      if the kernel has been compiled with the `CONFIG_EFI_PARTITION' option
-     turned on (see Section 1.35, `Formatting HD partitions larger than 2
+     turned on (see Section 1.33, `Formatting HD partitions larger than 2
      TB').
 
 $ cd /boot/
@@ -2439,13 +2073,13 @@ CONFIG_EFI_VARS=m
 CONFIG_EFI_PARTITION=y
 
 
-1.35. Formatting HD partitions larger than 2 TB
+1.33. Formatting HD partitions larger than 2 TB
 -----------------------------------------------
 
      Added on January 8th, 2013.
 
      The first step is to check whether your kernel has been compiled with
-     the `CONFIG_EFI_PARTITION' option turned on (see Section 1.34,
+     the `CONFIG_EFI_PARTITION' option turned on (see Section 1.32,
      `Checking actual kernel compiling options.').  If this is so, let's
      assume that the device assigned to the HD that will be partitioned is
      `/dev/sdb', that it is a 2 TB HD and will be mounted in `/large_disk'.
@@ -2583,14 +2217,14 @@ UUID=43615088-9470-419c-9958-199b0bcbbbd6 /large_disk     ext4    defaults      
      If necessary, reboot and check that the partition is correctly
      mounted.
 
-1.35.1. References
+1.33.1. References
 ------------------
 
      1.   Cyberciti
           (http://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html)
 
 
-1.36. Adding a partition to `fstab' by `UUID'
+1.34. Adding a partition to `fstab' by `UUID'
 ---------------------------------------------
 
      Added on January 31st, 2015.
@@ -2643,7 +2277,7 @@ UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults
             $ ln -fs /data/downloads_curro ./Downloads
 
 
-1.37. Error ejecting a CD
+1.35. Error ejecting a CD
 -------------------------
 
      Added on January 31st, 2015.
@@ -2687,271 +2321,7 @@ UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults
      An the CD is cleanly ejected.  Happy end.
 
 
-1.38. Creating a `Makefile' to use `cpp' with `gfortran'
---------------------------------------------------------
-
-     Added on November 09th, 2015.
-
-     There is a way of using the C language preprocessor, `cpp', with
-     gfortran.  In this way we can communicate via `Makefile' with our
-     program.  Let's assume that we have a `Fortran 90' program to compute
-     two normally distributed set of random numbers that use the Box-Muller
-     transform.  The program is called `box_muller.f90' and we also compute
-     the mean, median and standard variance of the resulting distributions
-     using a subroutine called `stats.f90'[1].  The `FORTRAN 90' codes are
-     provided in Section 1.38.1, `Fortran Codes'.
-
-     The `Makefile' used for compilation is
-
-          # Fortran Compiler
-          FC=gfortran
-          #
-          # C Preprocessor
-          CPP=cpp
-          #
-          TYPE_DEF=-DPREC=DP
-          ifdef USE_SINGLE
-          TYPE_DEF = -DPREC=SP
-          endif
-          #
-          # Optimization Flags
-          OPTFLAGS = -O3 -funroll-loops -march=native
-          OPTFLAGS_P = "\"-O3 -funroll-loops -march=native\""
-          #
-          all: box_muller
-          #
-          .FORCE:
-          #
-          box_muller: box_muller.f90 stats.f90 .FORCE
-          	$(CPP)  -std=c89 $(TYPE_DEF) -DFLAGS=$(OPTFLAGS_P) $< > /tmp/$<
-          	$(CPP)  -std=c89 $(TYPE_DEF)  stats.f90 > /tmp/stats.f90
-          	$(FC) $(OPTFLAGS) -o $@ /tmp/stats.f90 /tmp/$<
-          	rm /tmp/stats.f90 /tmp/$<
-          #
-          clean:
-          	rm -f *.o box_muller
-
-     Note how `cpp' is called twice, once for each file and the `PREC'
-     string are replaced either by `DP' or `SP', the last case if the
-     option `USE_SINGLE' is set.  In the main program the string `FLAGS' is
-     replaced by the contents of the variable `OPTFLAGS_P' to print the
-     compilation flags used.  Thus to run the program in single precision
-     the user proceed as follows
-
-$ make all USE_SINGLE=1
-cpp  -std=c89 -DPREC=SP  -DFLAGS="\"-O3 -funroll-loops -march=native\"" box_muller.f90 > /tmp/box_muller.f90
-cpp  -std=c89 -DPREC=SP   stats.f90 > /tmp/stats.f90
-gfortran -O3 -funroll-loops -march=native -o box_muller /tmp/stats.f90 /tmp/box_muller.f90
-rm /tmp/stats.f90 /tmp/box_muller.f90
-$ ./box_muller
-10000
- Time Box Muller subroutine :   4.00000019E-03
-  MEAN =   -7.31508713E-03
-  STANDARD DEVIATION =   0.995381057
-  MEDIAN IS =    1.01202750E-04
- Time STATS subroutine 1:  0.100005999
-  MEAN =    2.96602229E-04
-  STANDARD DEVIATION =   0.999957144
-  MEDIAN IS =    1.29099786E-02
- Time STATS subroutine 2:  0.100006007
- KIND = SINGLE ;  Optimization Flags: -O3 -funroll-loops -march=native
-
-[1]  Please, note that the subroutine is not optimized and could take a
-     long time for a large number of data due to an inefficient sort
-     algorithm.
-
-1.38.1. Fortran Codes
----------------------
-
-     Main program: `box_muller.f90'
-
-PROGRAM Box_Muller_Prog
-  !
-  IMPLICIT NONE
-  !
-  ! Single and double precision kind parameters
-  INTEGER, PARAMETER :: SP = KIND(1.0)
-  INTEGER, PARAMETER :: DP = KIND(1.0D0)
-  !
-  INTEGER :: I, IERR
-  REAL(KIND = PREC), DIMENSION(:), ALLOCATABLE :: X, Y
-  REAL(KIND = PREC) :: M, SD, MEDIAN
-  REAL(KIND = SP) :: time_end, time_start
-  !
-  !
-  CHARACTER(LEN = 6) :: PRECISION
-  !
-  ! interface block
-  INTERFACE
-     SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
-       IMPLICIT NONE
-       ! Single and double precision kind parameters
-       INTEGER, PARAMETER :: SP = KIND(1.0)
-       INTEGER, PARAMETER :: DP = KIND(1.0D0)
-       INTEGER , INTENT(IN)                    ::  N
-       REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)   :: VECTOR
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEAN
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: STD_DEV
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEDIAN
-     END SUBROUTINE STATS
-  END INTERFACE
-  !
-  ! Set Precision for output
-  IF (PREC == DP) THEN
-     PRECISION = "DOUBLE"
-  ELSE
-     PRECISION = "SINGLE"
-  ENDIF
-  !
-  ! Input number of data
-  READ*, I
-  !
-  ALLOCATE(X(1:I), STAT = IERR)
-  IF (IERR /= 0) THEN
-     PRINT*, "X allocation request denied."
-     STOP
-  ENDIF
-  !
-  ALLOCATE(Y(1:I), STAT = IERR)
-  IF (IERR /= 0) THEN
-     PRINT*, "Y allocation request denied."
-     STOP
-  ENDIF
-  !
-  ! Set time start
-  CALL CPU_TIME(time_start)
-  !
-  CALL BOX_MULLER(I)
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  !PRINT*, X
-  !PRINT*, Y
-  !
-  PRINT*, "Time Box Muller subroutine :", time_end - time_start
-  time_start = time_end
-  !
-  CALL STATS(X,I,M,SD,MEDIAN)
-  !
-  PRINT *,' MEAN = ',M
-  PRINT *,' STANDARD DEVIATION = ',SD
-  PRINT *,' MEDIAN IS = ',MEDIAN
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  PRINT*, "Time STATS subroutine 1:", time_end - time_start
-  time_start = time_end
-  !
-  IF (ALLOCATED(X)) DEALLOCATE(X, STAT = IERR)
-  IF (IERR /= 0) THEN
-     PRINT*, "X NON DEALLOCATED!"
-     STOP
-  ENDIF
-  !
-  CALL STATS(Y,I,M,SD,MEDIAN)
-  !
-  !
-  PRINT *,' MEAN = ',M
-  PRINT *,' STANDARD DEVIATION = ',SD
-  PRINT *,' MEDIAN IS = ',MEDIAN
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  PRINT*, "Time STATS subroutine 2:", time_end - time_start
-  time_start = time_end
-  !
-  IF (ALLOCATED(Y)) DEALLOCATE(Y, STAT = IERR)
-  IF (IERR /= 0) THEN
-     PRINT*, "Y NON DEALLOCATED!"
-     STOP
-  ENDIF
-  !
-  PRINT*, "KIND = ", PRECISION, " ;  Optimization Flags: ", FLAGS
-  !
-CONTAINS
-  !
-  SUBROUTINE BOX_MULLER(dim)
-    !
-    ! Uses the Box-Muller method to create two normally distributed vectors
-    !
-    INTEGER, INTENT(IN) :: dim
-    !
-    REAL(KIND = PREC), PARAMETER :: PI = ACOS(-1.0)
-    REAL(KIND = PREC), DIMENSION(dim) :: RANDOM_u, RANDOM_v ! Automatic arrays
-    !
-    CALL RANDOM_NUMBER(RANDOM_u)
-    CALL RANDOM_NUMBER(RANDOM_v)
-    !
-    X = SQRT(-2.0_ PREC*LOG(RANDOM_u))
-    Y = X*SIN(2*PI*RANDOM_v)
-    X = X*COS(2*PI*RANDOM_v)
-    !
-  END SUBROUTINE BOX_MULLER
-  !
-END PROGRAM Box_Muller_Prog
-
-     Subroutine: `stats.f90'
-
-          SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
-            IMPLICIT NONE
-            ! Single and double precision kind parameters
-            INTEGER, PARAMETER :: SP = KIND(1.0)
-            INTEGER, PARAMETER :: DP = KIND(1.0D0)
-            ! Argument definition
-            INTEGER , INTENT(IN)                    ::  N
-            REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)    ::  VECTOR
-            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEAN
-            REAL(KIND = PREC)      , INTENT(OUT)                  ::  STD_DEV
-            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEDIAN
-            ! Local variables
-            REAL(KIND = PREC) :: VARIANCE = 0.0
-            REAL(KIND = PREC)      :: SUMXI = 0.0, SUMXI2 = 0.0
-            REAL(KIND = PREC)      , DIMENSION(1:N)              ::  Y
-            !
-            SUMXI=SUM(VECTOR)
-            SUMXI2=SUM(VECTOR*VECTOR)
-            MEAN=SUMXI/N
-            VARIANCE=(SUMXI2-SUMXI*SUMXI/N)/(N-1)
-            STD_DEV = SQRT(VARIANCE)
-            Y=VECTOR
-            ! Sort values
-            CALL SELECTION
-            IF (MOD(N,2) == 0) THEN
-               MEDIAN=(Y(N/2)+Y((N/2)+1))/2
-            ELSE
-               MEDIAN=Y((N/2)+1)
-            ENDIF
-          CONTAINS
-            SUBROUTINE SELECTION
-              IMPLICIT NONE
-              INTEGER :: I,J,K
-              REAL :: MINIMUM
-              DO I=1,N-1
-                 K=I
-                 MINIMUM=Y(I)
-                 DO J=I+1,N
-                    IF (Y(J) < MINIMUM) THEN
-                       K=J
-                       MINIMUM=Y(K)
-                    END IF
-                 END DO
-                 Y(K)=Y(I)
-                 Y(I)=MINIMUM
-              END DO
-            END SUBROUTINE SELECTION
-          END SUBROUTINE STATS
-
-1.38.2. References
-------------------
-
-     1.   StackOverflow
-          (https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386)
-
-
-1.39. Killing an unresponsive X-windows
+1.36. Killing an unresponsive X-windows
 ---------------------------------------
 
      Added on April 2nd, 2016.
@@ -3002,7 +2372,7 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
      And the window is killed.  RIP.
 
 
-1.40. Enlarging the size of a `tmp' directory
+1.37. Enlarging the size of a `tmp' directory
 ---------------------------------------------
 
      Added on November 14th, 2016.
@@ -3082,7 +2452,7 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
 
      And that's all.
 
-1.40.1. References
+1.37.1. References
 ------------------
 
      1.   YourHowto.Net
@@ -4384,18 +3754,709 @@ a 51948052/s 1121%  212%    --
           find(\&process_files, @ARGV);
 
      Notice that the `chmod' function in `Perl' needs that the permission
-     are expressed in octal values.  Note also de lack of apostrophes in
+     are expressed in octal values.  Note also the lack of apostrophes in
      the permisision variables definition.
 
 
 -------------------------------------------------------------------------------
 
 
-6. Python Tips and Templates
+6. Fortran Tips and Templates
+-----------------------------
+
+
+6.1. Compile and install the `LAPACK95' interface driver routine.
+-----------------------------------------------------------------
+
+     Updated on February 22nd, 2018.
+
+     Updated on September 16th, 2011.
+
+     This howto was checked initially in a `Debian Squeeze' box, with a
+     `gfortran 4.4.5' compiler and in a `Ubuntu Lucid Lynx' with a compiler
+     `gfortran 4.4.3'.  Last version has been checked in a `Debian Stretch'
+     box, with a `gfortran 6.3.0' compiler.
+
+     In this howto we install from scratch the `Fortran 77' libraries
+     `BLAS' and `LAPACK', and then compile the `FORTRAN 95' extension to
+     `LAPACK'.  Both `Debian' and `Ubuntu' systems provide `BLAS' and
+     `LAPACK' libraries as native packages and this first step could be
+     skipped and you can ignore next two paragraphs.  In any case it may be
+     interesting to compile all the libraries with optimized flags for the
+     system in question.
+
+     First we should upload the `LAPACK' and `LAPACK 95' libraries, for
+     example from the _Netlib_ website (LAPACK tgz from Netlib
+     (http://www.netlib.org/lapack/lapack-3.3.1.tgz), (LAPACK95 tgz from
+     Netlib (http://www.netlib.org/lapack95/lapack95.tgz) ).  The `LAPACK'
+     version we will install is 3.3.1.
+
+$ wget  -c http://www.netlib.org/lapack/lapack-3.3.1.tgz
+--2011-09-16 13:49:37--  http://www.netlib.org/lapack/lapack-3.3.1.tgz
+Resolving www.netlib.org... 160.36.58.108
+.
+.
+.
+2011-09-16 13:49:48 (439 KB/s) - `lapack-3.3.1.tgz' saved [4945204/4945204]
+
+$ wget http://www.netlib.org/lapack95/lapack95.tgz
+--2011-09-16 13:49:54--  http://www.netlib.org/lapack95/lapack95.tgz
+.
+.
+.
+2011-09-16 13:49:59 (368 KB/s) - `lapack95.tgz' saved [1579613/1579613]
+
+     Untar the `LAPACK' library tarball.
+
+          $ tar xzf lapack-3.3.1.tgz
+          $ cd lapack-3.3.1/
+          lapack-3.3.1$
+
+     Edit the file `make.inc' to a file conveniently tuned for your system.
+     A working example for `gfortran' is shown in Section 6.1.1,
+     ``make.inc' for `LAPACK' compilation'.  The library can now be
+     compiled, starting with the compilation of the included `BLAS' library
+
+          lapack-3.3.1$ cd BLAS/SRC
+          lapack-3.3.1/BLAS/SRC$ make
+          .
+          .
+          .
+           zhemm.o zherk.o zher2k.o lsame.o xerbla.o xerbla_array.o
+          ranlib ../../blas_linux_gfortran.a
+          lapack-3.3.1/BLAS/SRC$
+
+     The next step is the compilation of the `BLAS' library
+
+lapack-3.3.1/BLAS/SRC$ cd ../../
+lapack-3.3.1$ make
+.
+.
+.
+make[1]: Leaving directory `/home/curro/1/lapack-3.3.1/BLAS/TESTING'
+( cd BLAS; ./xblat3s < sblat3.in     ; \
+	           ./xblat3d < dblat3.in     ; \
+	           ./xblat3c < cblat3.in     ; \
+	           ./xblat3z < zblat3.in     )
+lapack-3.3.1$ ls *.a
+blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
+
+     The next step is to copy the compiled libraries to their final
+     destination
+
+          lapack-3.3.1$ sudo mkdir /usr/local/lapack-3.3.1
+          [sudo] password for curro:
+          lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
+
+     We now proceed to compile and install the `LAPACK 95' library.  This
+     is where you should start if you are using the `BLAS' and `LAPACK'
+     provided by the distribution.  First we unpack the `LAPACK 95' tarball
+     and edit the `make.inc' file.  A working example for `gfortran' is
+     shown in Section 6.1.2, ``make.inc' for `LAPACK95' compilation'.
+
+          $ tar xzf lapack95.tgz
+          $ cd LAPACK95/
+          LAPACK95$ cd SRC
+          LAPACK95/SRC$ make single_double_complex_dcomplex
+          .
+          .
+          .
+          ranlib ../lapack95.a
+          rm -fr ../lapack95_modules
+          mkdir ../lapack95_modules
+          'cp' *.mod ../lapack95_modules/
+          rm -f f77_lapack.* f95_lapack.*
+          rm -f *_lapack_single_double_complex_dcomplex.o
+          LAPACK95/SRC$
+
+     The final step is to copy the libfile and modules to a convenient
+     location.
+
+          LAPACK95$ sudo mkdir /usr/local/lib/lapack95
+          LAPACK95$ sudo cp -r lapack95.a lapack95_modules /usr/local/lapack95
+
+     We include a program template invoking this library in Section 6.1.3,
+     `Example of program using `LAPACK95'' and a `makefile' that can be
+     used to compile this program in Section 6.1.4, ``makefile' for
+     compiling programs with calls to `LAPACK95''.
+
+6.1.1. `make.inc' for `LAPACK' compilation
+------------------------------------------
+
+# -*- Makefile -*-
+####################################################################
+#  LAPACK make include file.                                       #
+#  LAPACK, Version 3.3.1                                           #
+#  April 2011                                                      #
+####################################################################
+#
+# See the INSTALL/ directory for more examples.
+#
+SHELL = /bin/sh
+#
+#  The machine (platform) identifier to append to the library names
+#
+PLAT = _linux_gfortran
+#
+#  Modify the FORTRAN and OPTS definitions to refer to the
+#  compiler and desired compiler options for your machine.  NOOPT
+#  refers to the compiler options desired when NO OPTIMIZATION is
+#  selected.  Define LOADER and LOADOPTS to refer to the loader
+#  and desired load options for your machine.
+#
+FORTRAN  = gfortran -O2 -m32
+OPTS     =
+DRVOPTS  = $(OPTS)
+NOOPT    = -g -O0
+LOADER   = gfortran -g
+LOADOPTS =
+#
+# Timer for the SECOND and DSECND routines
+#
+# Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
+# TIMER    = EXT_ETIME
+# For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_
+# TIMER    = EXT_ETIME_
+# For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME
+TIMER    = INT_ETIME
+# If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
+# SECOND and DSECND will use a call to the Fortran standard INTERNAL FUNCTION CPU_TIME
+# TIMER    = INT_CPU_TIME
+# If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0
+# TIMER     = NONE
+#
+#  The archiver and the flag(s) to use when building archive (library)
+#  If you system has no ranlib, set RANLIB = echo.
+#
+ARCH     = ar
+ARCHFLAGS= cr
+RANLIB   = ranlib
+#
+#  The location of BLAS library for linking the testing programs.
+#  The target's machine-specific, optimized BLAS library should be
+#  used whenever possible.
+#
+BLASLIB      = ../../blas$(PLAT).a
+#
+#  Location of the extended-precision BLAS (XBLAS) Fortran library
+#  used for building and testing extended-precision routines.  The
+#  relevant routines will be compiled and XBLAS will be linked only if
+#  USEXBLAS is defined.
+#
+# USEXBLAS    = Yes
+XBLASLIB     =
+# XBLASLIB    = -lxblas
+#
+#  Names of generated libraries.
+#
+LAPACKLIB    = lapack$(PLAT).a
+TMGLIB       = tmglib$(PLAT).a
+EIGSRCLIB    = eigsrc$(PLAT).a
+LINSRCLIB    = linsrc$(PLAT).a
+
+6.1.2. `make.inc' for `LAPACK95' compilation
+--------------------------------------------
+
+          #
+          #  -- LAPACK95 interface driver routine (version 2.0) --
+          #     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
+          #     August 5, 2000
+          #
+          FC	 = gfortran
+          FC1      = gfortran
+          # -dcfuns  Enable recognition of non-standard double
+          #          precision  complex intrinsic functions
+          # -dusty   Allows the compilation and execution of "legacy"
+          #          software by downgrading the category  of  common
+          #          errors  found  in  such software from "Error" to
+          # -ieee=full enables all IEEE arithmetic facilities
+          #          including non-stop arithmetic.
+          OPTS0    = -O3
+          MODLIB   = -I./../lapack95_modules
+          OPTS1    = -c $(OPTS0)
+          OPTS3    = $(OPTS1) $(MODLIB)
+          OPTL     = -o
+          OPTLIB   =
+          
+          #LAPACK_PATH = /usr/local/lib/LAPACK3/
+          
+          LAPACK95 = ../lapack95.a
+          LAPACK77 = -llapack
+          BLAS     = -lblas
+          
+          LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
+          SUF      = f90
+          
+          XX = 'rm' -f $@; \
+                  'rm' -f $@.res; \
+          	$(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS); \
+                  $@ < $@.dat > $@.res; \
+                  'rm' -f $@
+          
+          YY = $(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+          
+          .SUFFIXES: .f90 .f .o
+          
+          .$(SUF).o:
+          	$(FC) $(OPTS3) $<
+          
+          .f.o:
+          	$(FC1) $(OPTS3) $<
+
+6.1.3. Example of program using `LAPACK95'
+------------------------------------------
+
+     This source should be saved in a file called `ejemplo_la_spsv.f90' to
+     use the `Makefile' provided in n Section 6.1.4, ``makefile' for
+     compiling programs with calls to `LAPACK95''.
+
+          PROGRAM LA_SSPSV_EXAMPLE
+          
+            !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
+            !
+            !  .Use Statements
+            USE LA_PRECISION, ONLY: WP => SP
+            USE F95_LAPACK, ONLY: LA_SPSV
+            !  Implicit Statement
+            IMPLICIT NONE
+            !  Local Scalars
+            INTEGER :: I, N, NN, NRHS
+            !  Local Arrays
+            INTEGER, ALLOCATABLE :: IPIV(:)
+            REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
+            !  Executable Statements
+            WRITE (*,*) 'SSPSV Example Program Results.'
+            N = 5; NRHS = 1
+            WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
+            NN = N*(N+1)/2
+            ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
+            !
+            CALL  RANDOM_NUMBER(AP)
+            AP = 10*AP
+            !
+            WRITE(*,*)'Matrix AP :'
+            DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X)") INT(AP(I));
+            ENDDO
+            !
+            WRITE(*,*)'Matrix B :'
+            CALL  RANDOM_NUMBER(B)
+            B = 10*B
+            DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)") INT(B(I,1));
+            ENDDO
+            !
+            WRITE(*,*)" CALL LA_SPSV( AP, B, 'L', IPIV )"
+            !
+            CALL LA_SPSV( AP, B, 'L', IPIV )
+            !
+            WRITE(*,*)'AP on exit: '
+            DO I=1,NN; WRITE(*,"(15(E13.5))") AP(I);
+            ENDDO
+            !
+            WRITE(*,*)'Matrix B on exit :'
+            DO I=1,N; WRITE(*,"(F9.5)") B(I,1);
+            ENDDO
+            !
+            WRITE(*,*)'IPIV = ', IPIV
+            !
+          END PROGRAM LA_SSPSV_EXAMPLE
+
+6.1.4. `makefile' for compiling programs with calls to `LAPACK95'
+-----------------------------------------------------------------
+
+          #
+          #  -- LAPACK95 makefile (version 1.0) --
+          #
+          FC	 = gfortran
+          #
+          MODLIB   = -I/usr/local/lib/lapack95_modules
+          OPTS1    = -c
+          OPTS3    = $(OPTS1) $(MODLIB)
+          OPTL     = -o
+          OPTLIB   = -lblas -llapack
+          
+          LAPACK_PATH = /usr/local/lib
+          LAPACK95_PATH = /usr/local/lib
+          
+          LAPACK95 = $(LAPACK95_PATH)/lapack95.a
+          
+          LIBS     = $(LAPACK95)
+          SUF      = f90
+          
+          YY = $(FC) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+          
+          .SUFFIXES: .f90 .f .o
+          
+          .$(SUF).o:
+          	$(FC) $(OPTS3) $<
+          
+          ejemplo_la_spsv:
+          	$(YY)
+          
+          clean:
+          	'rm' -f *.o *.mod core
+
+
+6.2. Compile and link statically with `NAG' and `LAPACK'
+--------------------------------------------------------
+
+     It is important to be able to compile and link statically programs
+     when libraries are not available in all nodes.  This is the case with
+     the `NAG' library which is not compatible with `gfortran', the only
+     `Fortran' compiler in `Debian Lenny'.  The program statically linked
+     in one node (where `Etch' is installed and `g77' is available can the
+     be executed in any other node.
+
+     An example of compilation is the following
+
+g77 -static -o infsq_box_1D  infsq_box_1D.f ../Potentials/wsaxon_Box_pot.f -L /usr/lib/atlas -L/usr/local2/NAG -lnag  -llapack -lblas-3
+
+     Some important points:
+
+     1.   It is necessary to include both `Lapack' and `Blas' libraries.
+
+     2.   The `Blas' library should be `blas-3'.
+
+     3.   The use of standard `Lapack' and `Blas' libraries give an error
+          due to the different sizes of object files.  Something like
+
+(xerbla.o): In function `xerbla_': multiple definition of `xerbla_'
+/usr/lib/liblapack.a(xerbla.o): first defined here
+/usr/bin/ld: Warning: size of symbol `xerbla_' changed from 86
+in /usr/lib/liblapack.a(xerbla.o) to 38
+in /usr/lib/libblas.a(xerbla.o)
+collect2: ld returned 1 exit status
+
+          This is a known bug and can be solved using the libraries
+          provided with the `Atlas' packages and adding the corresponding
+          path to the compilation: `-L /usr/lib/atlas'.
+
+     4.   The order of the libraries is not irrelevant.  In particular I
+          found that `lapack' has to be invoked prior to `blas-3'.
+
+
+6.3. Creating a `Makefile' to use `cpp' with `gfortran'
+-------------------------------------------------------
+
+     Added on November 09th, 2015.
+
+     There is a way of using the C language preprocessor, `cpp', with
+     gfortran.  In this way we can communicate via `Makefile' with our
+     program.  Let's assume that we have a `Fortran 90' program to compute
+     two normally distributed set of random numbers that use the Box-Muller
+     transform.  The program is called `box_muller.f90' and we also compute
+     the mean, median and standard variance of the resulting distributions
+     using a subroutine called `stats.f90'[1].  The `FORTRAN 90' codes are
+     provided in Section 6.3.1, `Fortran Codes'.
+
+     The `Makefile' used for compilation is
+
+          # Fortran Compiler
+          FC=gfortran
+          #
+          # C Preprocessor
+          CPP=cpp
+          #
+          TYPE_DEF=-DPREC=DP
+          ifdef USE_SINGLE
+          TYPE_DEF = -DPREC=SP
+          endif
+          #
+          # Optimization Flags
+          OPTFLAGS = -O3 -funroll-loops -march=native
+          OPTFLAGS_P = "\"-O3 -funroll-loops -march=native\""
+          #
+          all: box_muller
+          #
+          .FORCE:
+          #
+          box_muller: box_muller.f90 stats.f90 .FORCE
+          	$(CPP)  -std=c89 $(TYPE_DEF) -DFLAGS=$(OPTFLAGS_P) $< > /tmp/$<
+          	$(CPP)  -std=c89 $(TYPE_DEF)  stats.f90 > /tmp/stats.f90
+          	$(FC) $(OPTFLAGS) -o $@ /tmp/stats.f90 /tmp/$<
+          	rm /tmp/stats.f90 /tmp/$<
+          #
+          clean:
+          	rm -f *.o box_muller
+
+     Note how `cpp' is called twice, once for each file and the `PREC'
+     string are replaced either by `DP' or `SP', the last case if the
+     option `USE_SINGLE' is set.  In the main program the string `FLAGS' is
+     replaced by the contents of the variable `OPTFLAGS_P' to print the
+     compilation flags used.  Thus to run the program in single precision
+     the user proceed as follows
+
+$ make all USE_SINGLE=1
+cpp  -std=c89 -DPREC=SP  -DFLAGS="\"-O3 -funroll-loops -march=native\"" box_muller.f90 > /tmp/box_muller.f90
+cpp  -std=c89 -DPREC=SP   stats.f90 > /tmp/stats.f90
+gfortran -O3 -funroll-loops -march=native -o box_muller /tmp/stats.f90 /tmp/box_muller.f90
+rm /tmp/stats.f90 /tmp/box_muller.f90
+$ ./box_muller
+10000
+ Time Box Muller subroutine :   4.00000019E-03
+  MEAN =   -7.31508713E-03
+  STANDARD DEVIATION =   0.995381057
+  MEDIAN IS =    1.01202750E-04
+ Time STATS subroutine 1:  0.100005999
+  MEAN =    2.96602229E-04
+  STANDARD DEVIATION =   0.999957144
+  MEDIAN IS =    1.29099786E-02
+ Time STATS subroutine 2:  0.100006007
+ KIND = SINGLE ;  Optimization Flags: -O3 -funroll-loops -march=native
+
+[1]  Please, note that the subroutine is not optimized and could take a
+     long time for a large number of data due to an inefficient sort
+     algorithm.
+
+6.3.1. Fortran Codes
+--------------------
+
+     Main program: `box_muller.f90'
+
+PROGRAM Box_Muller_Prog
+  !
+  IMPLICIT NONE
+  !
+  ! Single and double precision kind parameters
+  INTEGER, PARAMETER :: SP = KIND(1.0)
+  INTEGER, PARAMETER :: DP = KIND(1.0D0)
+  !
+  INTEGER :: I, IERR
+  REAL(KIND = PREC), DIMENSION(:), ALLOCATABLE :: X, Y
+  REAL(KIND = PREC) :: M, SD, MEDIAN
+  REAL(KIND = SP) :: time_end, time_start
+  !
+  !
+  CHARACTER(LEN = 6) :: PRECISION
+  !
+  ! interface block
+  INTERFACE
+     SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+       IMPLICIT NONE
+       ! Single and double precision kind parameters
+       INTEGER, PARAMETER :: SP = KIND(1.0)
+       INTEGER, PARAMETER :: DP = KIND(1.0D0)
+       INTEGER , INTENT(IN)                    ::  N
+       REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)   :: VECTOR
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEAN
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: STD_DEV
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEDIAN
+     END SUBROUTINE STATS
+  END INTERFACE
+  !
+  ! Set Precision for output
+  IF (PREC == DP) THEN
+     PRECISION = "DOUBLE"
+  ELSE
+     PRECISION = "SINGLE"
+  ENDIF
+  !
+  ! Input number of data
+  READ*, I
+  !
+  ALLOCATE(X(1:I), STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "X allocation request denied."
+     STOP
+  ENDIF
+  !
+  ALLOCATE(Y(1:I), STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "Y allocation request denied."
+     STOP
+  ENDIF
+  !
+  ! Set time start
+  CALL CPU_TIME(time_start)
+  !
+  CALL BOX_MULLER(I)
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  !PRINT*, X
+  !PRINT*, Y
+  !
+  PRINT*, "Time Box Muller subroutine :", time_end - time_start
+  time_start = time_end
+  !
+  CALL STATS(X,I,M,SD,MEDIAN)
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 1:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(X)) DEALLOCATE(X, STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "X NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  CALL STATS(Y,I,M,SD,MEDIAN)
+  !
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 2:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(Y)) DEALLOCATE(Y, STAT = IERR)
+  IF (IERR /= 0) THEN
+     PRINT*, "Y NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  PRINT*, "KIND = ", PRECISION, " ;  Optimization Flags: ", FLAGS
+  !
+CONTAINS
+  !
+  SUBROUTINE BOX_MULLER(dim)
+    !
+    ! Uses the Box-Muller method to create two normally distributed vectors
+    !
+    INTEGER, INTENT(IN) :: dim
+    !
+    REAL(KIND = PREC), PARAMETER :: PI = ACOS(-1.0)
+    REAL(KIND = PREC), DIMENSION(dim) :: RANDOM_u, RANDOM_v ! Automatic arrays
+    !
+    CALL RANDOM_NUMBER(RANDOM_u)
+    CALL RANDOM_NUMBER(RANDOM_v)
+    !
+    X = SQRT(-2.0_ PREC*LOG(RANDOM_u))
+    Y = X*SIN(2*PI*RANDOM_v)
+    X = X*COS(2*PI*RANDOM_v)
+    !
+  END SUBROUTINE BOX_MULLER
+  !
+END PROGRAM Box_Muller_Prog
+
+     Subroutine: `stats.f90'
+
+          SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+            IMPLICIT NONE
+            ! Single and double precision kind parameters
+            INTEGER, PARAMETER :: SP = KIND(1.0)
+            INTEGER, PARAMETER :: DP = KIND(1.0D0)
+            ! Argument definition
+            INTEGER , INTENT(IN)                    ::  N
+            REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)    ::  VECTOR
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEAN
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  STD_DEV
+            REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEDIAN
+            ! Local variables
+            REAL(KIND = PREC) :: VARIANCE = 0.0
+            REAL(KIND = PREC)      :: SUMXI = 0.0, SUMXI2 = 0.0
+            REAL(KIND = PREC)      , DIMENSION(1:N)              ::  Y
+            !
+            SUMXI=SUM(VECTOR)
+            SUMXI2=SUM(VECTOR*VECTOR)
+            MEAN=SUMXI/N
+            VARIANCE=(SUMXI2-SUMXI*SUMXI/N)/(N-1)
+            STD_DEV = SQRT(VARIANCE)
+            Y=VECTOR
+            ! Sort values
+            CALL SELECTION
+            IF (MOD(N,2) == 0) THEN
+               MEDIAN=(Y(N/2)+Y((N/2)+1))/2
+            ELSE
+               MEDIAN=Y((N/2)+1)
+            ENDIF
+          CONTAINS
+            SUBROUTINE SELECTION
+              IMPLICIT NONE
+              INTEGER :: I,J,K
+              REAL :: MINIMUM
+              DO I=1,N-1
+                 K=I
+                 MINIMUM=Y(I)
+                 DO J=I+1,N
+                    IF (Y(J) < MINIMUM) THEN
+                       K=J
+                       MINIMUM=Y(K)
+                    END IF
+                 END DO
+                 Y(K)=Y(I)
+                 Y(I)=MINIMUM
+              END DO
+            END SUBROUTINE SELECTION
+          END SUBROUTINE STATS
+
+6.3.2. References
+-----------------
+
+     1.   StackOverflow
+          (https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386)
+
+
+6.4. Creating a vector of random data
+-------------------------------------
+
+     Created on March 8th, 2018
+
+     The best way to deal with random numbers with `gfortran' is making use
+     of the intrinsic procedures `RANDOM_NUMBER' and `RANDOM_SEED'.  Note
+     that `RAN' and `RAND' procedures have been deprecated.  From the
+     `gfortran' documentation:
+
+      Returns a single pseudorandom number or an array of pseudorandom numbers from the uniform distribution over the range 0 \leq x \le 1.
+
+     Therefore the creation of a vector with, e.g.  100 random integers in
+     the `0-99' range should be accomplished with a simple program as this
+     one
+
+          PROGRAM RANDOM_VECTOR
+            IMPLICIT NONE
+            REAL, DIMENSION(1:100) :: REAL_RAND_VALUES
+            INTEGER, DIMENSION(1:100) :: INT_RAND_VALUES
+            INTEGER :: INDEX
+            !
+            CALL RANDOM_NUMBER(REAL_RAND_VALUES)
+            !
+            INT_RAND_VALUES = NINT(REAL_RAND_VALUES*100)
+            !
+            DO INDEX = 1, 100
+               PRINT*, INDEX, INT_RAND_VALUES(INDEX)
+            ENDDO
+            !
+          END PROGRAM RANDOM_VECTOR
+
+     And everything seems pretty okay until we run several times the
+     program and observe that our random number vector always have the same
+     values...  Surprise...
+
+                     1         100
+                     2          57
+                     3          97
+                    ..............
+                    98          11
+                    99          22
+                   100          10
+
+     The problem is that `RANDOM_NUMBER' provides a sequence of
+     pseudorandom values.  If it starts the sequence from the same point,
+     it gives you always the same sequence.  We need to chose a different
+     starting point every time that we use the procedure.  This can be done
+     using `RANDOM_SEED'.
+
+
+-------------------------------------------------------------------------------
+
+
+7. Python Tips and Templates
 ----------------------------
 
 
-6.1. Creating a vector of random data
+7.1. Creating a vector of random data
 -------------------------------------
 
      Created on April 12th, 2015.
@@ -4413,7 +4474,7 @@ array([-0.20490308, -0.39783301, -0.6802615 , -0.57939922, -0.10054472,
 vectorn = np.random.randn(200)
 
 
-6.2. Logical comparison between two boolean vectors
+7.2. Logical comparison between two boolean vectors
 ---------------------------------------------------
 
      Created on May 06th, 2015.
@@ -4438,7 +4499,7 @@ vectorn = np.random.randn(200)
           Out[48]: array([ 0.87795544,  0.59063525])
 
 
-6.3. Creating a loop iterating on a list and the list index
+7.3. Creating a loop iterating on a list and the list index
 -----------------------------------------------------------
 
      Created on April 16th, 2015.
@@ -4464,7 +4525,7 @@ vectorn = np.random.randn(200)
      counting diagonal elements).
 
 
-6.4. Adding a column to a `Pandas' dataframe
+7.4. Adding a column to a `Pandas' dataframe
 --------------------------------------------
 
      Created on April 21st, 2015.
@@ -4485,7 +4546,7 @@ vectorn = np.random.randn(200)
           df0["s1"] = Series(data=vectors, index = index.df0)
 
 
-6.5. Getting the maximum component of a vector and its index in `numpy'
+7.5. Getting the maximum component of a vector and its index in `numpy'
 -----------------------------------------------------------------------
 
      Created on April 12th, 2015.
@@ -4507,7 +4568,7 @@ vectorn = np.random.randn(200)
           Out[88]: 117
 
 
-6.6. Some easy examples of offset-aware times with `pytz'
+7.6. Some easy examples of offset-aware times with `pytz'
 ---------------------------------------------------------
 
      Created on May 13th, 2015.
@@ -4576,13 +4637,13 @@ Out[14]: datetime.timedelta(3, 36000)
      These functions can be applied on lists using lambda functions.
 
 
-6.7. Creating a panel array of plots with `Matplotlib'
+7.7. Creating a panel array of plots with `Matplotlib'
 ------------------------------------------------------
 
      Created on April 12th, 2015.
 
      The following snippet of code uses a vector of length 200 with random
-     normally distributed data (see Section 6.1, `Creating a vector of
+     normally distributed data (see Section 7.1, `Creating a vector of
      random data') and plot in four panels the data, their cumulative sum,
      a histogram with the data, and the sum of the data to a quadratic
      function.
@@ -4618,13 +4679,13 @@ Out[39]: <matplotlib.collections.PathCollection at 0x7f827aedae90>
 pyplot.show()
 
 
-6.8. Creating a panel array of plots with common axes using `Matplotlib'
+7.8. Creating a panel array of plots with common axes using `Matplotlib'
 ------------------------------------------------------------------------
 
      Created on April 12th, 2015.
 
      The following snippet of code add different vectors of length 200 with
-     random normally distributed data (see Section 6.1, `Creating a vector
+     random normally distributed data (see Section 7.1, `Creating a vector
      of random data') to a parabollic function (mimicking experimental
      errors in a object free fall) and plot the results in four panels,
      with common abscyssa and ordinate axes, and controlling the spacing
@@ -4662,7 +4723,7 @@ pyplot.show()
           pyplot.show()
 
 
-6.9. Combining several plots in a figure
+7.9. Combining several plots in a figure
 ----------------------------------------
 
      Created on June 10th, 2015.
@@ -4693,7 +4754,7 @@ pyplot.show()
           pyplot.setp(ax.get_yticklabels(), fontsize=14)
 
 
-6.10. Display in `Ipython'all the components of a `Pandas' `Series' or
+7.10. Display in `Ipython'all the components of a `Pandas' `Series' or
 `DataFrame'
 ----------------------------------------------------------------------------
 
@@ -4715,7 +4776,7 @@ pyplot.show()
               print(x)
               pd.reset_option('display.max_rows')
 
-6.10.1. References
+7.10.1. References
 ------------------
 
      1.   Stack Exchange
@@ -4725,11 +4786,11 @@ pyplot.show()
 -------------------------------------------------------------------------------
 
 
-7. Text Processing and Formatting
+8. Text Processing and Formatting
 ---------------------------------
 
 
-7.1. `pdftk' application examples
+8.1. `pdftk' application examples
 ---------------------------------
 
      Updated on April 18th, 2017.
@@ -4793,7 +4854,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
              * (To do) Apply a background watermark or a foreground stamp.
 
 
-7.2. Merge two `PostScript' or `PDF' files
+8.2. Merge two `PostScript' or `PDF' files
 ------------------------------------------
 
      Updated on December 1st, 2011.
@@ -4809,14 +4870,14 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           $gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \
                  -sOutputFile=<bla.pdf> -f <foo1.pdf foo2.pdf>
 
-7.2.1. References
+8.2.1. References
 -----------------
 
      1.   Debian Reference Guide
           (http://qref.sourceforge.net/Debian/reference/ch-tips.en.html#s8.6.24)
 
 
-7.3. Include _et al._ in `bibtex'
+8.3. Include _et al._ in `bibtex'
 ---------------------------------
 
      You can include the term _et al._ to replace a long set of authors in
@@ -4827,7 +4888,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           author =    {<First Author> and <Second Author> and others},
 
 
-7.4. Include bibliographical info in each chapter using `LaTeX'
+8.4. Include bibliographical info in each chapter using `LaTeX'
 ---------------------------------------------------------------
 
      You can include the bibliography after each chapter in `LaTeX' using
@@ -4847,7 +4908,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
      to each of the included files possessing a bibliography entry.
 
 
-7.5. Comment paragraphs in `LaTeX'
+8.5. Comment paragraphs in `LaTeX'
 ----------------------------------
 
      In order to comment one or several paragraphs in a `LaTeX' source file
@@ -4864,7 +4925,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           \end{comment}
 
 
-7.6. Installing appropriately a `LaTeX' package or style.
+8.6. Installing appropriately a `LaTeX' package or style.
 ---------------------------------------------------------
 
      The way to install a `LaTeX' package in the right path is shown.  The
@@ -4889,7 +4950,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
      The style is now ready and installed.
 
 
-7.7. Change the selected language in `DebianDoc' files
+8.7. Change the selected language in `DebianDoc' files
 ------------------------------------------------------
 
      In order to change the selected language for a `DebianDoc' `sgml' file
@@ -4907,7 +4968,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
 [1]  You can check the available locales in the file `/etc/locale.gen'.
 
 
-7.8. Avoid `Page %d may be too complex to print' errors.
+8.8. Avoid `Page %d may be too complex to print' errors.
 --------------------------------------------------------
 
      When preparing pdf files from `LaTeX' files sometimes the `dvipdf'
@@ -4945,7 +5006,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
      its name is `lmodern.deb'.
 
 
-7.9. Diverse `LaTeX' lists
+8.9. Diverse `LaTeX' lists
 --------------------------
 
      `LaTeX' distinguishes between three different list environments:
@@ -5014,14 +5075,14 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           \item
           \end{itemize}
 
-7.9.1. References
+8.9.1. References
 -----------------
 
      1.   LaTeX Lists Environments
           (http://texblog.wordpress.com/2008/10/16/lists-enumerate-itemize-description-and-how-to-change-them/)
 
 
-7.10. Use `Unicode' encoding in `LaTeX'
+8.10. Use `Unicode' encoding in `LaTeX'
 ---------------------------------------
 
      In order to use `utf' encoding in `LaTeX' the following line should be
@@ -5032,7 +5093,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
      If this option does not work use `utf8x' instead `utf8'.
 
 
-7.11. Use color in `LaTeX'
+8.11. Use color in `LaTeX'
 --------------------------
 
      Added on November 30th, 2011.
@@ -5053,14 +5114,14 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
 
           \pagecolor{declared-color}
 
-7.11.1. References
+8.11.1. References
 ------------------
 
      1.   LaTeX Color in LaTeX Wiki Book
           (http://en.wikibooks.org/wiki/LaTeX/Colors#Adding_the_color_package)
 
 
-7.12. Easy way of defining smaller margins in `LaTeX'
+8.12. Easy way of defining smaller margins in `LaTeX'
 -----------------------------------------------------
 
      Added on January 20th, 2012.
@@ -5094,7 +5155,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           \usepackage{a4wide}
 
 
-7.13. Changing footnote symbols in `LaTeX'
+8.13. Changing footnote symbols in `LaTeX'
 ------------------------------------------
 
      Added on January 8th, 2016.
@@ -5112,7 +5173,7 @@ pdftk A=document_big.pdf B=document_small.pdf cat A1-8 B A9-end output document.
           \renewcommand{\thefootnote}{\Alph{footnote}}
 
 
-7.14. Using the same footnote mark in `LaTeX'
+8.14. Using the same footnote mark in `LaTeX'
 ---------------------------------------------
 
      Added on February 5th, 2012.
@@ -5127,14 +5188,14 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
      are other footnotes between the first reference and any of the other
      _duplicates_.
 
-7.14.1. References
+8.14.1. References
 ------------------
 
      1.   LaTeX wikibooks
           (http://en.wikibooks.org/wiki/LaTeX/Formatting#Footnotes)
 
 
-7.15. Using the euro symbol in `LaTeX'
+8.15. Using the euro symbol in `LaTeX'
 --------------------------------------
 
      Added on February 7th, 2012.
@@ -5155,7 +5216,7 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
           \textit{The book is \EUR{10}.}
 
 
-7.16. Changing pages to landscape orientation in `LaTeX' texts
+8.16. Changing pages to landscape orientation in `LaTeX' texts
 --------------------------------------------------------------
 
      Added on November 16th, 2012.
@@ -5195,14 +5256,14 @@ Text that has a footnote\footnote{This is the footnote} looks like this. Later t
           ... table or figure here ...
           \end{landscape}
 
-7.16.1. References
+8.16.1. References
 ------------------
 
      1.   Landscape in LaTeX
           (http://texblog.org/2007/11/10/landscape-in-latex)
 
 
-7.17. Including single column figures or tables in a double column `LaTeX'
+8.17. Including single column figures or tables in a double column `LaTeX'
 document
 ----------------------------------------------------------------------------
 
@@ -5222,7 +5283,7 @@ document
      In this way figures and tables will occupy the full page.
 
 
-7.18. Controlling horizontal spacing in `LaTeX'
+8.18. Controlling horizontal spacing in `LaTeX'
 -----------------------------------------------
 
      Added on January 15th, 2016.
@@ -5251,7 +5312,7 @@ document
           
           x        x                x
 
-7.18.1. References
+8.18.1. References
 ------------------
 
      1.   Horizontal Space LaTeX WikiBooks
@@ -5261,11 +5322,11 @@ document
 -------------------------------------------------------------------------------
 
 
-8. Graphic Edition
+9. Graphic Edition
 ------------------
 
 
-8.1. Include greek characters in `inkscape'
+9.1. Include greek characters in `inkscape'
 -------------------------------------------
 
      Find the unicode number corresponding to the greek character you want
@@ -5277,7 +5338,7 @@ document
      letter and press enter.
 
 
-8.2. Include greek characters in `Gimp'
+9.2. Include greek characters in `Gimp'
 ---------------------------------------
 
      Find the unicode number corresponding to the Greek character you want
@@ -5289,7 +5350,7 @@ document
      Greek letter and press enter.
 
 
-8.3. Change the text baseline in `inkscape'
+9.3. Change the text baseline in `inkscape'
 -------------------------------------------
 
      In order to include sub and super-indexes in `inkscape' you can change
@@ -5298,7 +5359,7 @@ document
      `Alt-Up' and `Alt-Down'.
 
 
-8.4. Use `ImageMagick' to transform graphic files
+9.4. Use `ImageMagick' to transform graphic files
 -------------------------------------------------
 
      Updated on July 06th, 2014; September 22nd, 2016.
@@ -5360,14 +5421,14 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
 [1]  Note that we added the option `-depth 8' to avoid the image depth to
      be changed to 16, the default system value.
 
-8.4.1. References
+9.4.1. References
 -----------------
 
      1.   Linux Journal, issue 185, Sept.  2009
           (http://www.linuxjournal.com/article/10531)
 
 
-8.5. Enhancing colors and resolution in `Gimp'
+9.5. Enhancing colors and resolution in `Gimp'
 ----------------------------------------------
 
      A `Gimp' filter that improves and sharpen lines when colors are too
@@ -5376,7 +5437,7 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
           Filters -> Enhance -> Unsharp Mask
 
 
-8.6. Remove the background of an image in `Gimp'
+9.6. Remove the background of an image in `Gimp'
 ------------------------------------------------
 
      In order to remove the background of an image using `Gimp' a possible
@@ -5406,7 +5467,7 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
      6.   Save your image.
 
 
-8.7. Take a screenshot using `Gimp'
+9.7. Take a screenshot using `Gimp'
 -----------------------------------
 
      In order to take a screenshot of the full display, a window, or part
@@ -5418,7 +5479,7 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
      window to grab the region of interest.
 
 
-8.8. Change the color of markers in `inkscape'
+9.8. Change the color of markers in `inkscape'
 ----------------------------------------------
 
      Added on July 06th, 2014.
@@ -5431,14 +5492,14 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
 
      If
 
-8.8.1. References
+9.8.1. References
 -----------------
 
      1.   Inkscape FAQ
           (http://wiki.inkscape.org/wiki/index.php/Frequently_asked_questions#How_do_I_change_the_color_of_markers_.28e.g._arrow_ends.29.3F)
 
 
-8.9. Terminal app to extract images from a `pdf' file
+9.9. Terminal app to extract images from a `pdf' file
 -----------------------------------------------------
 
      Added on October 24th, 2017.
@@ -5459,7 +5520,7 @@ article_images-002.tif   article_images-005.tif
      native format while `CMYK' files are written as TIFF files and all
      other images are written as `PNG' files.
 
-8.9.1. References
+9.9.1. References
 -----------------
 
      1.   Howto Geek 228796
@@ -5469,12 +5530,12 @@ article_images-002.tif   article_images-005.tif
 -------------------------------------------------------------------------------
 
 
-9. Miscelanea
--------------
+10. Miscelanea
+--------------
 
 
-9.1. Compute the average from the results of `Moodle' test grading
-------------------------------------------------------------------
+10.1. Compute the average from the results of `Moodle' test grading
+-------------------------------------------------------------------
 
      The starting point is a set of txt files with the grading obtained by
      students in `Moodle'.  This set should include all students, not only
@@ -5503,8 +5564,8 @@ article_images-002.tif   article_images-005.tif
      necessary to convert, using `emacs', to `latin-1' formatting.
 
 
-9.2. Splitting in two lines a cell content in `Openoffice/simpress'
--------------------------------------------------------------------
+10.2. Splitting in two lines a cell content in `Openoffice/simpress'
+--------------------------------------------------------------------
 
      From `OpenOffice Calc''s help pages
 
@@ -5520,8 +5581,8 @@ article_images-002.tif   article_images-005.tif
           click OK.
 
 
-9.3. Solving `BADSIG' errors in `UBUNTU (Oneiric Ocelot)'
----------------------------------------------------------
+10.3. Solving `BADSIG' errors in `UBUNTU (Oneiric Ocelot)'
+----------------------------------------------------------
 
      Added on January 18th, 2012.
 
@@ -5600,7 +5661,7 @@ $ sudo -i
 -------------------------------------------------------------------------------
 
 
-10. Translations of this document
+11. Translations of this document
 ---------------------------------
 
      The present document has been translated from (not-so-good) English to

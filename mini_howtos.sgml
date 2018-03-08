@@ -464,387 +464,6 @@ name="http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html">
 </sect1>
 </sect>
 
-<sect id="sec_06">Compile and install the <prgn>LAPACK95</prgn> interface driver routine.
-<p>
-Updated on February 22nd, 2018.
-<p>
-Updated on September 16th, 2011.
-
-<p>
-This howto was checked initially in a <prgn>Debian Squeeze</prgn> box, with a <prgn>gfortran 4.4.5</prgn> compiler and in a <prgn>Ubuntu Lucid Lynx</prgn> with a compiler <prgn>gfortran 4.4.3</prgn>. Last version has been checked in a  <prgn>Debian Stretch</prgn> box, with a <prgn>gfortran 6.3.0</prgn> compiler.
-
-<p>
-  In this howto we install from scratch the <prgn>Fortran 77</prgn> libraries <prgn>BLAS</prgn> and <prgn>LAPACK</prgn>, and then compile the <prgn>FORTRAN 95</prgn> extension to <prgn>LAPACK</prgn>.
-
-Both <prgn>Debian</prgn> and <prgn>Ubuntu</prgn> systems provide  <prgn>BLAS</prgn> and <prgn>LAPACK</prgn> libraries as native packages and this first step could be skipped and you can ignore next two paragraphs. In any case it may be interesting to compile all the libraries with optimized flags for the system in question.
-
-<p>
-First we should upload the <prgn>LAPACK</prgn> and <prgn>LAPACK 95</prgn> libraries, for example from the <em>Netlib</em> website  (<url id="http://www.netlib.org/lapack/lapack-3.3.1.tgz"
-name="LAPACK tgz from Netlib">, (<url id="http://www.netlib.org/lapack95/lapack95.tgz"
-name="LAPACK95 tgz from Netlib"> ). The <prgn>LAPACK</prgn> version we will install is 3.3.1.
-
-<p>
-<example> 
-$ wget  -c http://www.netlib.org/lapack/lapack-3.3.1.tgz
---2011-09-16 13:49:37--  http://www.netlib.org/lapack/lapack-3.3.1.tgz
-Resolving www.netlib.org... 160.36.58.108
-.
-.
-.
-2011-09-16 13:49:48 (439 KB/s) - `lapack-3.3.1.tgz' saved [4945204/4945204]
-
-$ wget http://www.netlib.org/lapack95/lapack95.tgz
---2011-09-16 13:49:54--  http://www.netlib.org/lapack95/lapack95.tgz
-.
-.
-.
-2011-09-16 13:49:59 (368 KB/s) - `lapack95.tgz' saved [1579613/1579613]
-</example> 
-
-<p>
-Untar the <prgn>LAPACK</prgn> library tarball.
-<p>
-<example>
-$ tar xzf lapack-3.3.1.tgz 
-$ cd lapack-3.3.1/
-lapack-3.3.1$
-</example>
-
-<p> 
-Edit the file <tt>make.inc</tt> to a file conveniently tuned for your system. A working example for <prgn>gfortran</prgn> is shown in <ref id="make_inc_77">. The library can now be compiled, starting with the compilation of the included <prgn>BLAS</prgn> library
-<p>
-<example>
-lapack-3.3.1$ cd BLAS/SRC
-lapack-3.3.1/BLAS/SRC$ make
-.
-.
-.
- zhemm.o zherk.o zher2k.o lsame.o xerbla.o xerbla_array.o
-ranlib ../../blas_linux_gfortran.a
-lapack-3.3.1/BLAS/SRC$
-</example>
-<p>
-The next step is the compilation of the <prgn>BLAS</prgn> library
-
-<p>
-<example>
-lapack-3.3.1/BLAS/SRC$ cd ../../
-lapack-3.3.1$ make
-.
-.
-.
-make[1]: Leaving directory `/home/curro/1/lapack-3.3.1/BLAS/TESTING'
-( cd BLAS; ./xblat3s < sblat3.in     ; \
-	           ./xblat3d < dblat3.in     ; \
-	           ./xblat3c < cblat3.in     ; \
-	           ./xblat3z < zblat3.in     ) 
-lapack-3.3.1$ ls *.a
-blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
-</example>
-<p>
-The next step is to copy the compiled libraries to their final destination
-<p>
-<example>
-lapack-3.3.1$ sudo mkdir /usr/local/lapack-3.3.1
-[sudo] password for curro: 
-lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
-</example>
-
-<p>
-We now proceed to compile and install the <prgn>LAPACK 95</prgn> library. This is where you should start if you are using the <prgn>BLAS</prgn> and <prgn>LAPACK</prgn> provided by the distribution. First we unpack the <prgn>LAPACK 95</prgn> tarball and edit the <file>make.inc</file> file.  A working example for <prgn>gfortran</prgn> is shown in <ref id="make_inc_95">.
-
-<p>
-<example>
-$ tar xzf lapack95.tgz 
-$ cd LAPACK95/
-LAPACK95$ cd SRC
-LAPACK95/SRC$ make single_double_complex_dcomplex
-.
-.
-.
-ranlib ../lapack95.a
-rm -fr ../lapack95_modules
-mkdir ../lapack95_modules
-'cp' *.mod ../lapack95_modules/
-rm -f f77_lapack.* f95_lapack.*
-rm -f *_lapack_single_double_complex_dcomplex.o
-LAPACK95/SRC$
-</example>
-<p>
-The final step is to copy the libfile and modules to a convenient location.
-<p>
-<example>
-LAPACK95$ sudo mkdir /usr/local/lib/lapack95
-LAPACK95$ sudo cp -r lapack95.a lapack95_modules /usr/local/lapack95 
-</example>
-We include a program template invoking this library in <ref id="sec_prg_example"> and a <tt>makefile</tt> that can be used to compile this program in  <ref id="sec_makefile_example">.
-<sect1 id="make_inc_77">  <tt>make.inc</tt> for <prgn>LAPACK</prgn> compilation
-<p>
-<example>
-# -*- Makefile -*-
-####################################################################
-#  LAPACK make include file.                                       #
-#  LAPACK, Version 3.3.1                                           #
-#  April 2011                                                      #
-####################################################################
-#
-# See the INSTALL/ directory for more examples.
-#
-SHELL = /bin/sh
-#
-#  The machine (platform) identifier to append to the library names
-#
-PLAT = _linux_gfortran
-#  
-#  Modify the FORTRAN and OPTS definitions to refer to the
-#  compiler and desired compiler options for your machine.  NOOPT
-#  refers to the compiler options desired when NO OPTIMIZATION is
-#  selected.  Define LOADER and LOADOPTS to refer to the loader
-#  and desired load options for your machine.
-#
-FORTRAN  = gfortran -O2 -m32
-OPTS     =
-DRVOPTS  = $(OPTS)
-NOOPT    = -g -O0
-LOADER   = gfortran -g
-LOADOPTS =
-#
-# Timer for the SECOND and DSECND routines
-#
-# Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
-# TIMER    = EXT_ETIME
-# For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_
-# TIMER    = EXT_ETIME_
-# For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME
-TIMER    = INT_ETIME
-# If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
-# SECOND and DSECND will use a call to the Fortran standard INTERNAL FUNCTION CPU_TIME 
-# TIMER    = INT_CPU_TIME
-# If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0
-# TIMER     = NONE
-#
-#  The archiver and the flag(s) to use when building archive (library)
-#  If you system has no ranlib, set RANLIB = echo.
-#
-ARCH     = ar
-ARCHFLAGS= cr
-RANLIB   = ranlib
-#
-#  The location of BLAS library for linking the testing programs.
-#  The target's machine-specific, optimized BLAS library should be
-#  used whenever possible.
-#
-BLASLIB      = ../../blas$(PLAT).a
-#
-#  Location of the extended-precision BLAS (XBLAS) Fortran library
-#  used for building and testing extended-precision routines.  The
-#  relevant routines will be compiled and XBLAS will be linked only if
-#  USEXBLAS is defined.
-#
-# USEXBLAS    = Yes
-XBLASLIB     =
-# XBLASLIB    = -lxblas
-#
-#  Names of generated libraries.
-#
-LAPACKLIB    = lapack$(PLAT).a
-TMGLIB       = tmglib$(PLAT).a
-EIGSRCLIB    = eigsrc$(PLAT).a
-LINSRCLIB    = linsrc$(PLAT).a
-</example>
-</sect1>
-<sect1 id="make_inc_95">  <tt>make.inc</tt> for <prgn>LAPACK95</prgn> compilation
-<p>
-<example>
-#
-#  -- LAPACK95 interface driver routine (version 2.0) --
-#     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
-#     August 5, 2000
-#
-FC	 = gfortran 
-FC1      = gfortran  
-# -dcfuns  Enable recognition of non-standard double
-#          precision  complex intrinsic functions
-# -dusty   Allows the compilation and execution of "legacy"
-#          software by downgrading the category  of  common
-#          errors  found  in  such software from "Error" to
-# -ieee=full enables all IEEE arithmetic facilities
-#          including non-stop arithmetic.
-OPTS0    = -O3
-MODLIB   = -I./../lapack95_modules
-OPTS1    = -c $(OPTS0)
-OPTS3    = $(OPTS1) $(MODLIB)
-OPTL     = -o 
-OPTLIB   =
-
-#LAPACK_PATH = /usr/local/lib/LAPACK3/
-
-LAPACK95 = ../lapack95.a
-LAPACK77 = -llapack
-BLAS     = -lblas
-
-LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
-SUF      = f90
-
-XX = 'rm' -f $@; \
-        'rm' -f $@.res; \
-	$(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS); \
-        $@ < $@.dat > $@.res; \
-        'rm' -f $@
-
-YY = $(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
-
-.SUFFIXES: .f90 .f .o
-
-.$(SUF).o: 
-	$(FC) $(OPTS3) $<
-
-.f.o:
-	$(FC1) $(OPTS3) $<
-</example>
-</sect1>
-<sect1 id="sec_prg_example">  Example of program using <prgn>LAPACK95</prgn>
-  <p>
-    This source should be saved in a file called <file>ejemplo_la_spsv.f90</file> to use the <tt>Makefile</tt> provided in n  <ref id="sec_makefile_example">.
-    <p>
-     
-<example>
-PROGRAM LA_SSPSV_EXAMPLE
-
-  !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
-  !
-  !  .Use Statements
-  USE LA_PRECISION, ONLY: WP => SP
-  USE F95_LAPACK, ONLY: LA_SPSV
-  !  Implicit Statement
-  IMPLICIT NONE
-  !  Local Scalars
-  INTEGER :: I, N, NN, NRHS
-  !  Local Arrays
-  INTEGER, ALLOCATABLE :: IPIV(:)
-  REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
-  !  Executable Statements
-  WRITE (*,*) 'SSPSV Example Program Results.'
-  N = 5; NRHS = 1
-  WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
-  NN = N*(N+1)/2
-  ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
-  !
-  CALL  RANDOM_NUMBER(AP)
-  AP = 10*AP
-  !
-  WRITE(*,*)'Matrix AP :'
-  DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X)") INT(AP(I));
-  ENDDO
-  !
-  WRITE(*,*)'Matrix B :'
-  CALL  RANDOM_NUMBER(B)
-  B = 10*B
-  DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)") INT(B(I,1));
-  ENDDO
-  !
-  WRITE(*,*)" CALL LA_SPSV( AP, B, 'L', IPIV )"
-  !
-  CALL LA_SPSV( AP, B, 'L', IPIV )
-  !
-  WRITE(*,*)'AP on exit: '
-  DO I=1,NN; WRITE(*,"(15(E13.5))") AP(I); 
-  ENDDO
-  !
-  WRITE(*,*)'Matrix B on exit :'
-  DO I=1,N; WRITE(*,"(F9.5)") B(I,1);
-  ENDDO
-  !
-  WRITE(*,*)'IPIV = ', IPIV
-  !
-END PROGRAM LA_SSPSV_EXAMPLE
-</example>
-</sect1>
-<sect1 id="sec_makefile_example">  <tt>makefile</tt> for compiling programs with calls to <prgn>LAPACK95</prgn>
-<p>
-<example>
-#
-#  -- LAPACK95 makefile (version 1.0) --
-#
-FC	 = gfortran
-#
-MODLIB   = -I/usr/local/lib/lapack95_modules
-OPTS1    = -c
-OPTS3    = $(OPTS1) $(MODLIB)
-OPTL     = -o 
-OPTLIB   = -lblas -llapack
-
-LAPACK_PATH = /usr/local/lib
-LAPACK95_PATH = /usr/local/lib
-
-LAPACK95 = $(LAPACK95_PATH)/lapack95.a
-
-LIBS     = $(LAPACK95)
-SUF      = f90
-
-YY = $(FC) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
-
-.SUFFIXES: .f90 .f .o
-
-.$(SUF).o: 
-	$(FC) $(OPTS3) $<
-
-ejemplo_la_spsv: 
-	$(YY)
-
-clean:
-	'rm' -f *.o *.mod core 
-</example>
-</sect1>
-
-</sect>
-
-<sect id="sec_07">Compile and link statically with <prgn>NAG</prgn>
-  and <prgn>LAPACK</prgn>
-
-<p> It is important to be able to compile and link statically programs
-  when libraries are not available in all nodes. This is the case with
-  the <prgn>NAG</prgn> library which is not compatible
-  with <prgn>gfortran</prgn>, the only <prgn>Fortran</prgn> compiler
-  in <prgn>Debian Lenny</prgn>. The program statically linked in one
-  node (where <prgn>Etch</prgn> is installed and <prgn>g77</prgn> is
-  available can the be executed in any other node. 
-
-<p> An example of compilation is the following
-
-<p>
-<example> 
-g77 -static -o infsq_box_1D  infsq_box_1D.f ../Potentials/wsaxon_Box_pot.f -L /usr/lib/atlas -L/usr/local2/NAG -lnag  -llapack -lblas-3
-</example> 
-
-<p>Some important points:
-
-<enumlist>  
-<item> It is necessary to include both <prgn>Lapack</prgn>
-  and <prgn>Blas</prgn> libraries.
-<item> The <prgn>Blas</prgn> library should be <tt>blas-3</tt>.
-<item> The use of standard <prgn>Lapack</prgn> and <prgn>Blas</prgn>
-  libraries give an error due to the different sizes of object
-  files. Something like 
-<p>
-<example> 
-(xerbla.o): In function `xerbla_': multiple definition of `xerbla_'
-/usr/lib/liblapack.a(xerbla.o): first defined here
-/usr/bin/ld: Warning: size of symbol `xerbla_' changed from 86
-in /usr/lib/liblapack.a(xerbla.o) to 38
-in /usr/lib/libblas.a(xerbla.o)
-collect2: ld returned 1 exit status
-</example> 
-<p>
-This is a known bug and can be solved using the libraries provided
-with the <prgn>Atlas</prgn> packages and adding the corresponding path
-to the compilation: <tt>-L /usr/lib/atlas</tt>.
-<item> The order of the libraries is not irrelevant. In particular I
-  found that <tt>lapack</tt> has to be invoked prior to <tt>blas-3</tt>.
-</enumlist>  
-
-
-</sect>
 
 <sect id="sec_08"> Copying <prgn>CUPS</prgn> configuration from one server to another
 
@@ -3102,290 +2721,7 @@ An the CD is cleanly ejected. Happy end.
 
 
 </sect>
-<sect id="sec_cpp_gfortran">Creating a <file>Makefile</file>
-  to use <prgn>cpp</prgn> with <prgn>gfortran</prgn>
 
-<p>
-Added on November 09th, 2015.
-
-<p>
-There is a way of using the C language preprocessor, <prgn>cpp</prgn>,
-with gfortran. In this way we can communicate
-via <file>Makefile</file> with our program. Let's assume that we have
-a <prgn>Fortran 90</prgn> program to compute two normally distributed
-set of random numbers that use the Box-Muller transform. The program
-is called <file>box_muller.f90</file> and we also compute the mean,
-median and standard variance of the resulting distributions using a
-subroutine called <file>stats.f90</file><footnote>Please, note that the
-subroutine is not optimized and could take a long time for a large
-number of data due to an inefficient sort algorithm.</footnote>. The
-<prgn>FORTRAN 90</prgn> codes are provided in <ref id="ref_f90_codes_Makefile">.
-
-
-<p>
-The <file>Makefile</file> used for compilation is
-<p>
-<example> 
-# Fortran Compiler
-FC=gfortran
-#
-# C Preprocessor
-CPP=cpp
-#
-TYPE_DEF=-DPREC=DP 
-ifdef USE_SINGLE
-TYPE_DEF = -DPREC=SP 
-endif
-#
-# Optimization Flags
-OPTFLAGS = -O3 -funroll-loops -march=native
-OPTFLAGS_P = "\"-O3 -funroll-loops -march=native\""
-#
-all: box_muller
-#
-.FORCE:
-#
-box_muller: box_muller.f90 stats.f90 .FORCE
-	$(CPP)  -std=c89 $(TYPE_DEF) -DFLAGS=$(OPTFLAGS_P) $< > /tmp/$<
-	$(CPP)  -std=c89 $(TYPE_DEF)  stats.f90 > /tmp/stats.f90
-	$(FC) $(OPTFLAGS) -o $@ /tmp/stats.f90 /tmp/$< 
-	rm /tmp/stats.f90 /tmp/$<
-#
-clean:
-	rm -f *.o box_muller
-</example> 
-<p>
-Note how <prgn>cpp</prgn> is called twice, once for each file and
-the <tt>PREC</tt> string are replaced either by <tt>DP</tt>
-or <tt>SP</tt>, the last case if the option <tt>USE_SINGLE</tt> is
-set. In the main program the string <tt>FLAGS</tt> is replaced by the
-contents of the variable <tt>OPTFLAGS_P</tt> to print the compilation
-flags used. Thus to run the program in single precision the user
-proceed as follows
-<p>
-<example> 
-$ make all USE_SINGLE=1
-cpp  -std=c89 -DPREC=SP  -DFLAGS="\"-O3 -funroll-loops -march=native\"" box_muller.f90 > /tmp/box_muller.f90
-cpp  -std=c89 -DPREC=SP   stats.f90 > /tmp/stats.f90
-gfortran -O3 -funroll-loops -march=native -o box_muller /tmp/stats.f90 /tmp/box_muller.f90 
-rm /tmp/stats.f90 /tmp/box_muller.f90
-$ ./box_muller 
-10000
- Time Box Muller subroutine :   4.00000019E-03
-  MEAN =   -7.31508713E-03
-  STANDARD DEVIATION =   0.995381057    
-  MEDIAN IS =    1.01202750E-04
- Time STATS subroutine 1:  0.100005999    
-  MEAN =    2.96602229E-04
-  STANDARD DEVIATION =   0.999957144    
-  MEDIAN IS =    1.29099786E-02
- Time STATS subroutine 2:  0.100006007    
- KIND = SINGLE ;  Optimization Flags: -O3 -funroll-loops -march=native
-</example> 
-
-
-<sect1 id="ref_f90_codes_Makefile"><heading>Fortran Codes</heading> 
-<p>
-Main program: <file>box_muller.f90</file>
-<p>
-<example> 
-PROGRAM Box_Muller_Prog
-  !
-  IMPLICIT NONE
-  !
-  ! Single and double precision kind parameters
-  INTEGER, PARAMETER :: SP = KIND(1.0)
-  INTEGER, PARAMETER :: DP = KIND(1.0D0)
-  !
-  INTEGER :: I, IERR
-  REAL(KIND = PREC), DIMENSION(:), ALLOCATABLE :: X, Y
-  REAL(KIND = PREC) :: M, SD, MEDIAN
-  REAL(KIND = SP) :: time_end, time_start
-  !
-  !
-  CHARACTER(LEN = 6) :: PRECISION 
-  !
-  ! interface block   
-  INTERFACE
-     SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
-       IMPLICIT NONE
-       ! Single and double precision kind parameters
-       INTEGER, PARAMETER :: SP = KIND(1.0)
-       INTEGER, PARAMETER :: DP = KIND(1.0D0)
-       INTEGER , INTENT(IN)                    ::  N
-       REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)   :: VECTOR  
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEAN
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: STD_DEV
-       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEDIAN
-     END SUBROUTINE STATS
-  END INTERFACE
-  !
-  ! Set Precision for output
-  IF (PREC == DP) THEN
-     PRECISION = "DOUBLE"
-  ELSE
-     PRECISION = "SINGLE"
-  ENDIF
-  !
-  ! Input number of data
-  READ*, I  
-  !
-  ALLOCATE(X(1:I), STAT = IERR)    
-  IF (IERR /= 0) THEN
-     PRINT*, "X allocation request denied."
-     STOP
-  ENDIF
-  !
-  ALLOCATE(Y(1:I), STAT = IERR)    
-  IF (IERR /= 0) THEN
-     PRINT*, "Y allocation request denied."
-     STOP
-  ENDIF
-  !
-  ! Set time start
-  CALL CPU_TIME(time_start)
-  !
-  CALL BOX_MULLER(I)
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  !PRINT*, X
-  !PRINT*, Y
-  !
-  PRINT*, "Time Box Muller subroutine :", time_end - time_start
-  time_start = time_end
-  !
-  CALL STATS(X,I,M,SD,MEDIAN)
-  !
-  PRINT *,' MEAN = ',M
-  PRINT *,' STANDARD DEVIATION = ',SD
-  PRINT *,' MEDIAN IS = ',MEDIAN
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  PRINT*, "Time STATS subroutine 1:", time_end - time_start
-  time_start = time_end
-  !
-  IF (ALLOCATED(X)) DEALLOCATE(X, STAT = IERR) 
-  IF (IERR /= 0) THEN
-     PRINT*, "X NON DEALLOCATED!"
-     STOP
-  ENDIF
-  !
-  CALL STATS(Y,I,M,SD,MEDIAN)
-  !
-  !
-  PRINT *,' MEAN = ',M
-  PRINT *,' STANDARD DEVIATION = ',SD
-  PRINT *,' MEDIAN IS = ',MEDIAN
-  !
-  ! Set time end
-  CALL CPU_TIME(time_end)
-  !
-  PRINT*, "Time STATS subroutine 2:", time_end - time_start
-  time_start = time_end
-  !
-  IF (ALLOCATED(Y)) DEALLOCATE(Y, STAT = IERR)   
-  IF (IERR /= 0) THEN
-     PRINT*, "Y NON DEALLOCATED!"
-     STOP
-  ENDIF
-  !
-  PRINT*, "KIND = ", PRECISION, " ;  Optimization Flags: ", FLAGS 
-  !
-CONTAINS
-  !
-  SUBROUTINE BOX_MULLER(dim)
-    ! 
-    ! Uses the Box-Muller method to create two normally distributed vectors
-    !
-    INTEGER, INTENT(IN) :: dim
-    !
-    REAL(KIND = PREC), PARAMETER :: PI = ACOS(-1.0)
-    REAL(KIND = PREC), DIMENSION(dim) :: RANDOM_u, RANDOM_v ! Automatic arrays
-    !
-    CALL RANDOM_NUMBER(RANDOM_u)
-    CALL RANDOM_NUMBER(RANDOM_v)
-    !
-    X = SQRT(-2.0_ PREC*LOG(RANDOM_u))
-    Y = X*SIN(2*PI*RANDOM_v)
-    X = X*COS(2*PI*RANDOM_v)
-    !
-  END SUBROUTINE BOX_MULLER
-  !
-END PROGRAM Box_Muller_Prog
-
-</example> 
-<p>
-Subroutine: <file>stats.f90</file>
-<p>
-<example> 
-SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
-  IMPLICIT NONE
-  ! Single and double precision kind parameters
-  INTEGER, PARAMETER :: SP = KIND(1.0)
-  INTEGER, PARAMETER :: DP = KIND(1.0D0)
-  ! Argument definition
-  INTEGER , INTENT(IN)                    ::  N
-  REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)    ::  VECTOR   
-  REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEAN
-  REAL(KIND = PREC)      , INTENT(OUT)                  ::  STD_DEV
-  REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEDIAN
-  ! Local variables
-  REAL(KIND = PREC) :: VARIANCE = 0.0
-  REAL(KIND = PREC)      :: SUMXI = 0.0, SUMXI2 = 0.0
-  REAL(KIND = PREC)      , DIMENSION(1:N)              ::  Y
-  !
-  SUMXI=SUM(VECTOR)      
-  SUMXI2=SUM(VECTOR*VECTOR) 
-  MEAN=SUMXI/N       
-  VARIANCE=(SUMXI2-SUMXI*SUMXI/N)/(N-1)
-  STD_DEV = SQRT(VARIANCE)
-  Y=VECTOR
-  ! Sort values
-  CALL SELECTION
-  IF (MOD(N,2) == 0) THEN
-     MEDIAN=(Y(N/2)+Y((N/2)+1))/2
-  ELSE
-     MEDIAN=Y((N/2)+1)
-  ENDIF
-CONTAINS   
-  SUBROUTINE SELECTION
-    IMPLICIT NONE
-    INTEGER :: I,J,K
-    REAL :: MINIMUM
-    DO I=1,N-1
-       K=I
-       MINIMUM=Y(I)
-       DO J=I+1,N
-          IF (Y(J) < MINIMUM) THEN
-             K=J
-             MINIMUM=Y(K)
-          END IF
-       END DO
-       Y(K)=Y(I)
-       Y(I)=MINIMUM
-    END DO
-  END SUBROUTINE SELECTION
-END SUBROUTINE STATS
-
-</example> 
-</sect1>
-
-
-<sect1 id="ref_Makefile"><heading>References</heading> 
-
-<p>
-<enumlist>  
-<item><url id="https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386"
-name="StackOverflow">
-</enumlist>  
-</sect1>
-
-
-</sect>
 <sect id="sec_xkill">Killing an unresponsive X-windows
 
 <p>
@@ -5030,9 +4366,721 @@ find(\&amp;process_files, @ARGV);
 
 <p>
 Notice that the <tt>chmod</tt> function in  <prgn>Perl</prgn> needs
-that the permission are expressed in octal values. Note also de lack
+that the permission are expressed in octal values. Note also the lack
 of apostrophes in the permisision variables definition.
 
+</sect>
+
+<chapt id="cap_fortran"><heading>Fortran Tips and Templates</heading>
+<sect id="sec_06">Compile and install the <prgn>LAPACK95</prgn> interface driver routine.
+<p>
+Updated on February 22nd, 2018.
+<p>
+Updated on September 16th, 2011.
+
+<p>
+This howto was checked initially in a <prgn>Debian Squeeze</prgn> box, with a <prgn>gfortran 4.4.5</prgn> compiler and in a <prgn>Ubuntu Lucid Lynx</prgn> with a compiler <prgn>gfortran 4.4.3</prgn>. Last version has been checked in a  <prgn>Debian Stretch</prgn> box, with a <prgn>gfortran 6.3.0</prgn> compiler.
+
+<p>
+  In this howto we install from scratch the <prgn>Fortran 77</prgn> libraries <prgn>BLAS</prgn> and <prgn>LAPACK</prgn>, and then compile the <prgn>FORTRAN 95</prgn> extension to <prgn>LAPACK</prgn>.
+
+Both <prgn>Debian</prgn> and <prgn>Ubuntu</prgn> systems provide  <prgn>BLAS</prgn> and <prgn>LAPACK</prgn> libraries as native packages and this first step could be skipped and you can ignore next two paragraphs. In any case it may be interesting to compile all the libraries with optimized flags for the system in question.
+
+<p>
+First we should upload the <prgn>LAPACK</prgn> and <prgn>LAPACK 95</prgn> libraries, for example from the <em>Netlib</em> website  (<url id="http://www.netlib.org/lapack/lapack-3.3.1.tgz"
+name="LAPACK tgz from Netlib">, (<url id="http://www.netlib.org/lapack95/lapack95.tgz"
+name="LAPACK95 tgz from Netlib"> ). The <prgn>LAPACK</prgn> version we will install is 3.3.1.
+
+<p>
+<example> 
+$ wget  -c http://www.netlib.org/lapack/lapack-3.3.1.tgz
+--2011-09-16 13:49:37--  http://www.netlib.org/lapack/lapack-3.3.1.tgz
+Resolving www.netlib.org... 160.36.58.108
+.
+.
+.
+2011-09-16 13:49:48 (439 KB/s) - `lapack-3.3.1.tgz' saved [4945204/4945204]
+
+$ wget http://www.netlib.org/lapack95/lapack95.tgz
+--2011-09-16 13:49:54--  http://www.netlib.org/lapack95/lapack95.tgz
+.
+.
+.
+2011-09-16 13:49:59 (368 KB/s) - `lapack95.tgz' saved [1579613/1579613]
+</example> 
+
+<p>
+Untar the <prgn>LAPACK</prgn> library tarball.
+<p>
+<example>
+$ tar xzf lapack-3.3.1.tgz 
+$ cd lapack-3.3.1/
+lapack-3.3.1$
+</example>
+
+<p> 
+Edit the file <tt>make.inc</tt> to a file conveniently tuned for your system. A working example for <prgn>gfortran</prgn> is shown in <ref id="make_inc_77">. The library can now be compiled, starting with the compilation of the included <prgn>BLAS</prgn> library
+<p>
+<example>
+lapack-3.3.1$ cd BLAS/SRC
+lapack-3.3.1/BLAS/SRC$ make
+.
+.
+.
+ zhemm.o zherk.o zher2k.o lsame.o xerbla.o xerbla_array.o
+ranlib ../../blas_linux_gfortran.a
+lapack-3.3.1/BLAS/SRC$
+</example>
+<p>
+The next step is the compilation of the <prgn>BLAS</prgn> library
+
+<p>
+<example>
+lapack-3.3.1/BLAS/SRC$ cd ../../
+lapack-3.3.1$ make
+.
+.
+.
+make[1]: Leaving directory `/home/curro/1/lapack-3.3.1/BLAS/TESTING'
+( cd BLAS; ./xblat3s < sblat3.in     ; \
+	           ./xblat3d < dblat3.in     ; \
+	           ./xblat3c < cblat3.in     ; \
+	           ./xblat3z < zblat3.in     ) 
+lapack-3.3.1$ ls *.a
+blas_linux_gfortran.a  lapack_linux_gfortran.a  tmglib_linux_gfortran.a
+</example>
+<p>
+The next step is to copy the compiled libraries to their final destination
+<p>
+<example>
+lapack-3.3.1$ sudo mkdir /usr/local/lapack-3.3.1
+[sudo] password for curro: 
+lapack-3.3.1$ sudo cp *.a /usr/local/lapack-3.3.1/
+</example>
+
+<p>
+We now proceed to compile and install the <prgn>LAPACK 95</prgn> library. This is where you should start if you are using the <prgn>BLAS</prgn> and <prgn>LAPACK</prgn> provided by the distribution. First we unpack the <prgn>LAPACK 95</prgn> tarball and edit the <file>make.inc</file> file.  A working example for <prgn>gfortran</prgn> is shown in <ref id="make_inc_95">.
+
+<p>
+<example>
+$ tar xzf lapack95.tgz 
+$ cd LAPACK95/
+LAPACK95$ cd SRC
+LAPACK95/SRC$ make single_double_complex_dcomplex
+.
+.
+.
+ranlib ../lapack95.a
+rm -fr ../lapack95_modules
+mkdir ../lapack95_modules
+'cp' *.mod ../lapack95_modules/
+rm -f f77_lapack.* f95_lapack.*
+rm -f *_lapack_single_double_complex_dcomplex.o
+LAPACK95/SRC$
+</example>
+<p>
+The final step is to copy the libfile and modules to a convenient location.
+<p>
+<example>
+LAPACK95$ sudo mkdir /usr/local/lib/lapack95
+LAPACK95$ sudo cp -r lapack95.a lapack95_modules /usr/local/lapack95 
+</example>
+We include a program template invoking this library in <ref id="sec_prg_example"> and a <tt>makefile</tt> that can be used to compile this program in  <ref id="sec_makefile_example">.
+<sect1 id="make_inc_77">  <tt>make.inc</tt> for <prgn>LAPACK</prgn> compilation
+<p>
+<example>
+# -*- Makefile -*-
+####################################################################
+#  LAPACK make include file.                                       #
+#  LAPACK, Version 3.3.1                                           #
+#  April 2011                                                      #
+####################################################################
+#
+# See the INSTALL/ directory for more examples.
+#
+SHELL = /bin/sh
+#
+#  The machine (platform) identifier to append to the library names
+#
+PLAT = _linux_gfortran
+#  
+#  Modify the FORTRAN and OPTS definitions to refer to the
+#  compiler and desired compiler options for your machine.  NOOPT
+#  refers to the compiler options desired when NO OPTIMIZATION is
+#  selected.  Define LOADER and LOADOPTS to refer to the loader
+#  and desired load options for your machine.
+#
+FORTRAN  = gfortran -O2 -m32
+OPTS     =
+DRVOPTS  = $(OPTS)
+NOOPT    = -g -O0
+LOADER   = gfortran -g
+LOADOPTS =
+#
+# Timer for the SECOND and DSECND routines
+#
+# Default : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME
+# TIMER    = EXT_ETIME
+# For RS6K : SECOND and DSECND will use a call to the EXTERNAL FUNCTION ETIME_
+# TIMER    = EXT_ETIME_
+# For gfortran compiler: SECOND and DSECND will use a call to the INTERNAL FUNCTION ETIME
+TIMER    = INT_ETIME
+# If your Fortran compiler does not provide etime (like Nag Fortran Compiler, etc...)
+# SECOND and DSECND will use a call to the Fortran standard INTERNAL FUNCTION CPU_TIME 
+# TIMER    = INT_CPU_TIME
+# If neither of this works...you can use the NONE value... In that case, SECOND and DSECND will always return 0
+# TIMER     = NONE
+#
+#  The archiver and the flag(s) to use when building archive (library)
+#  If you system has no ranlib, set RANLIB = echo.
+#
+ARCH     = ar
+ARCHFLAGS= cr
+RANLIB   = ranlib
+#
+#  The location of BLAS library for linking the testing programs.
+#  The target's machine-specific, optimized BLAS library should be
+#  used whenever possible.
+#
+BLASLIB      = ../../blas$(PLAT).a
+#
+#  Location of the extended-precision BLAS (XBLAS) Fortran library
+#  used for building and testing extended-precision routines.  The
+#  relevant routines will be compiled and XBLAS will be linked only if
+#  USEXBLAS is defined.
+#
+# USEXBLAS    = Yes
+XBLASLIB     =
+# XBLASLIB    = -lxblas
+#
+#  Names of generated libraries.
+#
+LAPACKLIB    = lapack$(PLAT).a
+TMGLIB       = tmglib$(PLAT).a
+EIGSRCLIB    = eigsrc$(PLAT).a
+LINSRCLIB    = linsrc$(PLAT).a
+</example>
+</sect1>
+<sect1 id="make_inc_95">  <tt>make.inc</tt> for <prgn>LAPACK95</prgn> compilation
+<p>
+<example>
+#
+#  -- LAPACK95 interface driver routine (version 2.0) --
+#     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
+#     August 5, 2000
+#
+FC	 = gfortran 
+FC1      = gfortran  
+# -dcfuns  Enable recognition of non-standard double
+#          precision  complex intrinsic functions
+# -dusty   Allows the compilation and execution of "legacy"
+#          software by downgrading the category  of  common
+#          errors  found  in  such software from "Error" to
+# -ieee=full enables all IEEE arithmetic facilities
+#          including non-stop arithmetic.
+OPTS0    = -O3
+MODLIB   = -I./../lapack95_modules
+OPTS1    = -c $(OPTS0)
+OPTS3    = $(OPTS1) $(MODLIB)
+OPTL     = -o 
+OPTLIB   =
+
+#LAPACK_PATH = /usr/local/lib/LAPACK3/
+
+LAPACK95 = ../lapack95.a
+LAPACK77 = -llapack
+BLAS     = -lblas
+
+LIBS     = $(LAPACK95) $(LAPACK77) $(BLAS)
+SUF      = f90
+
+XX = 'rm' -f $@; \
+        'rm' -f $@.res; \
+	$(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS); \
+        $@ < $@.dat > $@.res; \
+        'rm' -f $@
+
+YY = $(FC) $(OPTS0) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+
+.SUFFIXES: .f90 .f .o
+
+.$(SUF).o: 
+	$(FC) $(OPTS3) $<
+
+.f.o:
+	$(FC1) $(OPTS3) $<
+</example>
+</sect1>
+<sect1 id="sec_prg_example">  Example of program using <prgn>LAPACK95</prgn>
+  <p>
+    This source should be saved in a file called <file>ejemplo_la_spsv.f90</file> to use the <tt>Makefile</tt> provided in n  <ref id="sec_makefile_example">.
+    <p>
+     
+<example>
+PROGRAM LA_SSPSV_EXAMPLE
+
+  !  -- LAPACK95 EXAMPLE DRIVER ROUTINE (VERSION 1.0) --
+  !
+  !  .Use Statements
+  USE LA_PRECISION, ONLY: WP => SP
+  USE F95_LAPACK, ONLY: LA_SPSV
+  !  Implicit Statement
+  IMPLICIT NONE
+  !  Local Scalars
+  INTEGER :: I, N, NN, NRHS
+  !  Local Arrays
+  INTEGER, ALLOCATABLE :: IPIV(:)
+  REAL(WP), ALLOCATABLE :: B(:,:), AP(:)
+  !  Executable Statements
+  WRITE (*,*) 'SSPSV Example Program Results.'
+  N = 5; NRHS = 1
+  WRITE(*,'(5H N = , I4, 9H; NRHS = , I4)') N, NRHS
+  NN = N*(N+1)/2
+  ALLOCATE ( AP(NN), B(N,NRHS), IPIV(N) )
+  !
+  CALL  RANDOM_NUMBER(AP)
+  AP = 10*AP
+  !
+  WRITE(*,*)'Matrix AP :'
+  DO I=1,NN; WRITE(*,"(15(I3,1X,1X),I3,1X)") INT(AP(I));
+  ENDDO
+  !
+  WRITE(*,*)'Matrix B :'
+  CALL  RANDOM_NUMBER(B)
+  B = 10*B
+  DO I=1,N; WRITE(*,"(10(I3,1X,1X),I3,1X)") INT(B(I,1));
+  ENDDO
+  !
+  WRITE(*,*)" CALL LA_SPSV( AP, B, 'L', IPIV )"
+  !
+  CALL LA_SPSV( AP, B, 'L', IPIV )
+  !
+  WRITE(*,*)'AP on exit: '
+  DO I=1,NN; WRITE(*,"(15(E13.5))") AP(I); 
+  ENDDO
+  !
+  WRITE(*,*)'Matrix B on exit :'
+  DO I=1,N; WRITE(*,"(F9.5)") B(I,1);
+  ENDDO
+  !
+  WRITE(*,*)'IPIV = ', IPIV
+  !
+END PROGRAM LA_SSPSV_EXAMPLE
+</example>
+</sect1>
+<sect1 id="sec_makefile_example">  <tt>makefile</tt> for compiling programs with calls to <prgn>LAPACK95</prgn>
+<p>
+<example>
+#
+#  -- LAPACK95 makefile (version 1.0) --
+#
+FC	 = gfortran
+#
+MODLIB   = -I/usr/local/lib/lapack95_modules
+OPTS1    = -c
+OPTS3    = $(OPTS1) $(MODLIB)
+OPTL     = -o 
+OPTLIB   = -lblas -llapack
+
+LAPACK_PATH = /usr/local/lib
+LAPACK95_PATH = /usr/local/lib
+
+LAPACK95 = $(LAPACK95_PATH)/lapack95.a
+
+LIBS     = $(LAPACK95)
+SUF      = f90
+
+YY = $(FC) -o $@ $(MODLIB) $@.$(SUF) $(OPTLIB) $(LIBS)
+
+.SUFFIXES: .f90 .f .o
+
+.$(SUF).o: 
+	$(FC) $(OPTS3) $<
+
+ejemplo_la_spsv: 
+	$(YY)
+
+clean:
+	'rm' -f *.o *.mod core 
+</example>
+</sect1>
+
+</sect>
+
+<sect id="sec_07">Compile and link statically with <prgn>NAG</prgn>
+  and <prgn>LAPACK</prgn>
+
+<p> It is important to be able to compile and link statically programs
+  when libraries are not available in all nodes. This is the case with
+  the <prgn>NAG</prgn> library which is not compatible
+  with <prgn>gfortran</prgn>, the only <prgn>Fortran</prgn> compiler
+  in <prgn>Debian Lenny</prgn>. The program statically linked in one
+  node (where <prgn>Etch</prgn> is installed and <prgn>g77</prgn> is
+  available can the be executed in any other node. 
+
+<p> An example of compilation is the following
+
+<p>
+<example> 
+g77 -static -o infsq_box_1D  infsq_box_1D.f ../Potentials/wsaxon_Box_pot.f -L /usr/lib/atlas -L/usr/local2/NAG -lnag  -llapack -lblas-3
+</example> 
+
+<p>Some important points:
+
+<enumlist>  
+<item> It is necessary to include both <prgn>Lapack</prgn>
+  and <prgn>Blas</prgn> libraries.
+<item> The <prgn>Blas</prgn> library should be <tt>blas-3</tt>.
+<item> The use of standard <prgn>Lapack</prgn> and <prgn>Blas</prgn>
+  libraries give an error due to the different sizes of object
+  files. Something like 
+<p>
+<example> 
+(xerbla.o): In function `xerbla_': multiple definition of `xerbla_'
+/usr/lib/liblapack.a(xerbla.o): first defined here
+/usr/bin/ld: Warning: size of symbol `xerbla_' changed from 86
+in /usr/lib/liblapack.a(xerbla.o) to 38
+in /usr/lib/libblas.a(xerbla.o)
+collect2: ld returned 1 exit status
+</example> 
+<p>
+This is a known bug and can be solved using the libraries provided
+with the <prgn>Atlas</prgn> packages and adding the corresponding path
+to the compilation: <tt>-L /usr/lib/atlas</tt>.
+<item> The order of the libraries is not irrelevant. In particular I
+  found that <tt>lapack</tt> has to be invoked prior to <tt>blas-3</tt>.
+</enumlist>  
+
+
+</sect>
+<sect id="sec_cpp_gfortran">Creating a <file>Makefile</file>
+  to use <prgn>cpp</prgn> with <prgn>gfortran</prgn>
+
+<p>
+Added on November 09th, 2015.
+
+<p>
+There is a way of using the C language preprocessor, <prgn>cpp</prgn>,
+with gfortran. In this way we can communicate
+via <file>Makefile</file> with our program. Let's assume that we have
+a <prgn>Fortran 90</prgn> program to compute two normally distributed
+set of random numbers that use the Box-Muller transform. The program
+is called <file>box_muller.f90</file> and we also compute the mean,
+median and standard variance of the resulting distributions using a
+subroutine called <file>stats.f90</file><footnote>Please, note that the
+subroutine is not optimized and could take a long time for a large
+number of data due to an inefficient sort algorithm.</footnote>. The
+<prgn>FORTRAN 90</prgn> codes are provided in <ref id="ref_f90_codes_Makefile">.
+
+
+<p>
+The <file>Makefile</file> used for compilation is
+<p>
+<example> 
+# Fortran Compiler
+FC=gfortran
+#
+# C Preprocessor
+CPP=cpp
+#
+TYPE_DEF=-DPREC=DP 
+ifdef USE_SINGLE
+TYPE_DEF = -DPREC=SP 
+endif
+#
+# Optimization Flags
+OPTFLAGS = -O3 -funroll-loops -march=native
+OPTFLAGS_P = "\"-O3 -funroll-loops -march=native\""
+#
+all: box_muller
+#
+.FORCE:
+#
+box_muller: box_muller.f90 stats.f90 .FORCE
+	$(CPP)  -std=c89 $(TYPE_DEF) -DFLAGS=$(OPTFLAGS_P) $< > /tmp/$<
+	$(CPP)  -std=c89 $(TYPE_DEF)  stats.f90 > /tmp/stats.f90
+	$(FC) $(OPTFLAGS) -o $@ /tmp/stats.f90 /tmp/$< 
+	rm /tmp/stats.f90 /tmp/$<
+#
+clean:
+	rm -f *.o box_muller
+</example> 
+<p>
+Note how <prgn>cpp</prgn> is called twice, once for each file and
+the <tt>PREC</tt> string are replaced either by <tt>DP</tt>
+or <tt>SP</tt>, the last case if the option <tt>USE_SINGLE</tt> is
+set. In the main program the string <tt>FLAGS</tt> is replaced by the
+contents of the variable <tt>OPTFLAGS_P</tt> to print the compilation
+flags used. Thus to run the program in single precision the user
+proceed as follows
+<p>
+<example> 
+$ make all USE_SINGLE=1
+cpp  -std=c89 -DPREC=SP  -DFLAGS="\"-O3 -funroll-loops -march=native\"" box_muller.f90 > /tmp/box_muller.f90
+cpp  -std=c89 -DPREC=SP   stats.f90 > /tmp/stats.f90
+gfortran -O3 -funroll-loops -march=native -o box_muller /tmp/stats.f90 /tmp/box_muller.f90 
+rm /tmp/stats.f90 /tmp/box_muller.f90
+$ ./box_muller 
+10000
+ Time Box Muller subroutine :   4.00000019E-03
+  MEAN =   -7.31508713E-03
+  STANDARD DEVIATION =   0.995381057    
+  MEDIAN IS =    1.01202750E-04
+ Time STATS subroutine 1:  0.100005999    
+  MEAN =    2.96602229E-04
+  STANDARD DEVIATION =   0.999957144    
+  MEDIAN IS =    1.29099786E-02
+ Time STATS subroutine 2:  0.100006007    
+ KIND = SINGLE ;  Optimization Flags: -O3 -funroll-loops -march=native
+</example> 
+
+
+<sect1 id="ref_f90_codes_Makefile"><heading>Fortran Codes</heading> 
+<p>
+Main program: <file>box_muller.f90</file>
+<p>
+<example> 
+PROGRAM Box_Muller_Prog
+  !
+  IMPLICIT NONE
+  !
+  ! Single and double precision kind parameters
+  INTEGER, PARAMETER :: SP = KIND(1.0)
+  INTEGER, PARAMETER :: DP = KIND(1.0D0)
+  !
+  INTEGER :: I, IERR
+  REAL(KIND = PREC), DIMENSION(:), ALLOCATABLE :: X, Y
+  REAL(KIND = PREC) :: M, SD, MEDIAN
+  REAL(KIND = SP) :: time_end, time_start
+  !
+  !
+  CHARACTER(LEN = 6) :: PRECISION 
+  !
+  ! interface block   
+  INTERFACE
+     SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+       IMPLICIT NONE
+       ! Single and double precision kind parameters
+       INTEGER, PARAMETER :: SP = KIND(1.0)
+       INTEGER, PARAMETER :: DP = KIND(1.0D0)
+       INTEGER , INTENT(IN)                    ::  N
+       REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)   :: VECTOR  
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEAN
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: STD_DEV
+       REAL(KIND = PREC)      , INTENT(OUT)                 :: MEDIAN
+     END SUBROUTINE STATS
+  END INTERFACE
+  !
+  ! Set Precision for output
+  IF (PREC == DP) THEN
+     PRECISION = "DOUBLE"
+  ELSE
+     PRECISION = "SINGLE"
+  ENDIF
+  !
+  ! Input number of data
+  READ*, I  
+  !
+  ALLOCATE(X(1:I), STAT = IERR)    
+  IF (IERR /= 0) THEN
+     PRINT*, "X allocation request denied."
+     STOP
+  ENDIF
+  !
+  ALLOCATE(Y(1:I), STAT = IERR)    
+  IF (IERR /= 0) THEN
+     PRINT*, "Y allocation request denied."
+     STOP
+  ENDIF
+  !
+  ! Set time start
+  CALL CPU_TIME(time_start)
+  !
+  CALL BOX_MULLER(I)
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  !PRINT*, X
+  !PRINT*, Y
+  !
+  PRINT*, "Time Box Muller subroutine :", time_end - time_start
+  time_start = time_end
+  !
+  CALL STATS(X,I,M,SD,MEDIAN)
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 1:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(X)) DEALLOCATE(X, STAT = IERR) 
+  IF (IERR /= 0) THEN
+     PRINT*, "X NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  CALL STATS(Y,I,M,SD,MEDIAN)
+  !
+  !
+  PRINT *,' MEAN = ',M
+  PRINT *,' STANDARD DEVIATION = ',SD
+  PRINT *,' MEDIAN IS = ',MEDIAN
+  !
+  ! Set time end
+  CALL CPU_TIME(time_end)
+  !
+  PRINT*, "Time STATS subroutine 2:", time_end - time_start
+  time_start = time_end
+  !
+  IF (ALLOCATED(Y)) DEALLOCATE(Y, STAT = IERR)   
+  IF (IERR /= 0) THEN
+     PRINT*, "Y NON DEALLOCATED!"
+     STOP
+  ENDIF
+  !
+  PRINT*, "KIND = ", PRECISION, " ;  Optimization Flags: ", FLAGS 
+  !
+CONTAINS
+  !
+  SUBROUTINE BOX_MULLER(dim)
+    ! 
+    ! Uses the Box-Muller method to create two normally distributed vectors
+    !
+    INTEGER, INTENT(IN) :: dim
+    !
+    REAL(KIND = PREC), PARAMETER :: PI = ACOS(-1.0)
+    REAL(KIND = PREC), DIMENSION(dim) :: RANDOM_u, RANDOM_v ! Automatic arrays
+    !
+    CALL RANDOM_NUMBER(RANDOM_u)
+    CALL RANDOM_NUMBER(RANDOM_v)
+    !
+    X = SQRT(-2.0_ PREC*LOG(RANDOM_u))
+    Y = X*SIN(2*PI*RANDOM_v)
+    X = X*COS(2*PI*RANDOM_v)
+    !
+  END SUBROUTINE BOX_MULLER
+  !
+END PROGRAM Box_Muller_Prog
+
+</example> 
+<p>
+Subroutine: <file>stats.f90</file>
+<p>
+<example> 
+SUBROUTINE STATS(VECTOR,N,MEAN,STD_DEV,MEDIAN)
+  IMPLICIT NONE
+  ! Single and double precision kind parameters
+  INTEGER, PARAMETER :: SP = KIND(1.0)
+  INTEGER, PARAMETER :: DP = KIND(1.0D0)
+  ! Argument definition
+  INTEGER , INTENT(IN)                    ::  N
+  REAL(KIND = PREC)      , INTENT(IN) , DIMENSION(:)    ::  VECTOR   
+  REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEAN
+  REAL(KIND = PREC)      , INTENT(OUT)                  ::  STD_DEV
+  REAL(KIND = PREC)      , INTENT(OUT)                  ::  MEDIAN
+  ! Local variables
+  REAL(KIND = PREC) :: VARIANCE = 0.0
+  REAL(KIND = PREC)      :: SUMXI = 0.0, SUMXI2 = 0.0
+  REAL(KIND = PREC)      , DIMENSION(1:N)              ::  Y
+  !
+  SUMXI=SUM(VECTOR)      
+  SUMXI2=SUM(VECTOR*VECTOR) 
+  MEAN=SUMXI/N       
+  VARIANCE=(SUMXI2-SUMXI*SUMXI/N)/(N-1)
+  STD_DEV = SQRT(VARIANCE)
+  Y=VECTOR
+  ! Sort values
+  CALL SELECTION
+  IF (MOD(N,2) == 0) THEN
+     MEDIAN=(Y(N/2)+Y((N/2)+1))/2
+  ELSE
+     MEDIAN=Y((N/2)+1)
+  ENDIF
+CONTAINS   
+  SUBROUTINE SELECTION
+    IMPLICIT NONE
+    INTEGER :: I,J,K
+    REAL :: MINIMUM
+    DO I=1,N-1
+       K=I
+       MINIMUM=Y(I)
+       DO J=I+1,N
+          IF (Y(J) < MINIMUM) THEN
+             K=J
+             MINIMUM=Y(K)
+          END IF
+       END DO
+       Y(K)=Y(I)
+       Y(I)=MINIMUM
+    END DO
+  END SUBROUTINE SELECTION
+END SUBROUTINE STATS
+
+</example> 
+</sect1>
+
+
+<sect1 id="ref_Makefile"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386"
+name="StackOverflow">
+</enumlist>  
+</sect1>
+
+
+</sect>
+
+<sect id="sec_fortran_random"><heading>Creating a vector of random data </heading> 
+<p>
+Created on March 8th, 2018
+<p>
+  The best way to deal with random numbers with <prgn>gfortran</prgn> is making use of the intrinsic procedures <tt>RANDOM_NUMBER</tt> and <tt>RANDOM_SEED</tt>. Note that <tt>RAN</tt> and <tt>RAND</tt> procedures have been deprecated. From the <prgn>gfortran</prgn> documentation:
+  <p>
+    <example>
+      Returns a single pseudorandom number or an array of pseudorandom numbers from the uniform distribution over the range 0 \leq x \le 1.
+    </example> 
+    <p>
+      Therefore the creation of a vector with, e.g. 100 random integers in the <tt>0-99</tt> range should be accomplished with a simple program as this one
+  <p>
+    <example>
+PROGRAM RANDOM_VECTOR
+  IMPLICIT NONE
+  REAL, DIMENSION(1:100) :: REAL_RAND_VALUES
+  INTEGER, DIMENSION(1:100) :: INT_RAND_VALUES
+  INTEGER :: INDEX
+  !
+  CALL RANDOM_NUMBER(REAL_RAND_VALUES)
+  !
+  INT_RAND_VALUES = NINT(REAL_RAND_VALUES*100)
+  !
+  DO INDEX = 1, 100
+     PRINT*, INDEX, INT_RAND_VALUES(INDEX)
+  ENDDO
+  !
+END PROGRAM RANDOM_VECTOR
+    </example> 
+    <p>
+      And everything seems pretty okay until we run several times the program and observe that our random number vector always have the same values... Surprise...
+  <p>
+    <example>
+           1         100
+           2          57
+           3          97
+          ..............
+          98          11
+          99          22
+         100          10
+    </example> 
+    <p>
+The problem is that  <tt>RANDOM_NUMBER</tt> provides a  sequence of pseudorandom values. If it starts the sequence from the same point, it gives you always the same sequence. We need to chose a different starting point every time that we use the procedure. This can be done using  <tt>RANDOM_SEED</tt>.    
 </sect>
 
 <chapt id="cap_python"><heading>Python Tips and Templates</heading>
