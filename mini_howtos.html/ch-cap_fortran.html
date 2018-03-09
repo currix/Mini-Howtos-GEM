@@ -89,7 +89,8 @@
 <link href="ch-cap_fortran.html#s-sec_06" rel="section" title="6.1 Compile and install the LAPACK95 interface driver routine.">
 <link href="ch-cap_fortran.html#s-sec_07" rel="section" title="6.2 Compile and link statically with NAG and LAPACK">
 <link href="ch-cap_fortran.html#s-sec_cpp_gfortran" rel="section" title="6.3 Creating a Makefile to use cpp with gfortran">
-<link href="ch-cap_fortran.html#s-sec_fortran_random" rel="section" title="6.4 Creating a vector of random data">
+<link href="ch-cap_fortran.html#s-sec_fortran_envvar" rel="section" title="6.4 Obtaining environment variables values from Fortran">
+<link href="ch-cap_fortran.html#s-sec_fortran_random" rel="section" title="6.5 Creating a vector of random data">
 <link href="ch-cap_python.html#s-sec_python_random" rel="section" title="7.1 Creating a vector of random data">
 <link href="ch-cap_python.html#s-sec_python_boolvec" rel="section" title="7.2 Logical comparison between two boolean vectors">
 <link href="ch-cap_python.html#s-sec_python_interval" rel="section" title="7.3 Creating a loop iterating on a list and the list index">
@@ -964,7 +965,82 @@ href="https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfor
 
 <hr>
 
-<h2 id="s-sec_fortran_random">6.4 Creating a vector of random data</h2>
+<h2 id="s-sec_fortran_envvar">6.4 Obtaining environment variables values from <code>Fortran</code></h2>
+
+<p>
+Created on March 9th, 2018
+</p>
+
+<p>
+With the <samp>gfortran</samp> compiler the intrinsic procedure
+<samp>GET_ENVIRONMENT_VARIABLE</samp> allows the reading of environment
+variables such as <samp>hostname</samp>, <samp>username</samp>, or .  The
+syntax for this procedure is
+</p>
+
+<pre>
+           CALL GET_ENVIRONMENT_VARIABLE(NAME[, VALUE, LENGTH, STATUS, TRIM_NAME])
+</pre>
+
+<p>
+This procedure replaces the now deprecated <samp>GETENV</samp> procedure.  In
+the next program we use this subroutine to get values of the environment
+variables <samp>HOSTNAME</samp>, <samp>USER</samp>, and <samp>HOME</samp>.
+Note that unless the user has exported this variable <samp>HOSTNAME</samp>
+reading may fail.  We also use the intrinsic procedure <samp>GETPID</samp> to
+obtain the process <samp>PID</samp> number.
+</p>
+
+<pre>
+     PROGRAM GET_ENV
+       !                                           
+       IMPLICIT NONE
+       !
+       INTEGER :: ivar = 0, len, stat, pid
+       CHARACTER(LEN=256) :: home, host, user
+       !
+       ! Hostname variable
+       CALL GET_ENVIRONMENT_VARIABLE('HOSTNAME', host, len, stat)
+       IF (stat == 0) THEN
+          PRINT*, &quot;Hostname read: &quot;, TRIM(host)
+       ELSE
+          PRINT*, &quot;Hostname read failed: stat = &quot;, stat
+       ENDIF
+       !
+       ! Username variable
+       CALL GET_ENVIRONMENT_VARIABLE('USER', user, len, stat)
+       IF (stat == 0) print*, &quot;Username read: &quot;, TRIM(user)
+       !
+       ! Homedir variable
+       CALL GET_ENVIRONMENT_VARIABLE('HOME', home, len, stat)
+       IF (stat == 0) THEN
+          PRINT*, &quot;Homedir read: &quot;, TRIM(home)
+       ELSE
+          PRINT*, &quot;Homedir read failed: stat = &quot;, stat
+       ENDIF
+       !
+       ! Process ID
+       pid = GETPID()
+       PRINT*, &quot;Process ID: &quot;, pid
+       !
+     END PROGRAM GET_ENV
+</pre>
+
+<p>
+A possible output of the previous code is
+</p>
+
+<pre>
+     $ ./get_env_gfortran 
+      Hostname read failed: stat =            1
+      Username read: bilbo
+      Homedir read: /home/bilbo
+      Process ID:         5614
+</pre>
+
+<hr>
+
+<h2 id="s-sec_fortran_random">6.5 Creating a vector of random data</h2>
 
 <p>
 Created on March 8th, 2018
@@ -1026,8 +1102,40 @@ The problem is that <samp>RANDOM_NUMBER</samp> provides a sequence of
 pseudorandom values.  If it starts the sequence from the same point, it gives
 you always the same sequence.  We need to chose a different starting point
 every time that we use the procedure.  This can be done using
-<samp>RANDOM_SEED</samp>.
+<samp>RANDOM_SEED</samp> and providing a particular value to this procedure,
+e.g.  the process <samp>PID</samp>.  This is done in the code that follows
 </p>
+
+<pre>
+     PROGRAM RANDOM_VECTOR
+       IMPLICIT NONE
+       REAL, DIMENSION(1:100) :: REAL_RAND_VALUES
+       INTEGER, DIMENSION(1:100) :: INT_RAND_VALUES
+       INTEGER, DIMENSION(:), ALLOCATABLE :: pid
+       INTEGER :: index, size=1
+       !
+       ! Get minimum size of the PUT array for RANDOM_SEED
+       CALL RANDOM_SEED(SIZE=size)
+       !
+       ! Allocate and give values to pid array
+       ALLOCATE(pid(1:size))
+       pid = GETPID() 
+       !
+       ! Restart random seed
+       CALL RANDOM_SEED(PUT=pid)
+       !
+       ! Generate random vector
+       CALL RANDOM_NUMBER(REAL_RAND_VALUES)
+       !
+       ! Transform to integers
+       INT_RAND_VALUES = NINT(REAL_RAND_VALUES*100)
+       !
+       DO index = 1, 100
+          PRINT*, index, INT_RAND_VALUES(index)
+       ENDDO
+       !
+     END PROGRAM RANDOM_VECTOR
+</pre>
 
 <hr>
 

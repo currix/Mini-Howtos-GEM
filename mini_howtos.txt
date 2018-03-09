@@ -117,7 +117,8 @@ Contents
      6.1.      Compile and install the `LAPACK95' interface driver routine.
      6.2.      Compile and link statically with `NAG' and `LAPACK'
      6.3.      Creating a `Makefile' to use `cpp' with `gfortran'
-     6.4.      Creating a vector of random data
+     6.4.      Obtaining environment variables values from `Fortran'
+     6.5.      Creating a vector of random data
 
      7.        Python Tips and Templates
      7.1.      Creating a vector of random data
@@ -4398,7 +4399,66 @@ END PROGRAM Box_Muller_Prog
           (https://stackoverflow.com/questions/31649691/stringify-macro-with-gnu-gfortran/31753386#31753386)
 
 
-6.4. Creating a vector of random data
+6.4. Obtaining environment variables values from `Fortran'
+----------------------------------------------------------
+
+     Created on March 9th, 2018
+
+     With the `gfortran' compiler the intrinsic procedure
+     `GET_ENVIRONMENT_VARIABLE' allows the reading of environment variables
+     such as `hostname', `username', or .  The syntax for this procedure is
+
+      CALL GET_ENVIRONMENT_VARIABLE(NAME[, VALUE, LENGTH, STATUS, TRIM_NAME])
+
+     This procedure replaces the now deprecated `GETENV' procedure.  In the
+     next program we use this subroutine to get values of the environment
+     variables `HOSTNAME', `USER', and `HOME'.  Note that unless the user
+     has exported this variable `HOSTNAME' reading may fail.  We also use
+     the intrinsic procedure `GETPID' to obtain the process `PID' number.
+
+          PROGRAM GET_ENV
+            !
+            IMPLICIT NONE
+            !
+            INTEGER :: ivar = 0, len, stat, pid
+            CHARACTER(LEN=256) :: home, host, user
+            !
+            ! Hostname variable
+            CALL GET_ENVIRONMENT_VARIABLE('HOSTNAME', host, len, stat)
+            IF (stat == 0) THEN
+               PRINT*, "Hostname read: ", TRIM(host)
+            ELSE
+               PRINT*, "Hostname read failed: stat = ", stat
+            ENDIF
+            !
+            ! Username variable
+            CALL GET_ENVIRONMENT_VARIABLE('USER', user, len, stat)
+            IF (stat == 0) print*, "Username read: ", TRIM(user)
+            !
+            ! Homedir variable
+            CALL GET_ENVIRONMENT_VARIABLE('HOME', home, len, stat)
+            IF (stat == 0) THEN
+               PRINT*, "Homedir read: ", TRIM(home)
+            ELSE
+               PRINT*, "Homedir read failed: stat = ", stat
+            ENDIF
+            !
+            ! Process ID
+            pid = GETPID()
+            PRINT*, "Process ID: ", pid
+            !
+          END PROGRAM GET_ENV
+
+     A possible output of the previous code is
+
+          $ ./get_env_gfortran
+           Hostname read failed: stat =            1
+           Username read: bilbo
+           Homedir read: /home/bilbo
+           Process ID:         5614
+
+
+6.5. Creating a vector of random data
 -------------------------------------
 
      Created on March 8th, 2018
@@ -4446,7 +4506,38 @@ END PROGRAM Box_Muller_Prog
      pseudorandom values.  If it starts the sequence from the same point,
      it gives you always the same sequence.  We need to chose a different
      starting point every time that we use the procedure.  This can be done
-     using `RANDOM_SEED'.
+     using `RANDOM_SEED' and providing a particular value to this
+     procedure, e.g.  the process `PID'.  This is done in the code that
+     follows
+
+          PROGRAM RANDOM_VECTOR
+            IMPLICIT NONE
+            REAL, DIMENSION(1:100) :: REAL_RAND_VALUES
+            INTEGER, DIMENSION(1:100) :: INT_RAND_VALUES
+            INTEGER, DIMENSION(:), ALLOCATABLE :: pid
+            INTEGER :: index, size=1
+            !
+            ! Get minimum size of the PUT array for RANDOM_SEED
+            CALL RANDOM_SEED(SIZE=size)
+            !
+            ! Allocate and give values to pid array
+            ALLOCATE(pid(1:size))
+            pid = GETPID()
+            !
+            ! Restart random seed
+            CALL RANDOM_SEED(PUT=pid)
+            !
+            ! Generate random vector
+            CALL RANDOM_NUMBER(REAL_RAND_VALUES)
+            !
+            ! Transform to integers
+            INT_RAND_VALUES = NINT(REAL_RAND_VALUES*100)
+            !
+            DO index = 1, 100
+               PRINT*, index, INT_RAND_VALUES(index)
+            ENDDO
+            !
+          END PROGRAM RANDOM_VECTOR
 
 
 -------------------------------------------------------------------------------
