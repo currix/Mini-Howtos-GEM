@@ -2853,7 +2853,7 @@ This filesystem will be automatically checked every 33 mounts or
 <p>
 <example>
 # mount -t ext3 -o loop /vserver/tmp-dir /tmp
-tyrell:/vserver# df -h | grep /tmp
+# df -h | grep /tmp
 /dev/sda7             3.0G   69M  2.8G   3% /tmp
 /dev/loop0            3.0G   69M  2.8G   3% /tmp
 </example>
@@ -2881,6 +2881,62 @@ name="YourHowto.Net">
 </enumlist>  
 </sect1>
 
+</sect>
+<sect id="sec_checkpack">Checking if a package is installed in <prgn>Debian</prgn>
+
+<p>
+Added on March 18th, 2018.
+
+<p>
+  We want to check for example whether a package is installed or not in a <prgn>Debian</prgn> system. For example, let's check if the package <tt>acl</tt> isinstalled. There are different ways of doing this.
+
+  
+<p>
+  One option implies <tt>dpkg</tt> 
+<p>
+<example> 
+$ dpkg -l acl
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                           Version               Architecture       Description
++++-===============================-=====================-==================-=============================
+ii  acl                             2.2.52-3+b1           amd64              Access control list utilities
+</example> 
+<p>
+  The important piece of data are the two <tt>ii</tt> at the beginning of the line, showing that the package is installed. In case that the package were not installed, the line begins with <tt>u</tt> or <tt>p</tt> or the output would be as follows
+<p>
+<example> 
+$ dpkg -l 2ping
+dpkg-query: no packages found matching 2ping
+</example> 
+<p>
+  Another option uses the <tt>apt-cache policy</tt> application
+  <p>
+    <example>
+$ apt-cache policy acl
+acl:
+  Installed: 2.2.52-3+b1
+  Candidate: 2.2.52-3+b1
+  Version table:
+ *** 2.2.52-3+b1 500
+        500 http://ftp.es.debian.org/debian stretch/main amd64 Packages
+        500 http://deb.debian.org/debian stretch/main amd64 Packages
+        100 /var/lib/dpkg/status
+</example> 
+    <p>
+      and
+<p>
+<example>
+$ apt-cache policy 2ping
+2ping:
+  Installed: (none)
+  Candidate: 3.2.1-1
+  Version table:
+     3.2.1-1 500
+        500 http://ftp.es.debian.org/debian stretch/main amd64 Packages
+        500 http://deb.debian.org/debian stretch/main amd64 Packages
+</example>
 </sect>
 
 <chapt id="cap_1"><heading>Network and Navigators</heading> 

@@ -79,6 +79,7 @@ Contents
      1.35.     Error ejecting a CD
      1.36.     Killing an unresponsive X-windows
      1.37.     Enlarging the size of a `tmp' directory
+     1.38.     Checking if a package is installed in `Debian'
 
      2.        Network and Navigators
      2.1.      Running multiple `firefox' instances
@@ -2437,7 +2438,7 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
      Next, we mount the created filesystem as the system's `tmp' directory
 
           # mount -t ext3 -o loop /vserver/tmp-dir /tmp
-          tyrell:/vserver# df -h | grep /tmp
+          # df -h | grep /tmp
           /dev/sda7             3.0G   69M  2.8G   3% /tmp
           /dev/loop0            3.0G   69M  2.8G   3% /tmp
 
@@ -2458,6 +2459,57 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
 
      1.   YourHowto.Net
           (http://www.yourhowto.net/increase-tmp-partition-size-linux/)
+
+
+1.38. Checking if a package is installed in `Debian'
+----------------------------------------------------
+
+     Added on March 18th, 2018.
+
+     We want to check for example whether a package is installed or not in
+     a `Debian' system.  For example, let's check if the package `acl'
+     isinstalled.  There are different ways of doing this.
+
+     One option implies `dpkg'
+
+$ dpkg -l acl
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                           Version               Architecture       Description
++++-===============================-=====================-==================-=============================
+ii  acl                             2.2.52-3+b1           amd64              Access control list utilities
+
+     The important piece of data are the two `ii' at the beginning of the
+     line, showing that the package is installed.  In case that the package
+     were not installed, the line begins with `u' or `p' or the output
+     would be as follows
+
+          $ dpkg -l 2ping
+          dpkg-query: no packages found matching 2ping
+
+     Another option uses the `apt-cache policy' application
+
+$ apt-cache policy acl
+acl:
+  Installed: 2.2.52-3+b1
+  Candidate: 2.2.52-3+b1
+  Version table:
+ *** 2.2.52-3+b1 500
+        500 http://ftp.es.debian.org/debian stretch/main amd64 Packages
+        500 http://deb.debian.org/debian stretch/main amd64 Packages
+        100 /var/lib/dpkg/status
+
+     and
+
+$ apt-cache policy 2ping
+2ping:
+  Installed: (none)
+  Candidate: 3.2.1-1
+  Version table:
+     3.2.1-1 500
+        500 http://ftp.es.debian.org/debian stretch/main amd64 Packages
+        500 http://deb.debian.org/debian stretch/main amd64 Packages
 
 
 -------------------------------------------------------------------------------
