@@ -92,6 +92,7 @@
 <link href="ch-cap_fortran.html#s-sec_cpp_gfortran" rel="section" title="6.3 Creating a Makefile to use cpp with gfortran">
 <link href="ch-cap_fortran.html#s-sec_fortran_envvar" rel="section" title="6.4 Obtaining environment variables values from Fortran">
 <link href="ch-cap_fortran.html#s-sec_fortran_random" rel="section" title="6.5 Creating a vector of random data">
+<link href="ch-cap_fortran.html#s-sec_fortran_makefile" rel="section" title="6.6 Tips for building a Fortran Makefile">
 <link href="ch-cap_python.html#s-sec_python_random" rel="section" title="7.1 Creating a vector of random data">
 <link href="ch-cap_python.html#s-sec_python_boolvec" rel="section" title="7.2 Logical comparison between two boolean vectors">
 <link href="ch-cap_python.html#s-sec_python_interval" rel="section" title="7.3 Creating a loop iterating on a list and the list index">
@@ -1137,6 +1138,86 @@ e.g.  the process <samp>PID</samp>.  This is done in the code that follows
        !
      END PROGRAM RANDOM_VECTOR
 </pre>
+
+<hr>
+
+<h2 id="s-sec_fortran_makefile">6.6 Tips for building a <code>Fortran</code> <code>Makefile</code></h2>
+
+<p>
+Created on March 20th, 2018
+</p>
+
+<p>
+I enclose a template of a <samp>Fortran 90</samp> <code>Makefile</code> that
+solves some common problems that appear when using the <code>make</code>
+application with this programming language.  Let's assume that we have a
+program file called <code>prog_main.f90</code> that depends on two module
+files, <code>module_a.f90</code> and <code>module_b.f90</code>.  And we want to
+use the preprocessor and to build single thread and multithread execs making
+use of openmp.  The template <code>Makefile</code> is as follows:
+</p>
+
+<pre>
+     BINPATH = ../bin/
+     ###################################################
+     prog_SRC = module_a.f90 module_b.f90 prog_main.f90 
+     #
+     prog_OBJ = $(prog_SRC:.f90=.o)
+     #
+     prog_OPENMP_OBJ = $(prog_SRC:.f90=.oOMP)
+     ###################################################
+     #
+     .SUFFIXES:
+     .SUFFIXES: .o .f90 .oOMP
+     ###
+     FC = gfortran
+     FOPT	= -O3 -Wall
+     PREP = -cpp
+     #
+     MODLIB   = -I/usr/local/include/lapack95_modules
+     LAPACK95 = -L/usr/local/lib -llapack95
+     LAPACK77 = -llapack
+     BLAS     = -lblas
+     # 
+     LIBS     = $(LAPACK95)  $(LAPACK77) $(BLAS) 
+     ###################################################
+     all: prog prog_openmp 
+     ###################################################
+     .PHONY : all
+     ###################################################
+     .f90.o:
+     	$(info )
+     	$(info Compiling single thread object file:)
+     	$(FC) -c $(PREP) $(MODLIB)  &quot;$&lt;&quot;
+     ###################################################
+     .f90.oOMP:
+     	$(info )
+     	$(info Compiling multi thread object file:)
+     	$(FC) -c -fopenmp $(PREP) $(MODLIB)  -o &quot;$@&quot; &quot;$&lt;&quot;
+     ###################################################
+     prog: $(prog_OBJ) Makefile 
+     	$(info )
+     	$(info Linking prog single thread executable:)
+     	$(FC) $(FOPT) $(MODLIB) -o $(BINPATH)/$@_$(FC) $(prog_OBJ) $(LIBS) 
+     #######################
+     prog_openmp: $(prog_OPENMP_OBJ) Makefile 
+     	$(info )
+     	$(info Linking prog multithread executable:)
+     	$(FC) -fopenmp $(FOPT) $(MODLIB) -o $(BINPATH)/$@_$(FC) $(prog_OPENMP_OBJ) $(LIBS) 
+     #######################
+     clean:
+     	$(info Cleaning object, module, and executable files.)
+     	@rm -f  *.o *.oOMP *.mod $(BINPATH)/prog_$(FC) $(BINPATH)/prog_openmp_$(FC)
+     #######################
+</pre>
+
+<p>
+Notice, for example, the empty <samp>SUFFIXES</samp> line, as it resets the
+predefined suffixes to avoid dependency problems associated with the
+<samp>.mod</samp> module files.  The executable files are called
+<code>prog_gfortran</code> and <code>prog_openmp_gfortran</code> and are stored
+in the folder defined by the <var>BINPATH</var> variable.
+</p>
 
 <hr>
 
