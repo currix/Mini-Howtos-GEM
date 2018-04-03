@@ -136,6 +136,8 @@ Contents
      7.9.      Combining several plots in a figure
      7.10.     Display in `Ipython'all the components of a `Pandas'
                `Series' or `DataFrame'
+     7.11.     Changing the number of lines to scroll in an `Ipython
+               qtconsole' session.
 
      8.        Text Processing and Formatting
      8.1.      `pdftk' application examples
@@ -4789,9 +4791,9 @@ vectorn = np.random.randn(200)
 
      Created on May 13th, 2015.
 
-     Dealing with imezones and the associated DST (daylight saving times)
-     can cause a more than serious headache.  Some (very limited) examples
-     of their use.
+     Dealing with timezones and the associated DST (daylight saving times)
+     can cause a more than serious headache.  Here we have some (very
+     limited) examples of their use.
 
      Let's assume that we have two strings: `stdate1 = "20/03/2015 12:22"'
      and `stdate1 = "23/03/2015 22:22"' and we want to parse them to a
@@ -4997,6 +4999,26 @@ pyplot.show()
 
      1.   Stack Exchange
           (http://stackoverflow.com/questions/19124601/is-there-a-way-to-pretty-print-the-entire-pandas-series-dataframe)
+
+
+7.11. Changing the number of lines to scroll in an `Ipython qtconsole'
+session.
+----------------------------------------------------------------------------
+
+     Created on April 3rd, 2018.
+
+     Working in `Ipython qtconsole' the standard is that you can scroll up
+     500 lines.  This number can be changed in some different ways (see
+     references) but the simplest way may be in the program invocation.
+     For example, to increase this number to 1000 lines one should execute:
+
+          ipython qtconsole --IPythonWidget.buffer_size=1000
+
+7.11.1. References
+------------------
+
+     1.   Stack Exchange Ipython Qtconsole Buffer Limit
+          (https://stackoverflow.com/questions/14720766/how-to-increase-the-ipython-qtconsole-scrollback-buffer-limit)
 
 
 -------------------------------------------------------------------------------

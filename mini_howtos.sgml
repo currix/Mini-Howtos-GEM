@@ -5419,8 +5419,8 @@ Out[88]: 117
 <p>
 Created on May 13th, 2015.
 <p>
-Dealing with imezones and the associated DST (daylight saving times)
-can cause a more than serious headache. Some (very limited) examples
+Dealing with timezones and the associated DST (daylight saving times)
+can cause a more than serious headache. Here we have some (very limited) examples
 of their use.
 <p>
 Let's assume that we have two strings: <tt>stdate1 = "20/03/2015 12:22"</tt>
@@ -5637,6 +5637,28 @@ def print_full(x):
 <enumlist>  
 <item><url id="http://stackoverflow.com/questions/19124601/is-there-a-way-to-pretty-print-the-entire-pandas-series-dataframe"
 name="Stack Exchange">
+</enumlist>  
+</sect1>
+
+<sect id="sec_python_qtbuff"><heading>Changing the number of lines to scroll in an <prgn>Ipython qtconsole</prgn> session.
+<p>
+Created on April 3rd, 2018.
+<p>
+  Working in <prgn>Ipython qtconsole</prgn> the standard is that you can scroll up 500 lines. This number can be changed in some different ways (see references)
+  but the simplest way may be in the program invocation. For example, to increase this number to 1000 lines one should execute:
+  
+  <p>
+<example>
+ipython qtconsole --IPythonWidget.buffer_size=1000
+</example>
+
+
+<sect1 id="ref_ipybuff"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="https://stackoverflow.com/questions/14720766/how-to-increase-the-ipython-qtconsole-scrollback-buffer-limit"
+name="Stack Exchange Ipython Qtconsole Buffer Limit">
 </enumlist>  
 </sect1>
 
