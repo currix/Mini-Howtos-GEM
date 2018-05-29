@@ -5027,6 +5027,9 @@ session.
 8. Text Processing and Formatting
 ---------------------------------
 
+     You can find the translation of this chapter to Hindi in this link
+     (https://dealsdaddy.co.uk/translations/textprocessingformatting/)
+
 
 8.1. `pdftk' application examples
 ---------------------------------
