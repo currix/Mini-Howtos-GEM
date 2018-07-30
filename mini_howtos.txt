@@ -4665,7 +4665,9 @@ PROGRAM MAXIMA_VALUES_POSITIONS
 END PROGRAM MAXIMA_VALUES_POSITIONS
 
      Notice that if the second argument to the procedures is one the array
-     is sliced column-wise and if it is two it is sliced row wise.
+     is sliced column-wise and if it is two it is sliced row wise.  There
+     are analogous procedures for minimum values with the intrinsics
+     `MINVAL' and `MINLOC'.
 
 
 6.7. Tips for building a `Fortran' `Makefile'

@@ -5291,7 +5291,7 @@ PROGRAM MAXIMA_VALUES_POSITIONS
 END PROGRAM MAXIMA_VALUES_POSITIONS
     </example> 
     <p>
-Notice that if the second argument to the procedures is one the array is sliced column-wise and if it is two it is sliced row wise.
+      Notice that if the second argument to the procedures is one the array is sliced column-wise and if it is two it is sliced row wise. There are analogous procedures for minimum values with the intrinsics <tt>MINVAL</tt> and  <tt>MINLOC</tt>.
       
 </sect>
 <sect id="sec_fortran_makefile"><heading>Tips for building a  <prgn>Fortran</prgn> <file>Makefile</file></heading> 
