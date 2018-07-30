@@ -4428,16 +4428,17 @@ of apostrophes in the permisision variables definition.
 </sect>
 
 <chapt id="cap_fortran"><heading>Fortran Tips and Templates</heading>
-<sect id="sec_06">Compile and install the <prgn>LAPACK95</prgn> interface driver routine.
-<p>
-Updated on February 22nd, 2018.
-<p>
-Updated on September 16th, 2011.
 
-<p>
-This howto was checked initially in a <prgn>Debian Squeeze</prgn> box, with a <prgn>gfortran 4.4.5</prgn> compiler and in a <prgn>Ubuntu Lucid Lynx</prgn> with a compiler <prgn>gfortran 4.4.3</prgn>. Last version has been checked in a  <prgn>Debian Stretch</prgn> box, with a <prgn>gfortran 6.3.0</prgn> compiler.
+  <sect id="sec_06">Compile and install the <prgn>LAPACK95</prgn> interface driver routine.
+    <p>
+      Updated on February 22nd, 2018.
+      <p>
+	Updated on September 16th, 2011.
+	
+	<p>
+	  This howto was checked initially in a <prgn>Debian Squeeze</prgn> box, with a <prgn>gfortran 4.4.5</prgn> compiler and in a <prgn>Ubuntu Lucid Lynx</prgn> with a compiler <prgn>gfortran 4.4.3</prgn>. Last version has been checked in a  <prgn>Debian Stretch</prgn> box, with a <prgn>gfortran 6.3.0</prgn> compiler.
 
-<p>
+	  <p>
   In this howto we install from scratch the <prgn>Fortran 77</prgn> libraries <prgn>BLAS</prgn> and <prgn>LAPACK</prgn>, and then compile the <prgn>FORTRAN 95</prgn> extension to <prgn>LAPACK</prgn>.
 
 Both <prgn>Debian</prgn> and <prgn>Ubuntu</prgn> systems provide  <prgn>BLAS</prgn> and <prgn>LAPACK</prgn> libraries as native packages and this first step could be skipped and you can ignore next two paragraphs. In any case it may be interesting to compile all the libraries with optimized flags for the system in question.
@@ -5226,6 +5227,71 @@ PROGRAM RANDOM_VECTOR
   !
 END PROGRAM RANDOM_VECTOR
 </example>
+      
+</sect>
+<sect id="sec_fortran_maxl"><heading>Obtaining the values and positions of the larger values in an array </heading> 
+<p>
+Created on July 30th, 2018
+<p>
+  We use the random vector building method of  <ref id="sec_fortran_random">  to build an array of random values and then show how to obtain the indexes and values of the largest elements in each row or column of the array. In order to do so we use the intrinsic procedures <tt>MAXVAL</tt> and <tt>MAXLOC</tt>.
+    <p>
+      Therefore we first create a two dimensional array with 100 random integers in the <tt>0-1</tt> range, display the array and then calculate the maximum values and its index in a column-wise and a row-wise way.
+  <p>
+    <example>
+PROGRAM MAXIMA_VALUES_POSITIONS
+  IMPLICIT NONE
+  INTEGER, PARAMETER :: dim = 10
+  REAL, DIMENSION(1:dim,1:dim) :: ARRAY_VALUES
+  REAL, DIMENSION(1:dim) :: MAX_VALUES
+  INTEGER, DIMENSION(1:dim) :: MAX_INDEX
+  INTEGER, DIMENSION(:), ALLOCATABLE :: pid
+  INTEGER :: index, size=1
+  !
+  ! Get minimum size of the PUT array for RANDOM_SEED
+  CALL RANDOM_SEED(SIZE=size)
+  !
+  ! Allocate and give values to pid array
+  ALLOCATE(pid(1:size))
+  pid = GETPID() 
+  !
+  ! Restart random seed
+  CALL RANDOM_SEED(PUT=pid)
+  !
+  ! Generate random vector
+  CALL RANDOM_NUMBER(ARRAY_VALUES)
+  !
+  ! Display array
+  DO index = 1, dim
+     PRINT 10, index, ARRAY_VALUES(index,:)
+  ENDDO
+  !
+  !
+  PRINT*
+  !
+  !
+  PRINT*, 'MAXIMUM COLUMN-WISE VALUES'
+  MAX_VALUES = MAXVAL(ARRAY_VALUES, 1)
+  MAX_INDEX = MAXLOC(ARRAY_VALUES,1)
+  DO index = 1, dim
+     PRINT 20, index, MAX_INDEX(index), MAX_VALUES(index)
+  ENDDO
+  !
+  PRINT*
+  !
+  PRINT*, 'MAXIMUM ROW-WISE VALUES'
+  MAX_VALUES = MAXVAL(ARRAY_VALUES, 2)
+  MAX_INDEX = MAXLOC(ARRAY_VALUES, 2)
+  DO index = 1, dim
+     PRINT 20, index, MAX_INDEX(index), MAX_VALUES(index)
+  ENDDO
+  !
+10 FORMAT(1X, I2, 1X, *(F6.4, 1X)) ! Note the * in the format statement for variable number of fields
+  !
+20 FORMAT(2X, I2, 1X, I2, 2X, F6.4)
+END PROGRAM MAXIMA_VALUES_POSITIONS
+    </example> 
+    <p>
+Notice that if the second argument to the procedures is one the array is sliced column-wise and if it is two it is sliced row wise.
       
 </sect>
 <sect id="sec_fortran_makefile"><heading>Tips for building a  <prgn>Fortran</prgn> <file>Makefile</file></heading> 

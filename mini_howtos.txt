@@ -120,7 +120,9 @@ Contents
      6.3.      Creating a `Makefile' to use `cpp' with `gfortran'
      6.4.      Obtaining environment variables values from `Fortran'
      6.5.      Creating a vector of random data
-     6.6.      Tips for building a `Fortran' `Makefile'
+     6.6.      Obtaining the values and positions of the larger values in
+               an array
+     6.7.      Tips for building a `Fortran' `Makefile'
 
      7.        Python Tips and Templates
      7.1.      Creating a vector of random data
@@ -4595,7 +4597,78 @@ END PROGRAM Box_Muller_Prog
           END PROGRAM RANDOM_VECTOR
 
 
-6.6. Tips for building a `Fortran' `Makefile'
+6.6. Obtaining the values and positions of the larger values in an array
+------------------------------------------------------------------------
+
+     Created on July 30th, 2018
+
+     We use the random vector building method of Section 6.5, `Creating a
+     vector of random data' to build an array of random values and then
+     show how to obtain the indexes and values of the largest elements in
+     each row or column of the array.  In order to do so we use the
+     intrinsic procedures `MAXVAL' and `MAXLOC'.
+
+     Therefore we first create a two dimensional array with 100 random
+     integers in the `0-1' range, display the array and then calculate the
+     maximum values and its index in a column-wise and a row-wise way.
+
+PROGRAM MAXIMA_VALUES_POSITIONS
+  IMPLICIT NONE
+  INTEGER, PARAMETER :: dim = 10
+  REAL, DIMENSION(1:dim,1:dim) :: ARRAY_VALUES
+  REAL, DIMENSION(1:dim) :: MAX_VALUES
+  INTEGER, DIMENSION(1:dim) :: MAX_INDEX
+  INTEGER, DIMENSION(:), ALLOCATABLE :: pid
+  INTEGER :: index, size=1
+  !
+  ! Get minimum size of the PUT array for RANDOM_SEED
+  CALL RANDOM_SEED(SIZE=size)
+  !
+  ! Allocate and give values to pid array
+  ALLOCATE(pid(1:size))
+  pid = GETPID()
+  !
+  ! Restart random seed
+  CALL RANDOM_SEED(PUT=pid)
+  !
+  ! Generate random vector
+  CALL RANDOM_NUMBER(ARRAY_VALUES)
+  !
+  ! Display array
+  DO index = 1, dim
+     PRINT 10, index, ARRAY_VALUES(index,:)
+  ENDDO
+  !
+  !
+  PRINT*
+  !
+  !
+  PRINT*, 'MAXIMUM COLUMN-WISE VALUES'
+  MAX_VALUES = MAXVAL(ARRAY_VALUES, 1)
+  MAX_INDEX = MAXLOC(ARRAY_VALUES,1)
+  DO index = 1, dim
+     PRINT 20, index, MAX_INDEX(index), MAX_VALUES(index)
+  ENDDO
+  !
+  PRINT*
+  !
+  PRINT*, 'MAXIMUM ROW-WISE VALUES'
+  MAX_VALUES = MAXVAL(ARRAY_VALUES, 2)
+  MAX_INDEX = MAXLOC(ARRAY_VALUES, 2)
+  DO index = 1, dim
+     PRINT 20, index, MAX_INDEX(index), MAX_VALUES(index)
+  ENDDO
+  !
+10 FORMAT(1X, I2, 1X, *(F6.4, 1X)) ! Note the * in the format statement for variable number of fields
+  !
+20 FORMAT(2X, I2, 1X, I2, 2X, F6.4)
+END PROGRAM MAXIMA_VALUES_POSITIONS
+
+     Notice that if the second argument to the procedures is one the array
+     is sliced column-wise and if it is two it is sliced row wise.
+
+
+6.7. Tips for building a `Fortran' `Makefile'
 ---------------------------------------------
 
      Created on March 20th, 2018
