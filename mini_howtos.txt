@@ -171,7 +171,8 @@ Contents
      9.6.      Remove the background of an image in `Gimp'
      9.7.      Take a screenshot using `Gimp'
      9.8.      Change the color of markers in `inkscape'
-     9.9.      Terminal app to extract images from a `pdf' file
+     9.9.      Modify the canvas size of a `Gimp' file
+     9.10.     Terminal app to extract images from a `pdf' file
 
      10.       Miscelanea
      10.1.     Compute the average from the results of `Moodle' test
@@ -5815,8 +5816,28 @@ $ convert Glacial_Map_0.jpg Glacial_Map_1.jpg Glacial_Map_2.jpg +append test.png
           (http://wiki.inkscape.org/wiki/index.php/Frequently_asked_questions#How_do_I_change_the_color_of_markers_.28e.g._arrow_ends.29.3F)
 
 
-9.9. Terminal app to extract images from a `pdf' file
------------------------------------------------------
+9.9. Modify the canvas size of a `Gimp' file
+--------------------------------------------
+
+     Added on November 10th, 2018
+
+     The _canvas_ is the visible area of the `Gimp' image.  By default the
+     canvas and layers size coincides.  The `Canvas Size' command lets you
+     enlarge or reduce the canvas size.  You can also modify the size of
+     the layers.  You can access this command from the image menubar
+     through `Image -- Canvas Size'.
+
+     When you enlarge the canvas, you create free space around the contents
+     of the image.  When you reduce it, the visible area is cropped,
+     however the layers still extend beyond the canvas border.
+
+     When you reduce the canvas size, the new canvas appears surrounded
+     with a thin negative border in the preview.  The mouse pointer is a
+     moving cross: click and drag to move the image against this frame.
+
+
+9.10. Terminal app to extract images from a `pdf' file
+------------------------------------------------------
 
      Added on October 24th, 2017.
 
@@ -5836,8 +5857,8 @@ article_images-002.tif   article_images-005.tif
      native format while `CMYK' files are written as TIFF files and all
      other images are written as `PNG' files.
 
-9.9.1. References
------------------
+9.10.1. References
+------------------
 
      1.   Howto Geek 228796
           (https://www.howtogeek.com/228796/how-to-extract-and-save-images-from-a-pdf-file-in-linux/)

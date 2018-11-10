@@ -6586,6 +6586,18 @@ name="Inkscape FAQ">
 </sect1>
 
 </sect>
+<sect id="sec_gimp_canvas"><heading>Modify the canvas size of a  <prgn>Gimp</prgn> file</heading> 
+<p>
+Added on November 10th, 2018
+<p>
+  The <em>canvas</em> is the visible area of the <prgn>Gimp</prgn>  image. By default the  canvas and layers size coincides. The <tt>Canvas Size</tt> command lets you enlarge or reduce the canvas size. You can also modify the size of the layers. You can access this command from the image menubar through <tt>Image -- Canvas Size</tt>.
+
+  <p>
+    When you enlarge the canvas, you create free space around the contents of the image. When you reduce it, the visible area is cropped, however the layers still extend beyond the canvas border.
+
+<p>When you reduce the canvas size, the new canvas appears surrounded with a thin negative border in the preview. The mouse pointer is a moving cross: click and drag to move the image against this frame.
+
+</sect>
 
 <sect id="sec_extractpdfimg"><heading>Terminal app to extract images from a  <tt>pdf</tt> file</heading> 
 <p>
