@@ -4426,6 +4426,65 @@ that the permission are expressed in octal values. Note also the lack
 of apostrophes in the permisision variables definition.
 
 </sect>
+<sect id="sec_perl_newfilehandle"><heading>Correct way of opening filehandles in <prgn>Perl</prgn></heading> 
+<p>
+Added on December 17th, 2018.
+
+  
+<p>
+  If we need to open for reading a file whose name is encoded in the variable <var>$filename</var>, we create a variable for the filehandle name <tt>$fh</tt>, and we want to stop the program if the file does not exist,  we should use something similar to the following example:
+<p>  
+<example>
+use strict;
+use warnings;
+ 
+my $filename = 'data.txt';
+open(my $fh, '<:encoding(UTF-8)', $filename)
+  or die "Could not open file '$filename' $!";
+ 
+while (my $row = <$fh>) {
+  chomp $row;
+  print "$row\n";
+}
+</example>
+ 
+<p>Notice that the <tt>open</tt> function has three arguments and instead of using only the symbol <tt>\&lt</tt> for reading the encoding is provided.
+
+  <p> In early <prgn>Perl</prgn> versions (prior to 2000) the standard way of doing this would be
+<p>  
+<example>
+use strict;
+use warnings;
+ 
+my $filename = 'data.txt';
+open(IN, "<$filename")
+  or die "Could not open file '$filename' $!";
+ 
+while (my $row = &lt;IN&gt;) {
+  chomp $row;
+  print "$row\n";
+}
+</example>
+<p>
+  In this case only two arguments are given for <tt>open</tt>. The filehandle is <tt>IN</tt>, a global bareword that is not catched by the <tt>use stric</tt> pragma. The problem with this old fashion way is
+  <enumlist>  
+    <item> <tt>IN</tt> is global to all the script with possible clashes.
+    <item> It is difficult to pass the filehandle to functions and subroutines as an argument.
+      <item> Having two parameters the filename variable can make possible to experience unexpected side effects. For example defining <tt>$filename = ">/etc/crontab"</tt> and making possible to modify this file (hopefully you do not run as root your scripts...).
+</enumlist>
+
+<p> Same apply for writing...
+  
+<sect1 id="ref_open_new_filehandles"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="https://perlmaven.com/open-files-in-the-old-way"
+name="PerlMaven.com">
+</enumlist>  
+</sect1>
+
+</sect>
 
 <chapt id="cap_fortran"><heading>Fortran Tips and Templates</heading>
 

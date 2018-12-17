@@ -113,6 +113,7 @@ Contents
      5.8.      `CperlMode' in `Emacs'
      5.9.      Using `Perl' to benchmark code.
      5.10.     Accessing recursively files and directories in `Perl'
+     5.11.     Correct way of opening filehandles in `Perl'
 
      6.        Fortran Tips and Templates
      6.1.      Compile and install the `LAPACK95' interface driver routine.
@@ -3815,6 +3816,68 @@ a 51948052/s 1121%  212%    --
      Notice that the `chmod' function in `Perl' needs that the permission
      are expressed in octal values.  Note also the lack of apostrophes in
      the permisision variables definition.
+
+
+5.11. Correct way of opening filehandles in `Perl'
+--------------------------------------------------
+
+     Added on December 17th, 2018.
+
+     If we need to open for reading a file whose name is encoded in the
+     variable <$filename>, we create a variable for the filehandle name
+     `$fh', and we want to stop the program if the file does not exist, we
+     should use something similar to the following example:
+
+          use strict;
+          use warnings;
+          
+          my $filename = 'data.txt';
+          open(my $fh, '<:encoding(UTF-8)', $filename)
+            or die "Could not open file '$filename' $!";
+          
+          while (my $row = <$fh>) {
+            chomp $row;
+            print "$row\n";
+          }
+
+     Notice that the `open' function has three arguments and instead of
+     using only the symbol `\<' for reading the encoding is provided.
+
+     In early `Perl' versions (prior to 2000) the standard way of doing
+     this would be
+
+          use strict;
+          use warnings;
+          
+          my $filename = 'data.txt';
+          open(IN, "<$filename")
+            or die "Could not open file '$filename' $!";
+          
+          while (my $row = <IN>) {
+            chomp $row;
+            print "$row\n";
+          }
+
+     In this case only two arguments are given for `open'.  The filehandle
+     is `IN', a global bareword that is not catched by the `use stric'
+     pragma.  The problem with this old fashion way is
+
+     1.   `IN' is global to all the script with possible clashes.
+
+     2.   It is difficult to pass the filehandle to functions and
+          subroutines as an argument.
+
+     3.   Having two parameters the filename variable can make possible to
+          experience unexpected side effects.  For example defining
+          `$filename = ">/etc/crontab"' and making possible to modify this
+          file (hopefully you do not run as root your scripts...).
+
+     Same apply for writing...
+
+5.11.1. References
+------------------
+
+     1.   PerlMaven.com (https://perlmaven.com/open-files-in-the-old-way)
 
 
 -------------------------------------------------------------------------------

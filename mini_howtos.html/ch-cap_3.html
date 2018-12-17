@@ -87,6 +87,7 @@
 <link href="ch-cap_3.html#s-sec_38" rel="section" title="5.8 CperlMode in Emacs">
 <link href="ch-cap_3.html#s-sec_39" rel="section" title="5.9 Using Perl to benchmark code.">
 <link href="ch-cap_3.html#s-sec_perlrecdir" rel="section" title="5.10 Accessing recursively files and directories in Perl">
+<link href="ch-cap_3.html#s-sec_perl_newfilehandle" rel="section" title="5.11 Correct way of opening filehandles in Perl">
 <link href="ch-cap_fortran.html#s-sec_06" rel="section" title="6.1 Compile and install the LAPACK95 interface driver routine.">
 <link href="ch-cap_fortran.html#s-sec_07" rel="section" title="6.2 Compile and link statically with NAG and LAPACK">
 <link href="ch-cap_fortran.html#s-sec_cpp_gfortran" rel="section" title="6.3 Creating a Makefile to use cpp with gfortran">
@@ -167,6 +168,7 @@
 <link href="ch-cap_3.html#s-ref_perlipc" rel="subsection" title="5.7.1 References">
 <link href="ch-cap_3.html#s-ref_cperlmode" rel="subsection" title="5.8.1 References">
 <link href="ch-cap_3.html#s-ref_benchmark" rel="subsection" title="5.9.1 References">
+<link href="ch-cap_3.html#s-ref_open_new_filehandles" rel="subsection" title="5.11.1 References">
 <link href="ch-cap_fortran.html#s-make_inc_77" rel="subsection" title="6.1.1 make.inc for LAPACK compilation">
 <link href="ch-cap_fortran.html#s-make_inc_95" rel="subsection" title="6.1.2 make.inc for LAPACK95 compilation">
 <link href="ch-cap_fortran.html#s-sec_prg_example" rel="subsection" title="6.1.3 Example of program using LAPACK95">
@@ -1433,6 +1435,106 @@ Notice that the <samp>chmod</samp> function in <code>Perl</code> needs that the
 permission are expressed in octal values.  Note also the lack of apostrophes in
 the permisision variables definition.
 </p>
+
+<hr>
+
+<h2 id="s-sec_perl_newfilehandle">5.11 Correct way of opening filehandles in <code>Perl</code></h2>
+
+<p>
+Added on December 17th, 2018.
+</p>
+
+<p>
+If we need to open for reading a file whose name is encoded in the variable
+<var>$filename</var>, we create a variable for the filehandle name
+<samp>$fh</samp>, and we want to stop the program if the file does not exist,
+we should use something similar to the following example:
+</p>
+
+<pre>
+     use strict;
+     use warnings;
+      
+     my $filename = 'data.txt';
+     open(my $fh, '&lt;:encoding(UTF-8)', $filename)
+       or die &quot;Could not open file '$filename' $!&quot;;
+      
+     while (my $row = &lt;$fh&gt;) {
+       chomp $row;
+       print &quot;$row\n&quot;;
+     }
+</pre>
+
+<p>
+Notice that the <samp>open</samp> function has three arguments and instead of
+using only the symbol <samp>\&lt;</samp> for reading the encoding is provided.
+</p>
+
+<p>
+In early <code>Perl</code> versions (prior to 2000) the standard way of doing
+this would be
+</p>
+
+<pre>
+     use strict;
+     use warnings;
+      
+     my $filename = 'data.txt';
+     open(IN, &quot;&lt;$filename&quot;)
+       or die &quot;Could not open file '$filename' $!&quot;;
+      
+     while (my $row = &lt;IN&gt;) {
+       chomp $row;
+       print &quot;$row\n&quot;;
+     }
+</pre>
+
+<p>
+In this case only two arguments are given for <samp>open</samp>.  The
+filehandle is <samp>IN</samp>, a global bareword that is not catched by the
+<samp>use stric</samp> pragma.  The problem with this old fashion way is
+</p>
+<ol type="1" start="1" >
+<li>
+<p>
+<samp>IN</samp> is global to all the script with possible clashes.
+</p>
+</li>
+</ol>
+<ol type="1" start="2" >
+<li>
+<p>
+It is difficult to pass the filehandle to functions and subroutines as an
+argument.
+</p>
+</li>
+</ol>
+<ol type="1" start="3" >
+<li>
+<p>
+Having two parameters the filename variable can make possible to experience
+unexpected side effects.  For example defining <samp>$filename =
+&quot;&gt;/etc/crontab&quot;</samp> and making possible to modify this file
+(hopefully you do not run as root your scripts...).
+</p>
+</li>
+</ol>
+
+<p>
+Same apply for writing...
+</p>
+
+<hr>
+
+<h3 id="s-ref_open_new_filehandles">5.11.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="https://perlmaven.com/open-files-in-the-old-way">PerlMaven.com</a></code>
+</p>
+</li>
+</ol>
 
 <hr>
 
