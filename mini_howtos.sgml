@@ -3426,6 +3426,32 @@ name="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">
 name="Emacs Manual">
 </enumlist>  
 </sect1>
+
+<sect id="sec_notes2bib"><heading>Including comments and footnotes in the References section</heading> 
+<p>
+Created on January 2nd, 2019.
+
+<p>
+  The inclusion of footnotes and remarks in the reference list is provided by the package <tt>notes2bib</tt>.  To load the package, include a line  <tt>\usepackage{notes2bib}</tt> in the text head. Then any footnote content or relevant note can be deal with the command <tt>\bibnote</tt> as follows
+  
+<p>
+<example>
+There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
+related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+</example>
+<p>
+  Note that if you do not include the empty squared braces option in <tt>bibnote</tt> a label to your comment will be added in addition to the reference keynote.
+  
+<p>
+<sect1 id="ref_notes2bib"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf"
+name="notes2bib documentation">
+</enumlist>  
+</sect1>
+
 </sect>
 
 

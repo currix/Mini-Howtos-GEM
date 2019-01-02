@@ -77,6 +77,7 @@
 <link href="ch-cap_emacs.html#s-sec_emacs_init" rel="section" title="4.4 Reading init file .emacs">
 <link href="ch-cap_emacs.html#s-sec_comment" rel="section" title="4.5 Commenting a region of a code in Emacs">
 <link href="ch-cap_emacs.html#s-sec_emacs_orgmode" rel="section" title="4.6 Emacs org-mode">
+<link href="ch-cap_emacs.html#s-sec_notes2bib" rel="section" title="4.7 Including comments and footnotes in the References section">
 <link href="ch-cap_3.html#s-sec_31" rel="section" title="5.1 Installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_32" rel="section" title="5.2 Interesting perl oneliners">
 <link href="ch-cap_3.html#s-sec_33" rel="section" title="5.3 Environment Codification and Character Ordering">
@@ -162,6 +163,7 @@
 <link href="ch-cap_emacs.html#s-ref_emacs_init" rel="subsection" title="4.4.1 References">
 <link href="ch-cap_emacs.html#s-ref_comment" rel="subsection" title="4.5.1 References">
 <link href="ch-cap_emacs.html#s-ref_emacs_orgmode" rel="subsection" title="4.6.1 References">
+<link href="ch-cap_emacs.html#s-ref_notes2bib" rel="subsection" title="4.7.1 References">
 <link href="ch-cap_3.html#s-sec_311" rel="subsection" title="5.1.1 First alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-sec_312" rel="subsection" title="5.1.2 Second alternative for installing a CPAN module">
 <link href="ch-cap_3.html#s-ref_codifs" rel="subsection" title="5.3.1 References">
@@ -517,6 +519,46 @@ href="http://www.emacs.uniyar.ac.ru/doc/em24h/emacs112.htm">http://www.emacs.uni
 <code><a
 href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html">Emacs
 Manual</a></code>
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h2 id="s-sec_notes2bib">4.7 Including comments and footnotes in the References section</h2>
+
+<p>
+Created on January 2nd, 2019.
+</p>
+
+<p>
+The inclusion of footnotes and remarks in the reference list is provided by the
+package <samp>notes2bib</samp>.  To load the package, include a line
+<samp>\usepackage{notes2bib}</samp> in the text head.  Then any footnote
+content or relevant note can be deal with the command <samp>\bibnote</samp> as
+follows
+</p>
+
+<pre>
+     There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
+     related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+</pre>
+
+<p>
+Note that if you do not include the empty squared braces option in
+<samp>bibnote</samp> a label to your comment will be added in addition to the
+reference keynote.
+</p>
+
+<hr>
+
+<h3 id="s-ref_notes2bib">4.7.1 References</h3>
+<ol type="1" start="1" >
+<li>
+<p>
+<code><a
+href="http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf">notes2bib
+documentation</a></code>
 </p>
 </li>
 </ol>

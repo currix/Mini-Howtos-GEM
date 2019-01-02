@@ -101,6 +101,7 @@ Contents
      4.4.      Reading init file `.emacs'
      4.5.      Commenting a region of a code in `Emacs'
      4.6.      `Emacs' `org-mode'
+     4.7.      Including comments and footnotes in the References section
 
      5.        Perl Language
      5.1.      Installing a `CPAN' module
@@ -2974,6 +2975,31 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
 
      2.   Emacs Manual
           (http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html)
+
+
+4.7. Including comments and footnotes in the References section
+---------------------------------------------------------------
+
+     Created on January 2nd, 2019.
+
+     The inclusion of footnotes and remarks in the reference list is
+     provided by the package `notes2bib'.  To load the package, include a
+     line `\usepackage{notes2bib}' in the text head.  Then any footnote
+     content or relevant note can be deal with the command `\bibnote' as
+     follows
+
+There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
+related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+
+     Note that if you do not include the empty squared braces option in
+     `bibnote' a label to your comment will be added in addition to the
+     reference keynote.
+
+4.7.1. References
+-----------------
+
+     1.   notes2bib documentation
+          (http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf)
 
 
 -------------------------------------------------------------------------------
