@@ -5192,7 +5192,13 @@ session.
 8. Text Processing and Formatting
 ---------------------------------
 
-     You can find the translation of this chapter to Hindi in this link
+     _Translations of this chapter:_
+
+     You can find a translation into Ukranian
+     (http://www.katrinastillstanding.com/how-to-gnu-linux/) by Kate
+     Belevets of OhMyEssay.com (https://ohmyessay.com/).
+
+     You can find a translation to Hindi in this link
      (https://dealsdaddy.co.uk/translations/textprocessingformatting/)
 
 
