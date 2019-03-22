@@ -2406,12 +2406,15 @@ CONFIG_EFI_VARS=m
 CONFIG_EFI_PARTITION=y
 </example> 
 </sect>
-<sect id="sec_parted">Formatting HD partitions larger than 2 TB
+<sect id="sec_parted">Using <tt>parted</tt> to partition memory sticks or formatting HD partitions larger than 2 TB
 <p>
 Added on January 8th, 2013.
+<p>
+Updated on March 22nd, 2019.
 
 <p>
-The first step is to check whether your kernel has been compiled with
+Let's start with the larger than 2 TB partitions. The first step is to
+check whether your kernel has been compiled with
 the <tt>CONFIG_EFI_PARTITION</tt> option turned on
 (see <ref id="sec_modcompopt">). If this is so, let's assume that the
 device assigned to the HD that will be partitioned
@@ -2582,11 +2585,124 @@ The final result is
 </example>
 <p>
 If necessary, reboot and check that the partition is correctly mounted.
+
+<p>
+This article was originally written for servers, but after having several times trouble with formatting and creating partitions in memory sticks I decided to update it and address some of the usual problems I face. 
+
+<sect1 id="ref_parted1"><heading>Message <tt>Warning: The driver descriptor says the physical block size is 2048 bytes, but
+Linux says it is 512 bytes.</tt></heading> 
+
+  <p> As I learned on the references, this was probably caused by writing an image to the disk using <tt>dd</tt> with the wrong blocksize. This happens to me with a memory stick. Once I umounted the partition and run <tt>parted</tt> I got
+
+<p>
+<example>
+root@modesto:~# parted /dev/sdc
+GNU Parted 3.2
+Using /dev/sdc
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) print
+Warning: The driver descriptor says the physical block size is 2048 bytes, but
+Linux says it is 512 bytes.
+Ignore/Cancel? C
+Model: TOSHIBA TransMemory (scsi)
+Disk /dev/sdc: 7759MB
+Sector size (logical/physical): 512B/512B
+Partition Table: unknown
+Disk Flags: 
+(parted) quit                                                             
+root@modesto:~#               
+</example>
+
+We should wipe out all info in the disk. Be extra careful and do not mix up the device label or you may end erasing all info in the wrong unit... So we check again the units using a command line <tt>parted</tt> with the option <tt>--list</tt>
+<p>
+<example>
+root@modesto:~# parted --list
+Model: ATA Micron 1100 SATA (scsi)
+Disk /dev/sda: 256GB
+Sector size (logical/physical): 512B/4096B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End    Size    File system     Name                  Flags
+ 1      1049kB  630MB  629MB   fat32           EFI system partition  boot, esp
+ 2      630MB   222GB  221GB   ext4            DEBIAN
+ 4      222GB   256GB  34.1GB  linux-swap(v1)
+
+
+Warning: The driver descriptor says the physical block size is 2048 bytes, but
+Linux says it is 512 bytes.
+Ignore/Cancel? I                                                          
+Model: TOSHIBA TransMemory (scsi)
+Disk /dev/sdb: 31.0GB
+Sector size (logical/physical): 2048B/512B
+Partition Table: mac
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name   Flags
+ 1      2048B   6143B   4096B                Apple
+ 2      1925MB  1928MB  2392kB               EFI
+
+
+</example>
+<p> So the wrong unit is <tt>/dev/sdb</tt> which truly has a 8GB size. Let's wiipe it out.
+  <p>
+    <example>
+root@modesto:~# wipefs --all /dev/sdb
+/dev/sdb: 5 bytes were erased at offset 0x00008001 (iso9660): 43 44 30 30 31
+/dev/sdb: 2 bytes were erased at offset 0x000001fe (dos): 55 aa
+/dev/sdb: 8 bytes were erased at offset 0x00000200 (gpt): 45 46 49 20 50 41 52 54
+/dev/sdb: 2 bytes were erased at offset 0x00000000 (mac): 45 52
+/dev/sdb: calling ioctl to re-read partition table: Success
+
+    </example>
+    <p>
+      And now let's create a new partition and filesystem with <tt>parted</tt>
+      <p>
+      <example>root@modesto:~# parted /dev/sdb
+GNU Parted 3.2
+Using /dev/sdb
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) print                                                            
+Error: /dev/sdb: unrecognised disk label
+Model: TOSHIBA TransMemory (scsi)                                         
+Disk /dev/sdb: 7759MB
+Sector size (logical/physical): 512B/512B
+Partition Table: unknown
+Disk Flags: 
+(parted) mklabel gpt
+(parted) mkpart                                                           
+Partition name?  []? data                                                 
+File system type?  [ext2]? fat32                                          
+Start? 0                                                                  
+End? -1                                                                   
+Warning: The resulting partition is not properly aligned for best performance.
+Ignore/Cancel? I                                                          
+(parted) print                                                            
+Model: TOSHIBA TransMemory (scsi)
+Disk /dev/sdb: 7759MB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name  Flags
+ 1      17.4kB  7758MB  7758MB  fat32        data
+
+(parted) quit                                                             
+Information: You may need to update /etc/fstab.
+
+root@modesto:~# mkfs.vfat /dev/sdb1
+mkfs.fat 4.1 (2017-01-24)
+root@modesto:~# 
+      </example>
+      <p>
+	<em> TODO </em> Get rid of <tt>The resulting partition is not properly aligned for best performance</tt> warning.
 <sect1 id="ref_parted"><heading>References</heading> 
 <p>
 <enumlist>  
 <item><url id="http://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html"
 name="Cyberciti">
+<item><url id="https://bugs.launchpad.net/ubuntu/+source/usb-creator/+bug/1708881"
+name="USB Stick corrupted">
 </enumlist>  
 </sect1>
 
@@ -5820,8 +5936,11 @@ name="Stack Exchange Ipython Qtconsole Buffer Limit">
   <p>
     You can find a <url id="http://www.katrinastillstanding.com/how-to-gnu-linux/" name="translation into Ukranian"> by Kate Belevets of  <url id="https://ohmyessay.com/" name="OhMyEssay.com">.
   <p>
-    You can find a translation to Hindi in <url id="https://dealsdaddy.co.uk/translations/textprocessingformatting/"
-name="this link">
+    You can find a translation to French by Maxwell Edward in <url id="https://fateknoloji.com/perez/"
+name="this link">.
+  <p>
+    You can find a translation to Hindi by Mahesh Varma in <url id="https://dealsdaddy.co.uk/translations/textprocessingformatting/"
+name="this link">.
 <sect id="sec_411"><heading><prgn>pdftk</prgn> application examples</heading> 
 <p>
 Updated on April 18th, 2017.
