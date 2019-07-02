@@ -6600,6 +6600,17 @@ x        x                x
 </enumlist>  
 </sect1>
 </sect>
+<sect id="sec_bibinclude"><heading>Including <prgn>BibTeX</prgn> References in the <prgn>TeX</prgn> source file</heading> 
+<p>
+Added on July 2nd, 2019.
+
+<p>Once you successfully compile your <prgn>LaTeX</prgn> source, including external references with <prgn>bibtex</prgn> from a bibfile you can include the references into the <prgn>LaTeX</prgn> source following two steps.
+
+  <p>
+    First, remove the line in your <tt>tex</tt> file defining the bibliography, e.g. <tt>\bibliography{xxx}</tt>, and then insert in the file the contents of the <tt>bbl</tt> file previously generated.  Remove then the existing <tt>aux</tt> file and recompile.
+
+
+
 <chapt id="cap_5"><heading>Graphic Edition</heading> 
 
 <sect id="sec_51"><heading>Include greek characters

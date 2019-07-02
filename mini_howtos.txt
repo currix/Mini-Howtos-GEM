@@ -164,6 +164,7 @@ Contents
      8.17.     Including single column figures or tables in a double column
                `LaTeX' document
      8.18.     Controlling horizontal spacing in `LaTeX'
+     8.19.     Including `BibTeX' References in the `TeX' source file
 
      9.        Graphic Edition
      9.1.      Include greek characters in `inkscape'
@@ -5852,6 +5853,21 @@ document
 
      1.   Horizontal Space LaTeX WikiBooks
           (http://en.wikibooks.org/wiki/LaTeX/Formatting#Horizontal_Space)
+
+
+8.19. Including `BibTeX' References in the `TeX' source file
+------------------------------------------------------------
+
+     Added on July 2nd, 2019.
+
+     Once you successfully compile your `LaTeX' source, including external
+     references with `bibtex' from a bibfile you can include the references
+     into the `LaTeX' source following two steps.
+
+     First, remove the line in your `tex' file defining the bibliography,
+     e.g.  `\bibliography{xxx}', and then insert in the file the contents
+     of the `bbl' file previously generated.  Remove then the existing
+     `aux' file and recompile.
 
 
 -------------------------------------------------------------------------------
