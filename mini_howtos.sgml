@@ -1406,22 +1406,22 @@ managed=true
 solve the problem.
 
 </sect>
-<sect id="sec_022"><heading>Updating <prgn>Debian</prgn> 
-      from <prgn>Wheezy</prgn> to <prgn>Jessie</prgn></heading>
+<sect id="sec_022"><heading>Updating <prgn>Debian</prgn></heading>
 
-<p>
-Updated on January 19, 2011.
+    <p>From <prgn>Wheezy</prgn> to <prgn>Jessie</prgn>. Updated on January 19, 2011.
+  
+  <p>From <prgn>Stretch</prgn> to <prgn>Buster</prgn>. Updated on July 18, 2019.
 
 
 <p>A sensible previous step is to backup some files and directories
 
 <p>
 <example> 
-# tar czf /temp/bck_dck/etc.tgz /etc &
-# tar czf /temp/bck_dck/var_lib_dpkg.tgz /var/lib/dpkg/ &
-# tar czf /temp/bck_dck/var_lib_apt.tgz /var/lib/apt/ &
-# dpkg --get-selections "*" > /temp/bck_dck/selections.txt 
-# tar czf /temp/bck_dck/var_lib_aptitude_pkgstates.tgz /var/lib/aptitud
+# tar czf ~/tmp/etc.tgz /etc &
+# tar czf ~/tmp/var_lib_dpkg.tgz /var/lib/dpkg/ &
+# tar czf ~/tmp/var_lib_apt.tgz /var/lib/apt/ &
+# dpkg --get-selections "*" > ~/tmp/selections.txt 
+# tar czf ~/tmp/var_lib_aptitude_pkgstates.tgz /var/lib/aptitude
 </example>
 
 <p> In order to gain an extra safety margin when upgrading remotely, we suggest that you run upgrade processes in the virtual console provided by <prgn>screen</prgn>, which enables safe reconnection and ensures the upgrade process is not interrupted even if the remote connection process fails.
@@ -1503,25 +1503,97 @@ E: Internal error: couldn't generate list of packages to download
 No packages on hold
 </example>
 
-<p>Edit <file>/etc/apt/sources.list</file>  replacing wheezy by jessie
+<p>
+Run  <tt>apt-get full-upgrade</tt> which will perform a major version upgrade an may remove some redundant or non-needed packages
+<p>
+<example> 
+# apt-get full-upgrade
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  linux-image-4.9.0-4-amd64 linux-image-4.9.0-5-amd64
+  linux-image-4.9.0-6-amd64 linux-image-4.9.0-7-amd64
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+</example>
+
+<p>
+  Run  <tt>apt autoremove</tt> to remove automatically installed dependencies no further needed. Notice that we are using the new implementation <prgn>apt</prgn> instead of <prgn>apt-get</prgn>. In case this is not woprking in your system reverts to <prgn>apt-get</prgn>. To check the differences between the two check references.  
+<p>
+<example> 
+# apt autoremove
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be REMOVED:
+  linux-image-4.9.0-4-amd64 linux-image-4.9.0-5-amd64
+  linux-image-4.9.0-6-amd64 linux-image-4.9.0-7-amd64
+0 upgraded, 0 newly installed, 4 to remove and 0 not upgraded.
+After this operation, 765 MB disk space will be freed.
+Do you want to continue? [Y/n]
+(Reading database ... 433814 files and directories currently installed.)
+Removing linux-image-4.9.0-4-amd64 (4.9.65-3+deb9u1) ...
+/etc/kernel/postrm.d/initramfs-tools:
+update-initramfs: Deleting /boot/initrd.img-4.9.0-4-amd64
+/etc/kernel/postrm.d/zz-update-grub:
+Generating grub configuration file ...
+Found background image: /usr/share/images/desktop-base/desktop-grub.png
+Found linux image: /boot/vmlinuz-4.9.0-9-amd64
+Found initrd image: /boot/initrd.img-4.9.0-9-amd64
+Found linux image: /boot/vmlinuz-4.9.0-8-amd64
+Found initrd image: /boot/initrd.img-4.9.0-8-amd64
+Found linux image: /boot/vmlinuz-4.9.0-7-amd64
+Found initrd image: /boot/initrd.img-4.9.0-7-amd64
+Found linux image: /boot/vmlinuz-4.9.0-6-amd64
+Found initrd image: /boot/initrd.img-4.9.0-6-amd64
+Found linux image: /boot/vmlinuz-4.9.0-5-amd64
+Found initrd image: /boot/initrd.img-4.9.0-5-amd64
+Found linux image: /boot/vmlinuz-4.9.0-3-amd64
+Found initrd image: /boot/initrd.img-4.9.0-3-amd64
+.
+.
+.
+Removing linux-image-4.9.0-7-amd64 (4.9.110-3+deb9u2) ...
+/etc/kernel/postrm.d/initramfs-tools:
+update-initramfs: Deleting /boot/initrd.img-4.9.0-7-amd64
+/etc/kernel/postrm.d/zz-update-grub:
+Generating grub configuration file ...
+Found background image: /usr/share/images/desktop-base/desktop-grub.png
+Found linux image: /boot/vmlinuz-4.9.0-9-amd64
+Found initrd image: /boot/initrd.img-4.9.0-9-amd64
+Found linux image: /boot/vmlinuz-4.9.0-8-amd64
+Found initrd image: /boot/initrd.img-4.9.0-8-amd64
+Found linux image: /boot/vmlinuz-4.9.0-3-amd64
+Found initrd image: /boot/initrd.img-4.9.0-3-amd64
+Adding boot menu entry for EFI firmware configuration
+done
+</example>
+
+<p>Edit <file>/etc/apt/sources.list</file>  replacing stretch by buster (previously wheezy by jessie)
 
 <p>
 <example> 
-# vi sources.list
-# cat sources.list
+/etc/apt# cat sources.list
 # 
-#deb http://ftp.de.debian.org/debian/ wheezy  main contrib non-free
-#deb-src http://ftp.de.debian.org/debian/ wheezy main contrib non-free
-deb http://ftp.de.debian.org/debian/ jessie  main contrib non-free
-deb-src http://ftp.de.debian.org/debian/ jessie main contrib non-free
 
-#deb http://security.debian.org/ wheezy/updates main contrib non-free
-#deb-src http://security.debian.org/ wheezy/updates main contrib non-free
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
+# deb cdrom:[Official Debian GNU/Linux Live 9.1.0 xfce 2017-07-23T01:37]/ buster main
+
+#deb cdrom:[Official Debian GNU/Linux Live 9.1.0 xfce 2017-07-23T01:37]/ buster main
+
+deb http://ftp.es.debian.org/debian/ buster main non-free contrib
+deb-src http://ftp.es.debian.org/debian/ buster main non-free contrib
+
+deb http://security.debian.org/debian-security buster/updates main contrib non-free
+deb-src http://security.debian.org/debian-security buster/updates main contrib non-free
+
+# buster-updates, previously known as 'volatile'
+deb http://ftp.es.debian.org/debian/ buster-updates main contrib non-free
+deb-src http://ftp.es.debian.org/debian/ buster-updates main contrib non-free
 </example>
 
-<p>Upgrade packages using the package management tool <prgn>apt-get</prgn>. In previous releases, <prgn>aptitude</prgn> was recommended for this purpose, but recent versions of  <prgn>apt-get</prgn> provide equivalent functionality and also have shown to more consistently give the desired upgrade results.
+<p>Upgrade packages using the package management tool <prgn>apt</prgn> (or <prgn>apt-get</prgn>, see references). In previous releases, <prgn>aptitude</prgn> was recommended for this purpose, but recent versions of  <prgn>apt</prgn> provide equivalent functionality and also have shown to more consistently give the desired upgrade results.
 
   Use <prgn>/usr/bin/script</prgn> program to record a transcript of
   the upgrade session. Then if a problem occurs, you will have a log
@@ -1529,8 +1601,8 @@ deb-src http://security.debian.org/ jessie/updates main contrib non-free
 
 <p>
 <example> 
-# script -t 2>~/upgrade-jessiestep.time -a ~/upgrade-jessiestep.script
-Script started, file is /root/upgrade-jessiestep.script
+# script -t 2>~/upgrade-busterstep.time -a ~/upgrade-busterstep.script
+Script started, file is /root/upgrade-busterstep.script
 # 
 </example>
 
@@ -1539,7 +1611,7 @@ Update package list
 
 <p>
 <example> 
-# apt-get update
+# apt update
 </example>
 
 <p>
@@ -1547,7 +1619,7 @@ Check if you have enough space for the update
 
 <p>
 <example> 
-# apt-get -o APT::Get::Trivial-Only=true dist-upgrade
+# apt -o APT::Get::Trivial-Only=true dist-upgrade
 ....
   xserver-xorg-video-fbdev xserver-xorg-video-geode xserver-xorg-video-intel xserver-xorg-video-mach64 xserver-xorg-video-mga
   xserver-xorg-video-neomagic xserver-xorg-video-nouveau xserver-xorg-video-openchrome xserver-xorg-video-r128
@@ -1576,191 +1648,216 @@ lock  partial
 <p>
 Proceed to a minimal system upgrade to overcome deleting a large
 number of packages and some possible inconsistencies, and then a full
-upgrade. To do this run first <tt>apt-get upgrade</tt> followed
-by <tt>apt-get dist-upgrade</tt>. In case the error message indicates
+upgrade. To do this run first <tt>apt upgrade</tt> (<tt>apt-get upgrade</tt> in previous versions) followed
+by <tt>apt fullupgrade</tt> (<tt>apt-get dist-upgrade</tt>). In case the error message indicates
 so, like in the following example, run <tt>apt-get -f install</tt>
 
 <p>
 <example> 
-# apt-get upgrade
-
-...
-Running updmap-sys. This may take some time... done.
-Running mktexlsr /var/lib/texmf ... done.
-Processing triggers for initramfs-tools ...
-update-initramfs: Generating /boot/initrd.img-3.2.0-4-686-pae
-Processing triggers for python-support ...
-Processing triggers for menu ...
-
-# apt-get dist-upgrade
-
-....
-
-dpkg: error processing package libgtk-3-0:i386 (--configure):
- dependency problems - leaving unconfigured
-Processing triggers for libc-bin (2.19-18+deb8u1) ...
-Errors were encountered while processing:
- libpango-1.0-0:i386
- libpangoft2-1.0-0:i386
- libpangocairo-1.0-0:i386
- libgtk-3-bin
- librsvg2-2:i386
- librsvg2-common:i386
- adwaita-icon-theme
- libgtk-3-common
- libgtk-3-0:i386
-E: Sub-process /usr/bin/dpkg returned an error code (1)
-deckard:~# 
-deckard:~# apt-get dist-upgrade
+# apt upgrade
+root@modesto:~# apt upgrade
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
-You might want to run 'apt-get -f install' to correct these.
+Calculating upgrade... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
 The following packages have unmet dependencies:
- cgmanager : Depends: init-system-helpers (>= 1.18~) but it is not installed
- cups-daemon : Depends: init-system-helpers (>= 1.18~) but it is not installed
-               Recommends: cups-browsed but it is not installed
-               Recommends: avahi-daemon (>= 0.6.31-3~) but 0.6.31-2 is installed
- dpkg : Breaks: fontconfig (< 2.11.0-6.2~) but 2.9.0-7.1 is installed
-        Breaks: man-db (< 2.6.3-6~) but 2.6.2-1 is installed
- emacs24 : Depends: libmagickcore-6.q16-2 (>= 8:6.8.8.2) but it is not installed
- grace : Depends: libxbae4m (>= 4.60.2) but it is not installed
-         Depends: libxmhtml1.1 (>= 1.1.9) but it is not installed
- libmagickwand-6.q16-2 : Depends: libmagickcore-6.q16-2 (>= 8:6.8.9.9) but it is not installed
- libperl5.20 : Depends: perl-base (= 5.20.2-3+deb8u1) but 5.14.2-21+deb7u2 is installed
- policycoreutils : Depends: init-system-helpers (>= 1.18~) but it is not installed
-                   Recommends: python-audit but it is not installed
-E: Unmet dependencies. Try using -f.
-
-deckard:~# apt-get -f install
-....
-  libclass-c3-xs-perl libcpan-meta-perl libdata-optlist-perl libdata-section-perl libfcgi-perl libgadu3 liblog-message-perl
-  liblog-message-simple-perl libmagickcore-6.q16-2 libmodule-build-perl libmodule-pluggable-perl libmodule-signature-perl
-  libmro-compat-perl libpackage-constants-perl libparams-util-perl libperl4-corelibs-perl libpod-latex-perl libpod-readme-perl
-  libprotobuf-c1 libregexp-common-perl libsoftware-license-perl libsub-exporter-perl libsub-install-perl libterm-ui-perl
-  libtext-soundex-perl libtext-template-perl libxbae4m libxmhtml1.1 rename
-The following packages will be upgraded:
-  fontconfig libalgorithm-diff-xs-perl libbit-vector-perl libfile-fcntllock-perl libgeant321-2-gfortran libhtml-parser-perl
-  libio-pty-perl liblocale-gettext-perl libnet-dbus-perl libnet-ssleay-perl libpawlib-lesstif3-gfortran libpawlib2-dev
-  libpawlib2-gfortran libpipeline1 libpurple0 libsocket-perl libtext-charwidth-perl libtext-iconv-perl libuuid-perl libxbae-dev
-  libxml-parser-perl libyaml-syck-perl man-db paw++ perl perl-base perl-doc perl-modules perl-tk pidgin pidgin-data
-31 upgraded, 35 newly installed, 7 to remove and 1041 not upgraded.
-343 not fully installed or removed.
-Need to get 0 B/31.0 MB of archives.
-After this operation, 5,868 kB of additional disk space will be used.
-Do you want to continue [Y/n]? 
-......Setting up gnome-themes-standard:i386 (3.14.2.2-1) ...
-Processing triggers for libc-bin (2.19-18+deb8u1) ...
-Processing triggers for menu (2.1.46) ...
-Processing triggers for libgdk-pixbuf2.0-0:i386 (2.31.1-2+deb8u4) ...
-Processing triggers for systemd (215-17+deb8u2) ...
-Processing triggers for auctex (11.87-3+deb8u1) ...
-update-auctex-elisp[8251]: Will scan macros for Emacs flavor emacs24 (log to /var/lib/auctex/emacs24/CompilationLog)
-update-auctex-elisp[8251]: Will scan macros for Emacs flavor emacs23 (log to /var/lib/auctex/emacs23/CompilationLog)
-# 
+ inetutils-ping : Conflicts: ping
+E: Broken packages
 </example>
 
-<p>
-  Success... Now run <tt>apt-get update</tt> and <tt>upgrade</tt> to
-  check that the system has been correctly updated and
-  edit <file>/etc/apt/sources.list.d/dropbox.list</file> in case it
-  exists and change it to
-
+<p>This error can be overcome removing the package <tt>interutils-ping</tt>
 <p>
 <example> 
-deckard:/etc/apt/sources.list.d# cat dropbox.list 
-deb [arch=i386,amd64] http://linux.dropbox.com/debian jessie main
-</example>
-
-<p>Rerun <tt>apt-get update</tt> and <tt>apt-get upgrade</tt> until no
-  more errors are found. If required run <tt>apt-get autoremove</tt>
-
-<p>
-<example> 
-# apt-get upgrade
-.....
-Processing triggers for libc-bin (2.19-18+deb8u1) ...
-Processing triggers for systemd (215-17+deb8u2) ...
-Processing triggers for dbus (1.8.20-0+deb8u1) ...
-Processing triggers for menu (2.1.47) ...
-Processing triggers for python-support (1.0.15) ...
-Processing triggers for initramfs-tools (0.120) ...
-update-initramfs: Generating /boot/initrd.img-3.2.0-4-686-pae
-# 
-# apt-get update
-# apt-get upgrade
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... The following packages were automatically installed and are no longer required:
-  cernlib-core cernlib-montecarlo dzedit geant321-data geant321-doc html2text kdebase-bin kdebase-runtime kuipc kxterm lesstif2-dev
-  ......
-  m17n-contrib montecarlo-base montecarlo-data nypatchy paw paw++ paw-common paw-demos x11proto-print-dev
-Use 'apt-get autoremove' to remove them.
-Done
-The following packages have been kept back:
-  alsa-utils amarok amarok-common amarok-utils aptitude aptitude-common banshee base-passwd bind9-host blt brasero brasero-common
-  bwidget colord console-common console-data default-jre default-jre-headless dia dia-common dia-libs diffpdf dnsmasq-base dnsutils
-  docutils-common dolphin etherape exiv2 exo-utils fail2ban fakeroot file-roller flex fop gettext gir1.2-gnomebluetooth-1.0
-............
-  xfce4-power-manager-data xfce4-quicklauncher-plugin xfce4-screenshooter xfce4-sensors-plugin xfce4-session xfce4-settings
-  xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-terminal xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin
-  xfce4-weather-plugin xfce4-xkb-plugin xfconf xfdesktop4 xfdesktop4-data xfwm4 xfwm4-themes xpra yelp
-0 upgraded, 0 newly installed, 0 to remove and 560 not upgraded.
-# apt-get autoremove
-.......
-Removing montecarlo-base (20061220+dfsg3-3) ...
-Removing paw-common (1:2.14.04.dfsg.2-9) ...
-Removing x11proto-print-dev (1.0.5-2) ...
-Removing libmathlib2-gfortran (20061220+dfsg3-2) ...
-Removing libpacklib1-gfortran (20061220+dfsg3-2) ...
-Removing libkernlib1-gfortran (20061220+dfsg3-2) ...
-Processing triggers for man-db (2.7.0.2-5) ...
-Processing triggers for libc-bin (2.19-18+deb8u1) ...
-Processing triggers for doc-base (0.10.6) ...
-Processing 6 removed doc-base files, 2 added doc-base files...
-Error while merging /usr/share/doc-base/kino-en with /usr/share/doc-base/kino-fr: format html already defined.
-Registering documents with scrollkeeper...
-Processing triggers for mime-support (3.58) ...
-Processing triggers for desktop-file-utils (0.22-1) ...
-Processing triggers for menu (2.1.47) ...
-Processing triggers for hal (0.5.14-8) ...
-Regenerating hal fdi cache ...
-Processing triggers for hicolor-icon-theme (0.13-1) ...
-# 
-# apt-get update
-# apt-get upgrade
-....................
-  xfce4-diskperf-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mixer xfce4-mount-plugin
-  xfce4-netload-plugin xfce4-notes xfce4-notes-plugin xfce4-notifyd xfce4-panel xfce4-places-plugin xfce4-power-manager
-  xfce4-power-manager-data xfce4-quicklauncher-plugin xfce4-screenshooter xfce4-sensors-plugin xfce4-session xfce4-settings
-  xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-terminal xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin
-  xfce4-weather-plugin xfce4-xkb-plugin xfconf xfdesktop4 xfdesktop4-data xfwm4 xfwm4-themes xpra yelp
-0 upgraded, 0 newly installed, 0 to remove and 548 not upgraded.
-deckard:~# 
-deckard:~# apt-get dist-upgrade
-.....
-Setting up libmono-compilerservices-symbolwriter4.0-cil (3.2.8+dfsg-10) ...
-Setting up tomboy (1.14.1-3) ...
-Processing triggers for systemd (215-17+deb8u2) ...
-Processing triggers for libc-bin (2.19-18+deb8u1) ...
-Processing triggers for menu (2.1.47) ...
-Processing triggers for dbus (1.8.20-0+deb8u1) ...
-Processing triggers for python-support (1.0.15) ...
-Processing triggers for rygel (0.24.2-1+b1) ...
-# 
-# apt-get upgrade
+# apt remove inetutils-ping
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
-Calculating upgrade... The following packages were automatically installed and are no longer required:
-  gcj-4.6-base gcj-4.6-jre-lib gcj-4.7-base gcj-4.7-jre-lib gir1.2-gnomebluetooth-1.0 gnome-js-common kdemultimedia-kio-plugins
-  ........
-  squeeze texlive-luatex tsconf ttf-dejavu ttf-liberation ttf-marvosym ttf-sil-gentium-basic xbase-clients xfprint4
-Use 'apt-get autoremove' to remove them.
-Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-deckard:~# apt-get autoremove
+The following packages will be REMOVED:
+  inetutils-ping
+0 upgraded, 0 newly installed, 1 to remove and 2179 not upgraded.
+After this operation, 345 kB disk space will be freed.
+Do you want to continue? [Y/n] 
+(Reading database ... 416910 files and directories currently installed.)
+Removing inetutils-ping (2:1.9.4-2+b1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+...
+</example>
+<p>During the update there was an error, the load spiked up and had to open a console and reattch to the screen session, stop and kill the process, remove the lock files and run <tt>dpkg --configure -a</tt> with the final output.
+<p>
+<example> 
+W: Possible missing firmware /lib/firmware/i915/bxt_dmc_ver1_07.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/skl_dmc_ver1_27.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/kbl_dmc_ver1_04.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/cnl_dmc_ver1_07.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/glk_dmc_ver1_04.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/kbl_guc_ver9_39.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/bxt_guc_ver9_29.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/skl_guc_ver9_33.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/kbl_huc_ver02_00_1810.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/bxt_huc_ver01_07_1398.bin for module i915
+W: Possible missing firmware /lib/firmware/i915/skl_huc_ver01_07_1398.bin for module i915
+Processing triggers for systemd (241-5) ...
+Processing triggers for sgml-base (1.29) ...
+Errors were encountered while processing:
+ man-db
+ x11-apps
+ yelp
+ mate-user-guide
+ gnome-user-docs
+ gnome-user-guide
+#
+</example>
+<p> I now retry to <tt>apt upgrade</tt>
+<p>
+<example> 
+# apt upgrade
+Reading package lists... Done#########################################################################################################################################################################......................................]
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  bdf2psf dmz-cursor-theme docbook-xml galculator gcj-6-jre-lib gfortran-6 gir1.2-gconf-2.0 gir1.2-gnomekeyring-1.0 gir1.2-mate-panel gir1.2-matepanelapplet-4.0 gnome-user-docs gnome-user-guide gvfs-bin iputils-arping isympy
+  isympy-common libbind9-140 libblas-common libcdio-cdda1 libcdio-paranoia1 libcdio13 libdns162 libexempi3 libfcitx-gclient0 libfcitx-qt0 libfile-copy-recursive-perl libfile-slurp-tiny-perl libgcj-bc libgcj-common libgcj17
+  libgcr-3-common libgfortran-6-dev libgstreamer-plugins-bad1.0-0 libgtksourceview2.0-0 libgtksourceview2.0-common libgutenprint2 libical2 libisc160 libisccc140 libisccfg140 libjim0.76 liblouis12 liblouisutdml7 liblwres141 libnm-glib4
+  libnm-util2 libntfs-3g871 libpackage-deprecationmanager-perl libpango1.0-0 libpangox-1.0-0 libqrencode3 librarian0 libruby2.3 libsac-java-gcj libsane-extras libsane-extras-common libsodium18 libsuitesparseconfig4 libsynctex1
+  libunbound2 libunique-3.0-0 libxfont1 linux-headers-4.9.0-8-amd64 linux-headers-4.9.0-8-common linux-image-4.9.0-8-amd64 python-antlr python-pyasn1 rarian-compat ruby2.3 tcpd vlc-plugin-notify vlc-plugin-samba
+  vlc-plugin-video-splitter vlc-plugin-visualization xfce4-mount-plugin
+Use 'apt autoremove' to remove them.
+The following packages have been kept back:
+  anthy auctex biber cups cups-client cups-core-drivers cups-daemon cups-filters cups-filters-core-drivers default-jre default-jre-headless dkms dspdfviewer emacs emacs24 emacsen-common evince evince-common exfalso fcitx-frontend-qt5
+  fcitx-modules g++ gimp gimp-data gir1.2-evince-3.0 gnome-orca gnome-themes-standard gnustep-base-common gnustep-base-runtime goldendict grace grub-common grub-efi-amd64 grub-efi-amd64-bin grub2-common gstreamer1.0-libav hplip
+  hplip-data hplip-gui imagemagick-6.q16 inkscape libapt-pkg-perl libautovivification-perl libcairo-perl libclass-c3-xs-perl libcups2 libcupsimage2 libdate-simple-perl libdatetime-perl libdevel-caller-perl libdevel-lexalias-perl
+  libencode-eucjpms-perl libencode-hanextra-perl libencode-jis2k-perl libevdocument3-4 libevview3-3 libfcgi-perl libfcitx-qt5-1 libffmpegthumbnailer4v5 libgimp2.0 libgl1-mesa-dri libglib-perl libgtk2-perl libhpmud0 libhtml-parser-perl
+  libimage-magick-q16-perl libio-socket-ssl-perl liblist-moreutils-perl liblocale-gettext-perl libnet-dbus-perl libnet-ssleay-perl libopenmpt-modplug1 libopenmpt0 libpackage-stash-xs-perl libpadwalker-perl libpango-perl
+  libparams-classify-perl libparams-util-perl libparams-validate-perl libparams-validationcompiler-perl libpoppler-qt5-1 libpython-dev libpython-stdlib libpython2.7 libpython2.7-dev libpython2.7-minimal libpython2.7-stdlib
+  libpython3-stdlib libqt4-dbus libqt4-designer libqt4-help libqt4-network libqt4-opengl libqt4-qt3support libqt4-script libqt4-sql libqt4-sql-mysql libqt4-svg libqt4-xml libqt4-xmlpatterns libqt5core5a libqt5dbus5 libqt5designer5
+  libqt5gui5 libqt5help5 libqt5network5 libqt5opengl5 libqt5printsupport5 libqt5sql5 libqt5sql5-sqlite libqt5svg5 libqt5test5 libqt5widgets5 libqt5x11extras5 libqt5xml5 libqtcore4 libqtdbus4 libqtgui4 libreoffice
+  libreoffice-avmedia-backend-gstreamer libreoffice-base libreoffice-base-core libreoffice-base-drivers libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw libreoffice-gtk2 libreoffice-gtk3 libreoffice-help-ca
+  libreoffice-help-cs libreoffice-help-da libreoffice-help-de libreoffice-help-dz libreoffice-help-el libreoffice-help-en-gb libreoffice-help-en-us libreoffice-help-es libreoffice-help-et libreoffice-help-eu libreoffice-help-fi
+  libreoffice-help-fr libreoffice-help-gl libreoffice-help-hi libreoffice-help-hu libreoffice-help-it libreoffice-help-ja libreoffice-help-km libreoffice-help-ko libreoffice-help-nl libreoffice-help-pl libreoffice-help-pt
+  libreoffice-help-ru libreoffice-help-sk libreoffice-help-sl libreoffice-help-sv libreoffice-help-zh-cn libreoffice-help-zh-tw libreoffice-impress libreoffice-java-common libreoffice-l10n-ar libreoffice-l10n-ast libreoffice-l10n-be
+  libreoffice-l10n-bg libreoffice-l10n-bn libreoffice-l10n-bs libreoffice-l10n-ca libreoffice-l10n-cs libreoffice-l10n-cy libreoffice-l10n-da libreoffice-l10n-de libreoffice-l10n-dz libreoffice-l10n-el libreoffice-l10n-en-gb
+  libreoffice-l10n-en-za libreoffice-l10n-eo libreoffice-l10n-es libreoffice-l10n-et libreoffice-l10n-eu libreoffice-l10n-fa libreoffice-l10n-fi libreoffice-l10n-fr libreoffice-l10n-ga libreoffice-l10n-gl libreoffice-l10n-gu
+  libreoffice-l10n-he libreoffice-l10n-hi libreoffice-l10n-hr libreoffice-l10n-hu libreoffice-l10n-id libreoffice-l10n-is libreoffice-l10n-it libreoffice-l10n-ja libreoffice-l10n-ka libreoffice-l10n-km libreoffice-l10n-ko
+  libreoffice-l10n-lt libreoffice-l10n-lv libreoffice-l10n-mk libreoffice-l10n-ml libreoffice-l10n-mr libreoffice-l10n-nb libreoffice-l10n-ne libreoffice-l10n-nl libreoffice-l10n-nn libreoffice-l10n-pa-in libreoffice-l10n-pl
+  libreoffice-l10n-pt libreoffice-l10n-pt-br libreoffice-l10n-ro libreoffice-l10n-ru libreoffice-l10n-si libreoffice-l10n-sk libreoffice-l10n-sl libreoffice-l10n-sr libreoffice-l10n-sv libreoffice-l10n-ta libreoffice-l10n-te
+  libreoffice-l10n-th libreoffice-l10n-tr libreoffice-l10n-ug libreoffice-l10n-uk libreoffice-l10n-vi libreoffice-l10n-xh libreoffice-l10n-zh-cn libreoffice-l10n-zh-tw libreoffice-math libreoffice-ogltrans libreoffice-pdfimport
+  libreoffice-report-builder libreoffice-report-builder-bin libreoffice-script-provider-bsh libreoffice-script-provider-js libreoffice-script-provider-python libreoffice-sdbc-hsqldb libreoffice-sdbc-postgresql libreoffice-style-tango
+  libreoffice-writer libsane-hpaio libscalar-list-utils-perl libsnmp30 libsort-key-perl libspecio-perl libstdc++6 libsub-identify-perl libsub-name-perl libtbb2 libtext-bibtex-perl libtext-charwidth-perl libtext-csv-xs-perl
+  libtext-iconv-perl libuim-custom2 libuim-scm0 libuim8 libunicode-collate-perl libunicode-linebreak-perl libvariable-magic-perl libvlc-bin libvlc5 libvoikko1 libxml-libxml-perl libxml-libxslt-perl libxml-parser-perl
+  lightdm-gtk-greeter lm-sensors meld mozc-server mozc-utils-gui perl perl-base perl-doc printer-driver-hpcups printer-driver-postscript-hp prosper python python-cvxopt python-dev python-glade2 python-gtk2 python-jupyter-core
+  python-matplotlib python-minimal python-numexpr python-numpy python-pandas python-pandas-lib python-pyqt5 python-pyqt5.qtsvg python-scipy python-sip python-statsmodels python-statsmodels-lib python-tables python-tables-data
+  python-tables-lib python2.7 python2.7-dev python2.7-minimal python3 python3-brlapi python3-cairo python3-cups python3-dbus python3-dbus.mainloop.pyqt5 python3-gi python3-libvoikko python3-minimal python3-pil python3-pyqt5
+  python3-renderpm python3-reportlab python3-reportlab-accel python3-sip python3-smbc python3-uno qdbus qt5-gtk-platformtheme quodlibet rename task-albanian-desktop task-amharic task-amharic-desktop task-arabic task-arabic-desktop
+  task-asturian task-asturian-desktop task-basque task-basque-desktop task-belarusian task-belarusian-desktop task-bengali task-bengali-desktop task-bosnian task-bosnian-desktop task-brazilian-portuguese
+  task-brazilian-portuguese-desktop task-british-desktop task-bulgarian task-bulgarian-desktop task-catalan task-catalan-desktop task-chinese-s task-chinese-s-desktop task-chinese-t task-chinese-t-desktop task-croatian
+  task-croatian-desktop task-cyrillic task-cyrillic-desktop task-czech task-czech-desktop task-danish task-danish-desktop task-desktop task-dutch task-dutch-desktop task-dzongkha-desktop task-english task-esperanto
+  task-esperanto-desktop task-estonian task-estonian-desktop task-finnish task-finnish-desktop task-french task-french-desktop task-galician task-galician-desktop task-georgian-desktop task-german task-german-desktop task-greek
+  task-greek-desktop task-gujarati task-gujarati-desktop task-hebrew task-hebrew-desktop task-hindi task-hindi-desktop task-hungarian task-hungarian-desktop task-icelandic task-icelandic-desktop task-indonesian-desktop task-irish
+  task-irish-desktop task-italian task-italian-desktop task-japanese task-japanese-desktop task-kannada-desktop task-kazakh task-kazakh-desktop task-khmer task-khmer-desktop task-korean task-korean-desktop task-kurdish
+  task-kurdish-desktop task-laptop task-latvian task-latvian-desktop task-lithuanian task-lithuanian-desktop task-macedonian task-macedonian-desktop task-malayalam task-malayalam-desktop task-marathi task-marathi-desktop
+  task-mate-desktop task-nepali-desktop task-northern-sami task-northern-sami-desktop task-norwegian task-norwegian-desktop task-persian task-persian-desktop task-polish task-polish-desktop task-portuguese task-portuguese-desktop
+  task-punjabi task-punjabi-desktop task-romanian task-romanian-desktop task-russian task-russian-desktop task-serbian task-serbian-desktop task-sinhala-desktop task-slovak task-slovak-desktop task-slovenian task-slovenian-desktop
+  task-south-african-english-desktop task-spanish task-spanish-desktop task-swedish task-swedish-desktop task-tagalog task-tamil task-tamil-desktop task-telugu task-telugu-desktop task-thai task-thai-desktop task-turkish
+  task-turkish-desktop task-ukrainian task-ukrainian-desktop task-uyghur-desktop task-vietnamese-desktop task-welsh task-welsh-desktop task-xfce-desktop task-xhosa-desktop tasksel tasksel-data texinfo texlive texlive-base
+  texlive-bibtex-extra texlive-extra-utils texlive-font-utils texlive-fonts-extra texlive-fonts-extra-doc texlive-fonts-recommended texlive-fonts-recommended-doc texlive-generic-extra texlive-generic-recommended texlive-lang-spanish
+  texlive-latex-base texlive-latex-base-doc texlive-latex-extra texlive-latex-extra-doc texlive-latex-recommended texlive-latex-recommended-doc texlive-pictures texlive-pictures-doc texlive-pstricks texlive-pstricks-doc
+  texlive-publishers texlive-publishers-doc texlive-science texlive-science-doc thunar thunar-data uim uim-anthy uim-fep uim-gtk2.0 uim-gtk3 uim-mozc uim-qt5 uim-xim unar uno-libs3 ure vlc vlc-bin vlc-data vlc-l10n vlc-plugin-base
+  vlc-plugin-qt vlc-plugin-skins2 vlc-plugin-video-output xfce4-sensors-plugin xserver-xorg-core xserver-xorg-video-amdgpu xserver-xorg-video-ati xserver-xorg-video-fbdev xserver-xorg-video-intel xserver-xorg-video-nouveau
+  xserver-xorg-video-qxl xserver-xorg-video-radeon xserver-xorg-video-vesa xserver-xorg-video-vmware
+0 upgraded, 0 newly installed, 0 to remove and 518 not upgraded.
+6 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] 
+Setting up man-db (2.8.5-2) ...
+Updating database of manual pages ...
+man-db.service is a disabled or a static unit, not starting it.
+Setting up x11-apps (7.7+7) ...
+Setting up yelp (3.31.90-1) ...
+Setting up mate-user-guide (1.20.2-1) ...
+Setting up gnome-user-docs (3.30.2-1) ...
+Setting up gnome-user-guide (3.30.2-1) ...
+Processing triggers for menu (2.1.47+b1) ...
+</example>
+<p>
+  Success... Now I run <tt>apt full-upgrade</tt> and got a similar problem. The GUI froze and had to switch to the console, and reload the screen. There I removed again the lock files <file>/var/lib/dpkg/lock</file> and <file>/var/lib/dpkg/lock-frontend</file> and the run <tt>apt --fix-broken install</tt>
+
+  <p>
+<example> 
+# apt --fix-broken install
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Correcting dependencies... Done
+The following packages were automatically installed and are no longer required:
+aspell-de-alt bdf2psf debian-zh-faq-s dh-python dmz-cursor-theme doc-debian-fr doc-linux-fr-text doc-linux-pl doc-linux-pl-html docbook-xml emacs24 fonts-adf-accanthis fonts-adf-gillius fonts-adf-universalis fonts-cabin fonts-comfortaa
+.
+.
+.
+Processing triggers for mime-support (3.62) ...
+Processing triggers for man-db (2.8.5-2) ...
+Processing triggers for auctex (11.91-2) ...
+</example>
+
+<p>
+  Success... Now run <tt>apt full-upgrade</tt>
+  <p>
+    <example> 
+# apt full-upgrade
+Reading package lists... Done
+Building dependency tree... 
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  aspell-de-alt bdf2psf debian-zh-faq-s dh-python dmz-cursor-theme doc-debian-fr doc-linux-fr-text doc-linux-pl doc-linux-pl-html docbook-xml emacs24 fonts-adf-accanthis fonts-adf-gillius fonts-adf-universalis fonts-cabin fonts-comfortaa
+  fonts-croscore fonts-ebgaramond fonts-ebgaramond-extra fonts-freefont-otf fonts-gfs-artemisia fonts-gfs-complutum fonts-gfs-didot fonts-gfs-neohellenic fonts-gfs-olga fonts-gfs-solomos fonts-junicode fonts-lobster fonts-lobstertwo
+  fonts-oflb-asana-math fonts-roboto-hinted fonts-roboto-unhinted fonts-sil-gentiumplus fonts-sil-gentiumplus-compact fortune-zh galculator gcj-6-jre-lib gfortran-6 gir1.2-gconf-2.0 gir1.2-mate-panel gir1.2-matepanelapplet-4.0 gnome-orca
+  gnome-themes-standard gnome-user-docs gnome-user-guide gvfs-bin iputils-arping isympy isympy-common libaribb24-0 libass5 libavfilter6 libavformat57 libavresample3 libbasicusageenvironment1 libbind9-140 libblas-common libbluray1
+libboost-date-time1.62.0 libboost-filesystem1.62.0 libboost-iostreams1.62.0 libboost-program-options1.62.0 libboost-system1.62.0 libcddb2 libcdio-cdda1 libcdio-paranoia1 libcdio13 libchewing3 libchewing3-data libdc1394-22 libdca0
+.
+.
+.
+Processing triggers for shared-mime-info (1.10-1) ...
+Processing triggers for install-info (6.5.0.dfsg.1-4+b1) ...
+Processing triggers for menu (2.1.47+b1) ...
+Processing triggers for desktop-file-utils (0.23-4) ...
+Processing triggers for libvlc-bin:amd64 (3.0.7-1) ...
+</example>
+
+    <p>Repeat <tt>apt full-upgrade</tt> until it results in no errors.
+
+      <p> Edit files in folder <file>/etc/apt/sources.list.d/</file> like <file>dropbox.list</file>, <file>base.list</file>,  <file>google-chrome.list</file>, or <file>skype-stable.list</file> in case they
+	exist and change the <prgn>Debian</prgn> release version to <tt>Buster</tt>, e.g.
+
+<p>
+<example> 
+# cat dropbox.list 
+deb [arch=i386,amd64] http://linux.dropbox.com/debian buster main
+</example>
+
+<p>Rerun <tt>apt update</tt> and <tt>apt upgrade</tt> until no
+  more errors are found. If required run <tt>apt autoremove</tt>
+
+<p>
+<example> 
+# apt update
+Hit:1 http://deb.debian.org/debian buster InRelease
+Hit:2 http://ftp.es.debian.org/debian buster InRelease                                                           
+Hit:3 http://security.debian.org/debian-security buster/updates InRelease                                        
+Ign:4 http://dl.google.com/linux/chrome/deb stable InRelease                                                           
+Hit:5 http://ftp.es.debian.org/debian buster-updates InRelease                                                         
+Hit:6 http://dl.google.com/linux/chrome/deb stable Release           
+Hit:7 https://repo.skype.com/deb stable InRelease
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+All packages are up to date.
 </example>
 
 <p> Once finisished with no more errors umount the
@@ -1782,6 +1879,8 @@ And That's all....
 <enumlist>  
 <item><url id="https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html"
 name="Debian Jessie Release Notes">
+<item><url id="http://www.linux-magazine.com/Issues/2018/208/apt-vs.-apt-get"
+name="apt vs apt-get in Linux Magazine">
 </enumlist>  
 </sect1>
 
