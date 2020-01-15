@@ -41,46 +41,48 @@ Contents
 
      1.        Basic Administration
      1.1.      Reinstalling a wiped out `GRUB'
-     1.2.      Problem with journalizing
-     1.3.      Labels in `ext2' and `ext3' units
-     1.4.      Open a `xconsole' as normal user
-     1.5.      Resetting the `root' password
-     1.6.      Configure `exim' to use `SMTP-TLS'
-     1.7.      Copying `CUPS' configuration from one server to another
-     1.8.      Mapping network interfaces to a fixed name.
-     1.9.      Using labels to mount disk partitions
-     1.10.     Using `find' and `xargs'
-     1.11.     Preparing a USB bootable `Linux' installation device (Fast
+     1.2.      Changing the default boot option and hiding the `GRUB2' menu
+               Created on January 15th, 2019.
+     1.3.      Problem with journalizing
+     1.4.      Labels in `ext2' and `ext3' units
+     1.5.      Open a `xconsole' as normal user
+     1.6.      Resetting the `root' password
+     1.7.      Configure `exim' to use `SMTP-TLS'
+     1.8.      Copying `CUPS' configuration from one server to another
+     1.9.      Mapping network interfaces to a fixed name.
+     1.10.     Using labels to mount disk partitions
+     1.11.     Using `find' and `xargs'
+     1.12.     Preparing a USB bootable `Linux' installation device (Fast
                way).
-     1.12.     Preparing a USB bootable `Debian' installation device.
-     1.13.     Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
-     1.14.     Passive network exploration with `p0f'.
-     1.15.     Preparing a bootable flashdisk with `Billix'.
-     1.16.     Recovering a console that is unusable.
-     1.17.     Simple configuration of `sudo'
-     1.18.     Check the groups to which a user belongs.
-     1.19.     Check the available system `locale' options and establish a
+     1.13.     Preparing a USB bootable `Debian' installation device.
+     1.14.     Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
+     1.15.     Passive network exploration with `p0f'.
+     1.16.     Preparing a bootable flashdisk with `Billix'.
+     1.17.     Recovering a console that is unusable.
+     1.18.     Simple configuration of `sudo'
+     1.19.     Check the groups to which a user belongs.
+     1.20.     Check the available system `locale' options and establish a
                default one.
-     1.20.     Change the encoding of given files.
-     1.21.     Problem with the wireless and `nm'
-     1.22.     Updating `Debian'
-     1.23.     Error in file `/var/lib/dpkg/status'
-     1.24.     How to record terminal sessions using `ttyrec'
-     1.25.     Using `Bash' to count the number of files in a directory
-     1.26.     Getting detailed information about your hardware
-     1.27.     Adding your servers load to the `screen' hardstatus line
-     1.28.     Making a backup of a `Gmail' account.
-     1.29.     Redirecting `STDERR' to `SDTOUT'
-     1.30.     Listing and extracting files from a `deb' package file.
-     1.31.     Using `script' to keep terminal output records.
-     1.32.     Checking actual kernel compiling options.
-     1.33.     Using `parted' to partition memory sticks or formatting HD
+     1.21.     Change the encoding of given files.
+     1.22.     Problem with the wireless and `nm'
+     1.23.     Updating `Debian'
+     1.24.     Error in file `/var/lib/dpkg/status'
+     1.25.     How to record terminal sessions using `ttyrec'
+     1.26.     Using `Bash' to count the number of files in a directory
+     1.27.     Getting detailed information about your hardware
+     1.28.     Adding your servers load to the `screen' hardstatus line
+     1.29.     Making a backup of a `Gmail' account.
+     1.30.     Redirecting `STDERR' to `SDTOUT'
+     1.31.     Listing and extracting files from a `deb' package file.
+     1.32.     Using `script' to keep terminal output records.
+     1.33.     Checking actual kernel compiling options.
+     1.34.     Using `parted' to partition memory sticks or formatting HD
                partitions larger than 2 TB
-     1.34.     Adding a partition to `fstab' by `UUID'
-     1.35.     Error ejecting a CD
-     1.36.     Killing an unresponsive X-windows
-     1.37.     Enlarging the size of a `tmp' directory
-     1.38.     Checking if a package is installed in `Debian'
+     1.35.     Adding a partition to `fstab' by `UUID'
+     1.36.     Error ejecting a CD
+     1.37.     Killing an unresponsive X-windows
+     1.38.     Enlarging the size of a `tmp' directory
+     1.39.     Checking if a package is installed in `Debian'
 
      2.        Network and Navigators
      2.1.      Running multiple `firefox' instances
@@ -279,7 +281,144 @@ Contents
      2.   http://sites.google.com/site/easylinuxtipsproject/oldgrub
 
 
-1.2. Problem with journalizing
+1.2. Changing the default boot option and hiding the `GRUB2' menu Created
+on January 15th, 2019.
+----------------------------------------------------------------------------
+
+     We assume that we have a multiboot computer, controlled with `Grub2'
+     and that we want to make `Windows' :( the default boot option, hiding
+     the initial `Grub2' boot menu to avoid perplexing with its options
+     Windoze users.  However, we want to make this menu available to those
+     that are interested in work in `GNU/Linux'.  We first proceed changing
+     the default boot option and afterwards we explain how to proceed for
+     hiding the `Grub2' menu.
+
+1.2.1. Changing the default boot option for `Grub2'.
+----------------------------------------------------
+
+     We start checking what are the possible options to boot the system
+
+# grep menuentry /boot/grub/grub.cfg
+if [ x"${feature_menuentry_id}" = xy ]; then
+  menuentry_id_option="--id"
+  menuentry_id_option=""
+export menuentry_id_option
+menuentry 'Ubuntu' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+submenu 'Opciones avanzadas para Ubuntu' $menuentry_id_option 'gnulinux-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-37-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-37-generic-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-37-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-37-generic-recovery-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-23-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-23-generic-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-23-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-23-generic-recovery-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+menuentry 'Windows Boot Manager (en /dev/nvme0n1p1)' --class windows --class os $menuentry_id_option 'osprober-efi-48AB-20FD' {
+menuentry 'System setup' $menuentry_id_option 'uefi-firmware' {
+
+     In this case we want to use as a menu entry Windoze, that is the
+     option labelled `'Windows Boot Manager (en /dev/nvme0n1p1)''.  You
+     should copy to the clipboard this string (including quotes) and edit
+     the file `/etc/default/grub' where you look for the line
+     `GRUB_DEFAULT=0'
+
+          # grep DEF grub
+          GRUB_DEFAULT=0
+          GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+     We change this line to
+
+          GRUB_DEFAULT='Windows Boot Manager (en /dev/nvme0n1p1)'
+
+     Notice that you can also use numbers (`0' means the first option) but
+     this is more unsafe in case a kernel replacement or upgrade change the
+     number associated to the option.  If you want to activate this change
+     before proceeding you run `update-grub'
+
+# grep DEF grub
+GRUB_DEFAULT='Windows Boot Manager (en /dev/nvme0n1p1)'
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+# update-grub
+Sourcing file `/etc/default/grub'
+Generando un fichero de configuración de grub...
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-37-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-37-generic
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-23-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-23-generic
+Encontrado Windows Boot Manager en /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Añadiendo menú de entrada de inicio para la configuración del firmware EFI
+hecho
+
+     This last order is the command you need to run when you make changes
+     in the `Grub2' configuration.
+
+     If you are interested in removing an option from the menu, if it is a
+     kernel versio you can directly uninstall the non used kernels and the
+     corresponding entries will disappear.  To remove entries that are not
+     kernel versions, you must change the files located in `/etc/grub.d'.
+
+# ls /etc/grub.d/
+00_header        10_linux      20_memtest86+  30_uefi-firmware  41_custom
+05_debian_theme  20_linux_xen  30_os-prober   40_custom         README
+
+     If you want to remove all `memtest86+' entries, we could just make the
+     `20_memtest86+' file non-executable, with the command
+
+          # chmod –x 20_memtest86+
+
+     And, again, you need to update the grub configuration
+
+1.2.2. Hiding the `Grub2' menu
+------------------------------
+
+     In order to hide the menu shown at boot time by `Grub2', giving the
+     option to enter it after a given waiting time the following options
+     should be defined in the file `/etc/default/grub' changing
+
+          GRUB_TIMEOUT_STYLE=hidden
+          GRUB_TIMEOUT=10
+
+     to
+
+          GRUB_HIDDEN_TIMEOUT_QUIET=false
+          GRUB_TIMEOUT_STYLE=countdown
+          GRUB_TIMEOUT=0
+
+     `Grub2' will display a 3 seconds countdown and once finished it will
+     boot to the default option.  To stop the countdown and start in
+     another option press `ESC'.  Another edit is needed as the OS prober
+     has to be updated to disable the quickboot feature.  This can be done
+     editing the `/etc/grub.d/30_os-prober' and changing the line
+     `quick_boot="1"' to `quick_boot="0"'.
+
+          # cd /etc/grub.d/
+          # grep "quick_boot=" 30_os-prober
+          quick_boot="1"
+          # vi 30_os-prober
+          # grep "quick_boot=" 30_os-prober
+          quick_boot="0"
+
+     We then make this changes active running `update-grub' and we can
+     reboot the computer normally.
+
+# update-grub
+Sourcing file `/etc/default/grub'
+Generando un fichero de configuración de grub...
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-37-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-37-generic
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-23-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-23-generic
+Encontrado Windows Boot Manager en /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Añadiendo menú de entrada de inicio para la configuración del firmware EFI
+hecho
+
+1.2.3. References
+-----------------
+
+     1.   https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1
+
+     2.   https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1
+
+     3.   https://www.howtogeek.com/howto/17787/clean-up-the-new-ubuntu-grub2-boot-menu/
+
+
+1.3. Problem with journalizing
 ------------------------------
 
      There could be a problem with the journalizing if an `ext3' filesystem
@@ -319,7 +458,7 @@ Contents
      And now you can regularly mount the `ext3' filesystem.
 
 
-1.3. Labels in `ext2' and `ext3' units
+1.4. Labels in `ext2' and `ext3' units
 --------------------------------------
 
      Updated on November 21st, 2016.
@@ -369,7 +508,7 @@ Contents
           DATA_CPB
 
 
-1.4. Open a `xconsole' as normal user
+1.5. Open a `xconsole' as normal user
 -------------------------------------
 
      First the existence and permissions of the file `/dev/xconsole' has to
@@ -390,7 +529,7 @@ Contents
           xconsole -file /dev/xconsole
 
 
-1.5. Resetting the `root' password
+1.6. Resetting the `root' password
 ----------------------------------
 
      The first and simplest option is to boot in `single-user' mode.  To do
@@ -413,14 +552,14 @@ Contents
           chroot /mnt/sysrootdir
           passwd
 
-1.5.1. References
+1.6.1. References
 -----------------
 
      1.   Tech tip in http://www.linuxjournal.com/issue/180
           (http://www.linuxjournal.com/issue/180)
 
 
-1.6. Configure `exim' to use `SMTP-TLS'
+1.7. Configure `exim' to use `SMTP-TLS'
 ---------------------------------------
 
      The following instructions explain in a short and direct way the
@@ -507,13 +646,13 @@ mailgw.uhu.es:coco.elmo.dfaie:frdg098r
 [1]  There should be a way to do this from a user's perspective and not
      editing a general file for the system (TO DO).
 
-1.6.1. References
+1.7.1. References
 -----------------
 
      1.   http://www.amk.ca/diary/2003/03/enabling_smtptls_with_exim.html
 
 
-1.7. Copying `CUPS' configuration from one server to another
+1.8. Copying `CUPS' configuration from one server to another
 ------------------------------------------------------------
 
      The simplest way to copy the `CUPS' configuration from one server to
@@ -549,14 +688,14 @@ target# scp -r source:/usr/share/cups/model /usr/share/cups/model
 
      7.   Restart cups in the target system and test it.
 
-1.7.1. References
+1.8.1. References
 -----------------
 
      1.   Tech tip in My Scripts and Tips
           (http://www.tipsandscripts.net/archives/19)
 
 
-1.8. Mapping network interfaces to a fixed name.
+1.9. Mapping network interfaces to a fixed name.
 ------------------------------------------------
 
      As modules on the booting process or during the system's activity are
@@ -581,8 +720,8 @@ target# scp -r source:/usr/share/cups/model /usr/share/cups/model
      changing the `MAC''s addresses and `NAME''s accordingly.
 
 
-1.9. Using labels to mount disk partitions
-------------------------------------------
+1.10. Using labels to mount disk partitions
+-------------------------------------------
 
      Using the possibility of labelling the disk partitions it is useful
      for avoiding ambiguities and errors mounting them.  This is valid for
@@ -615,7 +754,7 @@ LABEL=usbdisk0       /media/usb_disk_0 ext3    exec,user,noauto  0       0
      interface such as `gparted'.
 
 
-1.10. Using `find' and `xargs'
+1.11. Using `find' and `xargs'
 ------------------------------
 
      Updated on January 12th, 2016.
@@ -744,13 +883,13 @@ $ ls -1 *f90 | xargs -I % sh -c 'echo %; diff % /users/home/laura/prototipo_1.0/
 
  ssh root@backup_server ls -1 /home_backup | grep -v laura | xargs -I % sh -c "rdiff-backup -v4 --restore-as-of now  root@backup_server::/home_backup/% /home/%"
 
-1.10.1. References
+1.11.1. References
 ------------------
 
      1.   http://www.linuxjournal.com/article/10643
 
 
-1.11. Preparing a USB bootable `Linux' installation device (Fast way).
+1.12. Preparing a USB bootable `Linux' installation device (Fast way).
 ----------------------------------------------------------------------
 
      Updated on October 6th, 2014.
@@ -758,7 +897,7 @@ $ ls -1 *f90 | xargs -I % sh -c 'echo %; diff % /users/home/laura/prototipo_1.0/
      We need a USB disk that is at least 256 MB in size with a `FAT16'
      partition.  Normally the sticks come with a preconfigured single
      `FAT16' partition that is valid.  If it is necessary to format the
-     disk you can find instructions in Section 1.12, `Preparing a USB
+     disk you can find instructions in Section 1.13, `Preparing a USB
      bootable `Debian' installation device.'.  Take also into account that
      _all data in the stick will be erased_.  Plug in and mount the dist.
      Let's assume that the USB disk corresponds to the `/dev/sdb' device.
@@ -796,13 +935,13 @@ Saving to: `debian-6.0.1a-i386-netinst.iso'
 
      And the stick is ready.
 
-1.11.1. References
+1.12.1. References
 ------------------
 
      1.   http://www.debian.org/releases/stable/i386/ch04s03.html.en
 
 
-1.12. Preparing a USB bootable `Debian' installation device.
+1.13. Preparing a USB bootable `Debian' installation device.
 ------------------------------------------------------------
 
      The first step is the creation of a `FAT16' partition and filesystem
@@ -878,13 +1017,13 @@ Saving to: `initrd.gz'
 [1]  Please, note that the packages `syslinux' and `mtools' have to be
      installed to be able to run `syslinux'.
 
-1.12.1. References
+1.13.1. References
 ------------------
 
      1.   http://www.debian.org/releases/stable/i386/ch04s03.html.en
 
 
-1.13. Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
+1.14. Upgrading `Flashplayer' in `Debian Lenny' using _backports_.
 ------------------------------------------------------------------
 
      We start adding _Debian Backports_[1] to `/etc/apt/sources.list'.  Be
@@ -976,7 +1115,7 @@ OK
      your needs, and not to use all backports available here (from
      http://www.backports.org/dokuwiki/doku.php).
 
-1.13.1. References
+1.14.1. References
 ------------------
 
      1.   http://backports.org/dokuwiki/doku.php?id=instructions
@@ -986,7 +1125,7 @@ OK
      3.   http://plugindoc.mozdev.org/
 
 
-1.14. Passive network exploration with `p0f'.
+1.15. Passive network exploration with `p0f'.
 ---------------------------------------------
 
      This utility uses passive techniques to try to guess the what machines
@@ -1013,11 +1152,11 @@ p0f: listening (SYN) on 'eth0', 262 sigs (14 generic, cksum 0F1F5CA2), rule: 'al
      format the output in a one-line style that is easier to grep.
 
 
-1.15. Preparing a bootable flashdisk with `Billix'.
+1.16. Preparing a bootable flashdisk with `Billix'.
 ---------------------------------------------------
 
      We start downloading `billix' from its _sourceforge_ page.  The link
-     can be found in Section 1.15.1, `References'.  In the present example
+     can be found in Section 1.16.1, `References'.  In the present example
      the downloaded file name is `billix-0.27.tar.gz'.  We need a usb
      flashdisk of a minimum size of 256 MB and with a `FAT' or `FAT32'
      filesystem.  In the present example is the device `/dev/sdb1' mounted
@@ -1054,13 +1193,13 @@ $ mount | grep disk
 [1]  In `Debian' systems it is necessary to install the `mbr' package to
      have access to this tool.
 
-1.15.1. References
+1.16.1. References
 ------------------
 
      1.   Billix project homepage (http://sourceforge.net/projects/billix/)
 
 
-1.16. Recovering a console that is unusable.
+1.17. Recovering a console that is unusable.
 --------------------------------------------
 
      Sometimes it is convenient to clean the display of a text console,
@@ -1072,7 +1211,7 @@ $ mount | grep disk
      return to a saner state.
 
 
-1.17. Simple configuration of `sudo'
+1.18. Simple configuration of `sudo'
 ------------------------------------
 
      A very quick and dirty configuration of `sudo' in order to allow a
@@ -1084,7 +1223,7 @@ $ mount | grep disk
      A more detailed configuration is required in a sensitive environment.
 
 
-1.18. Check the groups to which a user belongs.
+1.19. Check the groups to which a user belongs.
 -----------------------------------------------
 
      In order to check to what groups a user, e.g.  <tuxie>, belongs the
@@ -1094,7 +1233,7 @@ $ mount | grep disk
           tuxie adm dialout cdrom floppy audio video plugdev
 
 
-1.19. Check the available system `locale' options and establish a default
+1.20. Check the available system `locale' options and establish a default
 one.
 ----------------------------------------------------------------------------
 
@@ -1139,7 +1278,7 @@ one.
      use the `dpkg-reconfigure locales' command.
 
 
-1.20. Change the encoding of given files.
+1.21. Change the encoding of given files.
 -----------------------------------------
 
      To change the encoding of a file is very useful the application
@@ -1207,7 +1346,7 @@ listed with several different names (aliases).
           non_standard_UNI: Little-endian UTF-16 Unicode character data
 
 
-1.21. Problem with the wireless and `nm'
+1.22. Problem with the wireless and `nm'
 ----------------------------------------
 
      Sometimes, specially after having tweaked with the network manually,
@@ -1234,7 +1373,7 @@ listed with several different names (aliases).
      solve the problem.
 
 
-1.22. Updating `Debian'
+1.23. Updating `Debian'
 -----------------------
 
      From `Wheezy' to `Jessie'.  Updated on January 19, 2011.
@@ -1660,7 +1799,7 @@ All packages are up to date.
           
           And That's all....
 
-1.22.1. References
+1.23.1. References
 ------------------
 
      1.   Debian Jessie Release Notes
@@ -1670,7 +1809,7 @@ All packages are up to date.
           (http://www.linux-magazine.com/Issues/2018/208/apt-vs.-apt-get)
 
 
-1.23. Error in file `/var/lib/dpkg/status'
+1.24. Error in file `/var/lib/dpkg/status'
 ------------------------------------------
 
      Added on May 21, 2011.
@@ -1693,7 +1832,7 @@ warning, in file '/var/lib/dpkg/status' near line 6628 package 'virtualbox':
           sudo aptitude purge virtualbox
 
 
-1.24. How to record terminal sessions using `ttyrec'
+1.25. How to record terminal sessions using `ttyrec'
 ----------------------------------------------------
 
      Added on September 2nd, 2011.
@@ -1745,7 +1884,7 @@ Setting up ttyrec (1.0.6-1) ...
 
           ttyrec -e 'bash --rcfile .inputrc_ttyrec'
 
-     In the references for this chapter (Section 1.24.1, `References') a
+     In the references for this chapter (Section 1.25.1, `References') a
      link to a recorded session is found.  There it is shown how for
      example a `vi' session can be included or how comments are made by
      typing `CTRL-c' at the end of each comment line.
@@ -1765,7 +1904,7 @@ Setting up ttyrec (1.0.6-1) ...
      An interesting site to find terminal recordings is `Playterm', whose
      URL can be found in the references section.
 
-1.24.1. References
+1.25.1. References
 ------------------
 
      1.   ttyrec homepage (http://0xcc.net/ttyrec/index.html.en)
@@ -1776,7 +1915,7 @@ Setting up ttyrec (1.0.6-1) ...
      3.   Playterm homepage (http://www.playterm.org/)
 
 
-1.25. Using `Bash' to count the number of files in a directory
+1.26. Using `Bash' to count the number of files in a directory
 --------------------------------------------------------------
 
      Added on September 6th, 2011.
@@ -1802,7 +1941,7 @@ Setting up ttyrec (1.0.6-1) ...
      `Interesting perl oneliners'
 
 
-1.26. Getting detailed information about your hardware
+1.27. Getting detailed information about your hardware
 ------------------------------------------------------
 
      Added on November 30th, 2011.
@@ -1833,7 +1972,7 @@ Setting up ttyrec (1.0.6-1) ...
      run with the option `-short'.
 
 
-1.27. Adding your servers load to the `screen' hardstatus line
+1.28. Adding your servers load to the `screen' hardstatus line
 --------------------------------------------------------------
 
      Added on December 1st, 2011.
@@ -1912,7 +2051,7 @@ screen -t box_1	        2       ssh username@rbox_1
 screen -t box_2 	3       ssh username@box_2
 
 
-1.28. Making a backup of a `Gmail' account.
+1.29. Making a backup of a `Gmail' account.
 -------------------------------------------
 
      Added on December 7th, 2011.
@@ -1989,7 +2128,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
      The resulting `Mbox' files can be easily accessed with `Mutt' or other
      mail reader program.
 
-1.28.1. References
+1.29.1. References
 ------------------
 
      1.   Matt Cutts Blog
@@ -1999,7 +2138,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
           (http://blog.pengdeng.com/2008/03/backup-gmail-via-imap-using-getmail_16.html)
 
 
-1.29. Redirecting `STDERR' to `SDTOUT'
+1.30. Redirecting `STDERR' to `SDTOUT'
 --------------------------------------
 
      Added on Febuary 3rd, 2012.
@@ -2018,7 +2157,7 @@ Retrieved 1200 messages (596565682 bytes) from SimpleIMAPSSLRetriever:XXXX@gmail
      accomplished as `1>&2'.
 
 
-1.30. Listing and extracting files from a `deb' package file.
+1.31. Listing and extracting files from a `deb' package file.
 -------------------------------------------------------------
 
      Added on August 11th, 2012.
@@ -2083,14 +2222,14 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
           ./ovpc/pkg/etc/conf
           ./ovpc/pkg/etc/conf/log.con
 
-1.30.1. References
+1.31.1. References
 ------------------
 
      1.   TheGeekStuff
           (http://www.thegeekstuff.com/2010/04/view-and-extract-packages/)
 
 
-1.31. Using `script' to keep terminal output records.
+1.32. Using `script' to keep terminal output records.
 -----------------------------------------------------
 
      Added on November 18th, 2012.
@@ -2167,7 +2306,7 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
      the fifo.
 
 
-1.32. Checking actual kernel compiling options.
+1.33. Checking actual kernel compiling options.
 -----------------------------------------------
 
      Added on January 8th, 2013.
@@ -2175,7 +2314,7 @@ dr-xr-xr-x root/root         0 2010-02-25 10:54 ./ovpc/pkg/etc/conf/log.conf
      Sometimes it is necessary to check if the kernel of your computer has
      been compiled including a particular option.  For example, let's check
      if the kernel has been compiled with the `CONFIG_EFI_PARTITION' option
-     turned on (see Section 1.33, `Using `parted' to partition memory
+     turned on (see Section 1.34, `Using `parted' to partition memory
      sticks or formatting HD partitions larger than 2 TB').
 
 $ cd /boot/
@@ -2186,7 +2325,7 @@ CONFIG_EFI_VARS=m
 CONFIG_EFI_PARTITION=y
 
 
-1.33. Using `parted' to partition memory sticks or formatting HD partitions
+1.34. Using `parted' to partition memory sticks or formatting HD partitions
 larger than 2 TB
 ----------------------------------------------------------------------------
 
@@ -2196,7 +2335,7 @@ larger than 2 TB
 
      Let's start with the larger than 2 TB partitions.  The first step is
      to check whether your kernel has been compiled with the
-     `CONFIG_EFI_PARTITION' option turned on (see Section 1.32, `Checking
+     `CONFIG_EFI_PARTITION' option turned on (see Section 1.33, `Checking
      actual kernel compiling options.').  If this is so, let's assume that
      the device assigned to the HD that will be partitioned is `/dev/sdb',
      that it is a 2 TB HD and will be mounted in `/large_disk'.  The
@@ -2339,7 +2478,7 @@ UUID=43615088-9470-419c-9958-199b0bcbbbd6 /large_disk     ext4    defaults      
      memory sticks I decided to update it and address some of the usual
      problems I face.
 
-1.33.1. Message `Warning: The driver descriptor says the physical block
+1.34.1. Message `Warning: The driver descriptor says the physical block
 size is 2048 bytes, but Linux says it is 512 bytes.'
 ----------------------------------------------------------------------------
 
@@ -2446,7 +2585,7 @@ root@modesto:~#
      _TODO_ Get rid of `The resulting partition is not properly aligned for
      best performance' warning.
 
-1.33.2. References
+1.34.2. References
 ------------------
 
      1.   Cyberciti
@@ -2456,7 +2595,7 @@ root@modesto:~#
           (https://bugs.launchpad.net/ubuntu/+source/usb-creator/+bug/1708881)
 
 
-1.34. Adding a partition to `fstab' by `UUID'
+1.35. Adding a partition to `fstab' by `UUID'
 ---------------------------------------------
 
      Added on January 31st, 2015.
@@ -2509,7 +2648,7 @@ UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults
             $ ln -fs /data/downloads_curro ./Downloads
 
 
-1.35. Error ejecting a CD
+1.36. Error ejecting a CD
 -------------------------
 
      Added on January 31st, 2015.
@@ -2553,7 +2692,7 @@ UUID=5c1dccb0-e78a-48cc-a63d-95148a8f6cb5       /data           ext4    defaults
      An the CD is cleanly ejected.  Happy end.
 
 
-1.36. Killing an unresponsive X-windows
+1.37. Killing an unresponsive X-windows
 ---------------------------------------
 
      Added on April 2nd, 2016.
@@ -2604,7 +2743,7 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
      And the window is killed.  RIP.
 
 
-1.37. Enlarging the size of a `tmp' directory
+1.38. Enlarging the size of a `tmp' directory
 ---------------------------------------------
 
      Added on November 14th, 2016.
@@ -2684,14 +2823,14 @@ xwininfo: Window id: 0x5c0006a "Printer Properties - 'HP-LaserJet-CP-1025nw' on 
 
      And that's all.
 
-1.37.1. References
+1.38.1. References
 ------------------
 
      1.   YourHowto.Net
           (http://www.yourhowto.net/increase-tmp-partition-size-linux/)
 
 
-1.38. Checking if a package is installed in `Debian'
+1.39. Checking if a package is installed in `Debian'
 ----------------------------------------------------
 
      Added on March 18th, 2018.

@@ -157,6 +157,163 @@ name="http://sites.google.com/site/easylinuxtipsproject/oldgrub">
 </sect1>
 
 </sect>
+<sect id="sec_alterGrub2">Changing the default boot option and hiding the  <prgn>GRUB2</prgn> menu
+Created on January 15th, 2019.
+
+<p>
+  We assume that we have a multiboot computer, controlled with <prgn>Grub2</prgn> and that we want to make <tt>Windows</tt> :( the default boot option, hiding the initial  <prgn>Grub2</prgn> boot menu to avoid perplexing with its options Windoze users. However, we want to make this menu available to those that are interested in work in <prgn>GNU/Linux</prgn>.
+We first proceed changing the default boot option and afterwards we explain how to
+proceed for hiding the <prgn>Grub2</prgn> menu.
+
+<sect1 id="sec_alterG01"> Changing the default boot option for <prgn>Grub2</prgn>.
+<p>
+We start checking what are the possible options to boot the system
+<p>
+<example> 
+# grep menuentry /boot/grub/grub.cfg 
+if [ x"${feature_menuentry_id}" = xy ]; then
+  menuentry_id_option="--id"
+  menuentry_id_option=""
+export menuentry_id_option
+menuentry 'Ubuntu' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+submenu 'Opciones avanzadas para Ubuntu' $menuentry_id_option 'gnulinux-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-37-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-37-generic-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-37-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-37-generic-recovery-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-23-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-23-generic-advanced-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+	menuentry 'Ubuntu, con Linux 5.0.0-23-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-5.0.0-23-generic-recovery-901dd9f7-9195-46ba-9b6c-40aaded49f64' {
+menuentry 'Windows Boot Manager (en /dev/nvme0n1p1)' --class windows --class os $menuentry_id_option 'osprober-efi-48AB-20FD' {
+menuentry 'System setup' $menuentry_id_option 'uefi-firmware' {
+</example> 
+
+<p>
+  In this case we want to use as a menu entry Windoze, that is the option labelled  <tt>'Windows Boot Manager (en /dev/nvme0n1p1)'</tt>. You should copy to the clipboard this string (including quotes) and edit the file <tt>/etc/default/grub</tt> where you look for the line <tt>GRUB_DEFAULT=0</tt>
+
+<p>
+<example> 
+# grep DEF grub
+GRUB_DEFAULT=0
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+</example> 
+
+<p>
+We change this line to 
+<p>
+<example> 
+GRUB_DEFAULT='Windows Boot Manager (en /dev/nvme0n1p1)'
+</example> 
+
+<p>
+  Notice that you can also use numbers (<tt>0</tt> means the first option) but this is more unsafe in case a kernel replacement or upgrade change the number associated to the option. If you want to activate this change before proceeding you run <tt>update-grub</tt>
+  
+<p>
+<example> 
+# grep DEF grub
+GRUB_DEFAULT='Windows Boot Manager (en /dev/nvme0n1p1)'
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+# update-grub
+Sourcing file `/etc/default/grub'
+Generando un fichero de configuración de grub...
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-37-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-37-generic
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-23-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-23-generic
+Encontrado Windows Boot Manager en /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Añadiendo menú de entrada de inicio para la configuración del firmware EFI
+hecho
+</example> 
+
+<p>
+This last order is the command you need to run when you make changes
+in the <prgn>Grub2</prgn> configuration. 
+
+<p>
+  If you are interested in removing an option from the menu, if it is a kernel versio you can directly uninstall the non used kernels and the corresponding entries  will disappear. To remove entries that are not kernel versions, you must change the files located in <file>/etc/grub.d</file>.
+
+<p>
+<example> 
+# ls /etc/grub.d/
+00_header        10_linux      20_memtest86+  30_uefi-firmware  41_custom
+05_debian_theme  20_linux_xen  30_os-prober   40_custom         README
+</example> 
+
+<p>If you want to remove all <tt>memtest86+</tt> entries, we could just make the <file>20_memtest86+</file> file non-executable, with the command
+
+<p>
+<example> 
+# chmod –x 20_memtest86+
+</example> 
+
+And, again, you need to update the grub configuration
+</sect1>
+
+<sect1 id="sec_alterG02"> Hiding the <prgn>Grub2</prgn> menu
+
+<p>
+In order to hide the menu shown at boot time by  <prgn>Grub2</prgn>, giving the option to enter it after a given waiting time the following options should be defined in the file  <tt>/etc/default/grub</tt> changing 
+
+<p>
+<example> 
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=10
+</example> 
+
+<p>
+to
+
+<p>
+<example> 
+GRUB_HIDDEN_TIMEOUT_QUIET=false
+GRUB_TIMEOUT_STYLE=countdown
+GRUB_TIMEOUT=0
+</example> 
+
+<p>
+  <prgn>Grub2</prgn>   will display a 3 seconds countdown and once finished it will boot to the default option. To stop the countdown and start in another option press <tt>ESC</tt>. Another edit is needed as the  OS prober has to be updated to disable the quickboot feature. This can be done editing the  <file>/etc/grub.d/30_os-prober</file>
+  and changing the  line <tt>quick_boot="1"</tt> to <tt>quick_boot="0"</tt>.
+
+<p>
+<example> 
+# cd /etc/grub.d/
+# grep "quick_boot=" 30_os-prober 
+quick_boot="1"
+# vi 30_os-prober 
+# grep "quick_boot=" 30_os-prober 
+quick_boot="0"
+</example> 
+
+
+<p>We then make this changes active running  <tt>update-grub</tt> and we
+  can reboot the computer normally.
+
+  <p>
+<example> 
+# update-grub
+Sourcing file `/etc/default/grub'
+Generando un fichero de configuración de grub...
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-37-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-37-generic
+Encontrada imagen de linux: /boot/vmlinuz-5.0.0-23-generic
+Encontrada imagen de memoria inicial: /boot/initrd.img-5.0.0-23-generic
+Encontrado Windows Boot Manager en /dev/nvme0n1p1@/EFI/Microsoft/Boot/bootmgfw.efi
+Añadiendo menú de entrada de inicio para la configuración del firmware EFI
+hecho
+</example> 
+
+</sect1>
+
+<sect1 id="ref_altergrub2"><heading>References</heading> 
+<p>
+<enumlist>  
+<item><url id="https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1"
+name="https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1">
+<item><url id="https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1"
+name="https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the?rq=1">
+<item><url id="https://www.howtogeek.com/howto/17787/clean-up-the-new-ubuntu-grub2-boot-menu/"
+name="https://www.howtogeek.com/howto/17787/clean-up-the-new-ubuntu-grub2-boot-menu/">
+</enumlist>  
+</sect1>
+
+</sect>
 
 <sect id="sec_02">Problem with journalizing
 
