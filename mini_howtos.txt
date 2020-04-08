@@ -104,7 +104,7 @@ Contents
      4.4.      Reading init file `.emacs'
      4.5.      Commenting a region of a code in `Emacs'
      4.6.      `Emacs' `org-mode'
-     4.7.      Including comments and footnotes in the References section
+     4.7.      Definining an _unfill_ function in `Emacs'
 
      5.        Perl Language
      5.1.      Installing a `CPAN' module
@@ -167,6 +167,7 @@ Contents
                `LaTeX' document
      8.18.     Controlling horizontal spacing in `LaTeX'
      8.19.     Including `BibTeX' References in the `TeX' source file
+     8.20.     Including comments and footnotes in the References section
 
      9.        Graphic Edition
      9.1.      Include greek characters in `inkscape'
@@ -3079,6 +3080,8 @@ to make sure we haven't added extra keys that you weren't expecting.
 3.4. Tunneling with `ssh'
 -------------------------
 
+     Updated on February 20th, 2020.
+
      The `ssh' program has the powerful feature of making the user able to
      stablish encrypted tunnels between nodes.  This is a major advantage
      of this extremely useful tool.  There are several possibilities.
@@ -3086,7 +3089,7 @@ to make sure we haven't added extra keys that you weren't expecting.
      has a private IP and it's behind a firewall, and we can access a
      second node, called <work_box>, where we are user <william>.  We can
      connect from <home_box> to <work_box> but not the other way around.
-     Thus, we want to make a encrypted tunnel that enables the coconnection
+     Thus, we want to make a encrypted tunnel that enables the connection
      from <work_box> to <home_box>.  This is known as reverse `ssh'
      tunneling.
 
@@ -3107,9 +3110,9 @@ bob@localhost's password:
 bob@home_box:~$
 
      A problem in this case is that once the initial connection is closed
-     the tunnel collapses.  A possible way to alleviate this problem there
-     is to run an application in the connection to <work_box>, e.g.  `top'
-     trying to keep the connection alive.
+     the tunnel collapses.  A possible way to alleviate this problem is to
+     run an application in the connection to <work_box>, e.g.  `top' trying
+     to keep the connection alive.
 
      This is not the best option.  There are better ones, for example,
      launching a dedicated connection with options `-f' (detach ssh process
@@ -3125,6 +3128,18 @@ william@home_box:~$
           william@work_box:~$ ssh -p 9998 bob@localhost
           bob@localhost's password:
           bob@home_box:~$
+
+     Another possibility is to use the option `ServerAliveInterval'
+
+william@home_box:~$ ssh -f -N -o ServerAliveInterval=5 -R 9998:localhost:22 \
+                       william@work_box
+william@home_box:~$
+
+     This option controls the number of seconds that the client will wait
+     before sending a null packet to the server to keep the connection
+     alive.  This is nowadays preferred to the option `TCPKeepAlive'
+     because it is not stopped in firewalls and the information is
+     encrypted.
 
 3.4.1. References
 -----------------
@@ -3338,29 +3353,33 @@ $ tar czf - data_EXP | ssh username@backup_server "cat > data_EXP_dir.tgz"
           (http://www.gnu.org/software/emacs/manual/html_node/emacs/Save-Keyboard-Macro.html)
 
 
-4.7. Including comments and footnotes in the References section
----------------------------------------------------------------
+4.7. Definining an _unfill_ function in `Emacs'
+-----------------------------------------------
 
-     Created on January 2nd, 2019.
+     Created on April 8th, 2020.
 
-     The inclusion of footnotes and remarks in the reference list is
-     provided by the package `notes2bib'.  To load the package, include a
-     line `\usepackage{notes2bib}' in the text head.  Then any footnote
-     content or relevant note can be deal with the command `\bibnote' as
-     follows
+     We use the following function found in the `Emacs' wiki (see
+     references)
 
-There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
-related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
 
-     Note that if you do not include the empty squared braces option in
-     `bibnote' a label to your comment will be added in addition to the
-     reference keynote.
+     Add this code to your `.emacs'.  If you want to associate this
+     function to a given combination of keys, e.g.  `ESC-Q' also add
+
+          ;; Handy key definition
+          (define-key global-map "\M-Q" 'unfill-paragraph)
 
 4.7.1. References
 -----------------
 
-     1.   notes2bib documentation
-          (http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf)
+     1.   Emacs Wiki (https://www.emacswiki.org/emacs/UnfillParagraph)
 
 
 -------------------------------------------------------------------------------
@@ -6108,6 +6127,31 @@ document
      e.g.  `\bibliography{xxx}', and then insert in the file the contents
      of the `bbl' file previously generated.  Remove then the existing
      `aux' file and recompile.
+
+
+8.20. Including comments and footnotes in the References section
+----------------------------------------------------------------
+
+     Created on January 2nd, 2019.
+
+     The inclusion of footnotes and remarks in the reference list is
+     provided by the package `notes2bib'.  To load the package, include a
+     line `\usepackage{notes2bib}' in the text head.  Then any footnote
+     content or relevant note can be deal with the command `\bibnote' as
+     follows
+
+There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
+related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+
+     Note that if you do not include the empty squared braces option in
+     `bibnote' a label to your comment will be added in addition to the
+     reference keynote.
+
+8.20.1. References
+------------------
+
+     1.   notes2bib documentation
+          (http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf)
 
 
 -------------------------------------------------------------------------------

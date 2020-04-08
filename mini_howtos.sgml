@@ -3526,6 +3526,8 @@ name="Hack and / - Lightning Hacks, Linux Journal, issue 195, July 2010">
 
 </sect>
 <sect id="sec_24"><heading>Tunneling with <prgn>ssh</prgn></heading> 
+<p>
+Updated on February 20th, 2020.
 
 <p>The <prgn>ssh</prgn> program has the powerful feature of making the
 user able to stablish encrypted tunnels between nodes. This is a major
@@ -3536,7 +3538,7 @@ firewall, and we can access a second node, called <var>work_box</var>,
 where we are user <var>william</var>. We can connect
 from <var>home_box</var> to <var>work_box</var> but not the other way
 around. Thus, we want to make a encrypted tunnel that enables
-the coconnection from <var>work_box</var> to <var>home_box</var>. This
+the connection from <var>work_box</var> to <var>home_box</var>. This
 is known as reverse <prgn>ssh</prgn> tunneling.
 
 <p>
@@ -3559,8 +3561,7 @@ bob@home_box:~$
 </example>
 <p>
 A problem in this case is that once the initial connection is closed
-the tunnel collapses. A possible way to alleviate this problem there
-is to run an application in the connection to <var>work_box</var>,
+the tunnel collapses. A possible way to alleviate this problem is to run an application in the connection to <var>work_box</var>,
 e.g.  <tt>top</tt> trying to keep the connection alive.
 
 <p>
@@ -3583,6 +3584,18 @@ bob@localhost's password:
 bob@home_box:~$ 
 </example>
 
+Another possibility is to use the option <tt>ServerAliveInterval</tt>
+
+
+<p>
+<example> 
+william@home_box:~$ ssh -f -N -o ServerAliveInterval=5 -R 9998:localhost:22 \ 
+                       william@work_box
+william@home_box:~$
+</example>
+<p>
+  This option controls the number of seconds that the client will wait before sending a null packet to the server to keep the connection alive. This is nowadays preferred to the option <tt>TCPKeepAlive</tt> because it is not stopped in firewalls and the information is encrypted.
+  
 <!-- Other options: autossh and config ssh files -->
 
 <sect1 id="ref_sshtunnel"><heading>References</heading> 
@@ -3799,32 +3812,41 @@ name="Emacs Manual">
 </enumlist>  
 </sect1>
 
-<sect id="sec_notes2bib"><heading>Including comments and footnotes in the References section</heading> 
+
+<sect id="unfill_function"><heading>Definining an <em>unfill</em> function
+    in <prgn>Emacs</prgn></heading> 
 <p>
-Created on January 2nd, 2019.
+Created on April 8th, 2020.
 
 <p>
-  The inclusion of footnotes and remarks in the reference list is provided by the package <tt>notes2bib</tt>.  To load the package, include a line  <tt>\usepackage{notes2bib}</tt> in the text head. Then any footnote content or relevant note can be deal with the command <tt>\bibnote</tt> as follows
-  
+We use the following function found in the <prgn>Emacs</prgn> wiki (see references)
 <p>
 <example>
-There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
-related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+;;; Stefan Monnier &lt;foo at acm.org&gt;. It is the opposite of fill-paragraph    
+(defun unfill-paragraph (&amp;optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
 </example>
+Add this code to your <file>.emacs</file>. If you want to associate this function to a given combination of keys, e.g. <tt>ESC-Q</tt> also add
 <p>
-  Note that if you do not include the empty squared braces option in <tt>bibnote</tt> a label to your comment will be added in addition to the reference keynote.
+<example>
+;; Handy key definition
+(define-key global-map "\M-Q" 'unfill-paragraph)
+</example>
   
-<p>
-<sect1 id="ref_notes2bib"><heading>References</heading> 
+<sect1 id="ref_unfill"><heading>References</heading> 
 
 <p>
 <enumlist>  
-<item><url id="http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf"
-name="notes2bib documentation">
+<item><url id="https://www.emacswiki.org/emacs/UnfillParagraph"
+name="Emacs Wiki">
 </enumlist>  
 </sect1>
 
-</sect>
 
 
 <chapt id="cap_3"><heading>Perl Language</heading> 
@@ -6865,6 +6887,33 @@ Added on July 2nd, 2019.
   <p>
     First, remove the line in your <tt>tex</tt> file defining the bibliography, e.g. <tt>\bibliography{xxx}</tt>, and then insert in the file the contents of the <tt>bbl</tt> file previously generated.  Remove then the existing <tt>aux</tt> file and recompile.
 
+
+<sect id="sec_notes2bib"><heading>Including comments and footnotes in the References section</heading> 
+<p>
+Created on January 2nd, 2019.
+
+<p>
+  The inclusion of footnotes and remarks in the reference list is provided by the package <tt>notes2bib</tt>.  To load the package, include a line  <tt>\usepackage{notes2bib}</tt> in the text head. Then any footnote content or relevant note can be deal with the command <tt>\bibnote</tt> as follows
+  
+<p>
+<example>
+There are two variables, $a$ and $b$\bibnote[]{The $b$ variable is
+related to the quantum number $c$ as $b = 2c$.} and two control parameters: A and B.
+</example>
+<p>
+  Note that if you do not include the empty squared braces option in <tt>bibnote</tt> a label to your comment will be added in addition to the reference keynote.
+  
+<p>
+<sect1 id="ref_notes2bib"><heading>References</heading> 
+
+<p>
+<enumlist>  
+<item><url id="http://mirror.hmc.edu/ctan/macros/latex/contrib/notes2bib/notes2bib.pdf"
+name="notes2bib documentation">
+</enumlist>  
+</sect1>
+
+</sect>
 
 
 <chapt id="cap_5"><heading>Graphic Edition</heading> 
